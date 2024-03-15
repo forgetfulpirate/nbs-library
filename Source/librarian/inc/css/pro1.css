@@ -56,6 +56,12 @@ viewer-pdf-toolbar{
     background: #073f5f;
     float: left;
 }
+
+.main-content .left-sidebar .p-title #logo{
+    height: 50px;
+    width: 60px;
+}
+
 .main-content .left-sidebar .p-title{
     width: 100%;
     padding: 13px;

@@ -1,7 +1,7 @@
 <?php 
 	include 'inc/connection.php';
 	$id = $_GET["id"];
-	$a  = date("d/m/Y");
+	$a  = date("m/d/Y");
     $fine = "50";
     $res3 = mysqli_query($link, "select * from issue_book where id=$id");
     while($row3=mysqli_fetch_array($res3)){

@@ -21,7 +21,7 @@
 		<div class="wrapper">
 			<div class="left-sidebar">
 				<div class="p-title">
-                    <h3><a href=""><i class="fas fa-book"></i><span>lms</span></a></h3>
+                    <h3><a href=""><img src="inc/images/nbs_logo.png" id="logo"><span>NBS College</span></a></h3>
 				</div>
 				<div class="gap-40"></div>
 				<div class="profile">
