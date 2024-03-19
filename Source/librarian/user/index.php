@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Library Management System</title>
+	<title>NBS College Library Management System</title>
 	<link rel="icon" type="image/png" href="dist/img/favicon.ico">
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="dist/css/fontawesome-all.min.css">
@@ -136,7 +136,7 @@
 	</div>
 
 	<div class="footer text-center">
-		<p>&copy; All rights reserved utter pompously</p>
+		<p>&copy; All rights reserved by C & C</p>
 	</div>			
 
 	<script src="dist/js/jquery-2.2.4.min.js"></script>

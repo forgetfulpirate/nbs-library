@@ -6,14 +6,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Library Management System</title>
+    <title>NBS College Library Management System</title>
     <link rel="stylesheet" href="inc/css/bootstrap.min.css">
     <link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="inc/css/pro1.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <style>
         .login{
-            background-image: url(inc/img/3.jpg);
+            background-image: url(inc/img/nbs.png);
             margin-bottom: 30px;
             padding: 50px;
             padding-bottom: 70px;
@@ -31,17 +31,17 @@
     <div class="login registration">
         <div class="wrapper">
             <div class="reg-header text-center">
-                <h2>Library management system</h2>
+                <h2><br>Library Management System</h2>
                 <div class="gap-30"></div>
                 <div class="gap-30"></div>
             </div>
             <div class="gap-30"></div>
             <div class="login-content">
                 <div class="login-body">
-                    <h4>Librarian Login Form</h4>
+                    <h4>Login Form</h4>
                     <form action="" method="post">
                         <div class="mb-20">
-                            <input type="text" name="username" class="form-control" placeholder="Username" required=""/>
+                            <input type="text" name="username" class="form-control" placeholder="ID Number" required=""/>
                         </div>
                         <div class="mb-20">
                             <input type="password" name="password" class="form-control" placeholder="Password" required=""/>
