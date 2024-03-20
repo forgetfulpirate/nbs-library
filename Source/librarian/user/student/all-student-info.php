@@ -46,61 +46,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>14502000020</td>
-											<td>Mostafizur Rahman</td>
-											<td>utter333</td>
-											<td>8th</td>
-											<td>CSE</td>
-											<td>14/15</td>
-											<td>mamun@gmail.com</td>
-											<td>01721585268</td>
-											<td>Sonadanga 2nd phase, Khulna</td>
-										</tr>
-										<tr>
-											<td>14502000007</td>
-											<td>Jubayer Al Mahmud</td>
-											<td>joyho</td>
-											<td>8th</td>
-											<td>CSE</td>
-											<td>14/15</td>
-											<td>joyho@gmail.com</td>
-											<td>01721585260</td>
-											<td>Sonadanga 2nd phase, Khulna</td>
-										</tr>
-										<tr>
-											<td>14502000008</td>
-											<td>Benzir Ahmed</td>
-											<td>shuvo22</td>
-											<td>8th</td>
-											<td>CSE</td>
-											<td>14/15</td>
-											<td>suvo.cse@gmail.com</td>
-											<td>01721585268</td>
-											<td>Boyra, Khulna</td>
-										</tr>
-										<tr>
-											<td>14502000020</td>
-											<td>Mostafizur Rahman</td>
-											<td>utter333</td>
-											<td>8th</td>
-											<td>CSE</td>
-											<td>14/15</td>
-											<td>mamun@gmail.com</td>
-											<td>01721585268</td>
-											<td>Boyra, Khulna</td>
-										</tr>
-										<tr>
-											<td>14502000020</td>
-											<td>Mostafizur Rahman</td>
-											<td>utter333</td>
-											<td>8th</td>
-											<td>CSE</td>
-											<td>14/15</td>
-											<td>mamun@gmail.com</td>
-											<td>01721585268</td>
-											<td>Sonadanga 2nd phase, Khulna</td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>
