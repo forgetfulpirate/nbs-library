@@ -13,32 +13,61 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <style>
         .login{
-            background-image: url(inc/img/3.jpg);
+            background-image: url(inc/img/bg-login.png) ;
+            background-repeat: no-repeat;
+            background-size: cover; /* Adjust the width and keep the height auto */
             margin-bottom: 30px;
             padding: 50px;
             padding-bottom: 70px;
+            width: auto;
+            height: 700px;
+            
+            background-color: rgba(255, 255, 255, 0.5);
+            
+            
+
         }
+      
         .reg-header h2{
-            color: #DDDDDD;
+            color: blue;
             z-index: 999999;
+            margin-top: 100px;
+            
+            
+
+            
         }
         .login-body h4{
             margin-bottom: 20px;
+            
         }
+        .login-content {
+            border-radius: 5px;
+            width: 638px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            text-align: center;
+            justify-content: center; /* Center vertically */
+            margin: auto; /* Center horizontally */
+            background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity if necessary */
+        }
+        
+       
     </style>
 </head>
 <body>
     <div class="login registration">
         <div class="wrapper">
             <div class="reg-header text-center">
-                <h2>Library management system</h2>
+                <h2>ADMIN</h2>
                 <div class="gap-30"></div>
                 <div class="gap-30"></div>
             </div>
             <div class="gap-30"></div>
             <div class="login-content">
                 <div class="login-body">
-                    <h4>Librarian Login Form</h4>
+                    <h4>Librarian Login </h4>
                     <form action="" method="post">
                         <div class="mb-20">
                             <input type="text" name="username" class="form-control" placeholder="Username" required=""/>

@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Library Management System</title>
+	<title>NBS Library</title>
 	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
 	<link rel="stylesheet" href="inc/css/bootstrap-select.min.css">
 	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
@@ -21,7 +21,7 @@
 		<div class="wrapper">
 			<div class="left-sidebar">
 				<div class="p-title">
-                    <h3><a href=""><i class="fas fa-book"></i><span>lms</span></a></h3>
+                    <h3><a href=""><span>NBS Library</span></a></h3>
 				</div>
 				<div class="gap-40"></div>
 				<div class="profile">
@@ -33,19 +33,19 @@
                             }
                         ?>
 					</div>
+							
 					<div class="profile-info text-center">
-						<span>Welcome!</span>
+
+						<span>Hi Admin</span>
 						<h2>
-              <?php 
-                $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
-                while ($row = mysqli_fetch_array($res)){
-                  $name  =  $row["name"];
-                  echo $name;
-                }
-                
-              ?>
-              
-            </h2>
+							<?php 
+								$res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
+								while ($row = mysqli_fetch_array($res)){
+								$name  =  $row["name"];
+								echo $name;
+								}
+							?>
+            			</h2>
 					</div>
 				</div>
 				<div class="gap-30"></div>
@@ -100,49 +100,13 @@
       							<li><a href="send-to-teacher.php">send to teacher</a></li>
       						</ul>
     					</li>
-    				</ul>
+					
+										
 				</div>
+				<div class="button-container">
+    				<button id="logout"><a href="logout.php">Logout</a></button>
+				</div>
+				<br>
+
 			</div>
-			<div class="content">
-				<div class="inner">
-					<div class="heading text-center">
-						<h3>Librarian control panel</h3>
-					</div>
-					<div class="header-profile text-right">
-						<ul>
-                            <li class="icon">
-                                <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
-                                <span class="count" onclick="window.location='requested-books.php'"><b><?php echo $not; ?></b></span>
-                            </li>
-							<li class="dropdown">
-                                <?php
-                                     $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
-                                     while ($row = mysqli_fetch_array($res)){
-                                         ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["username"]; ?></span></a> <?php
-                                     }
-                                ?>
-								<ul class="dropdown-menu">
-									<li class="user-header text-center">
-										<?php
-                                        $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
-                                        while ($row = mysqli_fetch_array($res)){
-                                            ?><img src="<?php echo $row["photo"]; ?>" alt=""> <?php
-                                        }
-                                        ?>
-										<p><?php echo $_SESSION["username"]; ?> - Librarian</p>
-									</li>
-									<li class="user-footer">
-										<ul>
-											<li>
-												<a href="profile.php">profile</a>
-											</li>
-											<li>
-												<a href="logout.php">logout</a>
-											</li>
-										</ul>
-									</li>														
-								</ul>
-							</li>
-						</ul>
-					</div>															
-				</div>
+			

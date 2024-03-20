@@ -51,16 +51,16 @@ viewer-pdf-toolbar{
 
 }
 .main-content .left-sidebar{
-    width: 20%;
+    width: 15%;
     height: auto;
-    background: #073f5f;
+    background: #E2E1E1;
     float: left;
 }
 .main-content .left-sidebar .p-title{
     width: 100%;
     padding: 13px;
-    padding-left: 20px;
-    background: #073f5f;
+    background: #d52033;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 .main-content .p-title a{
@@ -91,6 +91,7 @@ viewer-pdf-toolbar{
 .main-content .left-sidebar .profile .profile-pic{
     width: 40%;
     float: left;
+  
     
 }
 .main-content .left-sidebar .profile img{
@@ -104,15 +105,15 @@ viewer-pdf-toolbar{
 .main-content .left-sidebar .profile .profile-info{
     width: 60%;
     float: left;
-    color: #fff;
-    
+    color: Black;
+
 }
 .main-content .left-sidebar .profile .profile-info h2{
     font-size: 23px;
 }
 
 .sidebar-menu{
-    color: #fff;
+    color: Black;
     width: 100%;
     padding-top: 60px;
     padding-left: 0;
@@ -127,7 +128,7 @@ viewer-pdf-toolbar{
 }
 .sidebar-menu ul li a{
     text-decoration: none;
-    color: #eee;
+    color: Black;
     width: 270px;
     padding: 15px 20px;
     font-size: 13px;
@@ -136,9 +137,9 @@ viewer-pdf-toolbar{
     transition: all .5s ease;
 }
 .sidebar-menu ul li a:hover{
-    background: #333;
+    background: #d52033;
     color: #fff;
-
+    
 }
 .sidebar-menu ul{
     padding-left: 0;
@@ -180,15 +181,19 @@ viewer-pdf-toolbar{
 .sidebar-menu .menus4 li a{
     padding: 0;
     padding: 10px;
-    padding-left: 0;
+    width: 100%;
+
+    
 }
 .sidebar-menu .menus1 li a:hover,
 .sidebar-menu .menus2 li a:hover,
 .sidebar-menu .menus3 li a:hover,
 .sidebar-menu .menus4 li a:hover{
-    background: 0;
-    color: #fff;
+    background: Red;
+    width: 100%;
+    color: White;
 }
+
 .nav-pills .nav-link.active, .nav-pills .active>.nav-link{
     
    
@@ -200,36 +205,68 @@ viewer-pdf-toolbar{
     border-right: 5px solid #1ABB9C;
     border-radius: 0;
     
+    
 }
+
 
 
 .nav-pills li {
     background: 0;
 }
 
+.button-container {
+    text-align: right; /* Centers the button horizontally */
+    margin-right: 20px;
+}
+
+#logout {
+    background-color: #666769; /* Green background */
+    border: none;
+    color: white; /* White text */
+    padding: 10px 25px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+}
+
+#logout a {
+    color: white; /* White text for the link */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+#logout:hover {
+    background-color: #45a049; /* Darker green when hovering */
+}
+
+
+
+
 
 .content{
     width: 80%;
-    height: auto;
+    height: 300px;
     float: right;
    
 }
 .content .inner{
     width: 100%;
     height: 70px;
-    background: #073f5f;
-    padding: 12px;
-
-
-    
-    
+    background: #d52033;
+    padding: 12px;   
 }
 
 .content .inner .heading{
    width: 60%;
    float: left;
    color: #fff;
+   
 }
+
+
 .content .inner .header-profile{
    width: calc(40%-20px); 
    float: right;
@@ -674,13 +711,18 @@ viewer-pdf-toolbar{
 
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
     border-right: 5px solid #1ABB9C;
+ 
 }
 .sidebar-menu li.active ul a{
 
     box-shadow: none;
+    
     border-right: 0px solid #fff;
     border: 0;
 }
 .addUser{
     margin-left: 100px;
+}
+img{
+    height: 60px
 }
