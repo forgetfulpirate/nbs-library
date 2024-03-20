@@ -39,6 +39,7 @@
                                                 <th>User Type</th>
                                                 <th>Email</th>
                                                 <th>Status</th>
+                                                <th>verified</th>
                                                 <th>Action</th>
                                             </tr>
                                        </thead>
@@ -53,11 +54,13 @@
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
                                                     echo "<td>"; echo $row["status"]; echo "</td>";
+                                                    echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
                                                     ?>
                                                         <ul>
                                                             <li><a href="approve.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-location-arrow"></i></a></li>
                                                             <li><a href="notapprove.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-allergies"></i></a></li>
+                                                            <li><a href="approve.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-location-arrow"></i></a></li>
                                                         </ul>
                                                     <?php
                                                     echo "</td>";
@@ -70,11 +73,13 @@
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
                                                     echo "<td>"; echo $row["status"]; echo "</td>";
+                                                    echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
                                                     ?>
                                                         <ul>
                                                             <li><a href="approve.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-location-arrow"></i></a></li>
                                                             <li><a href="notapprove.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-allergies"></i></a></li>
+                                                            <li><a href="approve.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-location-arrow"></i></a></li>
                                                         </ul>
                                                     <?php
                                                     echo "</td>";

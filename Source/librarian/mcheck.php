@@ -1,9 +1,9 @@
 <?php
 
-    $to = "utterpompously@gmail.com";
+    $to = "cevangelista2021@student.nbscollege.edu.ph";
     $subject = "Account Conformation";
     $message = "Your account is approved. Now you can login your account";
-    $header = "From: parttimemail18@gmail.com";
+    $header = "From: cevangelista2021@student.nbscollege.edu.ph";
     $result = mail ($to,$subject,$message,$header);
 //    if(mail($to,$subject,$message,$header)){
 ////        echo "Mail send successfully";

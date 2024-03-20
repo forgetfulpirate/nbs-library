@@ -11,7 +11,7 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
-	<!--dashboard area-->
+	<!-- dashboard area -->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
 			<div class="container">
@@ -130,7 +130,7 @@
 								<i class="fab fa-staylinked"></i>
 							</div>
 							<div class="text">
-								<h4 class="mt-20"><a href="status.php">Status</a></h4>
+								<h4 class="mt-20"><a href="status.php">User Status</a></h4>
 							</div>
 						</div>
 					</div>

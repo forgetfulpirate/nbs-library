@@ -45,7 +45,7 @@ viewer-pdf-toolbar{
 }
 .main-content{
     width: 100%;
-    height: auto;
+    height: 1000px;
     overflow: hidden;
     
 
@@ -57,11 +57,12 @@ viewer-pdf-toolbar{
     float: left;
 }
 .main-content .left-sidebar .p-title{
-    width: 100%;
+    width: auto;
     padding: 13px;
     background: #d52033;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #248fc5;
+  
 }
 .main-content .p-title a{
     text-decoration: none;
@@ -182,14 +183,14 @@ viewer-pdf-toolbar{
     padding: 0;
     padding: 10px;
     width: 100%;
-
+    padding-right: 0;
     
 }
 .sidebar-menu .menus1 li a:hover,
 .sidebar-menu .menus2 li a:hover,
 .sidebar-menu .menus3 li a:hover,
 .sidebar-menu .menus4 li a:hover{
-    background: Red;
+    background: #d52033;
     width: 100%;
     color: White;
 }
@@ -247,16 +248,18 @@ viewer-pdf-toolbar{
 
 
 .content{
-    width: 80%;
+    width: 85%;
     height: 300px;
     float: right;
-   
+  
 }
+
 .content .inner{
-    width: 100%;
-    height: 70px;
+    width: auto;
+    height: 68px;
     background: #d52033;
     padding: 12px;   
+ 
 }
 
 .content .inner .heading{

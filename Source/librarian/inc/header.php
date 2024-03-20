@@ -103,10 +103,57 @@
 					
 										
 				</div>
+			
 				<div class="button-container">
     				<button id="logout"><a href="logout.php">Logout</a></button>
 				</div>
 				<br>
 
+				
+
 			</div>
+			<div class="content">
+				<div class="inner">
+					<div class="heading text-center">
+						<h3>Librarian control panel</h3>
+					</div>
+					<div class="header-profile text-right">
+						<ul>
+                            <li class="icon">
+                                <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
+                                <span class="count" onclick="window.location='requested-books.php'"><b><?php echo $not; ?></b></span>
+                            </li>
+							<li class="dropdown">
+                                <?php
+                                     $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
+                                     while ($row = mysqli_fetch_array($res)){
+                                         ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["username"]; ?></span></a> <?php
+                                     }
+                                ?>
+								<ul class="dropdown-menu">
+									<li class="user-header text-center">
+										<?php
+                                        $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
+                                        while ($row = mysqli_fetch_array($res)){
+                                            ?><img src="<?php echo $row["photo"]; ?>" alt=""> <?php
+                                        }
+                                        ?>
+										<p><?php echo $_SESSION["username"]; ?> - Librarian</p>
+									</li>
+									<li class="user-footer">
+										<ul>
+											<li>
+												<a href="profile.php">profile</a>
+											</li>
+											<li>
+												<a href="logout.php">logout</a>
+											</li>
+										</ul>
+									</li>														
+								</ul>
+							</li>
+						</ul>
+					</div>															
+				</div>
+						
 			

@@ -48,8 +48,8 @@
             if($insert){
                 $to = "$email";
                 $subject = "Email Verification";
-                $message = "<a href='http://localhost/lms/Source/librarian/user/teacher/verify.php?vkey=$vkey'>Verify Email</a>";
-                $headers = "From: parttimemail18@gmail.com \r\n";
+                $message = "<a href='http://localhost/nbs-library/nbs-library/Source/librarian/user/teacher/verify.php?vkey=$vkey'>Verify Email</a>";
+                $headers = "From: cevangelista2021@student.nbscollege.edu.ph \r\n";
                 $headers.= "MIME-Version: 1.0". "\r\n";
                 $headers.= "Content-type: text/html; charset-UTF-8". "\r\n";
                 mail($to, $subject, $message,$headers);

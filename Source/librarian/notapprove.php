@@ -19,6 +19,6 @@
     $to = "$email";
     $subject = "Account Approve problem";
     $message = "We can't approve your account. Might be your information is not correct. Please register with real information <br> Thanks";
-    $headers = "From: parttimemail18@gmail.com";
+    $headers = "From: cevangelista2021@student.nbscollege.edu.ph";
     mail($to,$subject,$message,$headers);
 ?>
