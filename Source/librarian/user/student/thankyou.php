@@ -24,10 +24,9 @@
 </head>
 <body>
     <div class="thankyou-content text-center">
-        <h3 style="line-height: 1.5">Thank you for registering. We have sent a verification link to your provided email address. Please check your email...<br> If not there please check spam folder</h3>
+        <h3 style="line-height: 1.5">Thank you for registering. Please come to library or email libarian to verify your account</h3>
         <img src="inc/img/email.png" alt="" width="100" height="100">
-		<h4 style="margin-top: 80px;">If you not receive mail then your account not exist <br> Please register with gmail account</h4>
-		<p><a href="registration.php" style="text-decoration: underline; font-weight: bold; font-size: 20px">Register Again</a></p>
+		<p><a href="nbs-library/nbs-library/Source/librarian/user/index.php" style="text-decoration: underline; font-weight: bold; font-size: 20px">Go Back</a></p>
     </div>
 
     <script src="inc/js/jquery-2.2.4.min.js"></script>

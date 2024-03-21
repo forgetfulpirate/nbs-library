@@ -25,7 +25,6 @@
     <title>Vefification</title>
 </head>
 <body>
-
 </body>
 </html>
 

@@ -55,13 +55,13 @@
 		    $vkey = md5(time().$username);
 		    $insert = mysqli_query($link, "insert into std_registration values('','$name','$username','$password','$email','$phone','$sem','$dept','$session','$regno','$address','$utype','$photo','pending','$vkey','no')");
             if($insert){
-                $to = "$email";
-                $subject = "Email Verification";
-                $message = "<a href='http://localhost/nbs-library/nbs-library/Source/librarian/user/student/verify.php?vkey=$vkey'>Verify Email</a>";
-                $headers = "From: cevangelista2021@student.nbscollege.edu.ph \r\n";
-                $headers.= "MIME-Version: 1.0". "\r\n";
-                $headers.= "Content-type: text/html; charset-UTF-8". "\r\n";
-                mail($to, $subject, $message,$headers);
+                // $to = "$email";
+                // $subject = "Email Verification";
+                // $message = "<a href='http://localhost/nbs-library/nbs-library/Source/librarian/user/student/verify.php?vkey=$vkey'>Verify Email</a>";
+                // $headers = "From: cevangelista2021@student.nbscollege.edu.ph \r\n";
+                // $headers.= "MIME-Version: 1.0". "\r\n";
+                // $headers.= "Content-type: text/html; charset-UTF-8". "\r\n";
+                // mail($to, $subject, $message,$headers);
 
             }else{
                 echo $mysqli->error;
