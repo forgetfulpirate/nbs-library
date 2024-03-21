@@ -45,7 +45,7 @@ viewer-pdf-toolbar{
 }
 .main-content{
     width: 100%;
-    height: 1100px;
+    height: 1200px;
     overflow: hidden;
     
 
@@ -130,7 +130,7 @@ viewer-pdf-toolbar{
 .sidebar-menu ul li a{
     text-decoration: none;
     color: Black;
-    width: 270px;
+    width: auto;
     padding: 15px 20px;
     font-size: 13px;
     display: block;
@@ -221,7 +221,7 @@ viewer-pdf-toolbar{
 }
 
 #logout {
-    background-color: #666769; /* Green background */
+    background-color: #d52033; /* Green background */
     border: none;
     color: white; /* White text */
     padding: 10px 25px; /* Padding */
@@ -476,12 +476,15 @@ viewer-pdf-toolbar{
 .reg-body{
     width: 600px;
     margin: 0 auto;
-    box-shadow: 0px 0px 3px;
+    box-shadow: 0px 0px 2px;
     padding: 40px 25px;
-    background: #DDDDDD!important;
+    background: #E2E1E1!important;
+ 
+    border-radius: 8px;
 }
 .reg-body .form-group{
     margin-bottom: 16px;
+    
     
 }
 .reg-body label{
@@ -490,16 +493,34 @@ viewer-pdf-toolbar{
    
 }
 .reg-body .custom{
+  
     width: 350px;
+    background-color: #f0f0f0; /* Subtle light grey background */
+    border: 1px solid #ddd; /* Add a border for further distinction */
+    border-radius: 4px; /* Optional: Add border radius for rounded corners */
+    padding: 8px 12px; /* Optional: Add padding for spacing inside the text field */
+    box-sizing: border-box; 
 }
 .reg-body .form-group span{
     color: red;
 }
+.reg-body .submit .change:hover{
+   
+    background-color: #45a049;
+   
+}
 .reg-body .submit .change{
-    background: #D52B2A;
-    border:  none;
-    color: #fff;
-    margin-left: 30px;
+    border: none;
+    color: White;
+    background-color: #d52033;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
 }
 .form-inline label{
     text-align: right;
@@ -729,3 +750,6 @@ viewer-pdf-toolbar{
 img{
     height: 60px
 }
+
+
+
