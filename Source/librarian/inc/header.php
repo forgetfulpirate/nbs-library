@@ -115,7 +115,7 @@
 			<div class="content">
 				<div class="inner">
 					<div class="heading text-center">
-						<h3>Librarian control panel</h3>
+						<h3>Control Panel</h3>
 					</div>
 					<div class="header-profile text-right">
 						<ul>
@@ -123,7 +123,7 @@
                                 <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
                                 <span class="count" onclick="window.location='requested-books.php'"><b><?php echo $not; ?></b></span>
                             </li>
-							<li class="dropdown">
+							<!-- <li class="dropdown">
                                 <?php
                                      $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
                                      while ($row = mysqli_fetch_array($res)){
@@ -151,7 +151,7 @@
 										</ul>
 									</li>														
 								</ul>
-							</li>
+							</li> -->
 						</ul>
 					</div>															
 				</div>

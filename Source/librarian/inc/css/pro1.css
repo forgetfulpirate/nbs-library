@@ -288,14 +288,17 @@ viewer-pdf-toolbar{
 .header-profile .dropdown span{
     color: #fff;
     margin-left: 10px;
+ 
 }
 .header-profile .icon span{
     color: #fff;
     position: absolute;
     left: 10px;
     top: 0;
+    
     font-size: 11px;
     width: 14px;
+    
     height: 16px;
     line-height: 16px;
     text-align: center;
@@ -327,6 +330,7 @@ viewer-pdf-toolbar{
 .dropdown a{
     text-decoration: none;
     color: #fff;
+    
 
 }
 .dropdown img{
@@ -344,6 +348,7 @@ viewer-pdf-toolbar{
      top: 56px;
      border-radius: 0;
      border-top: 1px solid #ddd;
+     
 
 }
 .dropdown-menu img{
