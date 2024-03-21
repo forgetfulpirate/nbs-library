@@ -76,9 +76,15 @@
                             <input type="password" name="password" class="form-control" placeholder="Password" required=""/>
                         </div>
                         <div class="mb-20">
-                            <input class="btn btn-info submit" type="submit" name="login" value="Login">
-                            
+                         
                         </div>
+                       
+                        <div  class="mb-20">
+                        <input class="btn btn-info submit" type="submit" name="login" value="Login">
+                        <a href="registration.php">Create an Account</a>
+                        </div>
+                     
+                       
                     </form>
                 </div>
                 <?php

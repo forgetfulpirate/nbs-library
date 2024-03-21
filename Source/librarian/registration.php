@@ -60,9 +60,12 @@
                          <label for="address">Address <span>*</span></label>
                         <textarea name="address" id="address"  class="form-control custom" placeholder="Your address"></textarea>
                     </div>
+                  
                     <div class="submit">
                         <input type="submit" value="Register" class="btn change" name="submit">
                     </div>
+                   
+                 
                 </form>
             </div>
 			<?php 

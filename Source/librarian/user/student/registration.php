@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Library Management System</title>
+	<title>NBS Library</title>
 	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
 	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="inc/css/pro1.css">
@@ -31,7 +31,7 @@
 	<div class="registration">
 		<div class="reg-wrapper">
 			<div class="reg-header text-center">
-				<h2>Library management system</h2>
+				<h2>NBS Libarary</h2>
 			</div>
 			<div class="gap-40"></div>
 			<div class="reg-body">
@@ -99,10 +99,10 @@
                     <div class="form-group">
 					    <label for="dept">Department <span>*</span></label>
 					    <select class="form-control custom" name="dept">
-							<option>CSE</option>
-							<option>EEE</option>
-							<option>ECE</option>
-							<option>BBA</option>
+							<option>BSCS</option>
+							<option>BSA</option>
+							<option>BSAIS</option>
+							<option>BSTM</option>
 							<option>Others</option>
 					    </select>
 					</div>
@@ -122,10 +122,11 @@
                         <textarea name="address" id="address"  class="form-control custom" placeholder="Your address"></textarea>
                     </div>
                     <div class="submit">
-                    	<input type="submit" value="Register" name="submit" class="btn change text-center">
+                    	<a href="thankyou.php"><input type="submit" value="Register" name="submit" class="btn change text-center"></a>
                     </div>
 				</form>
 			</div>
+        
 		</div>
 	</div>
 

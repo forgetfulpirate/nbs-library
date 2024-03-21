@@ -9,7 +9,7 @@ include 'inc/connection.php';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Library Management System</title>
+	<title>NBS Library</title>
 	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
 	<link rel="stylesheet" href="inc/css/bootstrap-select.min.css">
 	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
