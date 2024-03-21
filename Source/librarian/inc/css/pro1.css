@@ -126,6 +126,7 @@ viewer-pdf-toolbar{
 .sidebar-menu .border{
     margin-left: 20px;
     margin-bottom: 20px;
+    background-color: #d52033;
 }
 .sidebar-menu ul li a{
     text-decoration: none;
