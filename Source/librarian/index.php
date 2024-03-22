@@ -13,17 +13,17 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <style>
         .login{
-            background-image: url(inc/img/nbs.png);
-            margin-bottom: 30px;
+            background-image: url(inc/img/lib.png);
+            margin-bottom: 60px;
             padding: 50px;
-            padding-bottom: 70px;
+            padding-bottom: 140px;
         }
         .reg-header h2{
             color: #DDDDDD;
             z-index: 999999;
         }
         .login-body h4{
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
     </style>
 </head>
