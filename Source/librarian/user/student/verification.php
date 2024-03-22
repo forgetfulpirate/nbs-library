@@ -19,7 +19,7 @@
         }
        p{
            margin-top: 30px;
-       }
+       }        
     </style>
 </head>
 <body>

@@ -136,7 +136,7 @@
 	</div>
 
 	<div class="footer text-center">
-		<p>&copy; All rights reserved utter pompously</p>
+		<p>&copy; All rights reserved NBS College</p>
 	</div>			
 
 	<script src="dist/js/jquery-2.2.4.min.js"></script>

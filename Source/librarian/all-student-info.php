@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-
+    
     $page = 'sinfo';
     include 'inc/header.php';
     include 'inc/connection.php';
@@ -36,9 +36,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="std-info">
-                            <table id="dtBasicExample" class="table table-dark table-striped text-center">
-                                <thead>
-                                    <tr>
+                            <table id="dtBasicExample" class="table table-striped text-center">
+                                <thead style="background-color: #d52033">
+                                    <tr style="color:White">
                                         <th>Reg no</th>
                                         <th>Name</th>
                                         <th>Username</th>

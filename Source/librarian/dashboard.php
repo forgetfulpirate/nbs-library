@@ -11,16 +11,17 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
-	<!--dashboard area-->
+	<!-- dashboard area -->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
+							<p><span>Dashboard</span>Control Panel</p>
 						</div>
 					</div>
+				
 					<div class="col-md-6">
 						<div class="right text-right">
 							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
@@ -129,7 +130,7 @@
 								<i class="fab fa-staylinked"></i>
 							</div>
 							<div class="text">
-								<h4 class="mt-20"><a href="status.php">Status</a></h4>
+								<h4 class="mt-20"><a href="status.php">User Status</a></h4>
 							</div>
 						</div>
 					</div>

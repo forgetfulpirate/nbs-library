@@ -32,9 +32,9 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="std-info">
-                                <table id="dtBasicExample" class="table table-striped table-dark text-center">
-                                    <thead>
-                                         <tr>
+                                <table id="dtBasicExample" class="table table-striped text-center">
+                                    <thead style="background-color:#d52033">
+                                         <tr style="color: White">
                                              <th>Id No</th>
                                              <th>Name</th>
                                              <th>Username</th>

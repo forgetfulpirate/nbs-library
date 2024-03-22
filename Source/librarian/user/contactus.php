@@ -57,10 +57,10 @@
 						<p>Our Management Training Programmes can be tailored as in-house programmes to address specific issues within your own company.We figure that most people who end up managing other people never really set off to do that in the first place.</p>
 
 						<div class="box">
-							<p><i class="fas fa-home"></i><span> R/A 14 #48 Sonadanga 2nd phase</span></p>
-							<p><i class="far fa-envelope"></i><span> utterpompously@gmail.com</span></p>
-							<p><i class="fas fa-phone"></i><span> (+1)23 254 4578</span></p>
-							<p>(+1)23 254 4545</p>
+							<p><i class="fas fa-home"></i><span> 3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila</span></p>
+							<p><i class="far fa-envelope"></i><span> cevangelista2021@student.nbscollge.edu.ph</span></p>
+							<p><i class="fas fa-phone"></i><span> (63+)993-959-3012</span></p>
+							<p>(63+)993-543-1566</p>
 						</div>
 					</div>
 				</div>
@@ -68,10 +68,10 @@
 		</div>
 	</div>
 	<div class="map-responsive mapw">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d459.6851149337604!2d89.543789542394!3d22.821690263603124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff9aaf52672c3d%3A0x7457988431037161!2sSonadanga+R%2FA%2C+(2nd+Phase).%2C+Khulna!5e0!3m2!1sen!2sbd!4v1523867957528" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2928459266955!2d121.02825447588229!3d14.639310876126238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b6537dae97f7%3A0xa0caa46ccf11e301!2sNBS%20College%20-%20NBS%20Commercial%20Complex!5e0!3m2!1sen!2sus!4v1710944460834!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
     <div class="footer text-center">
-        <p style="margin: 20px; font-weight: bold;"><span>copyright &copy; utter pompously all rights reserved</span></p>
+        <p style="margin: 20px; font-weight: bold;"><span>copyright &copy; NBS College all rights reserved</span></p>
     </div>
 
 	<script src="dist/js/jquery-2.2.4.min.js"></script>

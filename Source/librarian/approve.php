@@ -12,6 +12,8 @@
 	$id= $_GET["id"];
 	mysqli_query($link, "update std_registration set status='yes' where id=$id");
     mysqli_query($link, "update t_registration set status='yes' where id=$id");
+    mysqli_query($link, "update std_registration set verified='yes' where id=$id");
+    mysqli_query($link, "update t_registration set verified='yes' where id=$id");
  ?>
 
  <script type="text/javascript">
@@ -31,7 +33,7 @@
     $to = "$email";
     $subject = "Account Conformation";
     $message = "Your account is approved. Now you can login your account";
-    $headers = "From: parttimemail18@gmail.com";
+    $headers = "From: cevangelista2021@student.nbscollege.edu.ph";
     mail($to,$subject,$message,$headers);
 ?>
 

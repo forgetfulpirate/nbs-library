@@ -125,7 +125,7 @@ include 'inc/function.php';
 		</div>
 	</div>
 
-    <div class="gap-40"></div>
+    <div class="gap-"></div>
 	<?php 
 		include 'inc/footer.php';
 	 ?>
