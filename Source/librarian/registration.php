@@ -60,9 +60,12 @@
                          <label for="address">Address <span>*</span></label>
                         <textarea name="address" id="address"  class="form-control custom" placeholder="Your address"></textarea>
                     </div>
+                  
                     <div class="submit">
                         <input type="submit" value="Register" class="btn change" name="submit">
                     </div>
+                   
+                 
                 </form>
             </div>
 			<?php 
@@ -79,7 +82,7 @@
         </div>
     </div>
     <div class="footer text-center">
-        <p>&copy; All rights reserved utter pompously</p>
+        <p>&copy; All rights NBS College</p>
     </div>
 
     <script src="inc/js/jquery-2.2.4.min.js"></script>

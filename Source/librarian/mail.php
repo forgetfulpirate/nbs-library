@@ -9,7 +9,7 @@
     $to = "$email";
     $subject = "Account Conformation";
     $message = "Your account is approved. Now you can login your account";
-    $headers = "From: parttimemail18@gmail.com";
+    $headers = "From: cevangelista2021@student.nbscollege.edu.ph";
     if(mail($to,$subject,$message,$headers)){
         echo "Mail send successfully";
     }

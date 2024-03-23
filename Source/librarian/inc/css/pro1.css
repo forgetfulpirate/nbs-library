@@ -45,23 +45,24 @@ viewer-pdf-toolbar{
 }
 .main-content{
     width: 100%;
-    height: auto;
+    height: 1200px;
     overflow: hidden;
     
 
 }
 .main-content .left-sidebar{
-    width: 20%;
+    width: 15%;
     height: auto;
-    background: #073f5f;
+    background: #E2E1E1;
     float: left;
 }
 .main-content .left-sidebar .p-title{
-    width: 100%;
+    width: auto;
     padding: 13px;
-    padding-left: 20px;
-    background: #073f5f;
-    border-bottom: 1px solid #ddd;
+    background: #d52033;
+    text-align: center;
+    border-bottom: 1px solid #248fc5;
+  
 }
 .main-content .p-title a{
     text-decoration: none;
@@ -91,6 +92,7 @@ viewer-pdf-toolbar{
 .main-content .left-sidebar .profile .profile-pic{
     width: 40%;
     float: left;
+  
     
 }
 .main-content .left-sidebar .profile img{
@@ -104,15 +106,15 @@ viewer-pdf-toolbar{
 .main-content .left-sidebar .profile .profile-info{
     width: 60%;
     float: left;
-    color: #fff;
-    
+    color: Black;
+
 }
 .main-content .left-sidebar .profile .profile-info h2{
     font-size: 23px;
 }
 
 .sidebar-menu{
-    color: #fff;
+    color: Black;
     width: 100%;
     padding-top: 60px;
     padding-left: 0;
@@ -124,11 +126,12 @@ viewer-pdf-toolbar{
 .sidebar-menu .border{
     margin-left: 20px;
     margin-bottom: 20px;
+    background-color: #d52033;
 }
 .sidebar-menu ul li a{
     text-decoration: none;
-    color: #eee;
-    width: 270px;
+    color: Black;
+    width: auto;
     padding: 15px 20px;
     font-size: 13px;
     display: block;
@@ -136,9 +139,9 @@ viewer-pdf-toolbar{
     transition: all .5s ease;
 }
 .sidebar-menu ul li a:hover{
-    background: #333;
+    background: #d52033;
     color: #fff;
-
+    
 }
 .sidebar-menu ul{
     padding-left: 0;
@@ -180,15 +183,19 @@ viewer-pdf-toolbar{
 .sidebar-menu .menus4 li a{
     padding: 0;
     padding: 10px;
-    padding-left: 0;
+    width: 100%;
+    padding-right: 0;
+    
 }
 .sidebar-menu .menus1 li a:hover,
 .sidebar-menu .menus2 li a:hover,
 .sidebar-menu .menus3 li a:hover,
 .sidebar-menu .menus4 li a:hover{
-    background: 0;
-    color: #fff;
+    background: #d52033;
+    width: 100%;
+    color: White;
 }
+
 .nav-pills .nav-link.active, .nav-pills .active>.nav-link{
     
    
@@ -200,36 +207,70 @@ viewer-pdf-toolbar{
     border-right: 5px solid #1ABB9C;
     border-radius: 0;
     
+    
 }
+
 
 
 .nav-pills li {
     background: 0;
 }
 
+.button-container {
+    text-align: right; /* Centers the button horizontally */
+    margin-right: 20px;
+}
+
+#logout {
+    background-color: #d52033; /* Green background */
+    border: none;
+    color: white; /* White text */
+    padding: 10px 25px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Font size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+}
+
+#logout a {
+    color: white; /* White text for the link */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+#logout:hover {
+    background-color: #45a049; /* Darker green when hovering */
+}
+
+
+
+
 
 .content{
-    width: 80%;
-    height: auto;
+    width: 85%;
+    height: 300px;
     float: right;
-   
+  
 }
+
 .content .inner{
-    width: 100%;
-    height: 70px;
-    background: #073f5f;
-    padding: 12px;
-
-
-    
-    
+    width: auto;
+    height: 68px;
+    background: #d52033;
+    padding: 12px;   
+ 
 }
 
 .content .inner .heading{
    width: 60%;
    float: left;
    color: #fff;
+   
 }
+
+
 .content .inner .header-profile{
    width: calc(40%-20px); 
    float: right;
@@ -248,14 +289,17 @@ viewer-pdf-toolbar{
 .header-profile .dropdown span{
     color: #fff;
     margin-left: 10px;
+ 
 }
 .header-profile .icon span{
     color: #fff;
     position: absolute;
     left: 10px;
     top: 0;
+    
     font-size: 11px;
     width: 14px;
+    
     height: 16px;
     line-height: 16px;
     text-align: center;
@@ -287,6 +331,7 @@ viewer-pdf-toolbar{
 .dropdown a{
     text-decoration: none;
     color: #fff;
+    
 
 }
 .dropdown img{
@@ -304,6 +349,7 @@ viewer-pdf-toolbar{
      top: 56px;
      border-radius: 0;
      border-top: 1px solid #ddd;
+     
 
 }
 .dropdown-menu img{
@@ -436,12 +482,15 @@ viewer-pdf-toolbar{
 .reg-body{
     width: 600px;
     margin: 0 auto;
-    box-shadow: 0px 0px 3px;
+    box-shadow: 0px 0px 2px;
     padding: 40px 25px;
-    background: #DDDDDD!important;
+    background: #E2E1E1!important;
+ 
+    border-radius: 8px;
 }
 .reg-body .form-group{
     margin-bottom: 16px;
+    
     
 }
 .reg-body label{
@@ -450,16 +499,34 @@ viewer-pdf-toolbar{
    
 }
 .reg-body .custom{
+  
     width: 350px;
+    background-color: #f0f0f0; /* Subtle light grey background */
+    border: 1px solid #ddd; /* Add a border for further distinction */
+    border-radius: 4px; /* Optional: Add border radius for rounded corners */
+    padding: 8px 12px; /* Optional: Add padding for spacing inside the text field */
+    box-sizing: border-box; 
 }
 .reg-body .form-group span{
     color: red;
 }
+.reg-body .submit .change:hover{
+   
+    background-color: #45a049;
+   
+}
 .reg-body .submit .change{
-    background: #D52B2A;
-    border:  none;
-    color: #fff;
-    margin-left: 30px;
+    border: none;
+    color: White;
+    background-color: #d52033;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
 }
 .form-inline label{
     text-align: right;
@@ -674,13 +741,21 @@ viewer-pdf-toolbar{
 
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
     border-right: 5px solid #1ABB9C;
+ 
 }
 .sidebar-menu li.active ul a{
 
     box-shadow: none;
+    
     border-right: 0px solid #fff;
     border: 0;
 }
 .addUser{
     margin-left: 100px;
 }
+img{
+    height: 60px
+}
+
+
+

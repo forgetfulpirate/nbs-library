@@ -53,26 +53,32 @@
                                                     echo "<tr>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
+                                                  
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["name"]; echo "</td>";
                                                     echo "<td>"; echo $row["username"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
+                                
                                                     echo "<td>";
+                                              
                                                    ?>
                                                         <ul>
-                                                            <li><a style="color: #fff;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: #fff;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt">Return</i></a></li>
+                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash">Delete</i></a></li>
                                                         </ul> 
                                                     <?php 
                                                     echo "</td>";
                                                     echo "</tr>";
+                                               
+                                                   
                                                 }
                                                 while ($row=mysqli_fetch_array($res2)) {
                                                     echo "<tr>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
+            
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["name"]; echo "</td>";
                                                     echo "<td>"; echo $row["username"]; echo "</td>";
@@ -84,8 +90,11 @@
                                                             <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                     <?php 
+                                                    
                                                     echo "</td>";
                                                     echo "</tr>";
+                                                 
+                                                
                                                 }
                                              ?>
                                         </tbody>

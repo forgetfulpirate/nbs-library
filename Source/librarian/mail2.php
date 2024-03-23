@@ -9,14 +9,14 @@
     //$mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'parttimemail18@gmail.com';                 // SMTP username
+    $mail->Username = 'cevangelista2021@student.nbscollege.edu.ph';                 // SMTP username
     $mail->Password = 'ItsSecret';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->setFrom('parttimemail18@gmail.com', 'mamun');
-    $mail->addAddress('mrmamunlgd@gmail.com');     // Add a recipient
-    $mail->addReplyTo('parttimemail18@gmail.com');
+    $mail->setFrom('cevangelista2021@student.nbscollege.edu.ph', 'cayce');
+    $mail->addAddress('cevangelista2021@student.nbscollege.edu.ph');     // Add a recipient
+    $mail->addReplyTo('cevangelista2021@student.nbscollege.edu.ph');
 
     $mail->isHTML(true);                                  // Set email format to HTML
 
