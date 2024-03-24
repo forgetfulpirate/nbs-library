@@ -37,6 +37,25 @@ h4 {
     display: flex;
     width: 100%;
 }
+.gap-40{
+    margin-bottom: 40px;
+}
+.gap-30{
+    margin-bottom: 30px;
+}
+.gap-right-30{
+    margin-right: 30px;
+}
+.gap-right-40{
+    margin-right: 40px;
+}
+
+.gap-left-30{
+    margin-left: 30px;
+}
+.gap-left-40{
+    margin-left: 40px;
+}
 
 #sidebar {
     max-width: 40%;
