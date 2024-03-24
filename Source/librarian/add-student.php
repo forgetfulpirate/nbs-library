@@ -9,7 +9,7 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
-include 'inc/function.php';
+    include 'inc/function.php';
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
