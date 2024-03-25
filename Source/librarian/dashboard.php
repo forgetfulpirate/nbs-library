@@ -16,16 +16,19 @@
 
 #time {
     font-size: 20px;
- 
-    float: inline-end;
-    margin-left: 10px;
+    float: right;
+  
 }
 
 #date {
     font-size: 20px;
-    float: inline-end;
+    float: right;
+    margin-right: 20px;
 
 
+}
+.h4 {
+    float:left;
 }
 </style>
 
@@ -36,13 +39,15 @@
 				<div class="mb-3">
           
                         <h4>Admin Dashboard   
-                            <p id="time"></p>
-                           
+                        <p id="time"></p>
+                          
                             <p id="date"></p>
                         </h4>
+                           
              
                  </div>
             </div>
+            <br>
             <br>
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
