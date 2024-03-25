@@ -11,15 +11,39 @@
     include 'inc/connection.php';
     include 'inc/header.php';
  ?>
+<style>
 
+
+#time {
+    font-size: 20px;
+ 
+    float: inline-end;
+    margin-left: 10px;
+}
+
+#date {
+    font-size: 20px;
+    float: inline-end;
+
+
+}
+</style>
 
 	
             <main class="content px-3 py-2">
 			<div class="gap-30"></div>
                 <div class="container-fluid">
 				<div class="mb-3">
-                        <h4>Admin Dashboard</h4>
-                    </div>
+          
+                        <h4>Admin Dashboard   
+                            <p id="time"></p>
+                           
+                            <p id="date"></p>
+                        </h4>
+             
+                 </div>
+            </div>
+            <br>
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0 illustration">
@@ -260,8 +284,18 @@
                             </div>
 					
             </main>
+
+
    
                           
-         
+         <script> 
+         window.setInterval(ut, 1000);
+
+        function ut() {
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+        document.getElementById("date").innerHTML = d.toLocaleDateString();
+        }
+        </script>
           
 

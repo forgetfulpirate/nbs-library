@@ -53,7 +53,7 @@
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo "<tr>";
                                     echo "<td>"; ?><img src="<?php echo $row["books_image"]; ?> " height="100" width="100" alt=""> <?php echo "</td>";
-                                    echo "<td>";
+                                    echo "<td>";                            
                                     echo $row["books_name"];
                                     echo "</td>";
                                     echo "<td>";
