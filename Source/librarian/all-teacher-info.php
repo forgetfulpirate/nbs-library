@@ -1,5 +1,5 @@
-<?php 		
-    session_start();
+<?php 
+     session_start();
     if (!isset($_SESSION["username"])) {
         ?>
             <script type="text/javascript">
@@ -8,33 +8,20 @@
         <?php
     }
     $page = 'tinfo';
-    include 'inc/header.php';
     include 'inc/connection.php';
-?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">all teacher info</span>
-						</div>
-					</div>
-				</div>
-				<div class="student-wrapper">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="std-info">
-                                <table id="dtBasicExample" class="table table-striped text-center">
-                                    <thead style="background-color:#d52033">
-                                         <tr style="color: White">
+    include 'inc/header.php';
+ ?>
+
+
+            <main class="content px-3 py-2">
+            
+            <div class="card border-0">
+                  
+                 
+                        <div class="card-body">
+                        <table id="dtBasicExample" class="table table-striped text-center">
+                                    <thead>
+                                         <tr>
                                              <th>Id No</th>
                                              <th>Name</th>
                                              <th>Username</th>
@@ -57,24 +44,30 @@
                                                 echo "<td>"; echo $row["phone"]; echo "</td>";
                                                 echo "<td>"; echo $row["address"]; echo "</td>";
                                                 echo "</tr>";
+                                                
                                             }
                                         ?>
                                     </tbody>
                                 </table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-	</div>
-	<?php 
-		include 'inc/footer.php';
-	 ?>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                
+            </main>
 
-     <script>
+     
+         
+        
+        </div>
+    </div>
+
+
+    <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
         });
-    </script>
+    </script>		
+

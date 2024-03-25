@@ -1,5 +1,6 @@
-<?php 		 
-    session_start();
+
+<?php 
+     session_start();
     if (!isset($_SESSION["username"])) {
         ?>
             <script type="text/javascript">
@@ -7,51 +8,35 @@
             </script>
         <?php
     }
-    
     $page = 'sinfo';
-    include 'inc/header.php';
     include 'inc/connection.php';
+    include 'inc/header.php';
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">all student info</span>
-						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-        <div class="student-wrapper">
-           <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="std-info">
-                            <table id="dtBasicExample" class="table table-striped text-center">
-                                <thead style="background-color: #d52033">
-                                    <tr style="color:White">
-                                        <th>Reg no</th>
-                                        <th>Name</th>
-                                        <th>Username</th>
-                                        <th>Semester</th>
-                                        <th>Dept</th>
-                                        <th>Session</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
+
+    
+            <main class="content px-3 py-2">
+            
+            <div class="card border-0">
+                
+                  
+                 
+                        <div class="card-body">
+                            <table class="table text-center" id="dtBasicExample">
+                                <thead>
+                                    <tr>
+                                    <th>Reg no</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Semester</th>
+                                        <th scope="col">Dept</th>
+                                        <th scope="col">Session</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Address</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <?php
+                                <?php
                                         $res= mysqli_query($link, "select * from std_registration");
                                         while ($row=mysqli_fetch_array($res)) {
                                             echo "<tr>";
@@ -72,12 +57,22 @@
                         </div>
                     </div>
                 </div>
-           </div>
+                
+                </div>
+            
+            </main>
+
+        
+
         </div>
-	</div>
-	<?php 
-		include 'inc/footer.php';
-	 ?>
+    </div>
+    
+
+
+    
+
+
+
     <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();

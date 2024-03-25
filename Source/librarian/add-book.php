@@ -7,6 +7,7 @@
                 </script>
             <?php
         }
+        $page = 'abook';
         include 'inc/header.php';
         include 'inc/connection.php';
 	 ?>
@@ -108,6 +109,3 @@
             }
         ?>
 			
-	<?php 
-		include 'inc/footer.php';
-	 ?>

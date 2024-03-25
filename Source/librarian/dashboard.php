@@ -8,34 +8,89 @@
         <?php
     }
     $page = 'home';
-    include 'inc/header.php';
     include 'inc/connection.php';
+    include 'inc/header.php';
  ?>
-	<!-- dashboard area -->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>Dashboard</span>Control Panel</p>
-						</div>
+<style>
+
+
+#time {
+    font-size: 20px;
+ 
+    float: inline-end;
+    margin-left: 10px;
+}
+
+#date {
+    font-size: 20px;
+    float: inline-end;
+
+
+}
+</style>
+
+	
+            <main class="content px-3 py-2">
+			<div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Admin Dashboard   
+                            <p id="time"></p>
+                           
+                            <p id="date"></p>
+                        </h4>
+             
+                 </div>
+            </div>
+            <br>
+                    <div class="row g-2 my-10 ">
+                        <div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <div class="card-body p-0 d-flex flex-fill">
+                                    <div class="row g-0 w-100">
+                                        <div class="col-10 d-flex">
+                                            <div class="p-3 m-1">
+											<h3><span>Welcome Back Admin,</span> </h3>
+						<h4>
+							
+							<?php 
+								$res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
+								while ($row = mysqli_fetch_array($res)){
+								$name  =  $row["name"];
+								echo $name;
+								}
+							?>
+							
+            			</h4>
+						
+                                            </div>
+											
+                                        </div>
+										<div class="align-self-end text-end">
+                                           
+                           			 	</div>
+									
+                                    </div>
+									
+                                </div>
+								
+                            </div>
+						
+							
 					</div>
-				
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">dashboard</span>
-						</div>
-					</div>
-				</div>
-				<div class="row counterup">
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box">
-							<div class="icon">
+					
+
+					<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fa fa-users"></i>
 							</div>
-							<div class="text">
+							<div class="text-left">
 								<h3><span class="counter">
                                     <?php
                                          $res = mysqli_query($link, "select * from std_registration");
@@ -49,15 +104,24 @@
 								<h4><a href="#">Members</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box2">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+										<!--  -->
+						<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fa fa-rocket"></i>
 							</div>
-							<div class="text">
+							<div class="text-left">
 								<h3><span class="counter">
-                                    <?php
+								<?php
                                          $res = mysqli_query($link, "select * from issue_book");
                                          $res2 = mysqli_query($link, "select * from t_issuebook");
                                          $count2 = mysqli_num_rows($res2);
@@ -66,88 +130,172 @@
                                         echo $result;
                                     ?>
                                     </span></h3>
-								<h4><a href="issued-books.php">Issued books</a></h4>
+								<h4><a href="issued-books.php">Issued Boooks</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box3">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+										<!--  -->
+										<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fa fa-book"></i>
 							</div>
-							<div class="text">
+							<div class="text-left">
 								<h3><span class="counter">
-                                    <?php
+								<?php
                                          $res = mysqli_query($link, "select * from add_book");
                                          $count = mysqli_num_rows($res);
                                         echo $count;
                                     ?>
                                     </span></h3>
-								<h4><a href="display-books.php">books</a></h4>
+								<h4><a href="display-books.php">Books</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box4">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+										<!--  -->
+										<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fas fa-dollar-sign"></i>
 							</div>
-							<div class="text">
+							<div class="text-left">
 								<h3><span class="counter">
-                                     <?php
+								<?php
                                          $res = mysqli_query($link, "select fine from finezone");
                                          $count = mysqli_num_rows($res);
                                         echo $count * 50;
                                     ?>
                                     </span></h3>
-								<h4><a href="fine.php">fine</a></h4>
+								<h4><a href="fine.php">Fine</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box3">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+							<!--  -->
+							<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fas fa-book"></i>
 							</div>
-							<div class="text">
-								<h4 class="mt-20"><a href="display-books.php">Manage Book</a></h4>
+							<div class="text-left">
+								
+								<h4><a href="display-books.php">Manage Book</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box4">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							
+
+							<!--  -->
+							<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fas fa-user"></i>
 							</div>
-							<div class="text">
-								<h4 class="mt-20"><a href="add-student.php">Manage User</a></h4>
+							<div class="text-left">
+							<h3>
+								<span class="counter1">
+								
+                                    </span>
+								</h3>
+								
+								<h4><a href="add-student.php">Manage User</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+								<!--  -->
+								<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fab fa-staylinked"></i>
 							</div>
-							<div class="text">
-								<h4 class="mt-20"><a href="status.php">User Status</a></h4>
+							<div class="text-left">
+								
+								<h4><a href="status.php">User Status</a></h4>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 control">
-						<div class="box box2">
-							<div class="icon">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+							<!--  -->
+							<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
 								<i class="fas fa-book"></i>
 							</div>
-							<div class="text">
-								<h4 class="mt-10"><a href="requested-books.php">Requested Books</a></h4>
+							<div class="text-left">
+								
+							<h4 class="mt-10"><a href="requested-books.php">Requested Books</a></h4>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-	</div>
-	<?php 
-		include 'inc/footer.php';
-	 ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+					
+            </main>
+
+
+   
+                          
+         <script> 
+         window.setInterval(ut, 1000);
+
+        function ut() {
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+        document.getElementById("date").innerHTML = d.toLocaleDateString();
+        }
+        </script>
+          
+
