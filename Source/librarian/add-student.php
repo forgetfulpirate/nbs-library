@@ -91,10 +91,10 @@
                             <div class="form-group">
                                 <label for="dept">Department <span>*</span></label>
                                 <select class="form-control custom" name="dept">
-                                    <option>CSE</option>
-                                    <option>EEE</option>
-                                    <option>ECE</option>
-                                    <option>BBA</option>
+                                    <option>BSCS</option>
+                                    <option>BSA</option>
+                                    <option>BSTM</option>
+                                    <option>BSAIS</option>
                                     <option>Others</option>
                                 </select>
                             </div>

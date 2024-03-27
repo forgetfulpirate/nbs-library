@@ -60,7 +60,7 @@
                <i class="fa-regular fa-envelope login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="email">
+                     <input type="email" required class="login__input" id="login-email" placeholder=" " name="email">
                      <label for="login-email" class="login__label">Email</label>
                   </div>
                </div>
@@ -93,7 +93,7 @@
               
             </div>
 
-            <button type="submit" class="login__button" name="submit">Login</button>
+            <button type="submit" class="login__button" name="submit">Register</button>
 
             <p class="login__register">
                Don't have an account? <a href="login.php" style="color:red"><span style="color:Red;">Login</span></a>
