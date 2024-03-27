@@ -17,23 +17,27 @@
 		<div class="dashboard-header">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">add book</span>
-						</div>
-					</div>
-				</div>
+					  <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Add Book  
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
+				
 				<div class="bstore">
 					<form action="" method="post" enctype="multipart/form-data">
                         <table class="table table-bordered">
                             <tr>
                                 <td>
+                                    Books Name
                                    <input type="text" class="form-control" name="booksname" placeholder="Books name" required=""> 
                                 </td>
                             </tr>

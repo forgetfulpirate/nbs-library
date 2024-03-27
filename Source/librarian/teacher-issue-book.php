@@ -9,7 +9,7 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
-    $rdate = date("d/m/Y", strtotime("+30 days"));
+    $rdate = date("m/d/Y", strtotime("+30 days"));
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -116,7 +116,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksissuedate" placeholder="Books issue date" value="<?php echo date("d/m/Y"); ?>"> 
+                                               <input type="text" class="form-control" name="booksissuedate" placeholder="Books issue date" value="<?php echo date("m/d/Y"); ?>"> 
                                             </td>
                                         </tr>
                                         <tr>

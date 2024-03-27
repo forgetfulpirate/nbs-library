@@ -14,12 +14,26 @@
 
 
             <main class="content px-3 py-2">
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Teacher Information  
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
             
             <div class="card border-0">
                   
                  
                         <div class="card-body">
-                        <table id="dtBasicExample" class="table table-striped text-center">
+                        <table id="dtBasicExample" class="table table-hover text-center table-striped text-center">
                                     <thead>
                                          <tr>
                                              <th>Id No</th>

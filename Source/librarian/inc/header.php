@@ -17,8 +17,8 @@
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="inc/css/custom1.css">
+    <link rel="stylesheet" href="inc/css/animate.css">
 
-   
 </head>
 
 <body>
@@ -91,10 +91,16 @@
                         </a>
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="add-book.php" class="sidebar-link">Add book</a>
+                                <a href="add-book.php" class="sidebar-link">Add Book</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="display-ebook.php" class="sidebar-link">Display E-Book</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="display-thesis.php" class="sidebar-link">Display Theses</a>

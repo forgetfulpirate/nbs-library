@@ -20,6 +20,30 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 
+#edit:hover{
+    background-color: #666769;
+ 
+}
+
+#edit{
+    background-color: #04AA6D;
+    border: none;
+}
+#edit1:hover{
+    background-color: #666769;
+ 
+}
+
+
+
+
+#edit1{
+    background-color: #d52033;
+    border: none;
+}
+
+
+
 li {
     list-style: none;
 }
@@ -68,6 +92,7 @@ h4 {
 .main {
     display: flex;
     flex-direction: column;
+    
     min-height: 100vh;
     min-width: 0;
     overflow: hidden;
@@ -199,6 +224,19 @@ a.sidebar-link {
         width: 100vw;
     }
 }
+
+#card1:hover{
+    transform: scale(1.1);
+    -webkit-transition: ease .5s all;
+   -moz-transition: ease .5s all;
+   -ms-transition: ease .5s all;
+   -o-transition: ease .5s all;
+   transition: ease .5s all;
+
+}
+
+
+
 
 /* Theme Toggler */
 

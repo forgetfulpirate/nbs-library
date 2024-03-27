@@ -61,7 +61,10 @@ include 'inc/connection.php';
     					</li>
     					<li class="menu <?php if($page=='books'){ echo 'active';} ?>">
       						<a href="books.php"><i class="fas fa-book"></i>books</a>
-    					</li>	       	                    
+    					</li>	   
+						<li class="menu <?php if($page=='ebooks'){ echo 'active';} ?>">
+      						<a href="ebooks.php"><i class="fas fa-book"></i>E-books</a>
+    					</li>    	                    
     					<li class="menu <?php if($page=='rbook'){ echo 'active';} ?>">
       						<a href="request-book.php"><i class="fas fa-book"></i>request book</a>
     					</li>	                    

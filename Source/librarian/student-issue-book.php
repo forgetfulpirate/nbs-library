@@ -9,7 +9,7 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
-    $rdate = date("d/m/Y", strtotime("+30 days"));
+    $rdate = date("m/d/Y", strtotime("+30 days"));
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -127,7 +127,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksissuedate"  value="<?php echo date("d/m/Y"); ?>"> 
+                                               <input type="text" class="form-control" name="booksissuedate"  value="<?php echo date("m/d/Y"); ?>"> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -166,7 +166,7 @@
                                           <?php  
                                        }
                                        else{
-                                          mysqli_query($link, "insert into issue_book values('','$_SESSION[utype]','$_SESSION[regno]','$_POST[name]','$_POST[sem]','$_POST[session]','$_POST[dept]','$_POST[phone]','$_POST[mail]','$_POST[booksname]','$_POST[booksissuedate]','$_POST[booksreturndate]','$_SESSION[susername]') ");
+                                          mysqli_query($link, "insert into issue_book values('','$_SESSION[utype]','$_SESSION[regno]','$_POST[name]','$_POST[sem]','$_POST[session]','$_POST[dept]','$_POST[phone]','$_POST[mail]','$_POST[booksname]','$_POST[booksissuedate]','$_POST[booksreturndate]','$_SESSION[susername]')");
                                           mysqli_query($link, "update add_book set books_availability=books_availability-1 where books_name='$_POST[booksname]'");
                                           ?>
                                               <script type="text/javascript">

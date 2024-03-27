@@ -1,92 +1,114 @@
-<?php 
-	include 'inc/connection.php';
+<?php
+    session_start();
+    include 'inc/connection.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
-    <link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="inc/css/pro1.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-    <style>
-        .registration{
-            background-image: url(inc/img/3.jpg);
-            margin-bottom: 30px;
-            padding: 50px;
-            padding-bottom: 70px;
-        }
-        .reg-header h2{
-            color: #DDDDDD;
-            z-index: 999999;
-        }
-        .login-body h4{
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="registration">
-        <div class="reg-wrapper">
-            <div class="reg-header text-center">
-                <h2>Library management system</h2>
-            </div>
-            <div class="gap-40"></div>
-            <div class="reg-body">
-                <h4 style="text-align: center; margin-bottom: 25px;">Librarian registration form</h4>
-                <form action="" class="form-inline" method="post">
-                    <div class="form-group">
-                        <label for="name" class="text-right">Name <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Your Name" name="name" required=""/>
-                    </div>
-                    <div class="form-group">
-                         <label for="username">Username <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Username" name="username" required=""/>
-                    </div>
-                    <div class="form-group">
-                         <label for="password">Password <span>*</span></label>
-                        <input type="password" class="form-control custom" placeholder="Password" name="password" required=""/>
-                    </div>
-                    <div class="form-group">
-                         <label for="email">Email <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Email" name="email" required=""/>
-                    </div>
-                    <div class="form-group">
-                         <label for="phone">Phone No <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Phone No" name="phone" required=""/>
-                    </div>
-                    <div class="form-group">
-                         <label for="address">Address <span>*</span></label>
-                        <textarea name="address" id="address"  class="form-control custom" placeholder="Your address"></textarea>
-                    </div>
-                  
-                    <div class="submit">
-                        <input type="submit" value="Register" class="btn change" name="submit">
-                    </div>
-                   
-                 
-                </form>
-            </div>
-			<?php 
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="inc/css/login.css">
+
+      <title>Animated login form - Bedimcode</title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="inc/img/bg-login.png" alt="login image" class="login__img">
+         
+
+         <form action="" method="post" class="login__form">
+            <h1 class="login__title">Admin Login</h1>
+            <?php 
                 if (isset($_POST["submit"])) {
                     $photo = "upload/avatar.jpg";
-                    mysqli_query($link, "insert into lib_registration values('','$_POST[name]','$_POST[username]','$_POST[password]','$_POST[email]','$_POST[phone]','$_POST[address]','$photo','')");
+                    mysqli_query($link, "insert into lib_registration values('','$_POST[name]','$_POST[username]','$_POST[password]','$_POST[email]','','$_POST[phone]','$photo','')");
                     ?>
-                        <div class="alert alert-success col-lg-6">
-                            Registration successfully, You will get email when your account is approved
+                        <div class="alert alert-success col-lg-6" style="color:green">
+                            Registration successfully
                         </div>
                     <?php
                 }
              ?>
-        </div>
-    </div>
-    <div class="footer text-center">
-        <p>&copy; All rights NBS College</p>
-    </div>
 
-    <script src="inc/js/jquery-2.2.4.min.js"></script>
-    <script src="inc/js/bootstrap.min.js"></script>
-    <script src="inc/js/custom.js"></script>
-</body>
+<br>
+            <div class="login__content">
+                <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="name">
+                     <label for="login-name" class="login__label">Name</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="username">
+                     <label for="login-username" class="login__label">Username</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+               <i class="fa-regular fa-envelope login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="email" required class="login__input" id="login-email" placeholder=" " name="email">
+                     <label for="login-email" class="login__label">Email</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+               <i class="fa-solid fa-mobile-screen login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="phone">
+                     <label for="login-phone" class="login__label">Phone No</label>
+                  </div>
+               </div>
+
+               
+
+               <div class="login__box">
+                  <i class="ri-lock-2-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="password" required class="login__input" id="login-pass" placeholder=" " name="password" >
+                     <label for="login-pass" class="login__label">Password</label>
+                     <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                  </div>
+               </div>
+            </div>
+
+            <div class="login__check">
+              
+
+              
+            </div>
+
+            <button type="submit" class="login__button" name="submit">Register</button>
+
+            <p class="login__register">
+               Don't have an account? <a href="login.php" style="color:red"><span style="color:Red;">Login</span></a>
+            </p>
+
+          
+           
+               
+         </form>
+       
+       
+      </div>
+   
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="inc/js/login.js"></script>
+   </body>
 </html>
