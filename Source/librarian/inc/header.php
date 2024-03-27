@@ -97,6 +97,9 @@
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
                             </li>
                             <li class="sidebar-item">
+                                <a href="display-ebook.php" class="sidebar-link">Display E-Book</a>
+                            </li>
+                            <li class="sidebar-item">
                                 <a href="display-thesis.php" class="sidebar-link">Display Theses</a>
                             </li>
                         </ul>
