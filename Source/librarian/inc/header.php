@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
 
-   
 </head>
 
 <body>
