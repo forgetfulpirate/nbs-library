@@ -76,12 +76,12 @@
                                      echo "<td>";
                                     ?>
                                     
-                                    <span style="marigin-right=20px;"><a href="edit-book.php?id=<?php echo $row["id"]; ?>"  class="btn btn-primary">Edit</a></span><?php
+                                    <span style="marigin-right=20px;"><a href="edit-book.php?id=<?php echo $row["id"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
                                     
                                     echo "</td>";   echo "</td>";
                                     echo "<td>";
                                    ?>
-                                   <a href="delete-book.php?id=<?php echo $row["id"];?> " class="btn btn-primary" style="background-color: Red; border-color:Red">Delete</a><?php
+                                   <a href="delete-book.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
                                    
                                    echo "</td>";
                                     

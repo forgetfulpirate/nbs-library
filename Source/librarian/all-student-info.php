@@ -15,8 +15,23 @@
 
     
             <main class="content px-3 py-2">
-            
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Student Information  
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
+          
             <div class="card border-0">
+                
                 
                   
                  

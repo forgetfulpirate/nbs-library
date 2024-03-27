@@ -7,7 +7,7 @@
                 </script>
             <?php
         }
-        $page = 'abook';
+        $page = 'a-e-book';
         include 'inc/header.php';
         include 'inc/connection.php';
 	 ?>
@@ -21,7 +21,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Add Book  
+                        <h4>Add E-Book  
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -37,50 +37,70 @@
                         <table class="table table-bordered">
                             <tr>
                                 <td>
-                                    Books Name
-                                   <input type="text" class="form-control" name="booksname" placeholder="Books name" required=""> 
+                                    Accession Number
+                                   <input type="text" class="form-control" name="accession_number" placeholder="Accession Number" required=""> 
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Books image
+                                    E-Book image
                                     <input type="file" class="form-control" name="f1" required="">
                                 </td>
                             </tr>
-                             <tr>
-                                <td>
-                                    Books file
-                                    <input type="file" class="form-control" name="file" required="">
-                                </td>
-                            </tr>
+
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bauthorname" placeholder="Books author name" required="">
+                                    Program
+                                   <input type="text" class="form-control" name="program" placeholder="Program" required=""> 
                                 </td>
                             </tr>
+                            
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bpubname" placeholder="Books publication name" required="">
+                                    Title
+                                   <input type="text" class="form-control" name="title" placeholder="title" required=""> 
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bpurcdate" placeholder="Books purchase date" required="">
+                                    Author
+                                   <input type="text" class="form-control" name="author" placeholder="Author" required=""> 
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bprice" placeholder="Books price" required="">
+                                    Place of Publication
+                                   <input type="text" class="form-control" name="place_of_publication" placeholder=" Place of Publication" required=""> 
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bquantity" placeholder="Books quantity" required="">
+                                    ISBN
+                                   <input type="text" class="form-control" name="ISBN" placeholder="ISBN" required=""> 
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" name="bavailability" placeholder="Books availability" required="">
+                                    Copyright
+                                   <input type="text" class="form-control" name="copyright" placeholder="Copyright" required=""> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Publisher
+                                   <input type="text" class="form-control" name="publisher" placeholder="Publisher" required=""> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Link
+                                   <input type="text" class="form-control" name="link" placeholder="Link" required=""> 
                                 </td>
                             </tr>
                         </table>
@@ -88,6 +108,7 @@
                         	<input type="submit" name="submit" class="btn btn-info submit" value="Add Book">
                         </div>
                 	</form>
+                    <br>
 				</div>				
 			</div>					
 		</div>
@@ -98,17 +119,18 @@
             if (isset($_POST["submit"])) {
 
                 $image_name=$_FILES['f1']['name'];
-                $file_name=$_FILES['file']['name'];
+   
                 $temp = explode(".", $image_name);
-                $temp2 = explode(".", $file_name);
+            
                 $newfilename = round(microtime(true)) . '.' . end($temp);
-                $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-                $imagepath="books-image/".$newfilename;
-                $filepath="books-file/".$newfilename2;
-                move_uploaded_file($_FILES["f1"]["tmp_name"],$imagepath);
-                move_uploaded_file($_FILES["file"]["tmp_name"],$filepath);
 
-                 mysqli_query($link, "insert into add_book values('','$_POST[booksname]','$imagepath','$_POST[bauthorname]','$_POST[bpubname]','$_POST[bpurcdate]','$_POST[bprice]','$_POST[bquantity]','$_POST[bavailability]','$_SESSION[username]','$filepath')");
+                $imagepath="books-image/".$newfilename;
+      
+                move_uploaded_file($_FILES["f1"]["tmp_name"],$imagepath);
+    
+
+      
+                mysqli_query($link, "INSERT INTO ebook (accession_number, book_image, program, title, author, place_of_publication, ISBN, copyright, publisher, link) VALUES ('$_POST[accession_number]', '$imagepath', '$_POST[program]', '$_POST[title]', '$_POST[author]', '$_POST[place_of_publication]', '$_POST[ISBN]', '$_POST[copyright]', '$_POST[publisher]', '$_POST[link]')");
 
             }
         ?>

@@ -91,7 +91,10 @@
                         </a>
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="add-book.php" class="sidebar-link">Add book</a>
+                                <a href="add-book.php" class="sidebar-link">Add Book</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>

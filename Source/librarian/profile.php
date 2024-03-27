@@ -35,7 +35,7 @@
 								<?php
                                     $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
                                     while ($row = mysqli_fetch_array($res)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong"></a> <?php
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="250px" width="250px" alt="something wrong"></a> <?php
                                     }
                                 ?>
 							</div>

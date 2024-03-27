@@ -20,6 +20,30 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 
+#edit:hover{
+    background-color: #666769;
+ 
+}
+
+#edit{
+    background-color: #04AA6D;
+    border: none;
+}
+#edit1:hover{
+    background-color: #666769;
+ 
+}
+
+
+
+
+#edit1{
+    background-color: #d52033;
+    border: none;
+}
+
+
+
 li {
     list-style: none;
 }
