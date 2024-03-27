@@ -3,94 +3,40 @@
     include 'inc/connection.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
-    <link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="inc/css/pro1.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-    <style>
-        .login{
-            background-image: url(inc/img/bg-login.png) ;
-            background-repeat: no-repeat;
-            background-size: cover; /* Adjust the width and keep the height auto */
-            margin-bottom: 30px;
-            padding: 50px;
-            padding-bottom: 70px;
-            width: auto;
-            height: 700px;
-            
-            background-color: rgba(255, 255, 255, 0.5);
-            
-            
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        }
-      
-        .reg-header h2{
-            color: blue;
-            z-index: 999999;
-            margin-top: 100px;
-            
-            
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
 
-            
-        }
-        .login-body h4{
-            margin-bottom: 20px;
-            
-        }
-        .login-content {
-            border-radius: 5px;
-            width: 638px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center horizontally */
-            text-align: center;
-            justify-content: center; /* Center vertically */
-            margin: auto; /* Center horizontally */
-            background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity if necessary */
-        }
-        
-       
-    </style>
-</head>
-<body>
-    <div class="login registration">
-        <div class="wrapper">
-            <div class="reg-header text-center">
-                <h2>ADMIN</h2>
-                <div class="gap-30"></div>
-                <div class="gap-30"></div>
-            </div>
-            <div class="gap-30"></div>
-            <div class="login-content">
-                <div class="login-body">
-                    <h4>Librarian Login </h4>
-                    <form action="" method="post">
-                        <div class="mb-20">
-                            <input type="text" name="username" class="form-control" placeholder="Username" required=""/>
-                        </div>
-                        <div class="mb-20">
-                            <input type="password" name="password" class="form-control" placeholder="Password" required=""/>
-                        </div>
-                        <div class="mb-20">
-                            <input class="btn btn-info submit" type="submit" name="login" value="Login">
-                            
-                        </div>
-                    </form>
-                </div>
-                <?php
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="inc/css/login.css">
+
+      <title>Animated login form - Bedimcode</title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="inc/img/bg-login.png" alt="login image" class="login__img">
+         
+
+         <form action="" method="post" class="login__form">
+            <h1 class="login__title">Admin Login</h1>
+            <?php
                 if (isset($_POST["login"])) {
                     $count=0;
                     $res= mysqli_query($link, "select * from lib_registration where username='$_POST[username]' && password= '$_POST[password]' ");
                     $count = mysqli_num_rows($res);
                     if ($count==0) {
                         ?>
-                        <div class="alert alert-warning">
-                            <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                        <p>
+                        <div class="alert alert-warning" style="text-align: center">
+                    
+                        <strong style="color:#333">Invalid</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
                         </div>
+                        </p>
                     <?php
                     }
                     else{
@@ -103,15 +49,51 @@
                     }
                 }
                 ?>
-            </div>
-        </div>
-    </div>
-    <div class="footer text-center">
-        <p>&copy; All rights reserved NBS College</p>
-    </div>
 
-<script src="inc/js/jquery-2.2.4.min.js"></script>
-<script src="inc/js/bootstrap.min.js"></script>
-<script src="inc/js/custom.js"></script>
-</body>
+<br>
+            <div class="login__content">
+               <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="username">
+                     <label for="login-email" class="login__label">Username</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                  <i class="ri-lock-2-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="password" required class="login__input" id="login-pass" placeholder=" " name="password" >
+                     <label for="login-pass" class="login__label">Password</label>
+                     <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                  </div>
+               </div>
+            </div>
+
+            <div class="login__check">
+              
+
+               <a href="#" class="login__forgot">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login__button" name="login">Login</button>
+
+            <p class="login__register">
+               Don't have an account? <a href="registration.php" style="color:red"><span style="color:Red;">Register</span></a>
+            </p>
+
+          
+           
+               
+         </form>
+       
+       
+      </div>
+   
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="inc/js/login.js"></script>
+   </body>
 </html>
