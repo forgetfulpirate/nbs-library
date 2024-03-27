@@ -51,8 +51,8 @@
             <br>
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0 illustration">
-                                <div class="card-body p-0 d-flex flex-fill">
+                            <div class="card flex-fill border-0 illustration" id="card1">
+                                <div class="card-body p-0 d-flex flex-fill" >
                                     <div class="row g-0 w-100">
                                         <div class="col-10 d-flex">
                                             <div class="p-3 m-1">
@@ -87,8 +87,8 @@
 					
 
 					<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
-                                <div class="card-body py-4">
+                            <div class="card flex-fill border-0" id="card1">
+                                <div class="card-body py-4" >
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -116,16 +116,21 @@
                             </div>
 										<!--  -->
 						<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
+                                   
 										<div class="box">
+                                
 							<div class="icon1">
 								<i class="fa fa-rocket"></i>
 							</div>
+                           
 							<div class="text-left">
+                           
 								<h3><span class="counter">
+                                    
 								<?php
                                          $res = mysqli_query($link, "select * from issue_book");
                                          $res2 = mysqli_query($link, "select * from t_issuebook");
@@ -135,18 +140,27 @@
                                         echo $result;
                                     ?>
                                     </span></h3>
-								<h4><a href="issued-books.php">Issued Boooks</a></h4>
+                                 
+								<h4><a href="issued-books.php">Issued Boooks </a></h4>
+                               
 							</div>
+                           
 						</div>
+                      
                                             </div>
+                                           
                                         </div>
+                                      
                                     </div>
+                                    
                                 </div>
+                                
                             </div>
+                            
 
 										<!--  -->
 										<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
@@ -173,7 +187,7 @@
 
 										<!--  -->
 										<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
@@ -200,7 +214,7 @@
 
 							<!--  -->
 							<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
@@ -222,7 +236,7 @@
 
 							<!--  -->
 							<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
@@ -248,7 +262,7 @@
 
 								<!--  -->
 								<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
@@ -269,7 +283,7 @@
 
 							<!--  -->
 							<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0">
+                            <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
