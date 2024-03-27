@@ -25,7 +25,7 @@
                             <table class="table text-center table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                              
+                                        <th class="col">Books image</th>
                                         <th scope="col">Accession Number</th>
                                         <th scope="col">Program</th>
                                         <th scope="col">Title</th>
@@ -44,6 +44,7 @@
                                         $res= mysqli_query($link, "select * from ebook");
                                         while ($row=mysqli_fetch_array($res)) {
                                             echo "<tr>";
+                                            echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt=""> <?php echo "</td>";
                                             echo "<td>"; echo $row["accession_number"]; echo "</td>";
                                             echo "<td>"; echo $row["program"]; echo "</td>";
                                             echo "<td>"; echo $row["title"]; echo "</td>";
