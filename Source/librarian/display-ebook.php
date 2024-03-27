@@ -12,11 +12,12 @@
     include 'inc/connection.php';
     include 'inc/header.php';
  ?>
-
+            
     
             <main class="content px-3 py-2">
             
             <div class="card border-0">
+                
                 
                   
                  
@@ -34,6 +35,8 @@
                                         <th scope="col">Copyright</th>
                                         <th scope="col">Publisher</th>
                                         <th scope="col">Link</th>
+                                       
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,8 +52,7 @@
                                             echo "<td>"; echo $row["ISBN"]; echo "</td>";
                                             echo "<td>"; echo $row["copyright"]; echo "</td>";
                                             echo "<td>"; echo $row["publisher"]; echo "</td>";
-                                            echo "<td>"; echo $row["link"]; echo "</td>";
-                                          
+                                            echo "<td>"; ?><a href="<?php echo $row["link"]; ?>" target="_blank"><?php echo $row["link"]; ?></a><?php echo "</td>";
                                             echo "</tr>";
                                         }
                                    ?> 
@@ -64,17 +66,9 @@
             
             </main>
 
-        
-
         </div>
     </div>
     
-
-
-    
-
-
-
     <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();

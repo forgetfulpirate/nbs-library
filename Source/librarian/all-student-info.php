@@ -21,10 +21,10 @@
                   
                  
                         <div class="card-body">
-                            <table class="table text-center" id="dtBasicExample">
+                            <table class="table table-hover text-center table-striped text-center" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                                    <th>Reg no</th>
+                                        <th scope="col">Student Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Username</th>
                                         <th scope="col">Semester</th>
@@ -59,12 +59,14 @@
                 </div>
                 
                 </div>
+                
             
             </main>
 
         
 
-        </div>
+            </div>
+            
     </div>
     
 

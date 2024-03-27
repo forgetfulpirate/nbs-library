@@ -19,7 +19,7 @@
                   
                  
                         <div class="card-body">
-                        <table id="dtBasicExample" class="table table-striped text-center">
+                        <table id="dtBasicExample" class="table table-hover text-center table-striped text-center">
                                     <thead>
                                          <tr>
                                              <th>Id No</th>

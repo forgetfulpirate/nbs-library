@@ -34,16 +34,12 @@
             echo "Book not found!";
             exit();
         }
-    } else {
+        } else {
         echo "Book ID not provided!";
         exit();
-    }
+        }
 
-    $message = "";
-
-    if(isset($_GET['message'])) {
-        $message = $_GET['message'];
-    }
+ 
 
  
  ?>
@@ -66,8 +62,9 @@
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <table class="table table-bordered">
                         <tr>
-                       
+                            
                             <td>
+                   
                                 <input type="text" class="form-control" name="booksname" placeholder="Books name" value="<?php echo $booksname; ?>" required=""> 
                             </td>
                         </tr>
@@ -81,8 +78,8 @@
                         <tr>
                             <td>
                                 Books file
-                                <input type="file" class="form-control" name="file">
-                                <a href="<?php echo $filepath; ?>">Download current file</a>
+                                <input type="file" class="form-control" name="file" >
+                                <a href="<?php echo $filepath; ?>" target="_blank">View current file</a>
                             </td>
                         </tr>
                         <tr>
