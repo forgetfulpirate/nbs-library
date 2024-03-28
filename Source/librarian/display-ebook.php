@@ -72,10 +72,21 @@
     
     <script>
         $(document).ready(function () {
+            
             $('#dtBasicExample').DataTable({
-                dom: 'Bfrtip',
-                buttons:['copy','csv','excel','pdf']
+                dom: '<html5buttons"B>1Tfgitp',
+                buttons:['copy','csv','excel','pdf', 'print'],
+                "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+                
             });
-            $('.dataTables_length').addClass('bs-select');
+
+          
+
+
+        
+  
+      
+         
+            
         });
-    </script>		
+    </script>			

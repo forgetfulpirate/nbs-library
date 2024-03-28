@@ -33,11 +33,32 @@ a {
     background-color: #666769;
  
 }
+
 .dt-buttons {
-  float:inline-end;
+  float:right;
   font-size: medium;
   
+  
 }
+
+
+
+.dt-length{
+    text-align: left;
+    float: inline-start;
+    margin-bottom: 20px;
+   
+}
+
+.dt-search{
+    text-align: center;
+}
+
+.dt-info{
+    text-align: center;
+    
+}
+
 
 
 
@@ -280,3 +301,5 @@ html[data-bs-theme="dark"] .theme-toggle .fa-moon {
 html[data-bs-theme="light"] .theme-toggle .fa-sun {
     display: none;
 }
+
+
