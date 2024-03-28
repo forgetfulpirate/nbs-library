@@ -95,6 +95,9 @@
                                 <a href="add-book.php" class="sidebar-link">Add Book</a>
                             </li>
                             <li class="sidebar-item">
+                                <a href="add-books.php" class="sidebar-link">Add Books</a>
+                            </li>
+                            <li class="sidebar-item">
                                 <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
                             <li class="sidebar-item">
