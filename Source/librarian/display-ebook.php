@@ -22,7 +22,7 @@
                   
                  
                         <div class="card-body">
-                            <table class="table text-center table-striped" id="dtBasicExample">
+                            <table class="table text-right table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th class="col">Books image</th>
@@ -72,7 +72,10 @@
     
     <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
+            $('#dtBasicExample').DataTable({
+                dom: 'Bfrtip',
+                buttons:['copy','csv','excel','pdf']
+            });
             $('.dataTables_length').addClass('bs-select');
         });
     </script>		

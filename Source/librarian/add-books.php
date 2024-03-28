@@ -1,68 +1,139 @@
-<?php 
-    session_start();
-    if (!isset($_SESSION["username"])) {
-?>
-    <script type="text/javascript">
-        window.location="login.php";
-    </script>
-<?php
-    }
-    $page = 'a-e-book';
-    include 'inc/header.php';
-    include 'inc/connection.php';
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- DataTable -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.3/css/buttons.bootstrap5.min.css" />
-    <!-- Bootstrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-</head>
-<body>
-    <div class="container my-5">
-        <div class="row">
-            <table id="example" class="table table-striped" style="width: 100%">
-                <caption>
-                    Example DataTable
-                </caption>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Company</th>
-                        <th>Status</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody id="table_users"></tbody>
-            </table>
+<?php 
+     session_start();
+    if (!isset($_SESSION["username"])) {
+        ?>
+            <script type="text/javascript">
+                window.location="login.php";
+            </script>
+        <?php
+    }
+    $page = 'tbook';
+    include 'inc/connection.php';
+    include 'inc/header.php';
+
+    $message = "";
+
+    if(isset($_GET['message'])) {
+        $message = $_GET['message'];
+    }
+
+ ?>
+ 
+
+
+
+            <main class="content px-3 py-2">
+            
+            <div class="card border-0">
+                
+                  
+                 
+                        <div class="card-body" >
+                            <table class="table table-hover text-center" id="dtBasicExample" >
+                                
+                                
+                                <thead>
+                                    <tr >
+                                
+                                    <th class="col">Books image</th>
+                                    <th class="col">Books name</th>
+                                    <th class="col">Author name</th>
+                                    <th class="col">Publication name</th>
+                                    <th class="col">Purchase date</th>
+                                    <th class="col">Books price</th>
+                                    <th class="col">Books quantity</th>
+                                    <th class="col">Books availability</th>
+                                    <th class="col">Edit</th>
+                                    <th class="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $res = mysqli_query($link, "select * from add_book");
+                                while ($row = mysqli_fetch_array($res)) {
+                                    echo "<tr>";
+                                    echo "<td>"; ?><img src="<?php echo $row["books_image"]; ?> " height="100" width="80" alt=""> <?php echo "</td>";
+                                    echo "<td>";                            
+                                    echo $row["books_name"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_author_name"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_publication_name"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_purchase_date"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_price"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_quantity"];
+                                    echo "</td>";
+                                    echo "<td>";
+                                    echo $row["books_availability"];
+                                    echo "</td>";
+                                     echo "<td>";
+                                    ?>
+                                    
+                                    <span style="marigin-right=20px;"><a href="edit-book.php?id=<?php echo $row["id"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
+                                    
+                                    echo "</td>";   echo "</td>";
+                                    echo "<td>";
+                                   ?>
+                                   <a href="delete-book.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
+                                   
+                                   echo "</td>";
+                                    
+                                    
+                                    echo "</tr>";
+                                }
+                                 ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                
+                
+
+        
+                    </main>
+
+             
+
+
+
+        
+
         </div>
     </div>
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- DataTable -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.bootstrap5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.print.min.js"></script>
-    <!-- Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="inc/js/custom2.js"></script>
-</body>
-</html>
+    
+
+
+    
+
+
+
+    <script>
+        $(document).ready(function () {
+            
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+                buttons:['copy','csv','excel','pdf', 'print']
+                
+            });
+            $('.dataTables_length').addClass('bs-select');
+      
+         
+            
+        });
+    </script>		
+
+
+
+
