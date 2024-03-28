@@ -49,6 +49,10 @@ a {
     background-color: #666769;
  
 }
+#notif{
+    color: red;
+  
+}
 
 .dt-buttons {
   float:right;

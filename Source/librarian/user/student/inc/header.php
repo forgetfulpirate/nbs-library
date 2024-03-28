@@ -49,7 +49,7 @@ include 'inc/connection.php';
 					
 							 $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
 							 while ($row = mysqli_fetch_array($res)){
-								 ?><h2><?php echo $_SESSION['student']; ?></h2><?php
+								 ?><h2><?php echo $row["username"]; ?></h2><?php
 							 }
 						?>
 		

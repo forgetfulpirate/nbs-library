@@ -197,12 +197,15 @@
 							</div>
 							<div class="text-left">
 								<h3><span class="counter">
-								<?php
-                                         $res = mysqli_query($link, "select fine from finezone");
-                                         $count = mysqli_num_rows($res);
-                                        echo $count * 50;
-                                    ?>
-                                    </span></h3>
+                                        <?php
+                                        $total_fine = 0;
+                                        $res = mysqli_query($link, "SELECT fine FROM finezone");
+                                        while ($row = mysqli_fetch_array($res)) {
+                                            $total_fine += $row["fine"];
+                                        }
+                                        echo $total_fine;
+                                        ?>
+                                    </span></h3>    
 								<h4><a href="fine.php">Fine</a></h4>
 							</div>
 						</div>

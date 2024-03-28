@@ -222,10 +222,10 @@
                 </button>
 			
                 <div class="navbar-collapse navbar">
-                        <ul class="navbar-nav" style="margin-right:20px;">
+                        <ul class="navbar-nav" style="margin-right:10px;">
                         <li class="icon">
                                 <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
-                                <span class="count" onclick="window.location='requested-books.php'"><b><?php echo $not; ?></b></span>
+                                <span class="count" onclick="window.location='requested-books.php'"><b id="notif" ><?php echo $not; ?></b></span>
                         </li>
                         </ul>
                         
