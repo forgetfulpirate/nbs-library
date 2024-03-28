@@ -100,7 +100,7 @@
                             <li class="sidebar-item">
                                 <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
-                            <li class="sidebar-item">
+                            <!-- <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
                             </li>
                             <li class="sidebar-item">
@@ -108,7 +108,7 @@
                             </li>
                             <li class="sidebar-item">
                                 <a href="display-thesis.php" class="sidebar-link">Display Theses</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 
@@ -125,6 +125,30 @@
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
                             </li>
                         </ul>
+                    </li>
+
+                    
+
+                    <li class="sidebar-item">
+                        <a href="display-book.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            Display Books
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                                <a href="display-ebook.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display E-Book
+                                </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                                <a href="display-thesis.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display Theses
+                                </a>
                     </li>
 
 

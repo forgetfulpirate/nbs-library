@@ -36,7 +36,7 @@
                   
                  
                         <div class="card-body">
-                            <table class="table table-hover text-center table-striped text-center" id="dtBasicExample">
+                            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th scope="col">Student Number</th>

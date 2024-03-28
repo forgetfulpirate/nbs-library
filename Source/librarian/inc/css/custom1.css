@@ -11,6 +11,7 @@ body {
     font-size: 0.875rem;
     opacity: 1;
     overflow-y: scroll;
+
     margin: 0;
 }
 
@@ -20,9 +21,14 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 #edit:hover{
     background-color: #666769;
  
+}
+.card-body{
+    overflow-x: scroll;
 }
 
 #edit{
