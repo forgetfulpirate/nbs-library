@@ -2,13 +2,16 @@
   
   
     include 'inc/connection.php';
+    $not=0;
+    $res = mysqli_query($link,"select * from request_books where read1='no'");
+    $not= mysqli_num_rows($res);
  ?>
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
 <head>
-<link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +56,9 @@
 								echo $name;
 								}
 							?>
+                            
             			</h6>
+                        
 				
 						
 					
@@ -64,20 +69,20 @@
                         Admin Elements
                     </li>
                     
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php if($page=='home'){ echo 'active';} ?>">
                         <a href="dashboard.php" class="sidebar-link">
                         <i class="fa-solid fa-gauge pe-2"></i>
                             Dashboard
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item <?php if($page=='sinfo'){ echo 'active';} ?>">
                         <a href="all-student-info.php" class="sidebar-link">
                         <i class="fa-solid fa-users pe-2"></i>
                             All student information
                         </a>
                     </li>
              
-					<li class="sidebar-item">
+					<li class="sidebar-item <?php if($page=='tinfo'){ echo 'active';} ?>">
                         <a href="all-teacher-info.php" class="sidebar-link">
                             <i class="fa-solid fa-users pe-2"></i>
                             All teacher information
@@ -91,7 +96,7 @@
                             Manage Book
                         </a>
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
+                            <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
                                 <a href="add-book.php" class="sidebar-link">Add Book</a>
                             </li>
                             <li class="sidebar-item">
@@ -163,6 +168,9 @@
                                 <a href="add-student.php" class="sidebar-link">Add student</a>
                             </li>
                             <li class="sidebar-item">
+                                <a href="add-std.php" class="sidebar-link">Add std</a>
+                            </li>
+                            <li class="sidebar-item">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
                             </li>
                         </ul>
@@ -180,7 +188,7 @@
 
                     <li class="sidebar-item">
                         <a href="requested-books.php" class="sidebar-link">
-                        <i class="fa-solid fa-book"></i>
+                        <i class="fa-solid fa-book pe-2"></i>
                             View requested book
                         </a>
                     </li>
@@ -214,7 +222,13 @@
                 </button>
 			
                 <div class="navbar-collapse navbar">
-                    <ul class="navbar-nav">
+                        <ul class="navbar-nav" style="margin-right:20px;">
+                        <li class="icon">
+                                <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
+                                <span class="count" onclick="window.location='requested-books.php'"><b><?php echo $not; ?></b></span>
+                        </li>
+                        </ul>
+                        
                         <li class="nav-item dropdown">
 								<?php
                                      $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
@@ -228,8 +242,10 @@
                                 <a href="profile.php" class="dropdown-item">Profile</a>
                 
                                 <a href="logout.php" class="dropdown-item">Logout</a>
+                                <a href="changepass.php" class="dropdown-item">Change Password</a>
                             </div>
                         </li>
+                        
                     </ul>
                 </div>
             </nav>
@@ -282,7 +298,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
-    
+
     
 </body>
 

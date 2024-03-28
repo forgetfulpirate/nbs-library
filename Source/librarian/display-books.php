@@ -30,7 +30,7 @@
                   
                  
                         <div class="card-body" >
-                            <table class="table table-hover text-center" id="dtBasicExample" >
+                            <table class="table table-hover text-center" id="dtBasicExample">
                                 
                                 <thead>
                                     <tr >

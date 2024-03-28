@@ -21,6 +21,16 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 
+.sidebar-item.active .sidebar-link {
+    background-color: #04AA6D; /* Change this to your desired hover color */
+    color: #fff; /* Change this to your desired text color */
+}
+
+
+
+
+
+
 
 
 #edit:hover{
@@ -50,6 +60,10 @@ a {
     text-align: center;
 }
 
+table.dataTable thead th{
+    text-align: center;
+}
+
 
 
 
@@ -70,7 +84,24 @@ a {
     
 }
 
+.sidebar-link:hover {
+    border-right:  1px;
+   background-color: #04AA6D;
+   border: 5px;
 
+}
+
+.h-100{
+    background-color: #666769;
+}
+
+.sidebar-logo{
+    background-color: #d52033;
+}
+
+.dropdown-item:hover{
+    background-color: #04AA6D;
+}
 
 
 
