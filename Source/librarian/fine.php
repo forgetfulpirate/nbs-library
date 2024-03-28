@@ -10,6 +10,7 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
+ 
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
@@ -67,9 +68,7 @@
 			</div>					
 		</div>
 	</div>
- <?php 
-	include 'inc/footer.php';
- ?>
+
   <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();
