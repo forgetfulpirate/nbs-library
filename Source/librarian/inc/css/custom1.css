@@ -46,6 +46,11 @@ a {
   
   
 }
+.table.dataTable td.dt-type-numeric{
+    text-align: center;
+}
+
+
 
 
 

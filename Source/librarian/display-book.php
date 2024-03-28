@@ -36,7 +36,7 @@
                   
                  
                         <div class="card-body">
-                            <table class="table text-right table-striped table-hover" id="dtBasicExample">
+                            <table class="table table-striped table-hover text-center" id="dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th class="col">Books image</th>
