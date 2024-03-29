@@ -179,6 +179,10 @@ img {
   font-size: var(--small-font-size);
 }
 
+.login__label{
+  color:Gray;
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For medium devices */
 @media screen and (min-width: 576px) {
