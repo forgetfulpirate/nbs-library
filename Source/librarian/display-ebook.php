@@ -8,7 +8,7 @@
             </script>
         <?php
     }
-    $page = 'tbook';
+    $page = 'd-ebook';
     include 'inc/connection.php';
     include 'inc/header.php';
  ?>
@@ -22,7 +22,7 @@
                   
                  
                         <div class="card-body">
-                            <table class="table text-center table-striped" id="dtBasicExample">
+                            <table class="table text-right table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th class="col">Books image</th>
@@ -72,7 +72,21 @@
     
     <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+                buttons:['copy','csv','excel','pdf', 'print'],
+                "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+                
+            });
+
+          
+
+
+        
+  
+      
+         
+            
         });
-    </script>		
+    </script>			

@@ -7,7 +7,7 @@
                 </script>
             <?php
         }
-        $page = 'a-e-book';
+        $page = 'e-book';
         include 'inc/header.php';
         include 'inc/connection.php';
 	 ?>

@@ -46,6 +46,7 @@
 								<tbody>
 								<?php 
 									$res= mysqli_query($link, "select * from issue_book where username='".$_SESSION['student']."' ORDER BY id DESC");
+									
 									while ($row=mysqli_fetch_array($res)) {
                                         echo "<tr>";
                                         echo "<td>"; echo $row["regno"]; echo "</td>";

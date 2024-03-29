@@ -8,7 +8,7 @@
             </script>
         <?php
     }
-    $page = 'tbook';
+    $page = 'd-t-book';
     include 'inc/connection.php';
     include 'inc/header.php';
  ?>
@@ -76,7 +76,21 @@
 
     <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+                buttons:['copy','csv','excel','pdf', 'print'],
+                "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+                
+            });
+
+          
+
+
+        
+  
+      
+         
+            
         });
     </script>		

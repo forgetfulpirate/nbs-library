@@ -7,6 +7,7 @@
             </script>
         <?php
     }
+    $page = 'a-tch';
     include 'inc/header.php';
     include 'inc/connection.php';
     include 'inc/tfunction.php';

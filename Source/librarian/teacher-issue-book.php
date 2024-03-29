@@ -7,6 +7,7 @@
             </script>
         <?php
     }
+    $page = 'tissue';
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m/d/Y", strtotime("+30 days"));

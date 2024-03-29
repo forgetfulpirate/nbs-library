@@ -33,6 +33,7 @@
             <br>
 				
 				<div class="bstore">
+                    
 					<form action="" method="post" enctype="multipart/form-data">
                         <table class="table table-bordered">
                             <tr>

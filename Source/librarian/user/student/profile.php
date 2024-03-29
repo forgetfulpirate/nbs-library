@@ -33,9 +33,14 @@
 							<div class="photo">
 								<?php
                                     $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+                                    $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
                                     while ($row = mysqli_fetch_array($res)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong"></a> <?php
-                                    }                                                            
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong"></a> <?php
+                                    }   
+
+                                    while ($row = mysqli_fetch_array($res1)){
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong"></a> <?php
+                                    }                                                          
 
                                 ?>
 							</div>
@@ -67,6 +72,7 @@
 							<div class="details">
                                 <?php
                                        $res5 = mysqli_query($link, "select * from std_registration where username='$_SESSION[student]' ");
+                                       $res6 = mysqli_query($link, "select * from student where student_number='$_SESSION[student]' ");
                                        while($row5 = mysqli_fetch_array($res5)){
                                            $regno      = $row5['regno'];
 										   $username  = $row5['username'];
@@ -79,6 +85,19 @@
                                            $address     = $row5['address'];
                                            $utype     = $row5['utype'];
                                        }
+
+                                       while($row6 = mysqli_fetch_array($res6)){
+                                        $regno      = $row6['student_number'];
+                                        $username  = $row6['first_name'];
+                                        $name      = $row6['last_name'];
+                                        $sem      = $row6['semester'];
+                                        $session      = $row6['session'];
+                                        $dept      = $row6['dept'];
+                                        $email     = $row6['email'];
+                                        $phone     = $row6['phone']; 
+                                        $address     = $row6['address'];
+                                        $utype     = $row6['utype'];
+                                    }
                                     ?>
                                 <form method="post">
                                     <div class="form-group details-control">

@@ -12,36 +12,35 @@
     include 'inc/connection.php';
     mysqli_query($link,"update request_books set read1='yes'");
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">requested books</span>
-						</div>
-					</div>
-				</div>
-				<div class="issued-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="rbook-info status">
-								<table id="dtBasicExample" class="table  table-striped table-dark text-center">
-									<thead>
+
+<main class="content px-3 py-2">
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Student Information  
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
+          
+            <div class="card border-0">
+                 
+                        <div class="card-body">
+                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+							<thead>
 										<tr>
-											<th>Name</th>
-											<th>Username</th>
-											<th>User Type</th>								
-											<th>Email</th>
-											<th>Book Name</th>
-											<th>Book Url</th>										
+											<th scope="col" >Name</th>
+											<th scope="col">Username</th>
+											<th scope="col">User Type</th>								
+											<th scope="col">Email</th>
+											<th scope="col">Book Name</th>
+											<th scope="col">Book Url</th>										
 										</tr>
 									</thead>
 									<tbody>
@@ -62,20 +61,33 @@
                                         }
                                     ?>
                                     </tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-	</div>
- <?php 
-	include 'inc/footer.php';
- ?>
+                           
+                                
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+                
+            
+            </main>
+
+        
+
+            </div>
+            
+    </div>
+	
+
    <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            $('#dtBasicExample').DataTable({
+				// dom: '<html5buttons"B>1Tfgitp',
+                // buttons:['copy','csv','excel','pdf', 'print'],
+                "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
+			});
+			
+       
         });
     </script>

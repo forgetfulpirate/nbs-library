@@ -41,7 +41,7 @@
                     <h4>User Login Form</h4>
 					<form action="" method="post">
 						<div class="mb-20">
-							<input type="text" name="username" class="form-control" placeholder="Username" required=""/>
+							<input type="text" name="student_number" class="form-control" placeholder="Student number" required=""/>
 						</div>
 						<div class="mb-20">
 							<input type="password" name="password" class="form-control" placeholder="Password" required=""/>
@@ -62,7 +62,8 @@
                 <?php 
                     if (isset($_POST["login"])) {
                         $count=0;
-                        $res= mysqli_query($link, "select * from std_registration where username='$_POST[username]' && password= '$_POST[password]' && status='yes' && verified='yes' ");
+                        $res= mysqli_query($link, "select * from student where student_number='$_POST[student_number]' && password= '$_POST[password]' && status='yes' && verified='yes' ");
+                        $res1= mysqli_query($link, "select * from std_registration where username='$_POST[student_number]' && password= '$_POST[password]' && status='yes' && verified='yes' ");
                         $count = mysqli_num_rows($res);
                         if ($count==0) {
                             ?>
@@ -72,7 +73,28 @@
                             <?php
                         }
                         else{
-                            $_SESSION["student"] = $_POST["username"];
+                            $_SESSION["student"] = $_POST["student_number"];
+                    
+                       
+                            ?>
+                            <script type="text/javascript">
+                                window.location="my-issued-books.php";
+                            </script>
+                            <?php  
+                        }
+
+                        $count1 = mysqli_num_rows($res1);
+                        if ($count1==0) {
+                            ?>
+                                <div class="alert alert-warning">
+                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                                </div>
+                            <?php
+                        }
+                        else{
+                            $_SESSION["student"] = $_POST["student_number"];
+                    
+                       
                             ?>
                             <script type="text/javascript">
                                 window.location="my-issued-books.php";

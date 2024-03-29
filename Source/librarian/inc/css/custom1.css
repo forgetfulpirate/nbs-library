@@ -11,6 +11,7 @@ body {
     font-size: 0.875rem;
     opacity: 1;
     overflow-y: scroll;
+    
     margin: 0;
 }
 
@@ -20,9 +21,24 @@ a {
     font-family: 'Poppins', sans-serif;
 }
 
+.sidebar-item.active .sidebar-link {
+    background-color: #04AA6D; /* Change this to your desired hover color */
+    color: #fff; /* Change this to your desired text color */
+}
+
+
+
+
+
+
+
+
 #edit:hover{
     background-color: #666769;
  
+}
+.card-body{
+    overflow-x: scroll;
 }
 
 #edit{
@@ -33,6 +49,70 @@ a {
     background-color: #666769;
  
 }
+#notif{
+    color: red;
+  
+}
+
+.dt-buttons {
+  float:right;
+  font-size: medium;
+  
+  
+}
+.table.dataTable td.dt-type-numeric{
+    text-align: center;
+}
+
+table.dataTable thead th{
+    text-align: center;
+}
+
+
+
+
+
+.dt-length{
+    text-align: left;
+    float: inline-start;
+    margin-bottom: 20px;
+   
+}
+
+.dt-search{
+    text-align: center;
+}
+
+.dt-info{
+    text-align: center;
+    
+}
+
+.sidebar-link:hover {
+    border-right:  1px;
+   background-color: #04AA6D;
+   border: 5px;
+
+}
+
+.h-100{
+    background-color: #666769;
+    
+}
+
+.sidebar-logo{
+    background-color: #d52033;
+}
+
+.dropdown-item:hover{
+    background-color: #04AA6D;
+}
+
+
+
+
+
+
 
 
 
@@ -87,6 +167,7 @@ h4 {
     background: var(--bs-dark);
     transition: all 0.35s ease-in-out;
     overflow-y: scroll;
+    
 }
 
 .main {
@@ -268,3 +349,5 @@ html[data-bs-theme="dark"] .theme-toggle .fa-moon {
 html[data-bs-theme="light"] .theme-toggle .fa-sun {
     display: none;
 }
+
+

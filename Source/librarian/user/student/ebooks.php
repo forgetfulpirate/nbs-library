@@ -58,7 +58,7 @@
                             
                                  echo "</td>";
 
-                                 if ($i>=4) {
+                                 if ($i>=6) {
                                      echo "</tr>";
                                      echo "<tr>";
                                      $i=0;
@@ -105,6 +105,6 @@
  <script>
     $(document).ready(function () {
     $('#dtBasicExample').DataTable();
-    $('.dataTables_length').addClass('bs-select');
+
     });
   </script>

@@ -7,6 +7,7 @@
             </script>
         <?php
     }
+    $page = 'sissue';
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m/d/Y", strtotime("+30 days"));
@@ -36,16 +37,16 @@
 									<table class="table">
 										<tr>
 											<td class="">
-												<select name="reg" id="" class="form-control">
+                                                <input type="text" name="reg" class="form-control">
 													 <?php 
                                                         $res= mysqli_query($link, "select regno from std_registration");
                                                         while($row=mysqli_fetch_array($res)){
-                                                            echo "<option>";
-                                                            echo $row["regno"];
-                                                            echo "</option>";
+                                                          
+                                                            
+                                                           
                                                         }
                                                     ?>
-												</select>
+											
 											</td>
 											<td>
 												<input type="submit" class="btn btn-info" value="select" name="submit1">

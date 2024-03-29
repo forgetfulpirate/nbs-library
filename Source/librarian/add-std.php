@@ -7,10 +7,10 @@
             </script>
         <?php
     }
-    $page = 'a-std';
+ 
     include 'inc/header.php';
     include 'inc/connection.php';
-    include 'inc/function.php';
+    include 'inc/sfunction.php';
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -41,24 +41,41 @@
                         <?php endif ?>
                         <h4 style="text-align: center; margin-bottom: 25px;">Student registration form</h4>
                         <form action="" class="form-inline" method="post">
+
                             <div class="form-group">
-                                <label for="name" class="text-right">Name <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Your Name" name="name" required=""/>
+                                <label for="student_number" class="text-right">Student Number <span>*</span></label>
+                                <input type="text" class="form-control custom" placeholder="Student Number" name="student_number" required=""/>
                             </div>
-                            <div class="form-group">
-                                <label for="username">Username <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Username" name="username" required="" />
-                            </div>
-                            <?php if(isset($error_ua)):?>
-                                <span class="error" style="color:red"> <?php echo $error_ua; ?></span>
-                            <?php endif ?>
                             <?php if(isset($error_uname)):?>
                                 <span class="error"> <?php echo $error_uname; ?></span>
                             <?php endif ?>
+
+                           
+
+                            <div class="form-group">
+                                <label for="first_name" class="text-right">First name <span>*</span></label>
+                                <input type="text" class="form-control custom" placeholder="First name" name="first_name" required=""/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last_name" class="text-right">Last name <span>*</span></label>
+                                <input type="text" class="form-control custom" placeholder="Last name" name="last_name" required=""/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="middle_name" class="text-right">Middle name <span>*</span></label>
+                                <input type="text" class="form-control custom" placeholder="Middle name" name="middle_name" required=""/>
+                            </div>
+  
+                     
                             <div class="form-group">
                                 <label for="password">Password <span>*</span></label>
                                 <input type="password" class="form-control custom" placeholder="Password" name="password" required=""/>
                             </div>
+                            <?php if(isset($error_ua)):?>
+                                <span class="error" style="color:red"> <?php echo $error_ua; ?></span>
+                            <?php endif ?>
+
                             <div class="form-group">
                                 <label for="email">Email <span>*</span></label>
                                 <input type="text" class="form-control custom" placeholder="Email" name="email" required=""/>
@@ -69,17 +86,22 @@
                             <?php if(isset($error_email)):?>
                                 <span class="error" style="color:red"><?php echo $error_email; ?> </span>
                             <?php endif ?>
+
                             <div class="form-group">
-                                <label for="phone">Phone No <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Phone No" name="phone" required=""/>
+                                <label for="year">Year <span>*</span></label>
+                                <select class="form-control custom" name="year" required="">
+                                    <option>1st year</option>
+                                    <option>2nd year</option>
+                                    <option>3rd year</option>
+                                    <option>4th year</option>
+                            
+                                </select>
                             </div>
-                            <?php if(isset($error_phone)):?>
-                                <span class="error"><?php echo $error_phone; ?></span>
-                            <?php endif ?>
+
                             <div class="form-group">
-                                <label for="sem">Select Semester <span>*</span></label>
-                                <select class="form-control custom" name="sem" required="">
-                                    <option>1th</option>
+                                <label for="semester">Select Semester <span>*</span></label>
+                                <select class="form-control custom" name="semester" required="">
+                                    <option>1st</option>
                                     <option>2nd</option>
                                     <option>3rd</option>
                                     <option>4th</option>
@@ -89,31 +111,20 @@
                                     <option>8th</option>
                                 </select>
                             </div>
+
                             <div class="form-group">
-                                <label for="dept">Department <span>*</span></label>
-                                <select class="form-control custom" name="dept" required="">
+                                <label for="course">Course <span>*</span></label>
+                                <select class="form-control custom" name="course" required="">
                                     <option>BSCS</option>
                                     <option>BSA</option>
                                     <option>BSTM</option>
                                     <option>BSAIS</option>
-                                    <option>Others</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="session">Session <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="14/15" name="session" required=""/>
-                            </div>
-                            <div class="form-group">
-                                <label for="regno">Registration No <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Registration No" name="regno" required=""/>
-                            </div>
-                            <?php if(isset($error_reg)):?>
-                                <span class="error"><?php echo $error_reg; ?></span>
-                            <?php endif ?>
-                            <div class="form-group">
-                                <label for="address">Address <span>*</span></label>
-                                <textarea name="address" id="address"  class="form-control custom" placeholder="Your address" required=""></textarea>
-                            </div>
+
+                       
+                   
+                         
                             <div class="submit">
                                 <input type="submit" value="Add Student" name="submit" class="btn change text-center">
                             </div>
@@ -126,7 +137,4 @@
 		</div>
 	</div>
 
-    <div class="gap-"></div>
-	<?php 
-		include 'inc/footer.php';
-	 ?>
+ 

@@ -30,14 +30,46 @@ include 'inc/connection.php';
 					<div class="profile-pic">
 						<?php
                             $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+						
                             while ($row = mysqli_fetch_array($res)){
                                 ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong" class="rounded-circle"></a> <?php
+                            }
+
+							$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+
+							while ($row1 = mysqli_fetch_array($res1)){
+                                ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"> </a> <?php
                             }
                         ?>
 					</div>
 					<div class="profile-info text-center">
 						<span>Welcome!</span>
-						<h2><?php echo $_SESSION["student"]; ?></h2>
+
+						<?php
+					
+							 $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+							 while ($row = mysqli_fetch_array($res)){
+								 ?><h2><?php echo $row["username"]; ?></h2><?php
+							 }
+						?>
+		
+
+						<?php
+					
+							 $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+							
+							 while ($row = mysqli_fetch_array($res1)){
+								 ?><h2><?php echo $row["first_name"]; ?></h2><?php
+							 }
+						?>
+
+						
+						
+					
+				
+			
+						
+					
 					</div>
 				</div>
 				<div class="gap-30"></div>
@@ -86,16 +118,24 @@ include 'inc/connection.php';
 							<li class="dropdown">
 								 <?php
                                      $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+									 $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
                                      while ($row = mysqli_fetch_array($res)){
                                          ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
                                      }
+									 while ($row = mysqli_fetch_array($res1)){
+										?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
+									}
                                 ?>
 								<ul class="dropdown-menu">
 									<li class="user-header text-center">
 										<?php
                                             $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+											$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
                                             while ($row = mysqli_fetch_array($res)){
                                                 ?><img src="<?php echo $row["photo"]; ?>" alt=""> <?php
+                                            }
+											while ($row = mysqli_fetch_array($res1)){
+                                                ?><img src="<?php echo $row["photo"]; ?>" alt=""><?php
                                             }
                                         ?>
 										<p><?php echo $_SESSION["student"]; ?> - Student</p>
