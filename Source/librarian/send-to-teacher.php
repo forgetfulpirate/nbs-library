@@ -7,6 +7,7 @@
             </script>
         <?php
     }
+	$page = 's-tch';
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>

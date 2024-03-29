@@ -32,8 +32,6 @@
           
             <div class="card border-0">
                 
-                
-                  
                  
                         <div class="card-body">
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">

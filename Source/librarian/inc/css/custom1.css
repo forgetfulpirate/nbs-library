@@ -11,7 +11,7 @@ body {
     font-size: 0.875rem;
     opacity: 1;
     overflow-y: scroll;
-
+    
     margin: 0;
 }
 
@@ -97,6 +97,7 @@ table.dataTable thead th{
 
 .h-100{
     background-color: #666769;
+    
 }
 
 .sidebar-logo{
@@ -166,6 +167,7 @@ h4 {
     background: var(--bs-dark);
     transition: all 0.35s ease-in-out;
     overflow-y: scroll;
+    
 }
 
 .main {

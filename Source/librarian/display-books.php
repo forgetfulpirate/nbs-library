@@ -8,7 +8,7 @@
             </script>
         <?php
     }
-    $page = 'tbook';
+    $page = 't-book';
     include 'inc/connection.php';
     include 'inc/header.php';
 

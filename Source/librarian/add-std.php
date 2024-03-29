@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page = '';
+ 
     include 'inc/header.php';
     include 'inc/connection.php';
     include 'inc/sfunction.php';

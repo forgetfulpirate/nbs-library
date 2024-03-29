@@ -7,6 +7,7 @@
             </script>
         <?php
     }
+    $page = 'a-std';
     include 'inc/header.php';
     include 'inc/connection.php';
     include 'inc/function.php';
