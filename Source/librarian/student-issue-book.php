@@ -88,32 +88,32 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" disabled> 
+                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>"> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>" disabled> 
+                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>" > 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>" disabled> 
+                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>" > 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>" disabled> 
+                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>" > 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>" disabled> 
+                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>"> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="mail"  value="<?php echo $email; ?>" disabled> 
+                                               <input type="text" class="form-control" name="email"  value="<?php echo $email; ?>"> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -153,7 +153,7 @@
                                     </table>
                                   <?php
                                 }
-
+                              
                             ?>
                                 </form>
                                 <?php
@@ -171,14 +171,14 @@
                                           <?php  
                                        }
                                        else{
-                                          mysqli_query($link, "insert into issue_book values('','$_SESSION[utype]','$_SESSION[regno]','$_POST[name]','$_POST[sem]','$_POST[session]','$_POST[dept]','$_POST[phone]','$_POST[mail]','$_POST[booksname]','$_POST[booksissuedate]','$_POST[booksreturndate]','$_SESSION[susername]')");
+                                          mysqli_query($link, "insert into issue_book values('','$_SESSION[utype]','$_SESSION[regno]','$_POST[name]','$_POST[sem]','$_POST[session]','$_POST[dept]','$_POST[phone]','$_POST[email]','$_POST[booksname]','$_POST[booksissuedate]','$_POST[booksreturndate]','$_SESSION[susername]')");
                                           mysqli_query($link, "update add_book set books_availability=books_availability-1 where books_name='$_POST[booksname]'");
                                           ?>
-                                              <script type="text/javascript">
-                                                  alert("books issued successfully");
-                                                  window.location.href=window.location.href;
-                                              </script>
-                                        <?php
+                                           <br>
+                                            <div class="alert alert-success col-lg-6 col-lg-push-3">
+                                            <strong style="">Book issued successfully</strong>
+                                            </div>
+                                          <?php  
                                         }
                                     }
                                  ?>
