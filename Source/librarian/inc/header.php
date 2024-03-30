@@ -126,6 +126,9 @@
                             <li class="sidebar-item <?php if($page=='sissue'){ echo 'active';} ?>">
                                 <a href="student-issue-book.php" class="sidebar-link">Student issue book</a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="std-issue-book.php" class="sidebar-link">issue book</a>
+                            </li>
                             <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
                             </li>
@@ -213,8 +216,10 @@
                 </ul>
                 
             </div>
+            
           
         </aside>
+        
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom">
                 <button class="btn" id="sidebar-toggle" type="button">
@@ -248,6 +253,7 @@
                         
                     </ul>
                 </div>
+                
             </nav>
             
       
@@ -284,6 +290,9 @@
                     </div>
                 </div>
             </footer> -->
+                              
+            
+        
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="inc/js/custom1.js"></script>

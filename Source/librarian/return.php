@@ -6,7 +6,9 @@
     // Fetch data from issue_book table
     $res3 = mysqli_query($link, "select * from issue_book where id=$id");
     while($row3=mysqli_fetch_array($res3)){
-        $username = $row3["username"];
+
+        $name = $row3["name"];
+		$username = $row3["username"];
         $utype = $row3["utype"];
         $email = $row3["email"];
         $booksname = $row3["booksname"];
@@ -23,6 +25,8 @@
         $brdate = $row4["booksreturndate"];
     }
 
+
+
     // Calculate fine for overdue books
     $datetime1 = strtotime($a);
     $datetime2 = strtotime($brdate);
@@ -32,9 +36,9 @@
 
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$username','$utype','$email','$booksname','$fine')");
+        mysqli_query($link, "insert into finezone values('','$name','$username','$utype','$email','$booksname','$fine')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$username','$utype','$email','$booksname','0')");
+        mysqli_query($link, "insert into finezone values('','$name','$username','$utype','$email','$booksname','0')");
     }
 
     // Update return date in t_issuebook and issue_book tables
@@ -53,7 +57,9 @@
     }
 
     // Update book availability in add_book table
+	mysqli_query($link, "update book set books_availability=books_availability+1 where title_of_book='$books_name'");
     mysqli_query($link, "update add_book set books_availability=books_availability+1 where books_name='$books_name'");
+
 
     // Delete entry from issue_book table
     mysqli_query($link, "DELETE FROM issue_book WHERE id=$id");
