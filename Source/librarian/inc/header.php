@@ -233,7 +233,7 @@
 								<?php
                                      $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
                                      while ($row = mysqli_fetch_array($res)){
-                                         ?><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0"><img src="<?php echo $row["photo"]; ?>" alt=""class="avatar img-fluid rounded"> <span style="color:#248fc5"><?php echo $_SESSION["username"]; ?></span></a> <?php
+                                         ?><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0" style="color: inherit;"><img src="<?php echo $row["photo"]; ?>" alt=""class="avatar img-fluid rounded"> <span><?php echo $_SESSION["username"]; ?></span></a> <?php
                                      }
                                 ?>
 								
