@@ -117,12 +117,12 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksissuedate" placeholder="Books issue date" value="<?php echo date("m/d/Y"); ?>"> 
+                                               <input type="date" class="form-control" name="booksissuedate"  value="<?php echo date("Y-m-d"); ?>" readonly> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksreturndate"  value="<?php echo $rdate; ?>"> 
+                                            <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+30 days')); ?>">
                                             </td>
                                         </tr>
                                         <tr>
@@ -159,11 +159,11 @@
                                           mysqli_query($link, "update add_book set books_availability=books_availability-1 where books_name='$_POST[booksname]'");
 
                                           ?>
-                                              <script type="text/javascript">
-                                                  alert("books issued successfully");
-                                                  window.location.href=window.location.href;
-                                              </script>
-                                        <?php
+                                          <br>
+                                           <div class="alert alert-success col-lg-6 col-lg-push-3">
+                                           <strong style="">Book issued successfully</strong>
+                                           </div>
+                                         <?php  
                                         }
                                     }
                                     ?>

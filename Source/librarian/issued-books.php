@@ -67,8 +67,8 @@
                                               
                                                    ?>
                                                         <ul>
-                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a style="color: red;"href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                      <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                     <?php 
                                                     echo "</td>";
@@ -89,8 +89,9 @@
                                                     echo "<td>";
                                                    ?>
                                                         <ul>
-                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
+                                                        </ul> 
                                                         </ul> 
                                                     <?php 
                                                     
@@ -105,9 +106,14 @@
                             </table>
                         </div>
                     </div>
+                    
                 </div>
                 
                 </div>
+
+                
+
+                
                 
             
             </main>

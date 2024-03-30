@@ -19,6 +19,8 @@ a {
     cursor: pointer;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+  
+  
 }
 
 .sidebar-item.active .sidebar-link {

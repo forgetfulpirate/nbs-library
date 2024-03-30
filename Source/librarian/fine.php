@@ -39,6 +39,7 @@
                                                 <th>User Type</th>
                                                 <th>Email</th>
                                                 <th>Books Name</th>
+                                                
                                                 <th>Amount</th>
                                                 <th>Action</th>
                                             </tr>

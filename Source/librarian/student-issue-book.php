@@ -10,7 +10,7 @@
     $page = 'sissue';
     include 'inc/header.php';
     include 'inc/connection.php';
-    $rdate = date("m/d/Y", strtotime("+30 days"));
+    $rdate = date("m-d-Y", strtotime("+30 days"));
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -35,27 +35,27 @@
 							<div class="issue-wrapper">
 								<form action="" class="form-control" method="post" name="reg">
                                 <table class="table">
-    <tr>
-        <td class="">
-            <select name="reg" class="form-control">
-                <?php 
-                // Assuming $link is your database connection
-                $res = mysqli_query($link, "SELECT regno FROM std_registration");
-                if (mysqli_num_rows($res) > 0) {
-                    while ($row = mysqli_fetch_array($res)) {
-                        echo "<option value='" . $row['regno'] . "'>" . $row['regno'] . "</option>";
-                    }
-                } else {
-                    echo "<option value=''>No registration numbers found</option>";
-                }
-                ?>
-            </select>
-        </td>
-        <td>
-            <input type="submit" class="btn btn-info" value="select" name="submit1">
-        </td>
-    </tr>
-</table>
+                                    <tr>
+                                        <td class="">
+                                            <select name="reg" class="form-control">
+                                                <?php 
+                                                // Assuming $link is your database connection
+                                                $res = mysqli_query($link, "SELECT regno FROM std_registration");
+                                                if (mysqli_num_rows($res) > 0) {
+                                                    while ($row = mysqli_fetch_array($res)) {
+                                                        echo "<option value='" . $row['regno'] . "'>" . $row['regno'] . "</option>";
+                                                    }
+                                                } else {
+                                                    echo "<option value=''>No registration numbers found</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="submit" class="btn btn-info" value="select" name="submit1">
+                                        </td>
+                                    </tr>
+                                </table>
 
                                     <?php 
                                     if (isset($_POST["submit1"])) {
@@ -88,32 +88,32 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>"> 
+                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" readonly> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>" > 
+                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>" readonly> 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>" > 
+                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>"  readonly> 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>" > 
+                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>"  readonly> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>"> 
+                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>" readonly> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="email"  value="<?php echo $email; ?>"> 
+                                               <input type="text" class="form-control" name="email"  value="<?php echo $email; ?>" > 
                                             </td>
                                         </tr>
                                         <tr>
@@ -132,12 +132,12 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksissuedate"  value="<?php echo date("m/d/Y"); ?>"> 
+                                               <input type="date" class="form-control" name="booksissuedate"  value="<?php echo date("Y-m-d"); ?>" readonly> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="booksreturndate"  value="<?php echo $rdate; ?>"> 
+                                            <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+30 days')); ?>">
                                             </td>
                                         </tr>
                                         <tr>
