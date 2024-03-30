@@ -1,137 +1,68 @@
 <?php 
-		 session_start();
-		if (!isset($_SESSION["username"])) {
-            ?>
-                <script type="text/javascript">
-                    window.location="login.php";
-                </script>
-            <?php
-        }
-        $page = 'e-book';
-        include 'inc/header.php';
-        include 'inc/connection.php';
-	 ?>
+    session_start();
+    if (!isset($_SESSION["username"])) {
+        header("Location: login.php");
+        exit();
+    }
+
+    $page = 'e-book';
+    include 'inc/header.php';
+    include 'inc/connection.php';
+?>
 			
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					  <div class="gap-30"></div>
-                <div class="container-fluid">
-				<div class="mb-3">
-          
-                        <h4>Add E-Book  
-                        <p id="time"></p>
-                          
-                            <p id="date"></p>
-                        </h4>
-                           
-             
-                 </div>
+<!--dashboard area-->
+<div class="dashboard-content">
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="row">
+                <div class="mb-3">
+                    <h4>Add E-Book</h4>
+                </div>
             </div>
-            <br>
-				
-				<div class="bstore">
-					<form action="" method="post" enctype="multipart/form-data">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td>
-                                    Accession Number
-                                   <input type="text" class="form-control" name="accession_number" placeholder="Accession Number" required=""> 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    E-Book image
-                                    <input type="file" class="form-control" name="f1" required="">
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td>
-                                    Program
-                                   <input type="text" class="form-control" name="program" placeholder="Program" required=""> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>
-                                    Title
-                                   <input type="text" class="form-control" name="title" placeholder="title" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Author
-                                   <input type="text" class="form-control" name="author" placeholder="Author" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Place of Publication
-                                   <input type="text" class="form-control" name="place_of_publication" placeholder=" Place of Publication" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    ISBN
-                                   <input type="text" class="form-control" name="ISBN" placeholder="ISBN" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Copyright
-                                   <input type="text" class="form-control" name="copyright" placeholder="Copyright" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Publisher
-                                   <input type="text" class="form-control" name="publisher" placeholder="Publisher" required=""> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Link
-                                   <input type="text" class="form-control" name="link" placeholder="Link" required=""> 
-                                </td>
-                            </tr>
-                        </table>
-                        <div class="submit mt-20">
-                        	<input type="submit" name="submit" class="btn btn-info submit" value="Add Book">
+            <div class="bstore">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <input type="text" class="form-control mb-2" name="accession_number" placeholder="Accession Number" required="">
+                            <input type="file" class="form-control mb-2" name="f1" required="">
+                            <input type="text" class="form-control mb-2" name="program" placeholder="Program" required="">
+                            <input type="text" class="form-control mb-2" name="title" placeholder="Title" required="">
+                            <input type="text" class="form-control mb-2" name="author" placeholder="Author" required="">
+                            <input type="text" class="form-control mb-2" name="place_of_publication" placeholder="Place of Publication" required="">
+                            <input type="text" class="form-control mb-2" name="ISBN" placeholder="ISBN" required="">
+                            <input type="text" class="form-control mb-2" name="copyright" placeholder="Copyright" required="">
+                            <input type="text" class="form-control mb-2" name="publisher" placeholder="Publisher" required="">
+                            <input type="text" class="form-control mb-2" name="link" placeholder="Link" required="">
                         </div>
-                	</form>
-                    <br>
-				</div>				
-			</div>					
-		</div>
-	</div>
+                    </div>
 
-        <?php
+                    <div class="submit mt-3">
+                        <input type="submit" name="submit" class="btn btn-info submit" value="Add Book">
+                    </div>
+                </form>
 
-            if (isset($_POST["submit"])) {
-
-                $image_name=$_FILES['f1']['name'];
-   
-                $temp = explode(".", $image_name);
-            
-                $newfilename = round(microtime(true)) . '.' . end($temp);
-
-                $imagepath="books-image/".$newfilename;
-      
-                move_uploaded_file($_FILES["f1"]["tmp_name"],$imagepath);
-    
-
-      
-                mysqli_query($link, "INSERT INTO ebook (accession_number, book_image, program, title, author, place_of_publication, ISBN, copyright, publisher, link) VALUES ('$_POST[accession_number]', '$imagepath', '$_POST[program]', '$_POST[title]', '$_POST[author]', '$_POST[place_of_publication]', '$_POST[ISBN]', '$_POST[copyright]', '$_POST[publisher]', '$_POST[link]')");
-
-            }
-        ?>
-			
+                <?php
+                    if (isset($_POST["submit"])) {
+                        $image_name = $_FILES['f1']['name'];
+                        $temp = explode(".", $image_name);
+                        $newfilename = round(microtime(true)) . '.' . end($temp);
+                        $imagepath = "books-image/" . $newfilename;
+                        
+                        if(move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath)) {
+                            $query = mysqli_query($link, "INSERT INTO ebook (accession_number, book_image, program, title, author, place_of_publication, ISBN, copyright, publisher, link) VALUES ('$_POST[accession_number]', '$imagepath', '$_POST[program]', '$_POST[title]', '$_POST[author]', '$_POST[place_of_publication]', '$_POST[ISBN]', '$_POST[copyright]', '$_POST[publisher]', '$_POST[link]')");
+                            
+                            if ($query) {
+                                echo '<div class="alert alert-success mt-3" role="alert">Book added successfully!</div>';
+                            } else {
+                                echo '<div class="alert alert-danger mt-3" role="alert">Error: Unable to add book.</div>';
+                            }
+                        } else {
+                            echo '<div class="alert alert-danger mt-3" role="alert">Error: Unable to upload book image.</div>';
+                        }
+                    }
+                ?>
+            </div>				
+        </div>					
+    </div>
+</div>

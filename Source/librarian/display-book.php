@@ -67,7 +67,7 @@
                                         $res= mysqli_query($link, "select * from book");
                                         while ($row=mysqli_fetch_array($res)) {
                                             echo "<tr>";
-                                            echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt=""> <?php echo "</td>";
+                                            echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt="no cover available"> <?php echo "</td>";
                                             echo "<td>"; echo $row["accession_number"]; echo "</td>";
                                             echo "<td>"; echo $row["date_recieved"]; echo "</td>";
                                             echo "<td>"; echo $row["call_no"]; echo "</td>";
@@ -103,14 +103,30 @@
     </div>
     
     <script>
-        $(document).ready(function () {
-            
-            $('#dtBasicExample').DataTable({
-                dom: '<html5buttons"B>1Tfgitp',
-                buttons:['copy','csv','excel','pdf', 'print'],
-                "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
-                
-            });
+    $(document).ready(function () {
+        
+        $('#dtBasicExample').DataTable({
+            dom: '<html5buttons"B>1Tfgitp',
+            buttons: [
+                {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape', // Set orientation to landscape
+                    customize: function (doc) {
+                        // Set page size and margins
+                        doc.pageOrientation = 'landscape';
+                        doc.pageSize = 'A3';
+                        doc.pageMargins = [15, 15, 15, 15];
+                    }
+                },
+                'copy',
+                'csv',
+                'excel',
+                'print'
+            ],
+            "lengthMenu": [[5, 10, 25, 50, 100, 500], [5, 10, 25, 50, 100, 500]]
             
         });
-    </script>			
+        
+    });
+</script>
+		

@@ -125,17 +125,7 @@
                 dom: '<html5buttons"B>1Tfgitp',
                 buttons:['copy','csv','excel','pdf', 'print'],
                 "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
-                
-            });
-
-          
-
-
-        
-  
-      
-         
-            
+            }); 
         });
     </script>	
 
