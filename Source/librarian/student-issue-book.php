@@ -34,25 +34,29 @@
 						<div class="col-md-6">
 							<div class="issue-wrapper">
 								<form action="" class="form-control" method="post" name="reg">
-									<table class="table">
-										<tr>
-											<td class="">
-                                                <input type="text" name="reg" class="form-control">
-													 <?php 
-                                                        $res= mysqli_query($link, "select regno from std_registration");
-                                                        while($row=mysqli_fetch_array($res)){
-                                                          
-                                                            
-                                                           
-                                                        }
-                                                    ?>
-											
-											</td>
-											<td>
-												<input type="submit" class="btn btn-info" value="select" name="submit1">
-											</td>
-										</tr>
-									</table>
+                                <table class="table">
+    <tr>
+        <td class="">
+            <select name="reg" class="form-control">
+                <?php 
+                // Assuming $link is your database connection
+                $res = mysqli_query($link, "SELECT regno FROM std_registration");
+                if (mysqli_num_rows($res) > 0) {
+                    while ($row = mysqli_fetch_array($res)) {
+                        echo "<option value='" . $row['regno'] . "'>" . $row['regno'] . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>No registration numbers found</option>";
+                }
+                ?>
+            </select>
+        </td>
+        <td>
+            <input type="submit" class="btn btn-info" value="select" name="submit1">
+        </td>
+    </tr>
+</table>
+
                                     <?php 
                                     if (isset($_POST["submit1"])) {
                                        $res5 = mysqli_query($link, "select * from std_registration where regno='$_POST[reg]' ");
@@ -84,32 +88,32 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>"> 
+                                               <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" disabled> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>"> 
+                                               <input type="text" class="form-control" name="sem" value="<?php echo $sem; ?>" disabled> 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>"> 
+                                               <input type="text" class="form-control" name="session"  value="<?php echo $session; ?>" disabled> 
                                             </td>
                                         </tr>
                                          <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>"> 
+                                               <input type="text" class="form-control" name="dept"  value="<?php echo $dept; ?>" disabled> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>"> 
+                                               <input type="text" class="form-control" name="phone"  value="<?php echo $phone; ?>" disabled> 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="mail"  value="<?php echo $email; ?>"> 
+                                               <input type="text" class="form-control" name="mail"  value="<?php echo $email; ?>" disabled> 
                                             </td>
                                         </tr>
                                         <tr>

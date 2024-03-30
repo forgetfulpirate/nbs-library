@@ -88,6 +88,9 @@ table.dataTable thead th{
     
 }
 
+.fas-fa-undo-alt{
+    text-decoration: none;
+}
 
 
 .sidebar-link:hover {
@@ -123,6 +126,8 @@ table.dataTable thead th{
     background-color: #d52033;
     border: none;
 }
+
+
 
 
 
@@ -343,6 +348,8 @@ html[data-bs-theme="light"] .theme-toggle .fa-moon {
     font-size: 1.25rem;
     color: #FFF;
 }
+
+
 
 html[data-bs-theme="dark"] .theme-toggle .fa-moon {
     display: none;

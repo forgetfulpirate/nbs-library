@@ -18,7 +18,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Student Information  
+                        <h4>Borrowed Books
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -67,8 +67,8 @@
                                               
                                                    ?>
                                                         <ul>
-                                                            <li><a style="color: #fff;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;"href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                     <?php 
                                                     echo "</td>";
@@ -89,8 +89,8 @@
                                                     echo "<td>";
                                                    ?>
                                                         <ul>
-                                                            <li><a href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                     <?php 
                                                     
