@@ -294,7 +294,7 @@
             
         
      
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="inc/js/bootstrap.bundle.min.js"></script>
     <script src="inc/js/custom1.js"></script>
     <script src="inc/js/custom.js"></script>
 	<script src="inc/js/jquery-2.2.4.min.js"></script>

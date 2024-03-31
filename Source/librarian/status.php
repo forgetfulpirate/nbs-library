@@ -9,6 +9,8 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
+
+
  ?>
 
 <main class="content px-3 py-2">
@@ -26,6 +28,7 @@
                  </div>
             </div>
             <br>
+        
           
             <div class="card border-0">
                 
@@ -59,7 +62,7 @@
                                                     echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
                                                     ?>
-                                                             <li><a href="approve.php?id=<?php echo $row["id"]; ?>">Activate</a></li>
+                                                              <a href="approve.php?id=<?php echo $row["id"];?>" class='btn btn-success btn-sm'>Activate</a>
                                                           
                                                             
                                                           
@@ -69,7 +72,7 @@
                                                     echo "</td>";
                                                     echo "<td>";
                                                     ?>
-                                                         <li><a href="notapprove.php?id=<?php echo $row["id"]; ?>">Deactivate</a></li>
+                                                         <a href="notapprove.php?id=<?php echo $row["id"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
                                                      <?php
                                                     echo "</td>";
                                                     echo "</tr>";
@@ -84,14 +87,14 @@
                                                     echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
                                                     ?>
-                                                            <li><a href="approve.php?id=<?php echo $row["id"]; ?>">Activate</a></li>
+                                                            <a href="approve.php?id=<?php echo $row["id"];?>" class='btn btn-success btn-sm'>Activate</a>
                                                            
                                                     <?php
                                                     
                                                     echo "</td>";
                                                     echo "<td>";
                                                     ?>
-                                                         <li><a href="notapprove.php?id=<?php echo $row["id"]; ?>">Deactivate</a></li>
+                                                            <a href="notapprove.php?id=<?php echo $row["id"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
                                                      <?php
                                                     echo "</td>";
                                                     echo "</tr>";

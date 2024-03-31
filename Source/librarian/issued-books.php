@@ -56,7 +56,6 @@
                                                     echo "<tr>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                                                  
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["name"]; echo "</td>";
