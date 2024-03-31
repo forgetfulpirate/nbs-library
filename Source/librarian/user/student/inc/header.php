@@ -6,154 +6,265 @@ include 'inc/connection.php';
 
 ?>
 
+<?php 
+  
+  
+    include 'inc/connection.php';
+    $not=0;
+    $res = mysqli_query($link,"select * from request_books where read1='no'");
+    $not= mysqli_num_rows($res);
+ ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
+
 <head>
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
 	<meta charset="UTF-8">
-	<title>NBS Library</title>
-	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
-	<link rel="stylesheet" href="inc/css/bootstrap-select.min.css">
-	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="inc/css/datatables.min.css">
-	<link rel="stylesheet" href="inc/css/pro1.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBS Library</title>
+
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="inc/css/custom1.css">
+    <link rel="stylesheet" href="inc/css/animate.css">
+
+
+
+
+
 
 </head>
+
 <body>
-	<div class="main-content">
-		<div class="wrapper">
-			<div class="left-sidebar">
-				<div class="p-title">
-					<h3><a href=""><i class="fas fa-book"></i><span>lms</span></a></h3>
-				</div>
-				<div class="gap-40"></div>
-				<div class="profile">
-					<div class="profile-pic">
-						<?php
-                            $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-						
-                            while ($row = mysqli_fetch_array($res)){
-                                ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong" class="rounded-circle"></a> <?php
-                            }
+    <div class="wrapper">
+    <aside id="sidebar" class="js-sidebar">
 
-							$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
-
-							while ($row1 = mysqli_fetch_array($res1)){
-                                ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"> </a> <?php
-                            }
-                        ?>
-					</div>
-					<div class="profile-info text-center">
-						<span>Welcome!</span>
-
-						<?php
-					
-							 $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-							 while ($row = mysqli_fetch_array($res)){
-								 ?><h2><?php echo $row["username"]; ?></h2><?php
-							 }
-						?>
-		
-
-						<?php
-					
-							 $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
-							
-							 while ($row = mysqli_fetch_array($res1)){
-								 ?><h2><?php echo $row["first_name"]; ?></h2><?php
-							 }
-						?>
-
-						
-						
-					
+            <!-- Content For Sidebar -->
+            <div class="h-100">
+                <div class="sidebar-logo text-center">
+                    <a href="dashboard.php">NBS LIBRARY</a>
+                </div>
 				
-			
+                <ul class="sidebar-nav">
+                    <li class="sidebar-header">
+            
+                        <span>
+                        <?php
+                          $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+						
+						  while ($row = mysqli_fetch_array($res)){
+							  ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong" class="rounded-circle"></a> <?php
+						  }
+
+						  $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+
+						  while ($row1 = mysqli_fetch_array($res1)){
+							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"> </a> <?php
+						  }
+                        ?>
+                        
+                        </span>
+
+                        <h6 style="float: right; margin-top: 10px;">
+						<?php
+					
+					$res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+					while ($row = mysqli_fetch_array($res)){
+						?><h2><?php echo $row["username"]; ?></h2><?php
+					}
+			   ?>
+
+
+			   		<?php
+		   
+					$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+				   
+					while ($row = mysqli_fetch_array($res1)){
+						?><?php echo $row["first_name"]; ?><span> <?php echo $row["last_name"]; ?></span><?php
+					}
+			   		?>
+                            
+            			</h6>
+                        
+				
 						
 					
-					</div>
-				</div>
-				<div class="gap-30"></div>
-				<div class="sidebar-menu">
-					<h3>General</h3>
-					<div class="border"></div>
-	                <ul>
-	                    <li class="menu <?php if($page=='home'){ echo 'active';} ?>">
-      						<a href="dashboard.php"><i class="fas fa-home"></i>Dashboard</a>
-    					</li>
-    				    <li class="menu menu-toggle1">
-      						<a href="#"><i class="fas fa-id-card"></i>My profile <span class="fa fa-chevron-down"></span></a>
-                            <ul class="menus1">
-                                <li><a href="changepass.php">change password</a></li>
-                                <li><a href="profile.php">profile</a></li>
-<!--                                <li><a href="notifications.php">Messages</a></li>-->
-                            </ul>
-	   					</li>
-    					<li class="menu <?php if($page=='ibook'){ echo 'active';} ?>">
-      						<a href="my-issued-books.php"><i class="fas fa-book"></i>my issued books</a>
-    					</li>
-    					<li class="menu <?php if($page=='books'){ echo 'active';} ?>">
-      						<a href="books.php"><i class="fas fa-book"></i>books</a>
-    					</li>	   
-						<li class="menu <?php if($page=='ebooks'){ echo 'active';} ?>">
-      						<a href="ebooks.php"><i class="fas fa-book"></i>E-books</a>
-    					</li>    	                    
-    					<li class="menu <?php if($page=='rbook'){ echo 'active';} ?>">
-      						<a href="request-book.php"><i class="fas fa-book"></i>request book</a>
-    					</li>	                    
-    				</ul>
-				</div>
-			</div>
-			<div class="content">
-				<div class="inner">
-					<div class="heading text-center">
-						<h3>Library Management System</h3>
-					</div>
-					<div class="header-profile text-right">
-						<ul>
-							<li class="icon">
-								<a href="notifications.php" ><i class="fas fa-bell"></i></a>
-								<span class="count" onclick="window.location='notifications.php'"><b><?php echo $not; ?></b></span>
+					
+                    </li>
+                    <br>
+                    <li class="sidebar-header">
+                        Admin Elements
+                    </li>
+                    
+                    <li class="sidebar-item <?php if($page=='home'){ echo 'active';} ?>">
+                        <a href="dashboard.php" class="sidebar-link">
+                        <i class="fa-solid fa-gauge pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
 
-							</li>
-							<li class="dropdown">
-								 <?php
-                                     $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-									 $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
-                                     while ($row = mysqli_fetch_array($res)){
-                                         ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
-                                     }
-									 while ($row = mysqli_fetch_array($res1)){
-										?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
-									}
+					<li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#manage" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                            My Profile
+                        </a>
+
+                        <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
+                                <a href="profile.php" class="sidebar-link">Profile</a>
+                            </li>
+                            <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                                <a href="changepass.php" class="sidebar-link">Change Passowrd</a>
+                            </li>
+                        
+                        
+                        </ul>
+                    </li>
+
+					<li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                        <a href="my-issued-books.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            My issue book
+                        </a>
+                    </li>
+                
+                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                        <a href="books.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            Books
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
+                                <a href="ebooks.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    E-Book
+                                </a>
+                    </li>
+<!-- 
+                    <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
+                                <a href="display-thesis.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display Theses
+                                </a>
+                    </li> -->
+            
+                    <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
+                        <a href="request-book.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            Request Book
+                        </a>
+                    </li>
+
+                
+                </ul>
+                
+            </div>
+            
+        </aside>
+        
+        
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <button class="btn" id="sidebar-toggle" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+			
+                <div class="navbar-collapse navbar">
+                        <ul class="navbar-nav" style="margin-right:10px;">
+                        <li class="icon">
+                                <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
+                                <span class="count" onclick="window.location='requested-books.php'"><b id="notif" ><?php echo $not; ?></b></span>
+                        </li>
+                        </ul>
+                        
+                        <li class="nav-item dropdown">
+								<?php
+                                      $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+									  $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+									  while ($row = mysqli_fetch_array($res)){
+										  ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
+									  }
+									  while ($row = mysqli_fetch_array($res1)){
+										 ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span><?php echo $row["first_name"]; ?></span></a> <?php
+									 }
                                 ?>
-								<ul class="dropdown-menu">
-									<li class="user-header text-center">
-										<?php
-                                            $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-											$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
-                                            while ($row = mysqli_fetch_array($res)){
-                                                ?><img src="<?php echo $row["photo"]; ?>" alt=""> <?php
-                                            }
-											while ($row = mysqli_fetch_array($res1)){
-                                                ?><img src="<?php echo $row["photo"]; ?>" alt=""><?php
-                                            }
-                                        ?>
-										<p><?php echo $_SESSION["student"]; ?> - Student</p>
-									</li>
-									<li class="user-footer">
-										<ul>
-											<li>
-												<a href="profile.php">profile</a>
-											</li>
-											<li>
-												<a href="logout.php">logout</a>
-											</li>
-										</ul>
-									</li>														
-								</ul>
-							</li>
-						</ul>
-					</div>															
-				</div>
+								
+                         
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="profile.php" class="dropdown-item">Profile</a>
+                
+                                <a href="logout.php" class="dropdown-item">Logout</a>
+                                <a href="changepass.php" class="dropdown-item">Change Password</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </nav>
+            
+      
+            <a href="#" class="theme-toggle">
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+            </a>
+            <!-- <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-start">
+                            <p class="mb-0">
+                                <a href="#" class="text-muted">
+                                    <strong>CodzSwod</strong>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#" class="text-muted">Contact</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="text-muted">About Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="text-muted">Terms</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="text-muted">Booking</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer> -->
+                              
+            
+        
+     
+    <script src="inc/js/bootstrap.bundle.min.js"></script>
+    <script src="inc/js/custom1.js"></script>
+    <script src="inc/js/custom.js"></script>
+	<script src="inc/js/jquery-2.2.4.min.js"></script>
+	<script src="inc/js/bootstrap.min.js"></script>
+	<script src="inc/js/bootstrap-select.min.js"></script>
+	<script src="inc/js/waypoints.min.js"></script>
+	<script src="inc/js/jquery.counterup.min.js"></script>
+	<script src="inc/js/datatables.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
+
+    
+</body>
+
+</html>
+
+
+

@@ -45,9 +45,9 @@
                     <?php
                         if (isset($_POST["submit1"])) {
                             $i=0;
-                            $res = mysqli_query($link,"select * from ebook where author like('$_POST[search]%')");
+                            $res1 = mysqli_query($link,"select * from ebook where author like('$_POST[search]%')");
                             $res = mysqli_query($link,"select * from ebook where accession_number like('$_POST[search]%')");
-                            $res = mysqli_query($link,"select * from ebook where title like('$_POST[search]%')");
+                            $res2 = mysqli_query($link,"select * from ebook where title like('$_POST[search]%')");
                             echo "<table class='table control-books'>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($res)){
@@ -56,7 +56,8 @@
                                 
                                  echo "</br>";
                                  echo "</br>";
-                                 echo "<img src=>";
+                                 echo "<img src='$row[book_image]'  height='200' width='150'>";
+                                 echo "<br>";
                                  echo "<b>".$row["author"]; "</b>";
                                  echo "<br>";
                                  echo "<b>".$row["title"]; "</b>";
@@ -71,22 +72,66 @@
                                  }
 
                         }
+                        while ($row = mysqli_fetch_array($res1)){
+                            $i=$i+1;
+                            echo "<td>";
+                           
+                            echo "</br>";
+                            echo "</br>";
+                            echo "<img src='$row[book_image]'  height='200' width='150'>";
+                            echo "<br>";
+                            echo "<b>".$row["author"]; "</b>";
+                            echo "<br>";
+                            echo "<b>".$row["title"]; "</b>";
+                            echo "</br>";
+                       
+                            echo "</td>";
+
+                            if ($i>=1) {
+                                echo "</tr>";
+                                echo "<tr>";
+                                $i=0;
+                            }
+
+                   }
+                   while ($row = mysqli_fetch_array($res2)){
+                    $i=$i+1;
+                    echo "<td>";
+                   
+                    echo "</br>";
+                    echo "</br>";
+                    echo "<img src='$row[book_image]'  height='200' width='150'>";
+                    echo "<br>";
+                    echo "<b>".$row["author"]; "</b>";
+                    echo "<br>";
+                    echo "<b>".$row["title"]; "</b>";
+                    echo "</br>";
+               
+                    echo "</td>";
+
+                    if ($i>=1) {
+                        echo "</tr>";
+                        echo "<tr>";
+                        $i=0;
+                    }
+
+                 }
                         echo "</tr>";
                         echo "</table>";
                         }
                         else{
                             $i=0;
                             $res = mysqli_query($link,"select * from ebook");
-                            echo "<table id='dtBasicExample' class='table control-books'>";
+                            echo "<table  class='table control-books'>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($res)){
                                  $i=$i+1;
                                
                                    echo "<td>";
-                                
-                                 echo "</br>";
-                                 echo "</br>";
-                                 echo "<img src=>";
+                        
+                              
+                                 echo "<img src='$row[book_image]'  height='200' width='150'>";
+                                 echo "<br>";
                                  echo "<b>".$row["author"]; "</b>";
                                  echo "<br>";
                                  echo "<b>".$row["title"]; "</b>";
@@ -111,11 +156,8 @@
 	</div>
 	
  <script>
-    $(document).ready(function () {
-    $('#dtBasicExample').DataTable({
-            "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
-            "paging": true
-        });
+      $(document).ready(function () {
+    $('#dtBasicExample').DataTable();
 
     });
   </script>

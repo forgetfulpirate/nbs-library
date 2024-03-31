@@ -1,16 +1,16 @@
-<?php
+<?php 
     session_start();
     include 'inc/connection.php';
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
-    <link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="inc/css/pro1.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Library Management System</title>
+	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
+	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="inc/css/pro1.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <style>
         .login{
             background-image: url(inc/img/3.jpg);
@@ -28,69 +28,91 @@
     </style>
 </head>
 <body>
-<div class="login registration">
-    <div class="wrapper">
-        <div class="reg-header text-center">
-            <h2>Library management system</h2>
-            <div class="gap-40"></div>
-        </div>
-        <div class="gap-30"></div>
-        <div class="login-content">
-            <div class="login-body">
-                <h4>User Login Form</h4>
-                <form action="" method="post">
-                    <div class="mb-20">
-                        <input type="text" name="username" class="form-control" placeholder="Username" required=""/>
-                    </div>
-                    <div class="mb-20">
-                        <input type="password" name="password" class="form-control" placeholder="Password" required=""/>
-                    </div>
-                    <div class="mb-20">
-                        <input class="btn btn-info submit" type="submit" name="login" value="Login">
-                        <a class="reset_pass" href="changepass.php">Lost your password?</a>
-                    </div>
-                </form>
-            </div>
-            <div class="login-footer text-center">
-                <div class="separator">
-                    <p class="change_link">New to site?
-                        <a href="registration.php" class="text-right"> Create Account </a>
-                    </p>
-                </div>
-            </div>
-            <?php
-            if (isset($_POST["login"])) {
-                $count=0;
-                $res= mysqli_query($link, "select * from std_registration where username='$_POST[username]' && password= '$_POST[password]' && status='yes'");
-                $count = mysqli_num_rows($res);
+	
+	<div class="login registration">
+		<div class="wrapper">
+			<div class="reg-header text-center">
+				<h2>Library management system</h2>
+                <div class="gap-40"></div>
+			</div>
+			<div class="gap-30"></div>
+			<div class="login-content">
+				<div class="login-body">
+                    <h4>User Login Form</h4>
+					<form action="" method="post">
+						<div class="mb-20">
+							<input type="text" name="student_number" class="form-control" placeholder="Student number" required=""/>
+						</div>
+						<div class="mb-20">
+							<input type="password" name="password" class="form-control" placeholder="Password" required=""/>
+						</div>
+						<div class="mb-20">
+							<input class="btn btn-info submit" type="submit" name="login" value="Login">
+                            <a class="reset_pass" href="lost-password.php">Lost your password?</a>
+						</div>
+					</form>
+				</div>
+				<div class="login-footer text-center">
+					<div class="separator">
+		                <p class="change_link">New to site?
+		                    <a href="registration.php" class="text-right"> Create Account </a>
+		                </p>
+	                </div>
+				</div>
+                <?php 
+                    if (isset($_POST["login"])) {
+                        $count=0;
+                        $res= mysqli_query($link, "select * from student where student_number='$_POST[student_number]' && password= '$_POST[password]' && status='yes' && verified='yes' ");
+                        $res1= mysqli_query($link, "select * from std_registration where username='$_POST[student_number]' && password= '$_POST[password]' && status='yes' && verified='yes' ");
+                        $count = mysqli_num_rows($res);
+                        if ($count==0) {
+                            ?>
+                                <div class="alert alert-warning">
+                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                                </div>
+                            <?php
+                        }
+                        else{
+                            $_SESSION["student"] = $_POST["student_number"];
+                    
+                       
+                            ?>
+                            <script type="text/javascript">
+                                window.location="my-issued-books.php";
+                            </script>
+                            <?php  
+                        }
 
-                if ($count==0) {
-                    ?>
-                    <div class="alert alert-warning">
-                        <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
-                    </div>
-                <?php
-                }
-                else{
-                $_SESSION["student"] = $_POST["username"];
-                ?>
-                    <script type="text/javascript">
-                        window.location="my-issued-books.php";
-                    </script>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-    </div>
-</div>
+                        $count1 = mysqli_num_rows($res1);
+                        if ($count1==0) {
+                            ?>
+                                <div class="alert alert-warning">
+                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                                </div>
+                            <?php
+                        }
+                        else{
+                            $_SESSION["student"] = $_POST["student_number"];
+                    
+                       
+                            ?>
+                            <script type="text/javascript">
+                                window.location="my-issued-books.php";
+                            </script>
+                            <?php  
+                        }
+                    }
+                 ?>
+			</div>
+		</div>
+	</div>
 
     <div class="footer text-center">
-        <p>&copy; All rights reserved NBS College</p>
+        <p>&copy; NBS College</p>
     </div>
 
-    <script src="inc/js/jquery-2.2.4.min.js"></script>
-    <script src="inc/js/bootstrap.min.js"></script>
-    <script src="inc/js/custom.js"></script>
+	<script src="inc/js/jquery-2.2.4.min.js"></script>
+	<script src="inc/js/bootstrap.min.js"></script>
+	<script src="inc/js/custom.js"></script>
 </body>
 </html>

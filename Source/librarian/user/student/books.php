@@ -50,7 +50,7 @@
                             while ($row = mysqli_fetch_array($res)){
                                  $i=$i+1;
                                  echo "<td>";
-                                 ?> <a href="../<?php echo $row["books_file"]; ?>" target="_blank"><img src="../../<?php echo $row["books_image"]; ?> " alt=""></a> <?php 
+                                 echo "<img src='$row[books_image]'  height='200' width='150'>";
                                  echo "</br>";
                                  echo "</br>";
                                  echo "<b>".$row["books_name"]; "</b>";
@@ -59,7 +59,7 @@
                                  "Available: ".$row["books_availability"]; "</b>";
                                  echo "</td>";
 
-                                 if ($i>=4) {
+                                 if ($i>=6) {
                                      echo "</tr>";
                                      echo "<tr>";
                                      $i=0;
@@ -72,12 +72,12 @@
                         else{
                             $i=0;
                             $res = mysqli_query($link,"select * from add_book where books_availability>0");
-                            echo "<table id='dtBasicExample' class='table control-books'>";
+                            echo "<table id='' class='table control-books'>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($res)){
                                  $i=$i+1;
                                  echo "<td>";
-                                 ?> <a href="../../<?php echo $row["books_file"]; ?>" target="_blank"><img src="../../<?php echo $row["books_image"]; ?> " alt=""></a> <?php
+                                 echo "<img src='../../$row[books_image]'  height='200' width='150'>";
                                  echo "</br>";
                                  echo "</br>";
                                  echo "<b>".$row["books_name"]; "</b>";
