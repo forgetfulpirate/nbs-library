@@ -1,5 +1,5 @@
 <?php 
-     session_start();
+    session_start();
     if (!isset($_SESSION["student"])) {
         ?>
             <script type="text/javascript">
@@ -11,111 +11,56 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">books</span>
-						</div>
-					</div>
-				</div>
-				<div class="books">
-					<form action="" method="post" name="form1">
-						<table class="table ">
-							<tr>
-								<td>
-									<input type="text" name="search" class="form-control" placeholder="Enter book name">
-								</td>
-								<td>
-									 <input type="submit" name="submit1" class="btn btn-info" value="Search Book">
-								</td>
-                                
-							</tr>
-						</table>
-                    </form>
-                    <?php
-                        if (isset($_POST["submit1"])) {
-                            $i=0;
-                            $res = mysqli_query($link,"select * from ebook where author like('$_POST[search]%')");
-                            $res = mysqli_query($link,"select * from ebook where accession_number like('$_POST[search]%')");
-                            $res = mysqli_query($link,"select * from ebook where title like('$_POST[search]%')");
-                            echo "<table class='table control-books'>";
-                            echo "<tr>";
-                            while ($row = mysqli_fetch_array($res)){
-                                 $i=$i+1;
-                                 echo "<td>";
-                                
-                                 echo "</br>";
-                                 echo "</br>";
-                                 echo "<img src=>";
-                                 echo "<b>".$row["author"]; "</b>";
-                                 echo "<br>";
-                                 echo "<b>".$row["title"]; "</b>";
-                                 echo "</br>";
-                            
-                                 echo "</td>";
-
-                                 if ($i>=1) {
-                                     echo "</tr>";
-                                     echo "<tr>";
-                                     $i=0;
-                                 }
-
-                        }
-                        echo "</tr>";
-                        echo "</table>";
-                        }
-                        else{
-                            $i=0;
-                            $res = mysqli_query($link,"select * from ebook");
-                            echo "<table id='dtBasicExample' class='table control-books'>";
-                            echo "<tr>";
-                            while ($row = mysqli_fetch_array($res)){
-                                 $i=$i+1;
-                               
-                                   echo "<td>";
-                                
-                                 echo "</br>";
-                                 echo "</br>";
-                                 echo "<img src=>";
-                                 echo "<b>".$row["author"]; "</b>";
-                                 echo "<br>";
-                                 echo "<b>".$row["title"]; "</b>";
-                                 echo "</br>";
-                            
-                                 echo "</td>";
-
-                                 if ($i>=1) {
-                                     echo "</tr>";
-                                     echo "<tr>";
-                                     $i=0;
-                                 }
-
-                            }
-                            echo "</tr>";
-                            echo "</table>";
-                            }
-                     ?>
-				</div>
-			</div>					
-		</div>
-	</div>
-	
- <script>
-    $(document).ready(function () {
-    $('#dtBasicExample').DataTable({
-            "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
-            "paging": true
-        });
-
-    });
-  </script>
+<main class="content px-3 py-2">    
+    <div class="card-body">
+        <!-- Search Form -->
+        <form method="GET" action="">
+            <table class="table">
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Search for books" name="search">
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        
+        <div class="row mt-3">
+            <?php
+            // Check if search term is provided
+            $search = isset($_GET['search']) ? $_GET['search'] : '';
+            
+            // Prepare SQL query to fetch books with optional search filter
+            $sql = "SELECT * FROM ebook";
+            if (!empty($search)) {
+                $sql .= " WHERE title LIKE '%$search%' OR author LIKE '%$search%' OR program LIKE '%$search%' OR accession_number LIKE '%$search%'";
+            }
+            
+            // Execute the query
+            $res = mysqli_query($link, $sql);
+            
+            // Display books
+            while ($row = mysqli_fetch_array($res)) {
+                echo '<div class="col-md-12 mb-3">';
+                echo '<div class="card d-flex flex-row">';
+                echo '<img src="../../'.$row["book_image"] . '" class="card-img-center" width=200 alt="No Cover Available">';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . $row["title"] . '</h5>';
+                echo '<p class="card-text">Accession Number: ' . $row["accession_number"] . '</p>';
+                echo '<p class="card-text">Program: ' . $row["program"] . '</p>';
+                echo '<p class="card-text">Author: ' . $row["author"] . '</p>';
+                echo '<p class="card-text">Place of Publication: ' . $row["place_of_publication"] . '</p>';
+                echo '<p class="card-text">ISBN: ' . $row["ISBN"] . '</p>';
+                echo '<p class="card-text">Copyright: ' . $row["copyright"] . '</p>';
+                echo '<p class="card-text">Publisher: ' . $row["publisher"] . '</p>';
+                echo '<a href="' . $row["link"] . '" class="btn btn-primary mt-auto" target="_blank">Read</a>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
+        </div>
+    </div>
+</main>
