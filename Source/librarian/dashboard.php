@@ -13,7 +13,6 @@
  ?>
 <style>
 
-
 #time {
     font-size: 20px;
     float: right;
@@ -306,7 +305,8 @@
                             </div>
 					
             </main>
-
+            
+                                  
 
    
                           
@@ -321,5 +321,11 @@
 
      
         </script>
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
+
+   
           
 

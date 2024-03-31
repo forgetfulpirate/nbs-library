@@ -11,6 +11,7 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
+	<main class="content px-3 py-2">
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
@@ -82,6 +83,7 @@
 			</div>					
 		</div>
 	</div>
+	</main>
 	
 	<?php 
 		include 'inc/footer.php';

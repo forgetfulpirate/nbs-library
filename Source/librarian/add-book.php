@@ -12,7 +12,7 @@
         include 'inc/connection.php';
 	 ?>
 			
-	<!--dashboard area-->
+            <main class="content px-3 py-2">
 	<div class="dashboard-content">
 		<div class="dashboard-header">
 			<div class="container">
@@ -20,7 +20,7 @@
 					  <div class="gap-30"></div>
                 <div class="container-fluid">
 				<div class="mb-3">
-          
+                                                            
                         <h4>Add Book  
                         <p id="time"></p>
                           
@@ -89,10 +89,14 @@
                         	<input type="submit" name="submit" class="btn btn-info submit" value="Add Book">
                         </div>
                 	</form>
+                    
 				</div>				
-			</div>					
+			</div>		
+            			
 		</div>
+        
 	</div>
+    </main>
 
         <?php
 
@@ -113,4 +117,8 @@
 
             }
         ?>
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
 			

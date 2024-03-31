@@ -12,6 +12,7 @@
     include 'inc/connection.php';
     include 'inc/tfunction.php';
  ?>
+          <main class="content px-3 py-2">
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
@@ -98,7 +99,10 @@
 			</div>					
 		</div>
 	</div>
-    <div class="gap-40"></div>
+    
+                            </main>
 	<?php 
 		include 'inc/footer.php';
 	 ?>
+
+     

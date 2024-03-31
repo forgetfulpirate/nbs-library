@@ -61,15 +61,11 @@
                             </table>
                         </div>
                     </div>
-                </div>
-                
-                </div>
+           
             
             </main>
 
-        </div>
-    </div>
-    
+   
     <script>
         $(document).ready(function () {
             
@@ -89,4 +85,9 @@
          
             
         });
-    </script>			
+    </script>		
+               <?php 
+		include 'inc/footer.php';
+	 ?>
+	
+    

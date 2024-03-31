@@ -10,35 +10,38 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
- 
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">finezone</span>
-						</div>
-					</div>
-				</div>
-				<div class="issued-content">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="rbook-info status">
-                                 <table id="dtBasicExample" class="table table-striped table-dark text-center">
-                                       <thead>
+
+<main class="content px-3 py-2">
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Returned Books
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+   
+          
+            <div class="card border-0">
+                
+                
+                  
+                 
+                        <div class="card-body">
+                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                            <thead>
                                             <tr>
+                                                <th>Name</th>
                                                 <th>Username</th>
                                                 <th>User Type</th>
                                                 <th>Email</th>
                                                 <th>Books Name</th>
+                                                
                                                 <th>Amount</th>
                                                 <th>Action</th>
                                             </tr>
@@ -48,6 +51,7 @@
                                                 $res= mysqli_query($link, "select * from finezone");
                                                 while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
+                                                    echo "<td>"; echo $row["first_name"]; echo "</td>";
                                                     echo "<td>"; echo $row["username"]; echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
@@ -60,18 +64,36 @@
                                                 }
                                              ?>
                                        </tbody>
-                                 </table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-	</div>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                </div>
+
+                
+
+                
+                
+            
+            </main>
+
+        
+
+            </div>
+            
+    </div>
+ 
 
   <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+                buttons:['copy','csv','excel','pdf', 'print'],
+                "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+            });
+   
         });
     </script>

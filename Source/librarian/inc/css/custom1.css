@@ -19,6 +19,8 @@ a {
     cursor: pointer;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+  
+  
 }
 
 .sidebar-item.active .sidebar-link {
@@ -88,6 +90,11 @@ table.dataTable thead th{
     
 }
 
+.fas-fa-undo-alt{
+    text-decoration: none;
+}
+
+
 .sidebar-link:hover {
     border-right:  1px;
    background-color: #04AA6D;
@@ -121,6 +128,8 @@ table.dataTable thead th{
     background-color: #d52033;
     border: none;
 }
+
+
 
 
 
@@ -341,6 +350,8 @@ html[data-bs-theme="light"] .theme-toggle .fa-moon {
     font-size: 1.25rem;
     color: #FFF;
 }
+
+
 
 html[data-bs-theme="dark"] .theme-toggle .fa-moon {
     display: none;

@@ -18,7 +18,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Student Information  
+                        <h4>Borrowed Books
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -56,7 +56,6 @@
                                                     echo "<tr>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                                                  
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["name"]; echo "</td>";
@@ -67,8 +66,8 @@
                                               
                                                    ?>
                                                         <ul>
-                                                            <li><a style="color: #fff;" href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                      <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                     <?php 
                                                     echo "</td>";
@@ -89,8 +88,9 @@
                                                     echo "<td>";
                                                    ?>
                                                         <ul>
-                                                            <li><a href="return.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a href="delete.php?id=<?php echo $row["id"]; ?>"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
+                                                        </ul> 
                                                         </ul> 
                                                     <?php 
                                                     
@@ -105,18 +105,19 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                    
+            
+
                 
-                </div>
+
+                
                 
             
             </main>
 
         
 
-            </div>
-            
-    </div>
+
     
 
      <script>
@@ -125,3 +126,8 @@
             $('.dataTables_length').addClass('bs-select');
         });
     </script>
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
+    

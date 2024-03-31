@@ -12,6 +12,8 @@
     include 'inc/connection.php';
     include 'inc/function.php';
  ?>
+
+<main class="content px-3 py-2">
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
@@ -122,9 +124,9 @@
 					</div>
 				</div>
 				
-			</div>					
-		</div>
-	</div>
+			</div>		
+                            </main>			
+
 
     <div class="gap-"></div>
 	<?php 

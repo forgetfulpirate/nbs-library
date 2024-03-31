@@ -126,6 +126,9 @@
                             <li class="sidebar-item <?php if($page=='sissue'){ echo 'active';} ?>">
                                 <a href="student-issue-book.php" class="sidebar-link">Student issue book</a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="std-issue-book.php" class="sidebar-link">issue book</a>
+                            </li>
                             <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
                             </li>
@@ -208,11 +211,17 @@
                         </ul>
                     </li>
 
+                    
+
                 </ul>
                 
             </div>
+            
+            
           
         </aside>
+        
+        
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom">
                 <button class="btn" id="sidebar-toggle" type="button">
@@ -231,7 +240,7 @@
 								<?php
                                      $res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
                                      while ($row = mysqli_fetch_array($res)){
-                                         ?><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0"><img src="<?php echo $row["photo"]; ?>" alt=""class="avatar img-fluid rounded"> <span style="color:#248fc5"><?php echo $_SESSION["username"]; ?></span></a> <?php
+                                         ?><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0" style="color: inherit;"><img src="<?php echo $row["photo"]; ?>" alt=""class="avatar img-fluid rounded"> <span><?php echo $_SESSION["username"]; ?></span></a> <?php
                                      }
                                 ?>
 								
@@ -246,6 +255,7 @@
                         
                     </ul>
                 </div>
+                
             </nav>
             
       
@@ -282,8 +292,11 @@
                     </div>
                 </div>
             </footer> -->
+                              
+            
+        
      
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="inc/js/bootstrap.bundle.min.js"></script>
     <script src="inc/js/custom1.js"></script>
     <script src="inc/js/custom.js"></script>
 	<script src="inc/js/jquery-2.2.4.min.js"></script>

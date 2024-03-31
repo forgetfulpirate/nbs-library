@@ -14,6 +14,12 @@
     mysqli_query($link, "update t_registration set status='yes' where id=$id");
     mysqli_query($link, "update std_registration set verified='yes' where id=$id");
     mysqli_query($link, "update t_registration set verified='yes' where id=$id");
+
+ 
+
+
+    
+   
  ?>
 
  <script type="text/javascript">
@@ -36,5 +42,7 @@
     $headers = "From: cevangelista2021@student.nbscollege.edu.ph";
     mail($to,$subject,$message,$headers);
 ?>
+
+
 
  

@@ -65,17 +65,15 @@
                                 </table>
                         </div>
                     </div>
-                </div>
-                
-                </div>
+               
                 
             </main>
 
      
          
-        
-        </div>
-    </div>
+            <?php 
+		include 'inc/footer.php';
+	 ?>
 
 
     <script>
@@ -84,4 +82,5 @@
             $('.dataTables_length').addClass('bs-select');
         });
     </script>		
+    
 
