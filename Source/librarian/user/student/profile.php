@@ -35,11 +35,11 @@
                                     $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
                                     $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
                                     while ($row = mysqli_fetch_array($res)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong"></a> <?php
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="300px" width="250px" alt="something wrong"></a> <?php
                                     }   
 
                                     while ($row = mysqli_fetch_array($res1)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong"></a> <?php
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="300px" width="250px" alt="something wrong"></a> <?php
                                     }                                                          
 
                                 ?>
@@ -90,13 +90,13 @@
                                         $regno      = $row6['student_number'];
                                         $username  = $row6['first_name'];
                                         $name      = $row6['last_name'];
-                                        $sem      = $row6['semester'];
-                                        // $session      = $row6['session'];
-                                        // $dept      = $row6['dept'];
+                                        $sem      = $row6['middle_name'];
+                                        $session      = $row6['year'];
+                                        $dept      = $row6['course'];
                                         $email     = $row6['email'];
-                                        // $phone     = $row6['phone']; 
-                                        // $address     = $row6['address'];
-                                        $utype     = $row6['utype'];
+                                        $phone     = $row6['status']; 
+                                        $address     = $row6['status'];
+                                        $utype     = $row6['user_type'];
                                     }
                                     ?>
                                 <form method="post">
@@ -163,6 +163,7 @@
                                     <?php
                                }
                             ?>
+                          
 		                </div>    
 					</div>
 				</div>

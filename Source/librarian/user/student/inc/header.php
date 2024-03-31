@@ -1,8 +1,8 @@
 <?php
 include 'inc/connection.php';
-    $not= "";
-    $res = mysqli_query($link,"select * from message where rusername='$_SESSION[student]' && read1='n'");
-    $not= mysqli_num_rows($res);
+$not= 0;
+$res = mysqli_query($link,"select * from message where rusername='$_SESSION[student]' && read1='n'");
+$not= mysqli_num_rows($res);
 
 ?>
 
@@ -178,9 +178,9 @@ include 'inc/connection.php';
                 <div class="navbar-collapse navbar">
                         <ul class="navbar-nav" style="margin-right:10px;">
                         <li class="icon">
-                                <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
-                                <span class="count" onclick="window.location='requested-books.php'"><b id="notif" ><?php echo $not; ?></b></span>
-                        </li>
+							<a href="notifications.php" ><i class="fas fa-bell"></i></a>
+								<span class="count" onclick="window.location='notifications.php'"><b><?php echo $not; ?></b></span>
+                       		 </li>
                         </ul>
                         
                         <li class="nav-item dropdown">

@@ -54,10 +54,21 @@
                                   <select name="rusername" class="form-control">
 	                                     <?php 
                                              $res= mysqli_query($link, "select * from std_registration");
+								
                                                 
                                                 while($row=mysqli_fetch_array($res)){
                                                     ?><option value="<?php echo $row["username"]?>">
                                                     <?php  echo $row["username"]. " (".$row["regno"].")"; ?>
+                                                    </option><?php
+                                                } 
+                                           ?>
+										    <?php 
+                                             $res1= mysqli_query($link, "select * from student");
+								
+                                                
+                                                while($row=mysqli_fetch_array($res1)){
+                                                    ?><option value="<?php echo $row["student_number"]?>">
+                                                    <?php  echo $row["first_name"]. " (".$row["student_number"].")"; ?>
                                                     </option><?php
                                                 } 
                                            ?>

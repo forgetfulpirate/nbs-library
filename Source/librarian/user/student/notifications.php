@@ -9,7 +9,7 @@
         }
         include 'inc/header.php';
         include 'inc/connection.php';
-        mysqli_query($link,"update message set read1='y' where rusername='$_SESSION[student]'");
+        mysqli_query($link,"update message set read1='yes' where rusername='$_SESSION[student]'");
 
      ?>
        <!--dashboard area-->
@@ -38,9 +38,11 @@
                             </tr>
                             <?php 
                                  $res=mysqli_query($link,"select * from message where rusername='$_SESSION[student]' order by id desc");
+                                
 
                                   while ($row = mysqli_fetch_array($res)){
                                        $res1=mysqli_query($link,"select * from lib_registration where username='$row[susername]'");
+                                  
                                        while ($row1 = mysqli_fetch_array($res1)){
                                            $name = $row1["name"];
                                        }
@@ -52,6 +54,8 @@
                                         echo "<td>"; echo $row["time"]; echo "</td>";
                                         echo "</tr>";
                                   }
+
+                                  
                              ?>
                         </table>
                     </div>

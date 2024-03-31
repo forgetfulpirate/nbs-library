@@ -39,6 +39,15 @@
                            $phone     = $row5['phone']; 
                            $utype     = $row5['utype'];
                        }
+
+                       $res5 = mysqli_query($link, "select * from student where student_number='$_SESSION[student]' ");
+                       while($row5 = mysqli_fetch_array($res5)){
+                           $name      = $row5['first_name'];                    
+                           $username  = $row5['last_name'];
+                           $email     = $row5['email'];
+                     
+                           $utype     = $row5['user_type'];
+                       }
                     ?>
 					<form action="" method="post" class="issue-content">
 						<table class="table table-bordered table-striped">
@@ -60,12 +69,12 @@
 						?>
 							<tr>
                                 <td>
-                                  <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" disabled>
+                                  <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" disabled>
+                                  <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -75,12 +84,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" value="student" name="<?php echo $utype; ?>" disabled>
+                                    <input type="text" class="form-control" value="student" name="<?php echo $utype; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" disabled>
+                                  <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
