@@ -91,11 +91,11 @@
                                         $username  = $row6['first_name'];
                                         $name      = $row6['last_name'];
                                         $sem      = $row6['semester'];
-                                        $session      = $row6['session'];
-                                        $dept      = $row6['dept'];
+                                        // $session      = $row6['session'];
+                                        // $dept      = $row6['dept'];
                                         $email     = $row6['email'];
-                                        $phone     = $row6['phone']; 
-                                        $address     = $row6['address'];
+                                        // $phone     = $row6['phone']; 
+                                        // $address     = $row6['address'];
                                         $utype     = $row6['utype'];
                                     }
                                     ?>

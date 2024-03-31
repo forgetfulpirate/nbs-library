@@ -55,7 +55,7 @@ include 'inc/connection.php';
                           $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
 						
 						  while ($row = mysqli_fetch_array($res)){
-							  ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong" class="rounded-circle"></a> <?php
+							  ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"></a> <?php
 						  }
 
 						  $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
@@ -72,7 +72,7 @@ include 'inc/connection.php';
 					
 					$res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
 					while ($row = mysqli_fetch_array($res)){
-						?><h2><?php echo $row["username"]; ?></h2><?php
+						?><?php echo $row["name"]; ?><?php
 					}
 			   ?>
 
@@ -188,10 +188,10 @@ include 'inc/connection.php';
                                       $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
 									  $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
 									  while ($row = mysqli_fetch_array($res)){
-										  ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" alt=""><span><?php echo $_SESSION["student"]; ?></span></a> <?php
+										  ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" alt="" height="50px" width="50px" ><span><?php echo $_SESSION["student"]; ?></span></a> <?php
 									  }
 									  while ($row = mysqli_fetch_array($res1)){
-										 ?><a href="" class="dropdown-toggle" data-toggle="dropdown"><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span><?php echo $row["first_name"]; ?></span></a> <?php
+										 ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span><?php echo $row["first_name"]; ?></span></a> <?php
 									 }
                                 ?>
 								
@@ -260,6 +260,7 @@ include 'inc/connection.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
+	
 
     
 </body>
