@@ -94,9 +94,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
-                
-                </div>
+            
                 
                 
 
@@ -107,11 +105,7 @@
 
 
 
-        
-
-        </div>
-    </div>
-    
+   
 
 
     
@@ -128,6 +122,11 @@
             }); 
         });
     </script>	
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
+
 
 
 

@@ -57,17 +57,11 @@
                             </table>
                         </div>
                     </div>
-                </div>
                 
-                </div>
             
             </main>
 
         
-
-        </div>
-    </div>
-    
 
 
     
@@ -94,3 +88,7 @@
             
         });
     </script>		
+
+<?php 
+		include 'inc/footer.php';
+	 ?>

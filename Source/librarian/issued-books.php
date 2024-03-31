@@ -106,9 +106,7 @@
                         </div>
                     </div>
                     
-                </div>
-                
-                </div>
+            
 
                 
 
@@ -119,9 +117,7 @@
 
         
 
-            </div>
-            
-    </div>
+
     
 
      <script>
@@ -130,3 +126,8 @@
             $('.dataTables_length').addClass('bs-select');
         });
     </script>
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
+    

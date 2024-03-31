@@ -13,7 +13,6 @@
  ?>
 <style>
 
-
 #time {
     font-size: 20px;
     float: right;

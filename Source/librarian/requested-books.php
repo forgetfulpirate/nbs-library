@@ -66,18 +66,13 @@
                             </table>
                         </div>
                     </div>
-                </div>
-                
-                </div>
-                
+             
             
             </main>
 
         
 
-            </div>
-            
-    </div>
+
 	
 
    <script>
@@ -91,3 +86,7 @@
        
         });
     </script>
+
+<?php 
+		include 'inc/footer.php';
+	 ?>
