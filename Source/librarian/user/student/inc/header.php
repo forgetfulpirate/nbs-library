@@ -5,6 +5,8 @@ include 'inc/connection.php';
     $not= mysqli_num_rows($res);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
