@@ -28,6 +28,7 @@
 <body>
     <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
+        
 
             <!-- Content For Sidebar -->
             <div class="h-100">
@@ -209,12 +210,14 @@
                                 <a href="send-to-teacher.php" class="sidebar-link">Send to teacher</a>
                             </li>
                         </ul>
+                        
                     </li>
+                    
                 </ul>
+
                 
             </div>
-            
-            
+        
           
         </aside>
         
@@ -248,12 +251,17 @@
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                                 <a href="changepass.php" class="dropdown-item">Change Password</a>
                             </div>
-                        </li>
+                            <div class="gap-40"></div>
                         
+                        </li>
+
+                      
                     </ul>
+                    
                 </div>
-                
+           
             </nav>
+            
             
       
             <a href="#" class="theme-toggle">

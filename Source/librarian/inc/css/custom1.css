@@ -175,8 +175,12 @@ h4 {
     min-width: 264px;
     background: var(--bs-dark);
     transition: all 0.35s ease-in-out;
-    overflow-y: scroll;
+  
     
+}
+
+#card1{
+    overflow: hidden;
 }
 
 .main {

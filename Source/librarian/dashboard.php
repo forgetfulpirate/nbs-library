@@ -47,11 +47,11 @@
                  </div>
             </div>
             <br>
-            <br>
+        
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0 illustration" id="card1">
-                                <div class="card-body p-0 d-flex flex-fill" >
+                            <div class="card flex-fill border-0 illustration" >
+                                <div class="card-body p-0 d-flex flex-fill" id="card1">
                                     <div class="row g-0 w-100">
                                         <div class="col-10 d-flex">
                                             <div class="p-3 m-1">
@@ -86,8 +86,8 @@
 					
 
 					<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4" >
+                            <div class="card flex-fill border-0" >
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -115,8 +115,8 @@
                             </div>
 										<!--  -->
 						<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                    
@@ -159,8 +159,8 @@
 
 										<!--  -->
 										<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -186,8 +186,8 @@
 
 										<!--  -->
 										<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -216,8 +216,8 @@
 
 							<!--  -->
 							<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                            <div class="card flex-fill border-0">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -239,7 +239,7 @@
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -265,7 +265,7 @@
 								<!--  -->
 								<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -286,7 +286,7 @@
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card1">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -297,14 +297,18 @@
 								
 							<h4 class="mt-10"><a href="requested-books.php">Requested Books</a></h4>
 							</div>
+                            
 						</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                       
 					
             </main>
+
+            
             
                                   
 
