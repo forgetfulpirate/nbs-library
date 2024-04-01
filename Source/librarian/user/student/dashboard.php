@@ -45,12 +45,12 @@
 								</thead>
 								<tbody>
 								<?php 
-									$res= mysqli_query($link, "select * from issue_book where username='".$_SESSION['student']."' ORDER BY id DESC");
+									$res= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['student']."' ORDER BY id DESC");
 									
 									while ($row=mysqli_fetch_array($res)) {
                                         echo "<tr>";
-                                        echo "<td>"; echo $row["regno"]; echo "</td>";
-                                        echo "<td>"; echo $row["username"]; echo "</td>";
+                                        echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                        echo "<td>"; echo $row["name"]; echo "</td>";
                                         echo "<td>"; echo $row["booksname"]; echo "</td>";
                                         echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                         echo "<td>"; echo $row["booksreturndate"]; echo "</td>";

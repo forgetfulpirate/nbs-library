@@ -113,7 +113,7 @@ $not= mysqli_num_rows($res);
 
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
-                                <a href="profile.php" class="sidebar-link">Profile</a>
+                                <a href="student-profile.php" class="sidebar-link">Profile</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                                 <a href="changepass.php" class="sidebar-link">Change Passowrd</a>
