@@ -251,7 +251,7 @@
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                                 <a href="changepass.php" class="dropdown-item">Change Password</a>
                             </div>
-                            <div class="gap-40"></div>
+                     
                         
                         </li>
 
@@ -259,6 +259,7 @@
                     </ul>
                     
                 </div>
+                
            
             </nav>
             

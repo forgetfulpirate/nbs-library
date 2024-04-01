@@ -175,11 +175,12 @@ h4 {
     min-width: 264px;
     background: var(--bs-dark);
     transition: all 0.35s ease-in-out;
+    
   
     
 }
 
-#card1{
+#card2{
     overflow: hidden;
 }
 

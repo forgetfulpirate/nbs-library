@@ -70,8 +70,8 @@ $not= mysqli_num_rows($res);
                         <h6 style="float: right; margin-top: 10px;">
 						<?php
 					
-					$res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-					while ($row = mysqli_fetch_array($res)){
+					    $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
+					    while ($row = mysqli_fetch_array($res)){
 						?><?php echo $row["name"]; ?><?php
 					}
 			   ?>
