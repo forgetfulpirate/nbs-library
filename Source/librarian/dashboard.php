@@ -192,9 +192,10 @@
                                         <div class="flex-grow-1">
 										<div class="box">
 							<div class="icon1">
-								<i class="fas fa-dollar-sign"></i>
+                            <i class="fa-solid fa-peso-sign"></i>
 							</div>
 							<div class="text-left">
+                                
 								<h3><span class="counter">
                                         <?php
                                         $total_fine = 0;
@@ -202,10 +203,11 @@
                                         while ($row = mysqli_fetch_array($res)) {
                                             $total_fine += $row["fine"];
                                         }
-                                        echo $total_fine;
+                                        echo "<i class='fa-solid fa-peso-sign'></i>"; echo" ";echo $total_fine;
                                         ?>
+                                      
                                     </span></h3>    
-								<h4><a href="fine.php">Fine</a></h4>
+								<h4><a href="fine.php">Returned Books</a></h4>
 							</div>
 						</div>
                                             </div>

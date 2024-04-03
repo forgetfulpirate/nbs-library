@@ -137,6 +137,13 @@ $not= mysqli_num_rows($res);
                                     E-Book
                                 </a>
                     </li>
+
+                    <li class="sidebar-item">
+                                <a href="book.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Books
+                                </a>
+                    </li>
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">
