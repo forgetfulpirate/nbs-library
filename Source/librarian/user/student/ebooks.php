@@ -71,14 +71,14 @@
                         <div class="card-body">
                             <h2 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title"];?></h2>
                             <br>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">by <?php echo $row["author"]; ?></p>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">Accession Number: <?php echo $row["accession_number"]; ?></p>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">Program: <?php echo $row["program"]; ?></p>
-                        
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">ISBN: <?php echo $row["ISBN"]; ?></p>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">Copyright: <?php echo $row["copyright"]; ?></p>
-                            <p class="card-text" style="letter-spacing:1px; margin-left:20px">Publisher: <?php echo $row["publisher"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["author"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Program: <?php echo $row["program"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $row["ISBN"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Copyright: <?php echo $row["copyright"]; ?></p>
+
                             <a href="<?php echo $row["link"]; ?> " class="btn btn-primary mt-auto" target="_blank" style="letter-spacing:1px; margin-left:20px">Read</a>
                         </div>
                         <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
