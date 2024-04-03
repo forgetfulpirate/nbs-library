@@ -68,8 +68,14 @@
                 ?>
                 <div class="col-md-12 mb-3">
                     <div class="card d-flex flex-row">
+            
                         <div class="card-body">
-                            <h2 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title"];?></h2>
+                         
+                           
+                
+                            <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px" ><?php echo $row["title"];?></h3>
+                         
+                      
                             <br>
                             <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["author"]; ?></span></p>
                             <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
@@ -80,6 +86,7 @@
                             <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Copyright: <?php echo $row["copyright"]; ?></p>
 
                             <a href="<?php echo $row["link"]; ?> " class="btn btn-primary mt-auto" target="_blank" style="letter-spacing:1px; margin-left:20px">Read</a>
+                            
                         </div>
                         <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
                     </div>
@@ -87,7 +94,9 @@
                 <?php
             }
         ?>
+        
     </div>
+    
 </main>
 <script>
     function submitForm() {
