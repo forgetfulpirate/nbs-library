@@ -6,14 +6,6 @@ $not= mysqli_num_rows($res);
 
 ?>
 
-<?php 
-  
-  
-    include 'inc/connection.php';
-    $not=0;
-    $res = mysqli_query($link,"select * from request_books where read1='no'");
-    $not= mysqli_num_rows($res);
- ?>
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
@@ -179,7 +171,7 @@ $not= mysqli_num_rows($res);
                         <ul class="navbar-nav" style="margin-right:10px;">
                         <li class="icon">
 							<a href="notifications.php" ><i class="fas fa-bell"></i></a>
-								<span class="count" onclick="window.location='notifications.php'"><b><?php echo $not; ?></b></span>
+								<span class="count" onclick="window.location='notifications.php'"><b id="notif"><?php echo $not; ?></b></span>
                        		 </li>
                         </ul>
                         

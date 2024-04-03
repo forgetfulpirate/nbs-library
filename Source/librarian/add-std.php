@@ -65,7 +65,7 @@
 
                             <div class="form-group">
                                 <label for="middle_name" class="text-right">Middle name <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Middle name" name="middle_name" required=""/>
+                                <input type="text" class="form-control custom" placeholder="Middle name" name="middle_name"/>
                             </div>
   
                      
