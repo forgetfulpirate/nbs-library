@@ -1,110 +1,117 @@
 <?php 
-session_start();
-if (!isset($_SESSION["student"])) {
-    ?>
-    <script type="text/javascript">
-        window.location="login.php";
-    </script>
-<?php
-}
-$page = 'ebooks';
-include 'inc/header.php';
-include 'inc/connection.php';
-?>        
-    
-<main class="content px-3 py-2">
+    session_start();
+    if (!isset($_SESSION["student"])) {
+        ?>
+            <script type="text/javascript">
+                window.location="login.php";
+            </script>
+        <?php
+    }
+    $page = 'a-books';
+    include 'inc/header.php';
+    include 'inc/connection.php';
+?>
+  
+<main class="content px-3 py-2">  
+  
+    <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <div style="margin-bottom:10px;"></div>
-            <h4>Book</h4>
-            <p id="time"></p>
-            <p id="date"></p>
+            <h4>E-Book 
+                <p id="time"></p>
+                <p id="date"></p>
+            </h4>
         </div>
     </div>
-        
-    <div class="card border-0">
-        <div class="card-body">
-            <table class="table table-striped table-hover text-center" id="dtBasicExample">
-                <thead>
-                    <tr>
-                        <th class="col">Books image</th>
-                        <th scope="col">Accession Number</th>
-                        <th scope="col">Date Received</th>
-                        <th scope="col">Call No.</th>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Title of Book</th>
-                        <th scope="col">Edition</th>
-                        <th scope="col">Volume</th>
-                        <th scope="col">Pages</th>
-                        <th scope="col">Source of Fund</th>
-                        <th scope="col">Cost of Price</th>
-                        <th scope="col">Publisher</th>
-                        <th scope="col">Place of Publication</th>
-                        <th scope="col">Year</th>
-                        <th scope="col">Remarks</th>
-                        <th scope="col">Program</th>
-                        <th scope="col">Call Number</th>
-                        <th scope="col">Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $res = mysqli_query($link, "SELECT * FROM book"); // Limiting to one row
-                    while ($row = mysqli_fetch_array($res)) {
-                        echo "<tr>";
-                        echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt="no cover available"> <?php echo "</td>";
-                        echo "<td>"; echo $row["accession_number"]; echo "</td>";
-                        echo "<td>"; echo $row["date_recieved"]; echo "</td>";
-                        echo "<td>"; echo $row["call_no"]; echo "</td>";
-                        echo "<td>"; echo $row["ISBN"]; echo "</td>";
-                        echo "<td>"; echo $row["author"]; echo "</td>";
-                        echo "<td>"; echo $row["title_of_book"]; echo "</td>";
-                        echo "<td>"; echo $row["edition"]; echo "</td>";
-                        echo "<td>"; echo $row["volume"]; echo "</td>";
-                        echo "<td>"; echo $row["pages"]; echo "</td>";
-                        echo "<td>"; echo $row["source_of_fund"]; echo "</td>";
-                        echo "<td>"; echo $row["cost_price"]; echo "</td>";
-                        echo "<td>"; echo $row["publisher"]; echo "</td>";
-                        echo "<td>"; echo $row["place_of_publication"]; echo "</td>";
-                        echo "<td>"; echo $row["year"]; echo "</td>";
-                        echo "<td>"; echo $row["remarks"]; echo "</td>";
-                        echo "<td>"; echo $row["program"]; echo "</td>";
-                        echo "<td>"; echo $row["call_number"]; echo "</td>";
-                        echo "<td>"; echo $row["location"]; echo "</td>";
-                        echo "</tr>";
-                    }
-                    ?> 
-                </tbody>
+    <div class="card-body">
+        <!-- Search Form -->
+        <form id="searchForm" method="GET" action="">
+            <table class="table">
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Search for books" name="search">
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </td>
+                    <td> 
+                        <select id="entries" name="entries" onchange="submitForm()">
+                            <option value="5" <?php if(isset($_GET['entries']) && $_GET['entries'] == 5) echo 'selected'; ?>>5</option>
+                            <option value="10" <?php if(isset($_GET['entries']) && $_GET['entries'] == 10) echo 'selected'; ?>>10</option>
+                            <option value="20" <?php if(isset($_GET['entries']) && $_GET['entries'] == 20) echo 'selected'; ?>>20</option>
+                            <option value="50" <?php if(isset($_GET['entries']) && $_GET['entries'] == 50) echo 'selected'; else echo 'selected'; ?>>50</option>
+                        </select>
+                        <label for="entries">entries per page</label>
+                    </td>
+                </tr>
             </table>
-        </div>
+        </form>
     </div>
+    
+    <div class="row mt-3">
+        <?php
+            // Calculate pagination
+            $entriesPerPage = isset($_GET['entries']) ? intval($_GET['entries']) : 50;
+            $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+            $offset = ($currentPage - 1) * $entriesPerPage;
+        
+            // Check if search term is provided
+            $search = isset($_GET['search']) ? $_GET['search'] : '';
+        
+            // Prepare SQL query to fetch books with optional search filter and limit
+            $sql = "SELECT COUNT(*) as count FROM book";
+            $result = mysqli_query($link, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $totalBooks = $row['count'];
+        
+            // Calculate total pages
+            $totalPages = ceil($totalBooks / $entriesPerPage);
+        
+            // Update SQL query to include pagination
+            $sql = "SELECT * FROM book";
+            if (!empty($search)) {
+                $sql .= " WHERE title_of_book LIKE '%$search%' OR author LIKE '%$search%' OR program LIKE '%$search%' OR accession_number LIKE '%$search%'";
+            }
+            $sql .= " LIMIT $entriesPerPage OFFSET $offset";
+        
+            // Execute the query
+            $res = mysqli_query($link, $sql);
+
+            // Display books
+            while ($row = mysqli_fetch_array($res)) {
+                ?>
+                
+                <div class="col-md-12 mb-3">
+                    <div class="card d-flex flex-row">
+                        <div class="card-body">
+                            <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px" ><?php echo $row["title_of_book"];?></h3>
+                            <br>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["author"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Program: <?php echo $row["program"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $row["ISBN"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number"]; ?></p>
+                            <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Available: <span style="font-weight:bold"><?php echo $row["books_availability"]; echo " ";; echo "copy"; ?></span></p>
+                        </div>
+                        <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
+                    </div>
+                </div>
+             
+                <?php
+            }
+        ?>
+    </div>
+    <!-- Pagination -->
+
+ 
+
 </main>
 
-<script>
-$(document).ready(function () {
-    $('#dtBasicExample').DataTable({
-        dom: '<html5buttons"B>1Tfgitp',
-        buttons: [
-            {
-                extend: 'pdfHtml5',
-                orientation: 'landscape',
-                customize: function (doc) {
-                    doc.pageOrientation = 'landscape';
-                    doc.pageSize = 'A3';
-                    doc.pageMargins = [15, 15, 15, 15];
-                }
-            },
-            'copy',
-            'csv',
-            'excel',
-            'print'
-        ],
-        "lengthMenu": [[5, 10, 25, 50, 100, 500], [5, 10, 25, 50, 100, 500]]
-    });
-});
-</script>
 
-<?php 
-include 'inc/footer.php';
-?>
+<script>
+    function submitForm() {
+        document.getElementById("searchForm").submit();
+    }
+</script>
