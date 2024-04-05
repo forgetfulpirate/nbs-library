@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 03:35 PM
+-- Generation Time: Apr 04, 2024 at 04:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -230,10 +230,10 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (144, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', ' ', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '1st copy', 'BSCS', '510.72 S58 2015 c1', 'Circulation', '', '1', '1'),
 (145, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', ' ', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '2nd copy', 'BSCS', '510.72 S58 2015 c2', 'Circulation', '', '1', '1'),
 (146, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', ' ', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '3rd copy', 'BSCS', '510.72 S58 2015 c3', 'Circulation', '', '1', '1'),
-(147, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '1st copy', 'BSCS', '005.118 D13 2018 c1', 'Circulation', '', '1', '1'),
-(148, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '2nd copy', 'BSCS', '005.118 D13 2018 c2', 'Circulation', '', '1', '1'),
-(149, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '3rd copy', 'BSCS', '005.118 D13 2018 c3', 'Circulation', '', '1', '1'),
-(150, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '4th copy', 'BSCS', '005.118 D13 2018 c4', 'Circulation', '', '1', '1'),
+(147, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '1st copy', 'BSCS', '005.118 D13 2018 c1', 'Circulation', '', '1', '0'),
+(148, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '2nd copy', 'BSCS', '005.118 D13 2018 c2', 'Circulation', '', '1', '0'),
+(149, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '3rd copy', 'BSCS', '005.118 D13 2018 c3', 'Circulation', '', '1', '0'),
+(150, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '4th copy', 'BSCS', '005.118 D13 2018 c4', 'Circulation', '', '1', '0'),
 (151, '8/22/2017', '', '9781284090550', 'Harwood, Mike', 'Internet Security: How to Defend Against Attackers on the Web', '2nd', '', '396', 'Budget', '2998.2', 'Jones & Bartlett Learning, LLC', 'United States', '2016', '1st copy', 'BSCS', '302.30285 H34 2016 c1', 'Circulation', '', '1', '1'),
 (152, '8/22/2017', '', '9781107601963', 'Moser, Stefan & Chen, Po-Ning', 'A Student\'s Guide to Coding and Information Theory', '', '', '182', 'Budget', '1835.4', 'Cambridge University Press', 'United States', '2012', '1st copy', 'BSCS', '003.54 M89 2012 c1', 'Circulation', '', '1', '1'),
 (153, '8/22/2017', '', '9781107601963', 'Moser, Stefan & Chen, Po-Ning', 'A Student\'s Guide to Coding and Information Theory', '', '', '182', 'Budget', '1835.4', 'Cambridge University Press', 'United States', '2012', '2nd copy', 'BSCS', '003.54 M89 2012 c2', 'Circulation', '', '1', '1'),
@@ -4202,15 +4202,7 @@ CREATE TABLE `finezone` (
 --
 
 INSERT INTO `finezone` (`id`, `first_name`, `username`, `utype`, `email`, `booksname`, `fine`) VALUES
-(198, 'Cayce Evangelista', 'cayceevans', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'HAYS', '0'),
-(199, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'History for Genealogists: Using Chronological Time', '0'),
-(200, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Systems Analysis and Design', '0'),
-(201, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'The Essentials of Computer Organization and Archit', '0'),
-(202, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Strategic Planning and Management for Library Mana', '0'),
-(203, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Developing and Managing Electronic Collections: Th', '0'),
-(204, 'Cayce Evangelista', 'cayceevans', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'HAYS', '0'),
-(205, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Essentials of Software Engineering', '0'),
-(206, 'Cayce', '', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Transfer and Business Taxation: Principles and Law', '0');
+(212, 'Carlos Miguel', '', 'student', 'cautor2021@student.nbscollege.edu.ph', 'Discrete Structures, Logic, and Computability', '0');
 
 -- --------------------------------------------------------
 
@@ -4221,7 +4213,7 @@ INSERT INTO `finezone` (`id`, `first_name`, `username`, `utype`, `email`, `books
 CREATE TABLE `issue_book` (
   `id` int(10) NOT NULL,
   `utype` varchar(10) NOT NULL,
-  `regno` varchar(20) NOT NULL,
+  `student_number` varchar(20) NOT NULL,
   `name` varchar(50) NOT NULL,
   `sem` varchar(10) NOT NULL,
   `session` varchar(10) NOT NULL,
@@ -4233,6 +4225,13 @@ CREATE TABLE `issue_book` (
   `booksreturndate` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `issue_book`
+--
+
+INSERT INTO `issue_book` (`id`, `utype`, `student_number`, `name`, `sem`, `session`, `dept`, `phone`, `email`, `booksname`, `booksissuedate`, `booksreturndate`, `username`) VALUES
+(161, 'student', '2100029', 'Carlos Miguel', 'Autor', '', 'BSCS', '', 'cautor2021@student.nbscollege.edu.ph', 'Object-Oriented Data Structures using Java', '2024-04-03', '2024-05-03', '');
 
 -- --------------------------------------------------------
 
@@ -4280,7 +4279,8 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `susername`, `rusername`, `title`, `msg`, `read1`, `time`) VALUES
-(30, 'admin', 'cayceevans', '123', '123', 'yes', '2024-03-31 07:33:54pm');
+(36, 'admin', '2100029', '123', '125125', 'yes', '2024-04-03 10:19:41am'),
+(37, 'admin', '2100029', '123', '123', 'yes', '2024-04-03 12:24:16pm');
 
 -- --------------------------------------------------------
 
@@ -4304,7 +4304,11 @@ CREATE TABLE `request_books` (
 --
 
 INSERT INTO `request_books` (`id`, `name`, `username`, `email`, `utype`, `bname`, `burl`, `read1`) VALUES
-(24, 'Cayce Evangelista', 'cayceevans', 'cevangelista2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes');
+(24, 'Cayce Evangelista', 'cayceevans', 'cevangelista2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
+(25, 'Cayce', 'Evangelista', 'cevangelista2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
+(26, 'Carlos Miguel', 'Autor', 'cautor2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
+(27, 'Carlos Miguel', 'Autor', 'cautor2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
+(28, 'Carlos Miguel', 'Autor', 'cautor2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes');
 
 -- --------------------------------------------------------
 
@@ -4368,7 +4372,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_number`, `first_name`, `last_name`, `middle_name`, `email`, `course`, `year`, `semester`, `password`, `user_type`, `photo`, `status`, `vkey`, `verified`) VALUES
-('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd year', '3rd', '2100028', 'student', 'upload/avatar.jpg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes');
+('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd Year ', '6th', '2100028', 'student', 'upload/1711981226.jpeg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
+('2100029', 'Carlos Miguel', 'Autor', '', 'cautor2021@student.nbscollege.edu.ph', 'BSCS', '3rd year', '6th', '2100029', 'student', 'upload/avatar.jpg', 'yes', '54cc08c808f67f918d4774da317a4c09', 'yes');
 
 -- --------------------------------------------------------
 
@@ -4607,13 +4612,13 @@ ALTER TABLE `add_book`
 -- AUTO_INCREMENT for table `finezone`
 --
 ALTER TABLE `finezone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
 
 --
 -- AUTO_INCREMENT for table `issue_book`
 --
 ALTER TABLE `issue_book`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `lib_registration`
@@ -4625,13 +4630,13 @@ ALTER TABLE `lib_registration`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `request_books`
 --
 ALTER TABLE `request_books`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `std_registration`
