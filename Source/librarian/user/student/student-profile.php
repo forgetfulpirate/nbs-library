@@ -66,7 +66,7 @@
                                     mysqli_query($link, "update student set photo='".$imagepath."' where student_number='".$_SESSION['student']."'");
                                     ?>
                                         <script type="text/javascript">
-                                            window.location="profile.php";
+                                            window.location="student-profile.php";
                                         </script>
                                     <?php
                                 }
