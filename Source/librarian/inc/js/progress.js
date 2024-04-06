@@ -1,28 +1,25 @@
 const form = document.querySelector("form");
-const nextBtn = form.querySelector(".nextBtn");
-const backBtn = form.querySelector(".backBtn");
-const allInput = form.querySelectorAll(".first input");
+const nextBtn = form.querySelectorAll(".nextBtn");
+const backBtn = form.querySelectorAll(".backBtn");
 
-nextBtn.addEventListener("click", () => {
-    let isFilled = true;
-    allInput.forEach(input => {
-        if (input.value === "") {
-            isFilled = false;
-        }
+nextBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const currentForm = btn.closest('.form');
+        const nextForm = currentForm.nextElementSibling;
+        currentForm.style.opacity = 0;
+        currentForm.style.pointerEvents = 'none';
+        nextForm.style.opacity = 1;
+        nextForm.style.pointerEvents = 'auto';
     });
-    if (isFilled) {
-        form.querySelector('.form.first').style.opacity = 0;
-        form.querySelector('.form.first').style.pointerEvents = 'none';
-        form.querySelector('.form.second').style.opacity = 1;
-        form.querySelector('.form.second').style.pointerEvents = 'auto';
-    } else {
-      
-    }
 });
 
-backBtn.addEventListener("click", () => {
-    form.querySelector('.form.second').style.opacity = 0;
-    form.querySelector('.form.second').style.pointerEvents = 'none';
-    form.querySelector('.form.first').style.opacity = 1;
-    form.querySelector('.form.first').style.pointerEvents = 'auto';
+backBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const currentForm = btn.closest('.form');
+        const prevForm = currentForm.previousElementSibling;
+        currentForm.style.opacity = 0;
+        currentForm.style.pointerEvents = 'none';
+        prevForm.style.opacity = 1;
+        prevForm.style.pointerEvents = 'auto';
+    });
 });

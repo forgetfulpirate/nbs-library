@@ -71,6 +71,24 @@ body{
     pointer-events: none;
 }
 
+.container form .form.third{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container form .form.fourth{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container form .form.fifth{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
 form.secActive .form.first{
     opacity: 1;
     pointer-events: auto;
@@ -113,19 +131,89 @@ form.secActive .form.second{
     font-weight: 400;
 }
 
+
+
 form .fields .input-field{
     display: flex;
     flex-direction: column;
     width: calc(100%/3 - 15px);
     margin: 4px 0;
-
 }
 
-.input-field label{
+form .fields .input-field2{
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/2 - 15px);
+    margin: 4px 0;
+}
+
+.input-field label{ 
     font-size: 12px;
     font-weight: 500;
     color: inherit;
+}
 
+.input-field2 label{
+    font-size: 12px;
+    font-weight: 500;
+    color: inherit;
+}
+
+.input-field2 input{
+    outline: none;
+    border-radius: 5px;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    margin: 8px 0;
+    height: 42px;
+}
+
+.input-field2 select{
+    outline: none;
+    border-radius: 5px;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    margin: 8px 0;
+    height: 42px;
+}
+
+.input-field textarea{
+    outline: none;
+    border-radius: 5px;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    margin: 8px 0;
+    height: 42px;
+}
+
+.input-field textarea:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgb(0, 0, 0,0.13);
+}
+
+
+.input-field select{
+    outline: none;
+    border-radius: 5px;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    margin: 8px 0;
+    height: 42px;
+}
+
+.input-field select:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgb(0, 0, 0,0.13);
 }
 
 
@@ -152,6 +240,9 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
     color: inherit;
 }
+
+
+
 
 
 /* STRAIGHT INPUT */
