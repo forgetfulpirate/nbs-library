@@ -129,7 +129,7 @@
                                                             $res= mysqli_query($link, "select title_of_book from book");
                                                             while($row=mysqli_fetch_array($res)){
                                                                 echo "<option>";
-                                                                echo $row["title_of_book"];
+                                                                echo $row["title_of_book"]; 
                                                                 echo "</option>";
                                                             }
                                                         ?>
@@ -143,7 +143,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                            <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+30 days')); ?>">
+                                            <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+7 days')); ?>">
                                             </td>
                                         </tr>
                                       

@@ -165,6 +165,14 @@
                                 </a>
                     </li>
 
+                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="display-progress.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display Book Module
+                                </a>
+                    </li>
+
+
 
 
                     <li class="sidebar-item">
@@ -190,7 +198,6 @@
                     <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
-
                             Issued book
                         </a>
                     </li>
@@ -324,6 +331,7 @@
 
     
 </body>
+
 
 </html>
 
