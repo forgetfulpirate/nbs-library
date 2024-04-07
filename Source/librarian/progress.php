@@ -458,7 +458,7 @@
                         '$_POST[location]',
                         '$_POST[content_notes]',
                         '$_POST[abstract]',
-                        '$_SESSION[username]')"
+                        '$_POST[review]')"
                     );
                     
 
