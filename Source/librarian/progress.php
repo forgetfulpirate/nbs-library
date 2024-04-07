@@ -25,64 +25,62 @@
             <div class="container">
                 <header>Add Book Module</header>
 
-                <form action="#">
+                <form action="#" method="post" enctype="multipart/form-data">
                 <div class="form first">
                     <div class="details personal">
                         <span class="title"> BOOK CATALOGUE MODULE</span>
                         <div class="fields">
                             <div class="input-field1">
                                 <label>Title Proper</label>
-                                <input type="text" placeholder="Title Proper" >
+                                <input type="text" placeholder="Title Proper" name="title_proper" required="">
                             </div>
 
                             <div class="input-field1">
                                 <label>Responsibility</label>
-                                <input type="text" placeholder="Responsibility" >
+                                <input type="text" placeholder="Responsibility" name="responsibility" required="">
                             </div>
 
                             <div class="input-field1">
                                 <label>Preffered Title</label>
-                                <input type="text" placeholder="Preffered Title" >
+                                <input type="text" placeholder="Preffered Title" name="preffered_title">
                             </div>
 
                             <div class="input-field1">
                                 <label>Parallel Title</label>
-                                <input type="text" placeholder="Parallel Title" >
+                                <input type="text" placeholder="Parallel Title" name="parallel_title">
                             </div>
 
                             <div class="input-field1">
                                 <label>Main Creator</label>
-                                <input type="text" placeholder="Main Creator" >
+                                <input type="text" placeholder="Main Creator" name="main_creator">
                             </div>
 
                             <div class="input-field1">
                                 <label>Added Entry Creator</label>
-                                <input type="text" placeholder="Added Entry Creator" >
+                                <input type="text" placeholder="Added Entry Creator" name="add_entry_creator">
                             </div>
 
                             <div class="input-field1">
                                 <label>Contributors</label>
-                                <input type="text" placeholder="Contributors" >
+                                <input type="text" placeholder="Contributors" name="contributors">
                             </div>
 
                             <div class="input-field1">
                                 <label>Added Entry Corporate</label>
-                                <input type="text" placeholder="Added Entry Corporate">
+                                <input type="text" placeholder="Added Entry Corporate" name="add_entry_corporate">
                             </div>
 
                             
-                        </div>
+                        </div> 
 
-                        
-
-                               
-
-                                    <button class="nextBtn">
-                                        <span class="btnText">Next</span>
-                                    </button>
-                                
+                        <button type="button" class="nextBtn">
+                            <span class="btnText">Next</span>
+                        </button>
+                                                        
                     </div>
                 </div>
+
+                <!-- END FIRST FORM -->
 
  
 
@@ -96,80 +94,82 @@
 
                             <div class="input-field1">
                                 <label>Place of Publication</label>
-                                <input type="text" placeholder="Place of Publication" >
+                                <input type="text" placeholder="Place of Publication" name="place_of_publication">
                             </div>
 
                             <div class="input-field1">
                                 <label>Publisher</label>
-                                <input type="text" placeholder="Publisher" >
+                                <input type="text" placeholder="Publisher" name="publisher">
                             </div>
                             <div class="input-field">
                                 <label>Date of Publication</label>
-                                <input type="date" placeholder="Date of Publication" >
+                                <input type="date" placeholder="Date of Publication" name="date_of_publication">
                             </div>
 
                             <div class="input-field">
                                 <label> Edition</label>
-                                <input type="text" placeholder="Edition">
+                                <input type="text" placeholder="Edition" name="edition">
                             </div>
 
                             <div class="input-field">
                                 <label> Extend of Text</label>
-                                <input type="text" placeholder="Extend of Text" >
-
-                            </div>
-
-                            <div class="input-field">
-                                <label> Dimension </label>
-                                <input type="text" placeholder="Dimension" >
+                                <input type="text" placeholder="Extend of Text" name="extent_of_text">
 
                             </div>
 
                             <div class="input-field">
                                 <label> Illustration</label>
-                                <input type="text" placeholder="Illustration">
+                                <input type="text" placeholder="Illustration" name="illustrations">
 
                             </div>
 
                             <div class="input-field">
+                                <label> Dimension </label>
+                                <input type="text" placeholder="Dimension" name="dimension">
+
+                            </div>
+
+                            
+
+                            <div class="input-field">
                                 <label> Acc. Materials</label>
-                                <input type="text" placeholder="Acc. Materials" >
+                                <input type="text" placeholder="Acc. Materials" name="acc_materials" >
 
                             </div>
 
                             <div class="input-field1">
                                 <label>Series</label>
-                                <input type="text" placeholder="Series">
+                                <input type="text" placeholder="Series" name="series">
                             </div>
 
                             <div class="input-field1">
                                 <label>Suplementary content</label>
-                                <input type="text" placeholder="Suplementary content" >
+                                <input type="text" placeholder="Suplementary content" name="supp_content">
                             </div>
 
                             <div class="input-field1">
                                 <label>Identifier/ISBN</label>
-                                <input type="text" placeholder="Identifier/ISBN" >
+                                <input type="text" placeholder="Identifier/ISBN" name="ISBN">
                             </div>
 
                             <div class="input-field1">
                                 <label>Content Type</label>
-                                <input type="text" placeholder="Content Type" >
+                                <input type="text" placeholder="Content Type" name="content_type">
                             </div>
 
                             <div class="input-field1">
                                 <label>Media Type</label>
-                                <input type="text" placeholder="Media Type" >
+                                <input type="text" placeholder="Media Type" name="media_type">
                             </div>
 
                             <div class="input-field1">
                                 <label>Carrier Type</label>
-                                <input type="text" placeholder="Carrier Type" >
+                                <input type="text" placeholder="Carrier Type" name="carrier_type">
                             </div>
 
                             <div class="input-field1">
                                 <label>URL</label>
-                                <input type="text" placeholder="URL" >
+                                <input type="file" name="file">
                             </div>
 
                             
@@ -180,9 +180,9 @@
                                         <span class="btnText">Back</span>
                                     </div>
 
-                                    <button class="nextBtn">
-                                        <span class="btnText">Next</span>
-                                    </button>
+                                    <button type="button" class="nextBtn">
+                            <span class="btnText">Next</span>
+                        </button>
                                 </div>
                         </div>
 
@@ -200,7 +200,7 @@
 
                         <div class="input-field">
                                     <label>Subject</label>
-                                    <select placeholder="Title Proper" >
+                                    <select name="subject_type">
                                         <option>Tropical</option>
                                         <option>Personal</option>
                                         <option>Corporate</option>
@@ -211,7 +211,7 @@
                         <div class="input-field1">
                                     <label>Subject Info</label>
                         
-                                    <textarea placeholder="Title Proper" >
+                                    <textarea name="subject_info" >
                                     </textarea>
                         </div>
                         
@@ -222,9 +222,9 @@
                                     <span class="btnText">Back</span>
                                 </div>
 
-                                <button class="nextBtn">
-                                    <span class="btnText">Next</span>
-                                </button>
+                                <button type="button" class="nextBtn">
+                            <span class="btnText">Next</span>
+                        </button>
                             </div>
                     </div>
 
@@ -241,7 +241,7 @@
 
                         <div class="input-field2">
                                         <label>Call Number</label>
-                                        <select placeholder="Title Proper" >
+                                        <select placeholder="Title Proper" name="call_number_type">
                                             <option>Tropical</option>
                                             <option>Personal</option>
                                             <option>Corporate</option>
@@ -252,65 +252,71 @@
 
                         <div class="input-field2">
                                         <label>Call Number</label>
-                                        <input type="text" placeholder="Call Number" >
+                                        <input type="text" placeholder="Call Number" name="call_number_info">
                                     
                         </div>
 
                         <div class="input-field1">
                                 <label>Accession Number</label>
-                                <input type="text" placeholder="Accession Number" >
+                                <input type="text" placeholder="Accession Number" name="accession_number">
                         </div>
 
                         <div class="input-field1">
                                 <label>Language</label>
-                                <input type="text" placeholder="Language" >
+                                <input type="text" placeholder="Language" name="language">
                         </div>
 
                         <div class="input-field1">
                                 <label>Library/Location</label>
-                                <input type="text" placeholder="Library/Location" >
+                                <input type="text" placeholder="Library/Location" name="library_location">
+                        </div>
+
+                        
+                        <div class="input-field1">
+                                <label>Electronic Access</label>
+                                <input type="text" placeholder="Library/Location" name="electronic_access">
                         </div>
 
                         <div class="input-field1">
                       
                                 <label>Cover Image file</label>
-                                <input type="file" >
+                                <input type="file" name="f1">
                             
                         </div>
 
                         <div class="input-field2">
                                         <label>Entered by</label>
-                                        <input type="text" placeholder="Entered by" >
+                                        <input type="text" placeholder="Entered by" name="entered_by">
                         </div>
 
                         <div class="input-field2">
                                         <label>Updated by</label>
-                                        <input type="text" placeholder="Updated by" >
+                                        <input type="text" placeholder="Updated by" name="updated_by">
                         </div>
 
                         <div class="input-field2">
                                         <label>Date Entered</label>
-                                        <input type="date"  >
+                                        <input type="date"  name="date_entered">
                         </div>
 
                         <div class="input-field2">
                                         <label>Date Updated</label>
-                                        <input type="date"  >
+                                        <input type="date"  name="date_updated">
                         </div>
 
                         <div class="input-field2">
                                         <label>Quantity</label>
-                                        <input type="number" placeholder="Quantity" >
+                                        <input type="number" placeholder="Quantity" name="quantity">
                         </div>
 
                         <div class="input-field2">
                                         <label>Available</label>
-                                        <input type="number" placeholder="Available" >
+                                        <input type="number" placeholder="Available" name="available">
                         </div>
 
                         <div class="input-field2">
                                 <label>Location</label>
-                                <select placeholder="Title Proper" >
+                                <select name="location">
                                             <option>General Circulation</option>
                                             <option>Teachers Reference</option>
                                             <option>Filipiniana</option>
@@ -333,9 +339,9 @@
                                 <span class="btnText">Back</span>
                             </div>
 
-                            <button class="nextBtn">
-                                <span class="btnText">Next</span>
-                            </button>
+                            <button type="button" class="nextBtn">
+                            <span class="btnText">Next</span>
+                        </button>
                         </div>
                 </div>
 
@@ -354,21 +360,21 @@
                         <div class="input-field1">
                                     <label>Content notes</label>
                         
-                                    <textarea placeholder="Title Proper" >
+                                    <textarea placeholder="Title Proper" name="content_notes">
                                     </textarea>
                         </div>
 
                         <div class="input-field1">
                                     <label>Abstract</label>
                         
-                                    <textarea placeholder="Title Proper" >
+                                    <textarea placeholder="Title Proper" name="abstract">
                                     </textarea>
                         </div>
 
                         <div class="input-field1">
                                     <label>Review</label>
                         
-                                    <textarea placeholder="Title Proper" >
+                                    <textarea placeholder="Title Proper" name="review">
                                     </textarea>
                         </div>
 
@@ -388,12 +394,78 @@
                     </div>
 
             </div>
-            <!-- 3rd form end -->
+            <!-- FIFTH form end -->
          
             </form>
             
             </div>
-       
+
+            <?php
+
+                if (isset($_POST["submit"])) {
+
+                    $image_name=$_FILES['f1']['name'];
+                    $file_name=$_FILES['file']['name'];
+                    $temp = explode(".", $image_name);
+                    $temp2 = explode(".", $file_name);
+                    $newfilename = round(microtime(true)) . '.' . end($temp);
+                    $newfilename2 = round(microtime(true)) . '.' . end($temp2);
+                    $imagepath="books-image/".$newfilename;
+                    $filepath="books-file/".$newfilename2;
+                    move_uploaded_file($_FILES["f1"]["tmp_name"],$imagepath);
+                    move_uploaded_file($_FILES["file"]["tmp_name"],$filepath);
+
+                    mysqli_query($link, "INSERT INTO book_module VALUES (
+                        '',
+                        '$_POST[title_proper]',
+                        '$_POST[responsibility]',
+                        '$_POST[preffered_title]',
+                        '$_POST[parallel_title]',
+                        '$_POST[main_creator]',
+                        '$_POST[add_entry_creator]',
+                        '$_POST[contributors]',
+                        '$_POST[add_entry_corporate]',
+                        '$_POST[place_of_publication]',
+                        '$_POST[publisher]',
+                        '$_POST[date_of_publication]',
+                        '$_POST[edition]',
+                        '$_POST[extent_of_text]',
+                        '$_POST[illustrations]',
+                        '$_POST[dimension]',
+                        '$_POST[acc_materials]',
+                        '$_POST[series]',
+                        '$_POST[supp_content]',
+                        '$_POST[ISBN]',
+                        '$_POST[content_type]',
+                        '$_POST[media_type]',
+                        '$_POST[carrier_type]',
+                        '$filepath',
+                        '$_POST[subject_type]',
+                        '$_POST[subject_info]',
+                        '$_POST[call_number_type]',
+                        '$_POST[call_number_info]',
+                        '$_POST[accession_number]',
+                        '$_POST[language]',
+                        '$_POST[library_location]',
+                        '$_POST[electronic_access]',
+                        '$imagepath',
+                        '$_POST[entered_by]',
+                        '$_POST[updated_by]',
+                        '$_POST[date_entered]',
+                        '$_POST[date_updated]',
+                        '$_POST[quantity]',
+                        '$_POST[available]',
+                        '$_POST[location]',
+                        '$_POST[content_notes]',
+                        '$_POST[abstract]',
+                        '$_SESSION[username]')"
+                    );
+                    
+
+                }
+            ?>
+
+
 
 
     

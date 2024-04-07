@@ -66,7 +66,7 @@ body{
    
 }
 
-.container form .form.second{
+/* .container form .form.second{
     opacity: 0;
     pointer-events: none;
 }
@@ -84,7 +84,7 @@ body{
 .container form .form.fifth{
     opacity: 0;
     pointer-events: none;
-}
+} */
 
 
 
@@ -126,10 +126,15 @@ form.secActive .form.second{
 }
 
 .container form button, 
-.container form .backBtnP{
+.container form .backBtn{
     font-size: 16px;
     font-weight: 400;
+ 
 }
+
+
+
+
 
 
 
@@ -316,6 +321,8 @@ form .buttons{
 form .buttons button, .backBtn{
     margin-right: 14px;
 }
+
+
 
 
 
