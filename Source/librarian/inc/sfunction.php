@@ -10,7 +10,7 @@
         $year = $_POST["year"];
 		$course = $_POST["course"];
 
-		if ($student_number =="" | $first_name =="" | $last_name == "" | $middle_name == "" | $password == "" | $email == "" | $semester == "" | $year == "" | $course == "") {
+		if ($student_number =="" | $first_name =="" | $last_name == "" | $password == "" | $email == "" | $semester == "" | $year == "" | $course == "") {
 			$error_m= "Error! <span>Feild mustn't be empty</span>";
 
 		}

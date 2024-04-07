@@ -32,7 +32,7 @@
     $datetime2 = strtotime($brdate);
     $difference = $datetime1 - $datetime2;
     $days_overdue = floor($difference / (60 * 60 * 24));
-    $fine = $days_overdue * 10; // $10 fine for each day overdue
+    $fine = $days_overdue * 5; // $5 fine for each day overdue
 
     // Insert fine information into finezone table
     if($fine > 0){

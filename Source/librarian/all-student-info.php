@@ -39,29 +39,39 @@
                                     <tr>
                                         <th scope="col">Student Number</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Username</th>
-                                        <th scope="col">Semester</th>
-                                        <th scope="col">Dept</th>
-                                        <th scope="col">Session</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Address</th>
+                                        <th scope="col">Course</th>
+                                        <th scope="col">Year</th>
+                                        <th scope="col">Semester</th>
+                                        <th scope="col">verified</th>
+                                        <th>Activate</th>
+                                        <th>Deactivate</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                        $res= mysqli_query($link, "select * from std_registration");
+                                        $res= mysqli_query($link, "select * from student");
                                         while ($row=mysqli_fetch_array($res)) {
                                             echo "<tr>";
-                                            echo "<td>"; echo $row["regno"]; echo "</td>";
-                                            echo "<td>"; echo $row["name"]; echo "</td>";
-                                            echo "<td>"; echo $row["username"]; echo "</td>";
-                                            echo "<td>"; echo $row["sem"]; echo "</td>";
-                                            echo "<td>"; echo $row["dept"]; echo "</td>";
-                                            echo "<td>"; echo $row["session"]; echo "</td>";
+                                            echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                            echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"]; echo "</td>";
                                             echo "<td>"; echo $row["email"]; echo "</td>";
-                                            echo "<td>"; echo $row["phone"]; echo "</td>";
-                                            echo "<td>"; echo $row["address"]; echo "</td>";
+                                            echo "<td>"; echo $row["course"]; echo "</td>";
+                                            echo "<td>"; echo $row["year"]; echo "</td>";
+                                            echo "<td>"; echo $row["semester"]; echo "</td>";
+                                            echo "<td>"; echo $row["verified"]; echo "</td>";
+                                            echo "<td>";
+                                            ?>
+                                            <a href="approve.php?id=<?php echo $row["student_number"];?>" class='btn btn-success btn-sm'>Activate</a>
+                                            <?php
+                                            
+                                            echo "</td>";
+                                            echo "<td>";
+                                            ?>
+                                                <a href="notapprove.php?id=<?php echo $row["student_number"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
+                                            <?php
+                                            echo "</td>";
+                              
                                             echo "</tr>";
                                         }
                                    ?> 

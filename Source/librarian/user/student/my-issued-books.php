@@ -62,11 +62,11 @@
 								 ?>
 								 <?php 
 						
-									$res1= mysqli_query($link, "select * from issue_book where regno='".$_SESSION['student']."' ORDER BY id DESC");
+									$res1= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['student']."' ORDER BY id DESC");
 								
 									while ($row=mysqli_fetch_array($res1)) {
                                         echo "<tr>";
-                                        echo "<td>"; echo $row["regno"]; echo "</td>";
+                                        echo "<td>"; echo $row["student_number"]; echo "</td>";
                                         echo "<td>"; echo $row["name"]; echo "</td>";
                                         echo "<td>"; echo $row["booksname"]; echo "</td>";
                                         echo "<td>"; echo $row["booksissuedate"]; echo "</td>";

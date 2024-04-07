@@ -33,7 +33,7 @@
 					<form action="" method="post" name="form1" class="col-lg-6" enctype="multipart/form-data">
                         <table class="table table-bordered table-striped">
 						<?php
-							date_default_timezone_set("Asia/Dhaka");
+							date_default_timezone_set("Asia/Singapore");
 							$time= date("Y-m-d h:i:sa");
 							if (isset($_POST["submit"])) {
 								$title  = $_POST["title"];
@@ -52,16 +52,7 @@
                             <tr>
                                 <td>
                                   <select name="rusername" class="form-control">
-	                                     <?php 
-                                             $res= mysqli_query($link, "select * from std_registration");
-								
-                                                
-                                                while($row=mysqli_fetch_array($res)){
-                                                    ?><option value="<?php echo $row["username"]?>">
-                                                    <?php  echo $row["username"]. " (".$row["regno"].")"; ?>
-                                                    </option><?php
-                                                } 
-                                           ?>
+	                                  
 										    <?php 
                                              $res1= mysqli_query($link, "select * from student");
 								

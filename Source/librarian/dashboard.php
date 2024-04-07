@@ -47,11 +47,11 @@
                  </div>
             </div>
             <br>
-            <br>
+        
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0 illustration" id="card1">
-                                <div class="card-body p-0 d-flex flex-fill" >
+                            <div class="card flex-fill border-0 illustration" id="card1" >
+                                <div class="card-body p-0 d-flex flex-fill" id="card2">
                                     <div class="row g-0 w-100">
                                         <div class="col-10 d-flex">
                                             <div class="p-3 m-1">
@@ -86,8 +86,8 @@
 					
 
 					<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4" >
+                            <div class="card flex-fill border-0" id="card1" >
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -116,7 +116,7 @@
 										<!--  -->
 						<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
                                    
@@ -160,7 +160,7 @@
 										<!--  -->
 										<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -187,14 +187,15 @@
 										<!--  -->
 										<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
 							<div class="icon1">
-								<i class="fas fa-dollar-sign"></i>
+                            <i class="fa-solid fa-peso-sign"></i>
 							</div>
 							<div class="text-left">
+                                
 								<h3><span class="counter">
                                         <?php
                                         $total_fine = 0;
@@ -202,10 +203,11 @@
                                         while ($row = mysqli_fetch_array($res)) {
                                             $total_fine += $row["fine"];
                                         }
-                                        echo $total_fine;
+                                        echo "<i class='fa-solid fa-peso-sign'></i>"; echo" ";echo $total_fine;
                                         ?>
+                                      
                                     </span></h3>    
-								<h4><a href="fine.php">Fine</a></h4>
+								<h4><a href="fine.php">Returned Books</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -217,7 +219,7 @@
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -239,7 +241,7 @@
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -265,7 +267,7 @@
 								<!--  -->
 								<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -286,7 +288,7 @@
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4">
+                                <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
 										<div class="box">
@@ -297,14 +299,18 @@
 								
 							<h4 class="mt-10"><a href="requested-books.php">Requested Books</a></h4>
 							</div>
+                            
 						</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                       
 					
             </main>
+
+            
             
                                   
 

@@ -37,68 +37,46 @@
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                                                <th>Name</th>
-                                                <th>Username</th>
-                                                <th>User Type</th>
-                                                <th>Email</th>
-                                                <th>Status</th>
-                                                <th>verified</th>
-                                                <th>Activate</th>
-                                                <th>Deactivate</th>
+                                        <th scope="col">Student Number</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Course</th>
+                                        <th scope="col">Year</th>
+                                        <th scope="col">Semester</th>
+                                        <th scope="col">verified</th>
+                                        
                                     </tr>
                                 </thead>
                             
                                 <tbody>
                                            <?php
-                                                $res= mysqli_query($link, "select * from std_registration ORDER BY id DESC");
+                                                $res= mysqli_query($link, "select * from student ORDER BY student_number DESC");
                                                 $res2= mysqli_query($link, "select * from t_registration ORDER BY id DESC");
                                                 while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
-                                                    echo "<td>"; echo $row["name"]; echo "</td>";
-                                                    echo "<td>"; echo $row["username"]; echo "</td>";
-                                                    echo "<td>"; echo $row["utype"]; echo "</td>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
-                                                    echo "<td>"; echo $row["status"]; echo "</td>";
+                                                    echo "<td>"; echo $row["course"]; echo "</td>";
+                                                    echo "<td>"; echo $row["year"]; echo "</td>";
+                                                    echo "<td>"; echo $row["semester"]; echo "</td>";
                                                     echo "<td>"; echo $row["verified"]; echo "</td>";
-                                                    echo "<td>";
-                                                    ?>
-                                                              <a href="approve.php?id=<?php echo $row["id"];?>" class='btn btn-success btn-sm'>Activate</a>
-                                                          
-                                                            
-                                                          
-                                                       
-                                                    <?php
-                                                    
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    ?>
-                                                         <a href="notapprove.php?id=<?php echo $row["id"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
-                                                     <?php
-                                                    echo "</td>";
+                                             
+                                              
+                                      
                                                     echo "</tr>";
                                                 }
-                                                while ($row=mysqli_fetch_array($res2)) {
-                                                    echo "<tr>";
-                                                    echo "<td>"; echo $row["name"]; echo "</td>";
-                                                    echo "<td>"; echo $row["username"]; echo "</td>";
-                                                    echo "<td>"; echo $row["utype"]; echo "</td>";
-                                                    echo "<td>"; echo $row["email"]; echo "</td>";
-                                                    echo "<td>"; echo $row["status"]; echo "</td>";
-                                                    echo "<td>"; echo $row["verified"]; echo "</td>";
-                                                    echo "<td>";
-                                                    ?>
-                                                            <a href="approve.php?id=<?php echo $row["id"];?>" class='btn btn-success btn-sm'>Activate</a>
-                                                           
-                                                    <?php
-                                                    
-                                                    echo "</td>";
-                                                    echo "<td>";
-                                                    ?>
-                                                            <a href="notapprove.php?id=<?php echo $row["id"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
-                                                     <?php
-                                                    echo "</td>";
-                                                    echo "</tr>";
-                                                }
+                                                // while ($row=mysqli_fetch_array($res2)) {
+                                                //     echo "<tr>";
+                                                //     echo "<td>"; echo $row["name"]; echo "</td>";
+                                                //     echo "<td>"; echo $row["username"]; echo "</td>";
+                                                //     echo "<td>"; echo $row["utype"]; echo "</td>";
+                                                //     echo "<td>"; echo $row["email"]; echo "</td>";
+   
+                                                //     echo "<td>"; echo $row["verified"]; echo "</td>";
+                                            
+                                                //     echo "</tr>";
+                                                // }
                                              ?>
                                        </tbody>
                             </table>

@@ -15,12 +15,13 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBS Library</title>
+    <title>NBS College Library</title>
     <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
+   
 
 
 </head>
@@ -28,11 +29,12 @@
 <body>
     <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
+        
 
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo text-center">
-                    <a href="dashboard.php">NBS LIBRARY</a>
+                    <a href="dashboard.php">NBSC LIBRARY</a>
                 </div>
 				
                 <ul class="sidebar-nav">
@@ -105,6 +107,10 @@
                             <li class="sidebar-item <?php if($page=='e-book'){ echo 'active';} ?>">
                                 <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
+
+                            <li class="sidebar-item">
+                                <a href="progress.php" class="sidebar-link">Add Book Module</a>
+                            </li>
                             <!-- <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
                             </li>
@@ -159,6 +165,14 @@
                                 </a>
                     </li>
 
+                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="display-progress.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display Book Module
+                                </a>
+                    </li>
+
+
 
 
                     <li class="sidebar-item">
@@ -184,7 +198,6 @@
                     <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
-
                             Issued book
                         </a>
                     </li>
@@ -209,12 +222,14 @@
                                 <a href="send-to-teacher.php" class="sidebar-link">Send to teacher</a>
                             </li>
                         </ul>
+                        
                     </li>
+                    
                 </ul>
+
                 
             </div>
-            
-            
+        
           
         </aside>
         
@@ -248,12 +263,18 @@
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                                 <a href="changepass.php" class="dropdown-item">Change Password</a>
                             </div>
-                        </li>
+                     
                         
+                        </li>
+
+                      
                     </ul>
+                    
                 </div>
                 
+           
             </nav>
+            
             
       
             <a href="#" class="theme-toggle">
@@ -303,12 +324,14 @@
 	<script src="inc/js/jquery.counterup.min.js"></script>
 	<script src="inc/js/datatables.min.js"></script>
 	<script src="inc/js/datatables.js"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
 
     
 </body>
+
 
 </html>
 
