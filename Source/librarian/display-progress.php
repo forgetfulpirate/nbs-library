@@ -42,6 +42,7 @@
                                     <th class="col">Publisher</th>
                                     <th class="col">Books quantity</th>
                                     <th class="col">Books availability</th>
+                                    <th class="col">View</th>
                                     <th class="col">Edit</th>
                                     <th class="col">Delete</th>
                                     </tr>
@@ -71,9 +72,14 @@
                                     echo "<td>";
                                     echo $row["available"];
                                     echo "</td>";
+                                    echo "<td>";
+                                    ?>
+                                    <a href="display-book-info.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit">View</a><?php
+                                    
+                                    echo "</td>";
                                      echo "<td>";
                                     ?>
-                                    
+                          
                                     <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["id"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
                                     
                                     echo "</td>";   echo "</td>";

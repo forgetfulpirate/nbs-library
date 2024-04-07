@@ -14,11 +14,13 @@
 }
 body {
     position: relative;
+    
 }
 
 .tabs-controller{
     width: auto;
-   
+
+    overflow-x: scroll;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,17 +53,39 @@ body {
 }
 
 .tab-contents{
-    width: 100%;
+    width: 100;
+ 
     height:max(200px, 100%);
-    background-color: var(--theme2-color) ;
+    background-color: var(--bs-body-bg);
     border-radius: 0px 7px 7px 7px;
     padding: 30px;
+    overflow-x: scroll;
+   
+
+    
 }
 
 .content{
     display: none;
-
+   
 }
+
+div{
+    display: block;
+}
+
+
+img {
+    max-width: 100%;
+    width: auto\9;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
 
 .content.active{
     display: block;
@@ -69,6 +93,16 @@ body {
 
 .button.active{
     background-color: var(--theme2-color);
+}
+
+.title{
+    font-size: 200%;
+    position: relative;
+    margin-left: 20px;
+    line-height: 150%;
+    text-rendering: optimizelegibility;
+    font-family: inherit;
+    font-weight:lighter;
 }
 
 
