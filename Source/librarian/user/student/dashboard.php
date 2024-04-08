@@ -8,9 +8,33 @@
         <?php
     }
     $page ='home';
-    include 'inc/header.php';
     include 'inc/connection.php';
+	include 'inc/header.php';
+    
  ?>
+<style>
+
+#time {
+    font-size: 20px;
+    float: right;
+  
+}
+
+#date {
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+
+
+}
+.h4 {
+    float:left;
+}
+</style>
+
+
+
+
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">

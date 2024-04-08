@@ -103,7 +103,7 @@
                    
                         ?>
                         <script type="text/javascript">
-                            window.location="issued-books.php";
+                            window.location="dashboard.php";
                         </script>
                         <?php  
                     }
