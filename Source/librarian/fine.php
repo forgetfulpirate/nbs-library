@@ -36,6 +36,7 @@
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
+                                                <th>ID Number</th>
                                                 <th>Name</th>
                                                 <th>User Type</th>
                                                 <th>Email</th>
@@ -51,7 +52,8 @@
                                                 $res= mysqli_query($link, "select * from finezone");
                                                 while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
-                                                    echo "<td>"; echo $row["first_name"]; echo "</td>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"];  echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";

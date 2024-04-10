@@ -105,10 +105,10 @@
                                             <td>
                                                 <select name="booksname" class="form-control">
                                                     <?php 
-                                                            $res= mysqli_query($link, "select books_name from add_book");
+                                                            $res= mysqli_query($link, "select title_of_book from book");
                                                             while($row=mysqli_fetch_array($res)){
                                                                 echo "<option>";
-                                                                echo $row["books_name"];
+                                                                echo $row["title_of_book"];
                                                                 echo "</option>";
                                                             }
                                                         ?>
@@ -143,7 +143,7 @@
                                 <?php
                                     if (isset($_POST["submit2"])) {
                                       $qty=0;
-                                      $res= mysqli_query($link, "select * from add_book where books_name='$_POST[booksname]' ");
+                                      $res= mysqli_query($link, "select * from book where title_of_book='$_POST[booksname]' ");
                                        while($row = mysqli_fetch_array($res)){
                                           $qty= $row["books_availability"];
                                        }
@@ -156,7 +156,7 @@
                                        }
                                        else{
                                           mysqli_query($link, "insert into t_issuebook values('','$_SESSION[utype]','$_SESSION[idno]','$_POST[name]','$_POST[teaches]','$_POST[phone]','$_POST[email]','$_POST[booksname]','$_POST[booksissuedate]','$_POST[booksreturndate]','$_SESSION[tusername]') ");
-                                          mysqli_query($link, "update add_book set books_availability=books_availability-1 where books_name='$_POST[booksname]'");
+                                          mysqli_query($link, "update book set books_availability=books_availability-1 where title_of_book='$_POST[booksname]'");
 
                                           ?>
                                           <br>

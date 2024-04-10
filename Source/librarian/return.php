@@ -9,6 +9,8 @@
 
         $name = $row3["name"];
 		$student_number = $row3["student_number"];
+        $last_name = $row3["last_name"];
+        $middle_name = $row3["middle_name"];
         $utype = $row3["utype"];
         $email = $row3["email"];
         $booksname = $row3["booksname"];
@@ -25,6 +27,8 @@
         $booksname = $row4["booksname"];
         $brdate = $row4["booksreturndate"];
     }
+
+
     // Calculate fine for overdue books
     $datetime1 = strtotime($a);
     $datetime2 = strtotime($brdate);
@@ -34,9 +38,9 @@
 
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$name','$student_number','$utype','$email','$booksname','$brdate','$a','$fine')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','$fine')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$student_number','$utype','$email','$booksname','$brdate','$a','0')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','0')");
     }
 
     // Update return date in t_issuebook and issue_book tables
