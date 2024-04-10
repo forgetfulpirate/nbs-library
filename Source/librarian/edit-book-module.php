@@ -481,7 +481,7 @@
                                 </div>
 
                                 <button name="submit">
-                                    <span >Add Book</span>
+                                    <span >Edit Book</span>
                                 </button>
                             </div>
                     </div>
