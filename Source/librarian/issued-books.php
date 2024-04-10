@@ -43,7 +43,7 @@
                                                 <th>Return Date</th>
                                                 <th>User Type</th>
                                                 <th>Name</th>
-                                                <th>Username</th>
+                                                <th>Student Number</th>
                                                 <th>Email</th>
                                                 <th>Return Book</th>
                                             </tr>
@@ -58,8 +58,8 @@
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
-                                                    echo "<td>"; echo $row["name"]; echo "</td>";
-                                                    echo "<td>"; echo $row["username"]; echo "</td>";
+                                                    echo "<td>"; echo $row["name"]; echo " "; echo $row["last_name"]; echo "</td>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
                                 
                                                     echo "<td>";
