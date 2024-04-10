@@ -20,7 +20,6 @@
           
                         <h4>Student Information  
                         <p id="time"></p>
-                          
                             <p id="date"></p>
                         </h4>
                            
