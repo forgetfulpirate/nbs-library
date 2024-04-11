@@ -21,11 +21,6 @@
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
 
-
-
-
-
-
 </head>
 
 <body>
@@ -52,13 +47,29 @@
 						  $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
 
 						  while ($row1 = mysqli_fetch_array($res1)){
-							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"> </a> <?php
+							  ?><img src="<?php echo $row1["photo"]; ?> " height="70px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
 						  }
                         ?>
+						<h6 style="float: right; margin-top: 10px; color:#248fc5;">
+						
+						Welcome
+
+
+			   		<?php
+		   
+					$res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
+				   
+					while ($row = mysqli_fetch_array($res1)){
+						?><?php echo $row["user_type"]; ?><span>,</span><?php
+					}
+			   		?>
+                            
+            			</h6>
                         
                         </span>
 
-                        <h6 style="float: right; margin-top: 10px;">
+                        <h6 style="float:inline-end; margin-top: 1px; font-weight:bolder;">
+						
 						<?php
 					
 					    $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
@@ -78,13 +89,12 @@
 			   		?>
                             
             			</h6>
-                        
-				
-						
-					
+        
 					
                     </li>
                     <br>
+					<br>
+					<br>
                     <li class="sidebar-header">
                         Admin Elements
                     </li>
@@ -151,7 +161,7 @@
                                 </a>
                     </li> -->
             
-                    <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="request-book.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
