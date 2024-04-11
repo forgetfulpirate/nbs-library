@@ -103,7 +103,7 @@
                             </div>
                             <div class="input-field">
                                 <label>Date of Publication</label>
-                                <input type="date" placeholder="Date of Publication" name="date_of_publication">
+                                <input type="text" placeholder="Date of Publication" name="date_of_publication">
                             </div>
 
                             <div class="input-field">

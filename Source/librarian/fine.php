@@ -36,12 +36,13 @@
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
+                                                <th>ID Number</th>
                                                 <th>Name</th>
-                                                <th>Username</th>
                                                 <th>User Type</th>
                                                 <th>Email</th>
                                                 <th>Books Name</th>
-                                                
+                                                <th>Date Issued</th>
+                                                <th>Date Returned</th>
                                                 <th>Amount</th>
                                                 <th>Action</th>
                                             </tr>
@@ -51,18 +52,23 @@
                                                 $res= mysqli_query($link, "select * from finezone");
                                                 while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
-                                                    echo "<td>"; echo $row["first_name"]; echo "</td>";
-                                                    echo "<td>"; echo $row["username"]; echo "</td>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"];  echo "</td>";
                                                     echo "<td>"; echo $row["utype"]; echo "</td>";
                                                     echo "<td>"; echo $row["email"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
+                                                    echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
+                                                    echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
                                                     echo "<td>"; echo $row["fine"]; echo "</td>";
 													echo "<td>";
 													?><a href="delete-fine.php?id=<?php echo $row["id"]; ?> " style="color: red"><i class="fas fa-trash"></i></a><?php
 													echo "</td>";
                                                     echo "</tr>";
+
+                                                    
                                                 }
                                              ?>
+
                                        </tbody>
                                 
                             </table>

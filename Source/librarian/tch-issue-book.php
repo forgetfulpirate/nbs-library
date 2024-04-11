@@ -33,17 +33,17 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="issue-wrapper">
-								<form action="" class="form-control" method="post" name="student_number">
+								<form action="" class="form-control" method="post" name="id_number">
                                 <table class="table">
                                     <tr>
                                         <td class="">
-                                            <select name="student_number" class="form-control">
+                                            <select name="id_number" class="form-control">
                                                 <?php 
                                                 // Assuming $link is your database connection
-                                                $res = mysqli_query($link, "SELECT student_number FROM student");
+                                                $res = mysqli_query($link, "SELECT id_number FROM teacher");
                                                 if (mysqli_num_rows($res) > 0) {
                                                     while ($row = mysqli_fetch_array($res)) {
-                                                        echo "<option value='" . $row['student_number'] . "'>" . $row['student_number'] . "</option>";
+                                                        echo "<option value='" . $row['id_number'] . "'>" . $row['id_number'] . "</option>";
                                                     }
                                                 } else {
                                                     echo "<option value=''>No student number registered</option>";
@@ -59,19 +59,17 @@
 
                                     <?php 
                                     if (isset($_POST["submit1"])) {
-                                       $res5 = mysqli_query($link, "select * from student where student_number='$_POST[student_number]' ");
+                                       $res5 = mysqli_query($link, "select * from teacher where id_number='$_POST[id_number]' ");
                                        while($row5 = mysqli_fetch_array($res5)){   
-                                           $student_number  = $row5['student_number'];                
+                                           $id_number  = $row5['id_number'];                
 										   $first_name  = $row5['first_name'];
                                            $last_name       = $row5['last_name'];
                                            $middle_name      = $row5['middle_name'];
                                            $email   = $row5['email'];
-                                           $course     = $row5['course'];
-                                           $year     = $row5['year'];
-                                           $semester     = $row5['semester'];
+                                           $dept     = $row5['dept'];
                                            $user_type     = $row5['user_type'];
                                            $_SESSION["user_type"]     = $user_type;
-                                           $_SESSION["student_number"]     = $student_number;
+                                           $_SESSION["id_number"]     = $id_number;
                                        }
                                     ?>
 									<table class="table table-bordered">
@@ -82,7 +80,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="student_number" value="<?php echo $student_number; ?>"  disabled> 
+                                               <input type="text" class="form-control" name="id_number" value="<?php echo $id_number; ?>"  disabled> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -108,20 +106,10 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                               <input type="text" class="form-control" name="course" value="<?php echo $course; ?>" readonly> 
+                                               <input type="text" class="form-control" name="dept" value="<?php echo $dept; ?>" readonly> 
                                             </td>
                                         </tr>
-                                         <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="year"  value="<?php echo $year; ?>"  readonly> 
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="semester"  value="<?php echo $semester; ?>"  readonly> 
-                                            </td>
-                                        </tr>
-                                  
+                                      
                                         <tr>
                                             <td>
                                                 <select name="title_of_book" class="form-control">
@@ -174,7 +162,7 @@
                                        }
                                        else{
                                         mysqli_query($link, "INSERT INTO issue_book 
-                                        VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '$_POST[middle_name]', '$_POST[course]', '', '$_POST[email]', '$_POST[title_of_book]', '$_POST[booksissuedate]', '$_POST[booksreturndate]','')");
+                                        VALUES ('', '$_SESSION[user_type]', '$_SESSION[id_number]', '$_POST[first_name]', '$_POST[last_name]', '$_POST[middle_name]', '$_POST[dept]', '', '$_POST[email]', '$_POST[title_of_book]', '$_POST[booksissuedate]', '$_POST[booksreturndate]','')");
                    
                                           mysqli_query($link, "update book set books_availability=books_availability-1 where title_of_book='$_POST[title_of_book]'");
                                           ?>

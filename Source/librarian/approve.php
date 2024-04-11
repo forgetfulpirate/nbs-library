@@ -8,42 +8,23 @@
     <?php
     }
 
-	include 'inc/connection.php';
-	$id= $_GET["id"];
-    mysqli_query($link, "update std_registration set verified='yes' where id=$id");
-    mysqli_query($link, "update t_registration set verified='yes' where id=$id");
-    mysqli_query($link, "update student set status='yes' where student_number=$id");
-    mysqli_query($link, "update student set verified='yes' where student_number=$id");
+    include 'inc/connection.php';
+    $id = $_GET["id"];
 
- 
+    // Determine whether the ID corresponds to a student or a teacher
+    $student_result = mysqli_query($link, "SELECT * FROM student WHERE student_number = $id");
+    $teacher_result = mysqli_query($link, "SELECT * FROM teacher WHERE id_number = $id");
 
-    echo "<script type='text/javascript'>";
-    echo "alert('Account activated successfully!');";
-    echo "window.location='all-student-info.php';";
-    echo "</script>";
-    
-   
- ?>
-
-
-
-
-<!-- <?php 
-     $res = mysqli_query($link, "select * from std_registration where id=$id");
-     $res2 = mysqli_query($link, "select * from t_registration where id=$id");
-    while($row = mysqli_fetch_array($res)){
-        $email      = $row['email']; 
+    if (mysqli_num_rows($student_result) > 0) {
+        // If the ID corresponds to a student
+        mysqli_query($link, "UPDATE student SET status='yes', verified='yes' WHERE student_number = $id");
+        echo "<script>alert('Student account activated successfully!'); window.location='all-student-info.php';</script>";
+    } elseif (mysqli_num_rows($teacher_result) > 0) {
+        // If the ID corresponds to a teacher
+        mysqli_query($link, "UPDATE teacher SET status='yes', verified='yes' WHERE id_number = $id");
+        echo "<script>alert('Teacher account activated successfully!'); window.location='all-teacher-info.php';</script>";
+    } else {
+        // If the ID does not correspond to either a student or a teacher
+        echo "<script>alert('Invalid ID.'); window.location='index.php';</script>";
     }
-    while($row2 = mysqli_fetch_array($res2)){
-        $email      = $row2['email'];
-    }
-    $to = "$email";
-    $subject = "Account Conformation";
-    $message = "Your account is approved. Now you can login your account";
-    $headers = "From: cevangelista2021@student.nbscollege.edu.ph";
-    mail($to,$subject,$message,$headers);
-?> -->
-
-
-
- 
+?>

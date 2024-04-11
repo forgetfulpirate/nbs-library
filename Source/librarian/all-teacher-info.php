@@ -1,3 +1,4 @@
+
 <?php 
      session_start();
     if (!isset($_SESSION["username"])) {
@@ -12,13 +13,13 @@
     include 'inc/header.php';
  ?>
 
-
+    
             <main class="content px-3 py-2">
             <div class="gap-30"></div>
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Teacher Information  
+                        <h4>Student Information  
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -28,59 +29,69 @@
                  </div>
             </div>
             <br>
-            
+          
             <div class="card border-0">
-                  
+                
                  
                         <div class="card-body">
-                        <table id="dtBasicExample" class="table table-hover text-center table-striped text-center">
-                                    <thead>
-                                         <tr>
-                                             <th>Id No</th>
-                                             <th>Name</th>
-                                             <th>Username</th>
-                                             <th>Lecturer</th>
-                                             <th>Email</th>
-                                             <th>Phone</th>
-                                             <th>Address</th>
-                                         </tr>
-                                    </thead>
-                                    <tbody>       
-                                        <?php   
-                                             $res= mysqli_query($link, "select * from t_registration");
-                                             while ($row=mysqli_fetch_array($res)) {
-                                                echo "<tr>";
-                                                echo "<td>"; echo $row["idno"]; echo "</td>";
-                                                echo "<td>"; echo $row["name"]; echo "</td>";
-                                                echo "<td>"; echo $row["username"]; echo "</td>";
-                                                echo "<td>"; echo $row["lecturer"]; echo "</td>";
-                                                echo "<td>"; echo $row["email"]; echo "</td>";
-                                                echo "<td>"; echo $row["phone"]; echo "</td>";
-                                                echo "<td>"; echo $row["address"]; echo "</td>";
-                                                echo "</tr>";
-                                                
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
+                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID Number</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">verified</th>
+                                        <th>Activate</th>
+                                        <th>Deactivate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                        $res= mysqli_query($link, "select * from teacher");
+                                        while ($row=mysqli_fetch_array($res)) {
+                                            echo "<tr>";
+                                            echo "<td>"; echo $row["id_number"]; echo "</td>";
+                                            echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"]; echo "</td>";
+                                            echo "<td>"; echo $row["email"]; echo "</td>";
+                                            echo "<td>"; echo $row["dept"]; echo "</td>";
+                                            echo "<td>"; echo $row["verified"]; echo "</td>";
+                                            echo "<td>";
+                                            ?>
+                                            <a href="approve.php?id=<?php echo $row["id_number"];?>" class='btn btn-success btn-sm'>Activate</a>
+                                            <?php
+                                            
+                                            echo "</td>";
+                                            echo "<td>";
+                                            ?>
+                                                <a href="notapprove.php?id=<?php echo $row["id_number"];?>" class='btn btn-danger btn-sm'>Deactivate</a>
+                                            <?php
+                                            echo "</td>";
+                              
+                                            echo "</tr>";
+                                        }
+                                   ?> 
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-               
-                
+              
             </main>
 
-     
-         
-            <?php 
-		include 'inc/footer.php';
-	 ?>
-
-
+    
     <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
         });
     </script>		
+
+    
+<?php 
+		include 'inc/footer.php';
+	 ?>
+
+
     
 
+    

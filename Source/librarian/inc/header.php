@@ -136,6 +136,9 @@
                                 <a href="std-issue-book.php" class="sidebar-link">issue book</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
+                                <a href="tch-issue-book.php" class="sidebar-link">tch issue book</a>
+                            </li>
+                            <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
                             </li>
                         </ul>
@@ -186,6 +189,9 @@
                             </li>
                             <li class="sidebar-item ">
                                 <a href="add-std.php" class="sidebar-link">Add std</a>
+                            </li>
+                            <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-tch.php" class="sidebar-link">Add tch</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
