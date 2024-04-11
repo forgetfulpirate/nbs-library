@@ -9,6 +9,14 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
+
+    function showAlert($message, $type = 'success')
+{
+    echo "<div class='alert alert-$type fade show' role='alert'>
+            $message
+           
+        </div>";
+}
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -32,10 +40,12 @@
 						<div class="col-md-3">
 							<div class="photo">
 								<?php
-                                    $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
-                                    while ($row = mysqli_fetch_array($res)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="" width="" alt="something wrong"></a> <?php
-                                    }
+                                    $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
+                        
+                                    while ($row = mysqli_fetch_array($res1)){
+                                        ?><img src="<?php echo $row["photo"]; ?> " height="300px" width="250px" alt="something wrong"></a> <?php
+                                    }                                                          
+
                                 ?>
 							</div>
 							<div class="uploadPhoto">
@@ -53,8 +63,7 @@
                                     $newfilename = round(microtime(true)) . '.' . end($temp);
                                     $imagepath="upload/".$newfilename;
                                     move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
-                                    mysqli_query($link, "update t_registration set photo='".$imagepath."' where username='".$_SESSION['teacher']."'");
-                                    
+                                    mysqli_query($link, "update teacher set photo='".$imagepath."' where id_number='".$_SESSION['teacher']."'");
                                     ?>
                                         <script type="text/javascript">
                                             window.location="profile.php";
@@ -65,53 +74,53 @@
 						</div>
 						<div class="col-md-9">
 							<div class="details">
-                                 <?php
-                                       $res5 = mysqli_query($link, "select * from t_registration where username='$_SESSION[teacher]' ");
-                                       while($row5 = mysqli_fetch_array($res5)){
-                                           $idno      = $row5['idno'];
-										   $username  = $row5['username'];
-                                           $name      = $row5['name'];
-                                           $lecturer  = $row5['lecturer'];
-                                           $email     = $row5['email'];
-                                           $phone     = $row5['phone']; 
-                                           $address   = $row5['address'];
-                                           $utype     = $row5['utype'];
-                                       }
+                                <?php
+                                 
+                                       $res6 = mysqli_query($link, "select * from teacher where id_number='$_SESSION[teacher]' ");
+                                    
+                                       while($row6 = mysqli_fetch_array($res6)){
+                                        $id_number      = $row6['id_number'];
+                                        $first_name  = $row6['first_name'];
+                                        $last_name      = $row6['last_name'];
+                                        $middle_name      = $row6['middle_name'];
+                                        $email      = $row6['email'];
+                                        $dept      = $row6['dept'];
+                                        $status     = $row6['status'];
+                                        $user_type     = $row6['user_type'];
+                                    }
                                     ?>
                                 <form method="post">
                                     <div class="form-group details-control">
-                                        <label for="idno" class="text-right">Id No:</label>
-                                        <input type="text" class="form-control custom"  name="idno" value="<?php echo $idno; ?>" disabled />
+                                        <label for="id_number" class="text-right">ID Number:</label>
+                                        <input type="text" class="form-control custom"  name="id_number" value="<?php echo $id_number; ?>" readonly />
                                     </div>
                                     <div class="form-group details-control">
-                                         <label for="tusername">Username:</label>
-                                        <input type="text" class="form-control custom" placeholder="Username" name="tusername" value="<?php echo $username; ?>" disabled />
+                                         <label for="first_name">First Name:</label>
+                                        <input type="text" class="form-control custom"  name="first_name" value="<?php echo $first_name; ?>"  />
                                     </div>
                                     <div class="form-group details-control">
-                                        <label for="name" class="text-right">Name:</label>
-                                        <input type="text" class="form-control custom"  name="name" value="<?php echo $name; ?>" />
-                                    </div>
-                                    <div class="form-group details-control">
-                                        <label for="lecturer" class="text-right">Lecturer:</label>
-                                        <input type="text" class="form-control custom"  name="lecturer" value="<?php echo $lecturer; ?>" />
+                                        <label for="last_name" class="text-right">Last Name:</label>
+                                        <input type="text" class="form-control custom"  name="last_name" value="<?php echo $last_name; ?>" readonly/>
                                     </div>
 
                                     <div class="form-group details-control">
-                                         <label for="email">Email:</label>
-                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" disabled />
+                                        <label for="middle_name" class="text-right">Middle Name:</label>
+                                        <input type="text" class="form-control custom"  name="middle_name" value="<?php echo $middle_name; ?>" />
                                     </div>
                                     <div class="form-group details-control">
-                                         <label for="phone">Phone No:</label>
-                                        <input type="text" class="form-control custom"  name="phone" value="<?php echo $phone; ?>" />
-                                    </div>			                    
-                                    <div class="form-group details-control">
-                                        <label for="address">Address:</label>
-                                         <input type="text" class="form-control custom"  name="address" value="<?php echo $address; ?>" />
+                                        <label for="email" class="text-right">Email:</label>
+                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" readonly/>
                                     </div>
                                     <div class="form-group details-control">
-                                        <label for="utype">User Type:</label>
-                                         <input type="text" class="form-control custom"  name="utype" value="<?php echo $utype; ?>"  disabled="" />
+                                        <label for="course" class="text-right">Dept:</label>
+                                        <input type="text" class="form-control custom"  name="dept" value="<?php echo $dept; ?>" readonly/>
                                     </div>
+		                         
+                                    <div class="form-group details-control">
+                                        <label for="user_type">User Type:</label>
+                                         <input type="text" class="form-control custom"  name="user_type" value="<?php echo $user_type; ?>"  readonly />
+                                    </div>
+                                    <br>
                                     <div class="text-right mt-20">
                                         <input type="submit" value="Save" class="btn btn-info" name="update">
                                     </div>
@@ -119,20 +128,20 @@
                                 ?>
                                 </form>
 			                </div> 
+                            <BR>
                             <?php
-                               if (isset($_POST["update"])){
-                                   mysqli_query($link, "update t_registration set 
-                                   name='$_POST[name]',
-                                   phone='$_POST[phone]',
-                                   address='$_POST[address]'
-                                   where username='$_SESSION[teacher]'");
-                                    ?>
-                                        <script type="text/javascript">
-                                            window.location="profile.php";
-                                        </script>
-                                    <?php
-                              }
+                              if (isset($_POST["update"])) {
+                                if (mysqli_query($link, "update teacher set first_name='$_POST[first_name]', middle_name='$_POST[middle_name]' where id_number='$_SESSION[teacher]'")) {
+                                    showAlert("Profile updated successfully!", "success");
+                        
+                                    
+                                } else {
+                                    showAlert("Error updating profile!", "danger");
+                                }
+                            }
+                            
                             ?>
+                
 		                </div>    
 					</div>
 				</div>

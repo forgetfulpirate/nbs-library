@@ -11,6 +11,8 @@
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m-d-Y", strtotime("+30 days"));
+
+    
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -37,19 +39,21 @@
                                 <table class="table">
                                     <tr>
                                         <td class="">
-                                            <select name="student_number" class="form-control">
-                                                <?php 
-                                                // Assuming $link is your database connection
-                                                $res = mysqli_query($link, "SELECT student_number FROM student");
-                                                if (mysqli_num_rows($res) > 0) {
-                                                    while ($row = mysqli_fetch_array($res)) {
-                                                        echo "<option value='" . $row['student_number'] . "'>" . $row['student_number'] . "</option>";
-                                                    }
-                                                } else {
-                                                    echo "<option value=''>No student number registered</option>";
+                                        <select name="student_number" class="form-control">
+                                            <?php 
+                                            // Assuming $link is your database connection
+                                            $res = mysqli_query($link, "SELECT student_number FROM student");
+                                            if (mysqli_num_rows($res) > 0) {
+                                                while ($row = mysqli_fetch_array($res)) {
+                                                    // Check if the current option matches the selected value
+                                                    $selected = ($row['student_number'] == $_POST['student_number']) ? 'selected' : '';
+                                                    echo "<option value='" . $row['student_number'] . "' $selected>" . $row['student_number'] . "</option>";
                                                 }
-                                                ?>
-                                            </select>
+                                            } else {
+                                                echo "<option value=''>No student number registered</option>";
+                                            }
+                                            ?>
+                                        </select>
                                         </td>
                                         <td>
                                             <input type="submit" class="btn btn-info" value="select" name="submit1">
@@ -72,6 +76,7 @@
                                            $user_type     = $row5['user_type'];
                                            $_SESSION["user_type"]     = $user_type;
                                            $_SESSION["student_number"]     = $student_number;
+                                           $_SESSION["verified"] = $row5['verified']; // Add verified status to session
                                        }
                                     ?>
 									<table class="table table-bordered">
@@ -146,10 +151,25 @@
                                             <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+7 days')); ?>">
                                             </td>
                                         </tr>
+
+                                        
                                       
                                         <tr>
                                             <td>
-                                               <input type="submit" name="submit2" class="btn btn-info" value="Issue Book"> 
+                                                <?php
+                                                // Check if the user is verified before allowing to issue the book
+                                                if ($_SESSION["verified"] == 'yes') {
+                                                    ?>
+                                                    <input type="submit" name="submit2" class="btn btn-info" value="Issue Book">
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                        <div class="alert alert-warning col-lg-6 col-lg-push-3">
+                                                            <strong style="">Account is deactivated</strong>
+                                                        </div>
+                                                    <?php
+                                                }
+                                                ?>
                                             </td>
                                         </tr>
                                     </table>

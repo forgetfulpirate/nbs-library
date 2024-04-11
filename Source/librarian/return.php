@@ -70,6 +70,6 @@
     // Redirect with success message
     echo '<script type="text/javascript">  
                 alert("Book returned successfully");
-                window.location="fine.php";
+                window.location="issued-books.php";
           </script>';
 ?>
