@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page = 'sinfo';
+    $page = '';
     include 'inc/connection.php';
     include 'inc/header.php';
 
@@ -94,18 +94,8 @@
             <div class="tab-contents">
                 <!-- NORMAL VIEW CONTENT -->
                 <div class="content active">
-                    <?php
-                            $res = mysqli_query($link, "select * from book_module");
-                            while ($row = mysqli_fetch_array($res)) {
-                        ?>
-                      
-                      <img src="<?php echo $row["book_image"]; ?>" height="100" width="80" alt="no cover available">
-                         <span class="title"><?php echo $row["title_proper"]; ?></span>
-                       
-                   
-                        <?php
-                            }
-                    ?>
+                <img src="<?php echo $imagepath; ?>" height="100px" width="80">
+                <span class="title"><?php echo $title_proper; ?></span>
                 </div>
                 <!-- END NORMAL VIEW CONTENT -->
 
