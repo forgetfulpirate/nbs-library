@@ -8,7 +8,9 @@
     while($row3=mysqli_fetch_array($res3)){
 
         $name = $row3["name"];
-		$username = $row3["username"];
+		$student_number = $row3["student_number"];
+        $last_name = $row3["last_name"];
+        $middle_name = $row3["middle_name"];
         $utype = $row3["utype"];
         $email = $row3["email"];
         $booksname = $row3["booksname"];
@@ -18,7 +20,8 @@
     // Fetch data from t_issuebook table
     $res4 = mysqli_query($link, "select * from t_issuebook where id=$id");
     while($row4=mysqli_fetch_array($res4)){
-        $username = $row4["username"];
+        $name = $row4["name"];
+        $student_number = $row3["student_number"];
         $utype = $row4["utype"];
         $email = $row4["email"];
         $booksname = $row4["booksname"];
@@ -26,19 +29,18 @@
     }
 
 
-
     // Calculate fine for overdue books
     $datetime1 = strtotime($a);
     $datetime2 = strtotime($brdate);
     $difference = $datetime1 - $datetime2;
     $days_overdue = floor($difference / (60 * 60 * 24));
-    $fine = $days_overdue * 10; // $10 fine for each day overdue
+    $fine = $days_overdue * 5; // $5 fine for each day overdue
 
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$name','$username','$utype','$email','$booksname','$fine')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','$fine')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$username','$utype','$email','$booksname','0')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','0')");
     }
 
     // Update return date in t_issuebook and issue_book tables

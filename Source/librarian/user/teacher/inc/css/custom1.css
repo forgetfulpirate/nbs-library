@@ -6,8 +6,6 @@
     box-sizing: border-box;
 }
 
-
-
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.875rem;
@@ -29,6 +27,7 @@ a {
     background-color: #04AA6D; /* Change this to your desired hover color */
     color: #fff; /* Change this to your desired text color */
 }
+
 
 
 
@@ -177,19 +176,14 @@ h4 {
     min-width: 264px;
     background: var(--bs-dark);
     transition: all 0.35s ease-in-out;
+    overflow-y: scroll;
     
-  
-    
-}
-
-#card2{
-    overflow: hidden;
 }
 
 .main {
     display: flex;
     flex-direction: column;
-
+    
     min-height: 100vh;
     min-width: 0;
     overflow: hidden;
@@ -367,7 +361,5 @@ html[data-bs-theme="dark"] .theme-toggle .fa-moon {
 html[data-bs-theme="light"] .theme-toggle .fa-sun {
     display: none;
 }
-
-
 
 

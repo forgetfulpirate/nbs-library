@@ -10,7 +10,7 @@
  
     include 'inc/header.php';
     include 'inc/connection.php';
-    include 'inc/sfunction.php';
+    include 'inc/tchfunction.php';
  ?>
  <main class="content px-3 py-2">
 	<!--dashboard area-->
@@ -40,12 +40,12 @@
                         <?php if(isset($error_m)):?>
                             <span class="error"> <?php echo $error_m; ?></span>
                         <?php endif ?>
-                        <h4 style="text-align: center; margin-bottom: 25px;">Student registration form</h4>
+                        <h4 style="text-align: center; margin-bottom: 25px;">Teacher registration form</h4>
                         <form action="" class="form-inline" method="post">
 
                             <div class="form-group">
-                                <label for="student_number" class="text-right">Student Number <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Student Number" name="student_number" required=""/>
+                                <label for="id_number" class="text-right">ID Number <span>*</span></label>
+                                <input type="text" class="form-control custom" placeholder="Student Number" name="id_number" required=""/>
                             </div>
                             <?php if(isset($error_uname)):?>
                                 <span class="error"> <?php echo $error_uname; ?></span>
@@ -67,11 +67,12 @@
                                 <input type="text" class="form-control custom" placeholder="Middle name" name="middle_name"/>
                             </div>
   
-                     
+                
                             <div class="form-group">
                                 <label for="password">Password <span>*</span></label>
                                 <input type="password" class="form-control custom" placeholder="Password" name="password" required=""/>
                             </div>
+
                             <?php if(isset($error_ua)):?>
                                 <span class="error" style="color:red"> <?php echo $error_ua; ?></span>
                             <?php endif ?>
@@ -80,6 +81,7 @@
                                 <label for="email">Email <span>*</span></label>
                                 <input type="text" class="form-control custom" placeholder="Email" name="email" required=""/>
                             </div>
+
                             <?php if(isset($e_msg)):?>
                                 <span class="error"><?php echo $e_msg; ?> </span>
                             <?php endif ?>
@@ -88,33 +90,8 @@
                             <?php endif ?>
 
                             <div class="form-group">
-                                <label for="year">Year <span>*</span></label>
-                                <select class="form-control custom" name="year" required="">
-                                    <option>1st year</option>
-                                    <option>2nd year</option>
-                                    <option>3rd year</option>
-                                    <option>4th year</option>
-                            
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="semester">Select Semester <span>*</span></label>
-                                <select class="form-control custom" name="semester" required="">
-                                    <option>1st</option>
-                                    <option>2nd</option>
-                                    <option>3rd</option>
-                                    <option>4th</option>
-                                    <option>5th</option>
-                                    <option>6th</option>
-                                    <option>7th</option>
-                                    <option>8th</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="course">Course <span>*</span></label>
-                                <select class="form-control custom" name="course" required="">
+                                <label for="dept">Course <span>*</span></label>
+                                <select class="form-control custom" name="dept" required="">
                                     <option>BSCS</option>
                                     <option>BSA</option>
                                     <option>BSTM</option>
@@ -122,11 +99,8 @@
                                 </select>
                             </div>
 
-                       
-                   
-                         
                             <div class="submit">
-                                <input type="submit" value="Add Student" name="submit" class="btn change text-center">
+                                <input type="submit" value="Add Teacher" name="submit" class="btn change text-center">
                             </div>
                         </form>
 

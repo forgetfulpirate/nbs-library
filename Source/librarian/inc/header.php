@@ -136,6 +136,9 @@
                                 <a href="std-issue-book.php" class="sidebar-link">issue book</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
+                                <a href="tch-issue-book.php" class="sidebar-link">tch issue book</a>
+                            </li>
+                            <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
                             </li>
                         </ul>
@@ -165,6 +168,14 @@
                                 </a>
                     </li>
 
+                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="display-progress.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Display Book Module
+                                </a>
+                    </li>
+
+
 
 
                     <li class="sidebar-item">
@@ -179,6 +190,9 @@
                             <li class="sidebar-item ">
                                 <a href="add-std.php" class="sidebar-link">Add std</a>
                             </li>
+                            <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-tch.php" class="sidebar-link">Add tch</a>
+                            </li>
                             <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
                             </li>
@@ -190,7 +204,6 @@
                     <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
-
                             Issued book
                         </a>
                     </li>
@@ -324,6 +337,7 @@
 
     
 </body>
+
 
 </html>
 

@@ -26,17 +26,25 @@ body{
 .gap-40{
     margin-bottom: 40px;
 }
-.reg-wrapper span.errort{
-    color: red;
-    margin-left: 30%;
-    margin-bottom: 20px;
-    
+viewer-pdf-toolbar{
+    visibility: hidden;
 }
-.reg-body span.error{
+#toolbar, #annotations-bar{
+    visibility: hidden;
+}
+
+.reg-body span.success{
+    color: #218838;
+    margin-left: 170px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+.reg-wrapper span.error{
     color: red;
     margin-left: 170px;
     margin-bottom: 10px;
     margin-top: -5px;
+	font-size: 18px;
 }
 .reg-body span.success{
     color: #218838;
@@ -222,7 +230,7 @@ body{
 .nav-pills li {
     background: 0;
 }
-  
+
 
 .content{
     width: 80%;
@@ -445,8 +453,13 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.reg-header h2{
+    color: #fff;
+    z-index: 999999;
+}
 .reg-header h4{
-    margin-top: 20px;
+
+    color: #fff;
 }
 .reg-body.user-content{
    margin: 0;
@@ -457,7 +470,7 @@ body{
     margin: 0 auto;
     box-shadow: 0px 0px 3px;
     padding: 40px 25px;
-    background: #ddd!important;
+    background: #ddd;
 }
 
 .reg-body .form-group{
@@ -465,18 +478,16 @@ body{
     
 }
 .reg-body label{
-    width: 140px;
+    width: 145px;
    margin-right: 20px;
    
 }
 .reg-body .custom{
     width: 350px;
-
-
 }
-
 .registration .reg-body input[type=text],
 .registration .reg-body input[type=password],
+.registration .reg-body select,
 .registration .reg-body textarea{
     outline: 0!important;
     border: 1px solid #D52B2A;
@@ -489,8 +500,7 @@ body{
 .reg-body .submit{
     margin-top: 25px;
     margin-left: 200px;
-
-
+    
 }
 .reg-body .form-group span{
     color: red;
@@ -521,6 +531,10 @@ body{
     text-decoration: underline;
     text-decoration-color: #D52B2A;
 }
+.login-body input[type=text],
+.login-body input[type=password]{
+    border: 1px solid #D52B2A;
+}
 .login-body .submit{
     background: #D52B2A;
     border: none;
@@ -529,7 +543,7 @@ body{
 
     width: 400px;
     margin: 0 auto;
-    background: #ddd;
+   background: #ddd;
     padding: 40px;
     box-shadow: 0px 0px 3px;
 }
@@ -590,11 +604,11 @@ body{
 }
 .profile-content .photo{
     width: 250px;
-    height: 300px;
+    height: 350px;
 }
 .photo img{
     width: 250px;
-    height: 300px;
+    height: 350px;
 
 }
 .details{
@@ -616,7 +630,7 @@ body{
 .status ul li{
     list-style: none;
     float: left;
-    margin-left: 16px;
+    margin-left: 30px;
 }
 .status ul li:nth-child(2) i{
     color: red;
@@ -658,12 +672,23 @@ tbody{
 .details .details-control:nth-child(2n+2){
     margin-right: 0;
 }
+.sidebar-menu li.active a{
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
+    border-right: 5px solid #1ABB9C;
+}
+.sidebar-menu li.active ul a{
+
+    box-shadow: none;
+    border-right: 0px solid #fff;
+    border: 0;
+}
 .pass-content{
 	width: 550px;
 	margin: 0 auto;
     box-shadow: 0px 0px 3px;
     padding: 40px 30px;
-	
+
 }
 .pass-content input[type=password]{
     border: 1px solid #D52B2A;

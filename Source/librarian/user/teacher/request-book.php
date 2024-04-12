@@ -29,24 +29,32 @@
 					</div>
 				</div>
 				<div class="st-issuedBook">
-                     <?php
+                    <?php
 						
-						$res5 = mysqli_query($link, "select * from t_registration where username='$_SESSION[teacher]' ");
-						while($row5 = mysqli_fetch_array($res5)){
+                       $res5 = mysqli_query($link, "select * from t_registration where username='$_SESSION[teacher]' ");
+                       while($row5 = mysqli_fetch_array($res5)){
                            $name      = $row5['name'];                    
-                           $username  = $row5['username'];
+                           $regno  = $row5['username'];
                            $email     = $row5['email'];
                            $phone     = $row5['phone']; 
                            $utype     = $row5['utype'];
-						}
+                       }
+
+                       $res6 = mysqli_query($link, "select * from teacher where id_number='$_SESSION[teacher]' ");
+                       while($row5 = mysqli_fetch_array($res6)){
+                           $name      = $row5['first_name'];                    
+                           $username  = $row5['last_name'];
+                           $email     = $row5['email'];
+                           $utype     = $row5['user_type'];
+                       }
                     ?>
 					<form action="" method="post" class="issue-content">
 						<table class="table table-bordered table-striped">
 						<?php 
-							if (isset($_POST["submit"])){
+							
+							if (isset($_POST["submit"])) {
 								$bname = $_POST['bname'];
 								$burl = $_POST['burl'];
-								
 								if ($bname == "" | $burl =="" ) {
 									echo "<span style='color: red;'><b>Error !</b> Feild mustn't be empty</span>";
 								}else{
@@ -60,12 +68,12 @@
 						?>
 							<tr>
                                 <td>
-                                  <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" disabled>
+                                  <input type="text" class="form-control" name="name" value="<?php echo $name; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" disabled>
+                                  <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -75,12 +83,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" value="student" name="<?php echo $utype; ?>" disabled>
+                                    <input type="text" class="form-control" value="student" name="<?php echo $utype; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" disabled>
+                                  <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +96,6 @@
                                   <input type="text" class="form-control bdr" name="burl" value="" placeholder="Books url">
                                 </td>
                             </tr>
-                            
                         </table>
                         <input type="submit" name="submit" value="Send Request" class="btn">
 					</form>

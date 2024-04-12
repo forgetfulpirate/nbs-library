@@ -1,6 +1,6 @@
 	<?php 
-		 session_start();
-        if (!isset($_SESSION["teacher"])) {
+     session_start();
+    if (!isset($_SESSION["teacher"])) {
         ?>
             <script type="text/javascript">
                 window.location="login.php";
@@ -10,7 +10,8 @@
     $page = 'home';
     include 'inc/header.php';
     include 'inc/connection.php';
-	 ?>
+ ?>
+     <main class="content px-3 py-2">
 	<!--dashboard area-->
 	<div class="dashboard-content">
 		<div class="dashboard-header">
@@ -24,12 +25,12 @@
 					<div class="col-md-6">
 						<div class="right text-right">
 							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">dashboard</span>
+							<span class="disabled">my issued books</span>
 						</div>
 					</div>
 				</div>
 				<div class="st-issuedBook">
-                    <table id="dtBasicExample" class="table table-dark table-striped text-center">
+					<table id="dtBasicExample" class="table table-dark table-striped text-center">
                         <thead>
                            <tr>
                             <th>Id No</th>
@@ -41,11 +42,12 @@
                         </thead>
                         <tbody>
                             <?php 
+                                $res1= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
                                 $res= mysqli_query($link, "select * from t_issuebook where username='".$_SESSION['teacher']."' ORDER BY id DESC");
-                                while ($row=mysqli_fetch_array($res)) {
+                                while ($row=mysqli_fetch_array($res1)) {
                                     echo "<tr>";
-                                    echo "<td>"; echo $row["idno"]; echo "</td>";
-                                    echo "<td>"; echo $row["username"]; echo "</td>";
+                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                    echo "<td>"; echo $row["name"]; echo "</td>";
                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
@@ -53,17 +55,20 @@
                                 }
                              ?>
                             </tbody>
+                            
                     </table>
 				</div>
 			</div>					
 		</div>
 	</div>
-	<?php 
+     </main>
+    <?php 
 		include 'inc/footer.php';
 	 ?>
-     <script>
+	
+	 <script>
         $(document).ready(function () {
         $('#dtBasicExample').DataTable();
         $('.dataTables_length').addClass('bs-select');
         });
-      </script>
+  </script>

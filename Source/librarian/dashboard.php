@@ -203,7 +203,7 @@
                                         while ($row = mysqli_fetch_array($res)) {
                                             $total_fine += $row["fine"];
                                         }
-                                        echo "<i class='fa-solid fa-peso-sign'></i>"; echo" ";echo $total_fine;
+                                        echo" ";echo $total_fine;
                                         ?>
                                       
                                     </span></h3>    
