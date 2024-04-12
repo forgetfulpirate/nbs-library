@@ -13,6 +13,26 @@
     include 'inc/header.php';
  ?>
 
+<style>
+
+#time {
+    font-size: 20px;
+    float: right;
+  
+}
+
+#date {
+    font-size: 20px;
+    float: right;
+    margin-right: 20px;
+
+
+}
+.h4 {
+    float:left;
+}
+</style>
+
     
             <main class="content px-3 py-2">
             <div class="gap-30"></div>
@@ -88,7 +108,17 @@
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
         });
-    </script>		
+    </script>	
+    
+    <script> 
+         window.setInterval(ut, 1000);
+
+        function ut() {
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.toLocaleTimeString();
+        document.getElementById("date").innerHTML = d.toLocaleDateString();
+        }
+        </script>
 
     
 <?php 
