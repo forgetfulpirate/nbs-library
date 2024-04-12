@@ -73,7 +73,7 @@
 									
 									while ($row=mysqli_fetch_array($res)) {
                                         echo "<tr>";
-                                        echo "<td>"; echo $row["regno"]; echo "</td>";
+                                        echo "<td>"; echo $row["student_number"]; echo "</td>";
                                         echo "<td>"; echo $row["username"]; echo "</td>";
                                         echo "<td>"; echo $row["booksname"]; echo "</td>";
                                         echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
