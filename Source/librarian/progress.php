@@ -242,11 +242,14 @@
                         <div class="input-field2">
                                         <label>Call Number</label>
                                         <select placeholder="Title Proper" name="call_number_type">
-                                            <option>Tropical</option>
-                                            <option>Personal</option>
-                                            <option>Corporate</option>
-                                            <option>Geographical</option>
-                                            <option>None</option>
+                                            <option>BIO</option>
+                                            <option>CD-ROM</option>
+                                            <option>CIR</option>
+                                            <option>FIC</option>
+                                            <option>FIL</option>
+                                            <option>REF</option>
+                                            <option>TH</option>
+                                            <option></option>
                                         </select>
                         </div>
 
@@ -261,23 +264,45 @@
                                 <input type="text" placeholder="Accession Number" name="accession_number">
                         </div>
 
-                        <div class="input-field1">
+                        <div class="input-field2">
                                 <label>Language</label>
-                                <input type="text" placeholder="Language" name="language">
+                                        <select placeholder="Title Proper" name="language">
+                                            <option>English</option>
+                                            <option>Filipino</option>
+                                            <option>French</option>
+                                            <option>German</option>
+                                            <option>Italian</option>
+                                            <option>Korean</option>
+                                            <option>Latin</option>
+                                            <option>Mandarin</option>
+                                            <option>Nihongo</option>
+                                            <option>Spanish</option>
+                                        </select>
+                               
                         </div>
 
-                        <div class="input-field1">
+                        <div class="input-field2">
                                 <label>Library/Location</label>
-                                <input type="text" placeholder="Library/Location" name="library_location">
+                                <select placeholder="Title Proper" name="library_location">
+                                            <option>BIO</option>
+                                            <option>CD-ROM</option>
+                                            <option>CIR</option>
+                                            <option>FIC</option>
+                                            <option>FIL</option>
+                                            <option>REF</option>
+                                            <option>TH</option>
+                                            <option></option>
+                                        </select>
+                               
                         </div>
 
                         
-                        <div class="input-field1">
+                        <div class="input-field2">
                                 <label>Electronic Access</label>
                                 <input type="text" placeholder="Library/Location" name="electronic_access">
                         </div>
 
-                        <div class="input-field1">
+                        <div class="input-field2">
                       
                                 <label>Cover Image file</label>
                                 <input type="file" name="f1">

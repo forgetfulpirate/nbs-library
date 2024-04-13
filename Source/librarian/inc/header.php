@@ -47,8 +47,10 @@
                                 ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"></a> <?php
                             }
                         ?>
-                        
+                            
                         </span>
+                        
+                        
 
                         <h6 style="float: right; margin-top: 10px;">
 							<?php 
