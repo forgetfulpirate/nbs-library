@@ -175,7 +175,7 @@
                                         echo $count;
                                     ?>
                                     </span></h3>
-								<h4><a href="display-books.php">Books</a></h4>
+								<h4><a href="display-book.php">Books</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -228,7 +228,7 @@
 							</div>
 							<div class="text-left">
 								
-								<h4><a href="display-books.php">Manage Book</a></h4>
+								<h4><a href="display-progress.php">Manage Book</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -255,7 +255,7 @@
                                     </span>
 								</h3>
 								
-								<h4><a href="add-student.php">Manage User</a></h4>
+								<h4><a href="add-std.php">Manage User</a></h4>
 							</div>
 						</div>
                                             </div>

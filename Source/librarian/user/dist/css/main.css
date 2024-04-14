@@ -21,7 +21,9 @@ body{
 	overflow: hidden;
 }
 .header .logo img{
-	width: 100%;
+    float: left;
+	width: 100px;
+    height: 60px;
 	overflow: hidden;
 }
 .header-right{
@@ -39,7 +41,7 @@ body{
 	float: left;
 }
 .header-right ul li a{
-	color: #D52B2A;
+	color: #d52033;
 	text-decoration: none;
 	padding: 10px;
 
@@ -75,12 +77,12 @@ body{
     opacity: 0.7;
 }
 .slide-carousel .item{
-	height: 500px;
+	height: 600px;
 	text-align: center;
 	background-repeat: no-repeat;
-	background-position: center;
-	-webkit-background-size: cover;
-	background-size: cover;
+	background-position:center;
+	-webkit-background-size:cover;
+	background-size:cover;
 
 	
 }
@@ -135,7 +137,9 @@ body{
 	border-radius: 0;
 	font-size: 16px;
 	text-transform: capitalize;
-	background: #D52B2A;
+
+    border: 2px solid #248fc5;
+	border-radius: 0;
 	color: #fff;
 	padding: 10px 20px;
 	
@@ -147,7 +151,7 @@ body{
 }
 .slide-carousel .item p:nth-child(2) a{
 	background: transparent;
-	border: 2px solid #fff;
+	border: 2px solid #248fc5;
 	border-radius: 0;
 	font-size: 16px;
 	text-transform: capitalize;
@@ -168,13 +172,14 @@ body{
 	border: 2px solid #fff;
 }*/
 .slide-carousel .item p:nth-child(2) a:hover{
-	background: #D52B2A;
+	background: #d52033;
 	border: none;
 }
 
 .slide-carousel .item p:nth-child(1) a:hover{
-	background: none;
-	border: 2px solid #fff;
+	background: #d52033;
+	border:none;
+    
 }
 
 .owl-carousel .owl-item {

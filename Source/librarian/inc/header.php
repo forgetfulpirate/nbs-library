@@ -100,12 +100,12 @@
                             Manage Book
                         </a>
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
+                            <!-- <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
                                 <a href="add-book.php" class="sidebar-link">Add Book</a>
-                            </li>
-                            <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                            </li> -->
+                            <!-- <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                                 <a href="add-books.php" class="sidebar-link">Add Books</a>
-                            </li>
+                            </li> -->
                             <li class="sidebar-item <?php if($page=='e-book'){ echo 'active';} ?>">
                                 <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
                             </li>
@@ -131,18 +131,18 @@
                             Issue Book
                         </a>
                         <ul id="issue" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item <?php if($page=='sissue'){ echo 'active';} ?>">
+                            <!-- <li class="sidebar-item <?php if($page=='sissue'){ echo 'active';} ?>">
                                 <a href="student-issue-book.php" class="sidebar-link">Student issue book</a>
-                            </li>
+                            </li> -->
                             <li class="sidebar-item">
-                                <a href="std-issue-book.php" class="sidebar-link">issue book</a>
+                                <a href="std-issue-book.php" class="sidebar-link">Student Issue Book</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
-                                <a href="tch-issue-book.php" class="sidebar-link">tch issue book</a>
+                                <a href="tch-issue-book.php" class="sidebar-link">Teacher Issue Book</a>
                             </li>
-                            <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
+                            <!-- <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
                                 <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 
@@ -170,7 +170,7 @@
                                 </a>
                     </li>
 
-                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='bmodule'){ echo 'active';} ?>">
                                 <a href="display-progress.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display Book Module
@@ -186,18 +186,18 @@
                             Manage User
                         </a>
                         <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item <?php if($page=='a-std'){ echo 'active';} ?>">
+                            <!-- <li class="sidebar-item <?php if($page=='a-std'){ echo 'active';} ?>">
                                 <a href="add-student.php" class="sidebar-link">Add student</a>
-                            </li>
+                            </li> -->
                             <li class="sidebar-item ">
-                                <a href="add-std.php" class="sidebar-link">Add std</a>
+                                <a href="add-std.php" class="sidebar-link">Add Student</a>
                             </li>
                             <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
-                                <a href="add-tch.php" class="sidebar-link">Add tch</a>
+                                <a href="add-tch.php" class="sidebar-link">Add Teacher</a>
                             </li>
-                            <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
+                            <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
               
