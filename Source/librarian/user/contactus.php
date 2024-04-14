@@ -20,7 +20,9 @@
 			<div class="row">
 				<div class="col-3">
 					<div class="logo">
-						<img src="dist/img/1.png" alt="logo">
+						<a href="index.php">
+						<img src="dist/img/NBS-LOGO.png" alt="logo">
+						</a>
 					</div>
 				</div>
 				<div class="col-9">

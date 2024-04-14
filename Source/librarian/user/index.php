@@ -17,15 +17,18 @@
 			<div class="row">
 				<div class="col-3">
 					<div class="logo">
-						<img src="dist/img/1.png" alt="logo">
+						<a href="#">
+						<img src="dist/img/NBS-LOGO.png" alt="logo">
+						</a>
 					</div>
 				</div>
 				<div class="col-9">
 					<div class="header-right">
 						<ul>
-							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.facebook.com/nbscollegeph"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href=""><i class="fab fa-twitter"></i></a></li>
 							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+							<li><a href=""><i class="fab fa-instagram"></i></a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="student/login.php">Student Login</a></li>
@@ -42,11 +45,11 @@
 	<!--Start slider-->
 	<div class="slider">
 		<div class="slide-carousel owl-carousel">
-			<div class="item" style="background-image:url(dist/img/3.jpg);">
+			<div class="item" style="background-image:url(dist/img/bg-login.png);">
 				<div class="overlay"></div>
 				<div class="text">
 					<div class="this-item">
-						<h2>welcome to our library</h2>
+						<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
@@ -57,11 +60,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="item" style="background-image:url(dist/img/2.jpg);">
+			<div class="item" style="background-image:url(dist/img/lib1.jpg);">
 				<div class="overlay"></div>
 				<div class="text">
 					<div class="this-item">
-						<h2>welcome to our library</h2>
+					<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
@@ -72,11 +75,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="item" style="background-image:url(dist/img/1.jpg);">
+			<div class="item" style="background-image:url(dist/img/lib2.jpg);">
 				<div class="overlay"></div>
 				<div class="text">
 					<div class="this-item">
-						<h2>welcome to our library</h2>
+					<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
@@ -87,7 +90,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="item" style="background-image:url(dist/img/4.jpg);">
+			<!-- <div class="item" style="background-image:url(dist/img/lib3.jpg);">
 				<div class="overlay"></div>
 				<div class="text">
 					<div class="this-item">
@@ -101,8 +104,8 @@
                         <p><a href="teacher/registration.php">teacher registration</a></p>
 					</div>
 				</div>
-			</div>
-			<div class="item" style="background-image:url(dist/img/5.jpg);">
+			</div> -->
+			<!-- <div class="item" style="background-image:url(dist/img/5.jpg);">
 				<div class="overlay"></div>
 				<div class="text">
 					<div class="this-item">
@@ -131,7 +134,7 @@
                         <p><a href="teacher/registration.php">teacher registration</a></p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>		
 	</div>
 

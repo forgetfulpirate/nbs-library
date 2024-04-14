@@ -13,10 +13,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
     <style>
         .login{
-            background-image: url(inc/img/3.jpg);
+            background-image: url(inc/img/bg-login.png);
             margin-bottom: 30px;
             padding: 50px;
             padding-bottom: 70px;
+            height: 600px;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-position:center;
+            -webkit-background-size:cover;
+            background-size:cover;
         }
         .reg-header h2{
             color: #DDDDDD;
@@ -31,7 +37,7 @@
 	<div class="login registration">
 		<div class="wrapper">
 			<div class="reg-header text-center">
-				<h2>Library management system</h2>
+				<h2 style="color:#d52033">NBSC Library system</h2>
 				<div class="gap-40"></div>
 			</div>
 			<div class="gap-30"></div>
@@ -61,23 +67,7 @@
                     if (isset($_POST["login"])) {
                         $count=0;
                         $res1= mysqli_query($link, "select * from teacher where id_number='$_POST[id_number]' && password= '$_POST[password]' && status='yes' && verified='yes'");
-                        $res= mysqli_query($link, "select * from t_registration where username='$_POST[id_number]' && password= '$_POST[password]' && status='yes' && verified='yes'");
-                        $count = mysqli_num_rows($res);
-                        if ($count==0) {
-                            ?>
-                                <div class="alert alert-warning">
-                                    <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
-                                </div>
-                            <?php
-                        }
-                        else{
-                            $_SESSION["teacher"] = $_POST["id_number"];
-                            ?>
-                            <script type="text/javascript">
-                                window.location="my-issued-books.php";
-                            </script>
-                            <?php  
-                        }
+                       
 
                         $count1 = mysqli_num_rows($res1);
                         if ($count1==0) {
