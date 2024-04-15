@@ -46,7 +46,7 @@
                     <h4>User Login Form</h4>
 					<form action="" method="post">
 						<div class="mb-20">
-							<input type="text" name="id_number" class="form-control" placeholder="Username" required=""/>
+							<input type="text" name="id_number" class="form-control" placeholder="ID number" required=""/>
 						</div>
 						<div class="mb-20">
 							<input type="password" name="password" class="form-control" placeholder="Password" required=""/>
@@ -57,11 +57,11 @@
 					</form>
 				</div>
 				<div class="login-footer text-center">
-					<div class="separator">
+					<!-- <div class="separator">
 		                <p class="change_link">New to site?
 		                    <a href="registration.php" class="text-right"> Create Account </a>
 		                </p>
-	                </div>
+	                </div> -->
 				</div>
                  <?php 
                     if (isset($_POST["login"])) {
