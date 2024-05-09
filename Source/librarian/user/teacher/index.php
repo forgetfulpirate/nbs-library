@@ -51,11 +51,11 @@
 					</form>
 				</div>
 				<div class="login-footer text-center">
-					<div class="separator">
+					<!-- <div class="separator">
 		                <p class="change_link">New to site?
 		                    <a href="registration.php" class="text-right"> Create Account </a>
 		                </p>
-	                </div>
+	                </div> -->
 				</div>
                  <?php 
                     if (isset($_POST["login"])) {

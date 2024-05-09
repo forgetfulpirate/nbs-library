@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 11:08 AM
+-- Generation Time: Apr 14, 2024 at 02:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,10 +96,10 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (10, '8/22/2017', '', '9781564843517', 'Solomon, Gwen & Schrum, Lynne', 'Web 2.0 How-To for Educators', '2nd', '', '360', 'Budget', '1599', 'International Society for Technology in Education', 'United States', '2014', '4th copy', 'BSCS', '371.3344678 S4 2014 c4', 'Circulation', '', '1', '1'),
 (11, '8/22/2017', '', '9780132847377', 'Weiss, Mark Allen', 'Data Structure and Algorithm Analysis in C++', '4th', '', '614', 'Budget', '5692.2', 'Addison-Wesley', 'United States', '2014', '1st copy', 'BSCS', '005.73 W43 2014 c1', 'Circulation', '', '1', '1'),
 (12, '8/22/2017', '', '9781482229394', 'Marschner, Steve & Shirley, Peter', 'Fundamentals of Computer Graphics', '4th', '', '699', 'Budget', '5391.6', 'CRC Press', 'United States', '2016', '1st copy', 'BSCS', '006.6 M35 2016 c1', 'Circulation', '', '1', '1'),
-(13, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '1st copy', 'BSCS', '005.12 R19 2017 c1', 'Circulation', '', '1', '0'),
-(14, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '2nd copy', 'BSCS', '005.12 R19 2017 c2', 'Circulation', '', '1', '0'),
-(15, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '3rd copy', 'BSCS', '005.12 R19 2017 c3', 'Circulation', '', '1', '0'),
-(16, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '4th copy', 'BSCS', '005.12 R19 2017 c4', 'Circulation', '', '1', '0'),
+(13, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '1st copy', 'BSCS', '005.12 R19 2017 c1', 'Circulation', '', '1', '1'),
+(14, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '2nd copy', 'BSCS', '005.12 R19 2017 c2', 'Circulation', '', '1', '1'),
+(15, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '3rd copy', 'BSCS', '005.12 R19 2017 c3', 'Circulation', '', '1', '1'),
+(16, '8/22/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '4th copy', 'BSCS', '005.12 R19 2017 c4', 'Circulation', '', '1', '1'),
 (17, '8/22/2017', '', '9781285161785', 'Vermaat, Misty et al.', 'Discovering Computers: Technology in a World of Computers, Mobile Devices, and the Internet, Essentials', '', '', '246', 'Budget', '', 'Cengage Learning', 'United States', '2014', '1st copy', 'BSCS', '004 V59 2014', 'Circulation', '', '1', '1'),
 (18, '8/22/2017', '', '9780393286007', 'Rid, Thomas', 'Rise of the Machines: A Cybernetic History', '1st', '', '352', 'Budget', '838.2', 'W.W. Norton & Company, Inc.', 'United States', '2016', '2nd copy', 'BSCS', '303.48309 R43 2016 c1', 'Circulation', '', '1', '1'),
 (19, '8/22/2017', '', '9780393286007', 'Rid, Thomas', 'Rise of the Machines: A Cybernetic History', '1st', '', '352', 'Budget', '838.2', 'W.W. Norton & Company, Inc.', 'United States', '2016', '1st copy', 'BSCS', '303.48309 R43 2016 c2', 'Circulation', '', '1', '1'),
@@ -158,14 +158,14 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (72, '8/22/2017', '', '9781514815830', 'Penn, Anthony', 'Business Software Development: Principles and Practice', '1st', '', '136', 'Budget', '539.4', 'CreateSpace', 'United States', '2016', '6th copy', 'BSCS', '', '', '', '1', '1'),
 (73, '8/22/2017', '', '9781514815830', 'Penn, Anthony', 'Business Software Development: Principles and Practice', '1st', '', '136', 'Budget', '539.4', 'CreateSpace', 'United States', '2016', '7th copy', 'BSCS', '', '', '', '1', '1'),
 (74, '8/22/2017', '', '9781514815830', 'Penn, Anthony', 'Business Software Development: Principles and Practice', '1st', '', '136', 'Budget', '539.4', 'CreateSpace', 'United States', '2016', '8th copy', 'BSCS', '', '', '', '1', '1'),
-(75, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '1st copy', 'BSCS', '005.74 C76 2015 c1', 'Circulation', '', '1', '0'),
-(76, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '2nd copy', 'BSCS', '005.74 C76 2015 c2', 'Circulation', '', '1', '0'),
-(77, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '3rd copy', 'BSCS', '005.74 C76 2015 c3', 'Circulation', '', '1', '0'),
-(78, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '4th copy', 'BSCS', '005.74 C76 2015 c4', 'Circulation', '', '1', '0'),
-(79, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '1st copy', 'BSCS', '005.133 B14 2015 c1', 'Circulation', '', '1', '0'),
-(80, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '2nd copy', 'BSCS', '005.133 B14 2015 c2', 'Circulation', '', '1', '0'),
-(81, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '3rd copy', 'BSCS', '005.133 B14 2015 c3', 'Circulation', '', '1', '0'),
-(82, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '4th copy', 'BSCS', '005.133 B14 2015 c4', 'Circulation', '', '1', '0'),
+(75, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '1st copy', 'BSCS', '005.74 C76 2015 c1', 'Circulation', '', '1', '1'),
+(76, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '2nd copy', 'BSCS', '005.74 C76 2015 c2', 'Circulation', '', '1', '1'),
+(77, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '3rd copy', 'BSCS', '005.74 C76 2015 c3', 'Circulation', '', '1', '1'),
+(78, '8/22/2017', '', '9780132943260', 'Connolly, Thomas & Begg, Carolyn', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '6th', '', '1280', 'Budget', '11394.6', 'Addison-Wesley', 'United States', '2015', '4th copy', 'BSCS', '005.74 C76 2015 c4', 'Circulation', '', '1', '1'),
+(79, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '1st copy', 'BSCS', '005.133 B14 2015 c1', 'Circulation', '', '1', '1'),
+(80, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '2nd copy', 'BSCS', '005.133 B14 2015 c2', 'Circulation', '', '1', '1'),
+(81, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '3rd copy', 'BSCS', '005.133 B14 2015 c3', 'Circulation', '', '1', '1'),
+(82, '8/22/2017', '', '9781118739495', 'Baesens, Bart et al.', 'Beginning Java Programming: The Object-Oriented Approach', '', '', '618', 'Budget', '1984.2', 'John Wiley & Sons, Inc.', 'United States', '2015', '4th copy', 'BSCS', '005.133 B14 2015 c4', 'Circulation', '', '1', '1'),
 (83, '8/22/2017', '', '9780321928832', 'Castro, Elizabeth & Hyslop, Bruce', 'HTML and CSS', '8th', '', '518', 'Budget', '993', 'Peachpit Press', 'United States', '2014', '1st copy', 'BSCS', '004.67 C27 2014 c1', 'Circulation', '', '1', '1'),
 (84, '8/22/2017', '', '9780321928832', 'Castro, Elizabeth & Hyslop, Bruce', 'HTML and CSS', '8th', '', '518', 'Budget', '993', 'Peachpit Press', 'United States', '2014', '2nd copy', 'BSCS', '004.67 C27 2014 c2', 'Circulation', '', '1', '1'),
 (85, '8/22/2017', '', '9780321928832', 'Castro, Elizabeth & Hyslop, Bruce', 'HTML and CSS', '8th', '', '518', 'Budget', '993', 'Peachpit Press', 'United States', '2014', '3rd copy', 'BSCS', '004.67 C27 2014 c3', 'Circulation', '', '1', '1'),
@@ -230,10 +230,10 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (144, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', '', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '1st copy', 'BSCS', '510.72 S58 2015 c1', 'Circulation', '', '1', '1'),
 (145, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', '', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '2nd copy', 'BSCS', '510.72 S58 2015 c2', 'Circulation', '', '1', '1'),
 (146, '8/22/2017', '', '9780873536875', 'Silver, Edward & Kenney, Patricia Ann', 'More Lessons from Research: Useful and Usable Research Related to Core Mathematical Practices', '', '1', '310', 'Budget', '1675.2', 'National Council of Teachers of Mathematics, Inc.', 'United States', '2015', '3rd copy', 'BSCS', '510.72 S58 2015 c3', 'Circulation', '', '1', '1'),
-(147, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '1st copy', 'BSCS', '005.118 D13 2018 c1', 'Circulation', '', '1', '2'),
-(148, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '2nd copy', 'BSCS', '005.118 D13 2018 c2', 'Circulation', '', '1', '2'),
-(149, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '3rd copy', 'BSCS', '005.118 D13 2018 c3', 'Circulation', '', '1', '2'),
-(150, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '4th copy', 'BSCS', '005.118 D13 2018 c4', 'Circulation', '', '1', '2'),
+(147, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '1st copy', 'BSCS', '005.118 D13 2018 c1', 'Circulation', '', '1', '1'),
+(148, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '2nd copy', 'BSCS', '005.118 D13 2018 c2', 'Circulation', '', '1', '1'),
+(149, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '3rd copy', 'BSCS', '005.118 D13 2018 c3', 'Circulation', '', '1', '1'),
+(150, '8/22/2017', '', '9781284089097', 'Dale, Nell et al.', 'Object-Oriented Data Structures using Java', '4th', '', '672', 'Budget', '5098.2', 'Jones & Bartlett Learning, LLC', 'United States', '2018', '4th copy', 'BSCS', '005.118 D13 2018 c4', 'Circulation', '', '1', '1'),
 (151, '8/22/2017', '', '9781284090550', 'Harwood, Mike', 'Internet Security: How to Defend Against Attackers on the Web', '2nd', '', '396', 'Budget', '2998.2', 'Jones & Bartlett Learning, LLC', 'United States', '2016', '1st copy', 'BSCS', '302.30285 H34 2016 c1', 'Circulation', '', '1', '1'),
 (152, '8/22/2017', '', '9781107601963', 'Moser, Stefan & Chen, Po-Ning', 'A Student\'s Guide to Coding and Information Theory', '', '', '182', 'Budget', '1835.4', 'Cambridge University Press', 'United States', '2012', '1st copy', 'BSCS', '003.54 M89 2012 c1', 'Circulation', '', '1', '1'),
 (153, '8/22/2017', '', '9781107601963', 'Moser, Stefan & Chen, Po-Ning', 'A Student\'s Guide to Coding and Information Theory', '', '', '182', 'Budget', '1835.4', 'Cambridge University Press', 'United States', '2012', '2nd copy', 'BSCS', '003.54 M89 2012 c2', 'Circulation', '', '1', '1'),
@@ -338,7 +338,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (251, '8/22/2017', '', '9781138277595', 'Andrews, Judith & Law, Derek', 'Digital Libraries: Policy, Planning, and Practice', '', '', '237', 'Budget', '2222.1', 'Routledge', 'United States', '2004', '1st copy', 'BLIS', '', '', '', '1', '1'),
 (252, '8/22/2017', '', '9781138277595', 'Andrews, Judith & Law, Derek', 'Digital Libraries: Policy, Planning, and Practice', '', '', '237', 'Budget', '2222.1', 'Routledge', 'United States', '2004', '2nd copy', 'BLIS', '', '', '', '1', '1'),
 (253, '8/22/2017', '', '9780805831221', 'Alexander, Janet & Tate, Marsha Ann', 'Web Wisdom: How to Evaluate and Create Information Quality on the Web', '', '', '115', 'Budget', '3591', 'Lawrence Erlbaum Associates, Inc.', 'United States', '1999', '1st copy', 'BLIS', '', '', '', '1', '1'),
-(254, '8/22/2017', '', '9780566081712', 'Burke, Mary', 'Organization of Multimedia Resources: Principles and Practice of Information Retrieval', '', '', '216', 'Budget', '1679.4', 'Gower Publishing Limited', 'United States', '1999', '', 'BLIS', '', '', '', '1', '0'),
+(254, '8/22/2017', '', '9780566081712', 'Burke, Mary', 'Organization of Multimedia Resources: Principles and Practice of Information Retrieval', '', '', '216', 'Budget', '1679.4', 'Gower Publishing Limited', 'United States', '1999', '', 'BLIS', '', '', '', '1', '1'),
 (255, '8/22/2017', '', '9780838911822', 'Michel, Jason Paul', 'Web Service APIs and Libraries', '', '', '122', 'Budget', '3300', 'American Library Association Editions', 'United States', '2013', '1st copy', 'BLIS', '', '', '', '1', '1'),
 (256, '8/22/2017', '', '9780838911822', 'Michel, Jason Paul', 'Web Service APIs and Libraries', '', '', '122', 'Budget', '3300', 'American Library Association Editions', 'United States', '2013', '2nd copy', 'BLIS', '', '', '', '1', '1'),
 (257, '8/22/2017', '', '9780838911822', 'Michel, Jason Paul', 'Web Service APIs and Libraries', '', '', '122', 'Budget', '3300', 'American Library Association Editions', 'United States', '2013', '3rd copy', 'BLIS', '', '', '', '1', '1'),
@@ -877,9 +877,9 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (787, '9/29/2017', '', '9780130844712', 'Plank, Tom & Plank, Lois', 'Accounting Desk Book: The Accountant\'s Everyday Instant Answer Book', '11th', '', '605', 'Budget', '552', 'Prentice Hall Press', 'United States', '2000', '2nd copy', 'BSA/BSAIS', '', '', '', '1', '1'),
 (788, '9/29/2017', '', '9781526401076', 'Smith, Malcolm', 'Research Methods in Accounting', '4th', '', '215', 'Budget', '', 'SAGE Publications, Inc.', 'United States', '2017', '1st copy', 'BSA/BSAIS', '657.072 S64 2017 c1', 'Circulation', '', '1', '1'),
 (789, '9/29/2017', '', '9781526401076', 'Smith, Malcolm', 'Research Methods in Accounting', '4th', '', '215', 'Budget', '', 'SAGE Publications, Inc.', 'United States', '2017', '2nd copy', 'BSA/BSAIS', '657.072 S64 2017 c2', 'Circulation', '', '1', '1'),
-(790, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '1st copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c1', 'Filipiniana', '', '1', '0'),
-(792, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '3rd copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c3', 'Filipiniana', '', '1', '0'),
-(793, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '4th copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c4', 'Filipiniana', '', '1', '0'),
+(790, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '1st copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c1', 'Filipiniana', '', '1', '1'),
+(792, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '3rd copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c3', 'Filipiniana', '', '1', '1'),
+(793, '9/29/2017', '', '9786214160280', 'Valix, Conrado et al.', 'Financial Accounting Three Includes SMEs', '2017', '3', '955', 'Budget', '500', 'GIC Enterprises', 'Philippines', '2017', '4th copy', 'BSA/BSAIS', 'F 657.042 V17 2017 v3 c4', 'Filipiniana', '', '1', '1'),
 (794, '9/29/2017', '', '9781483375021', 'Wolk, Harry et al.', 'Accounting Theory: Conceptual Issues in a Political and Economic Environment', '9th', '', '545', 'Budget', '', 'SAGE Publications, Inc.', 'United States', '2017', '2nd copy', 'BSA/BSAIS', '657 W86 2017 c2', 'Circulation', '', '1', '1'),
 (795, '9/29/2017', '', '9781483375021', 'Wolk, Harry et al.', 'Accounting Theory: Conceptual Issues in a Political and Economic Environment', '9th', '', '545', 'Budget', '', 'SAGE Publications, Inc.', 'United States', '2017', '3rd copy', 'BSA/BSAIS', '657 W86 2017 c3', 'Circulation', '', '1', '1'),
 (796, '9/29/2017', '', '9780080425733', 'Chambers, R. J.', 'An Accounting Thesaurus: 500 Years of Accounting', '', '', '966', 'Budget', '4692.6', 'Elsevier Ltd.', 'United Kingdom', '1995', '1st copy', 'BSA/BSAIS', '658 C44 1995 c1', 'Circulation', '', '1', '1'),
@@ -1116,10 +1116,10 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (1026, '9/29/2017', '', '9786214160174', 'Reyes, Virgilio', 'A Study on Accounting for Partnerships and Corporations', '2017', '', '213', 'Budget', '', 'GIC Enterprises & Co., Inc.', 'Philippines', '2017', '6th copy', 'BSA/BSAIS', 'F 657.92 R45 2017 c6', 'Filipiniana', '', '1', '1'),
 (1027, '9/29/2017', '', '9780525428084', 'Kelly, Kevin', 'The Inevitable: Understanding the 12 Technological Forces that Will Shape our Future', '', '', '328', 'Budget', '1082.4', 'Viking', 'United States', '2016', '1st copy', 'BSCS', '303.483 K29 2016 c1', 'Circulation', '', '1', '1'),
 (1028, '9/29/2017', '', '9780525428084', 'Kelly, Kevin', 'The Inevitable: Understanding the 12 Technological Forces that Will Shape our Future', '', '', '328', 'Budget', '1082.4', 'Viking', 'United States', '2016', '2nd copy', 'BSCS', '303.483 K29 2016 c2', 'Circulation', '', '1', '1'),
-(1029, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '1st copy', 'BSCS', '001.64 R25 2017 c1', 'Circulation', '', '1', '0'),
-(1030, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '2nd copy', 'BSCS', '001.64 R25 2017 c2', 'Circulation', '', '1', '0'),
-(1031, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '3rd copy', 'BSCS', '001.64 R25 2017 c3', 'Circulation', '', '1', '0'),
-(1032, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '4th copy', 'BSCS', '001.64 R25 2017 c4', 'Circulation', '', '1', '0'),
+(1029, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '1st copy', 'BSCS', '001.64 R25 2017 c1', 'Circulation', '', '1', '1'),
+(1030, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '2nd copy', 'BSCS', '001.64 R25 2017 c2', 'Circulation', '', '1', '1'),
+(1031, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '3rd copy', 'BSCS', '001.64 R25 2017 c3', 'Circulation', '', '1', '1'),
+(1032, '9/29/2017', '', '9781539490197', 'Rawen, Marc', 'Programming: Learn the Fundamentals of Computer Programming Languages', '2nd', '', '118', 'Budget', '1102.8', 'CreateSpace', 'United States', '2017', '4th copy', 'BSCS', '001.64 R25 2017 c4', 'Circulation', '', '1', '1'),
 (1033, '9/29/2017', '', '9781285061825', 'Wilson, Frank', 'Applied Calculus (Student Edition)', '', '', '250', 'Budget', '2518.2', 'Cengage Learning', 'United States', '2015', '', 'BSCS', '515 W74 2015', 'Circulation', '', '1', '1'),
 (1034, '9/29/2017', '', '9780789025784', 'Miller, Jeannie', 'Emerging Issues in the Electronic Environment', '', '', '258', 'Budget', '2175.6', 'Routledge', 'United States', '2012', '1st copy', 'BSCS', '025.002 M64 2012 c1', 'Circulation', '', '1', '1'),
 (1035, '9/29/2017', '', '9780789025784', 'Miller, Jeannie', 'Emerging Issues in the Electronic Environment', '', '', '258', 'Budget', '2175.6', 'Routledge', 'United States', '2012', '2nd copy', 'BSCS', '025.002 M64 2012 c2', 'Circulation', '', '1', '1'),
@@ -5282,7 +5282,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5172, '', '', '9781610000000', 'Groves, Eric', 'Baby Names', '', '', '246', '', '', 'Adams Media', 'U.S.A', '2009', '', '', '', '', '', '1', '1'),
 (5173, '', '', '9719235055', 'Carlos, Victoria P.', 'I\'d like to speak filipino 3', 'Revised Edition', '', '104', '', '', 'Cityland Vito Cruz', 'Manila City, PH', '2007', '', '', '', '', '', '1', '1'),
 (5174, '', '', '9769720000000', 'Laurel, Celia', 'Mga Siniping Gintong Kaisipan', '', '', '413', '', '', '', 'Manila City, PH', '2012', '', '', '', '', '', '1', '1'),
-(5175, '', '', '9789720000000', 'Dr. Phillip Ledesma Ciocon, PhD (A.M), F.R.C.P.', '', '', '', '113', '', '', 'BeHappY&WeLL Enterprises', 'Mandaluyong City', '2010', '', '', '', '', '', '1', '-4'),
+(5175, '', '', '9789720000000', 'Dr. Phillip Ledesma Ciocon, PhD (A.M), F.R.C.P.', '', '', '', '113', '', '', 'BeHappY&WeLL Enterprises', 'Mandaluyong City', '2010', '', '', '', '', '', '1', '2'),
 (5176, '', '', '9812533036', 'David Weaver', 'EcoTourism', '2nd edition', '', '347', '', '', '3rd Philippine reprint edition', 'Manila City, PH', '2012', '', '', '', '', '', '1', '1'),
 (5177, '', '', '9789720000000', 'Duque, Pat', 'Fighting for a Cause', '', '', '202', '', '', 'Paper and Prints Enterprises', 'Manila City, PH', '2009', '', '', '', '', '', '1', '1'),
 (5178, '', '', '9789720000000', 'Hizon, Cruz, Layugan, Llapitan, Marte, Rosueldo and Seballos', 'Entrepreneurship Creating, building and Growing your business enterprise', '', '', '144', '', '', 'Center for Small Entrepreneurs, Inc.', 'Manila City, PH', '2007', '', '', '', '', '', '1', '1'),
@@ -5467,7 +5467,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5356, '', '', '9789710000000', 'Favis-Villafuerte, Nelly', 'What Credit Cardholders Should Know About Interests and Penalties on Credit Card Transactions', '', '', '236', '', '', 'Apples of Gold Publishing', 'Makati City PH', '2011', '', '', '', '', '', '1', '1'),
 (5357, '', '', '9789710000000', 'Ataviado, Elias M.', 'The Philippine Revolution in the Bicol Region (Narrative of the Philippine Revolution in the Province of Albay)', '', '2', '196', '', '', 'New Day Publishers', 'Quezon City PH', '2011', '', '', '', '', '', '1', '1'),
 (5358, '', '', '9718350012', 'Ballesteros, Andre Gerard G.', 'A Divided Court: Case Material from the Constitutional Challenge to the Indigenous Peoples Rights Act of 1997', '', '', '622', '', '', 'Legal Rights and Natural Resources Center, Inc.', '', '2001', '', '', '', '', '', '1', '1'),
-(5359, '', '', '9789710000000', 'Dasig, Sheila', '', '', '', '110', '', '', 'Haribon Foundation for the Conservation of Natural Resources, Inc.', 'Quezon City PH', '2006', '', '', '', '', '', '1', '-4'),
+(5359, '', '', '9789710000000', 'Dasig, Sheila', '', '', '', '110', '', '', 'Haribon Foundation for the Conservation of Natural Resources, Inc.', 'Quezon City PH', '2006', '', '', '', '', '', '1', '2'),
 (5360, '', '', '', '', 'University of the East: 2006 Diamond Jubilee Awards', '', '', '303', '', '', '', 'Makati City PH', '2006', '', '', '', '', '', '1', '1'),
 (5361, '', '', '9789720000000', 'Aniceto, Ben and others', 'Stay Tuned: The Golden Years of Philippine Radio', '', '', '678', '', '', 'Atlas Publishing Co. Inc.', 'Quezon City PH', '2007', '', '', '', '', '', '1', '1'),
 (5362, '', '', '9719103006', 'De La Torre, Visitacion R.', 'Faith Enshrined: Churches of Pangasinan', '', '', '185', '', '', 'Tower Book House', '', '1997', '', '', '', '', '', '1', '1'),
@@ -5653,20 +5653,20 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5541, '', '', '9789720000000', 'Fife, Bruce', 'Cooking with Coconut Flour', '', '', '159', '', '', 'Apples of Gold Publishing', 'Makati City PH', '2005', '', '', '', '', '', '1', '1'),
 (5542, '', '', '18403290077', 'Tierney, Jane', 'Is That All There Is?', '', '', '144', '', '', 'Marionette Books', 'Durham', '1998', '', '', '', '', '', '1', '1'),
 (5543, '', '', '9789720000000', 'Rabe-Aranda Maria Rosario\nLitao, Rodrigo Andaya\nGunobgunob-Mirasol, Rosalyn', 'English for Tourism and Hospitality Industry', '', '', '134', '', '', 'C&E Publishing, Inc.', 'Quezon City, PH', '2018', '', '', '', '', '', '1', '1'),
-(5544, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5545, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5546, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5547, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5548, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5549, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5550, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5551, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5552, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5553, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5554, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5555, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5556, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5557, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
+(5544, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5545, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5546, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5547, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5548, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5549, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5550, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5551, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5552, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5553, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5554, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5555, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5556, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5557, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
 (5558, '', '', '9789810000000', 'Kerns, David V.\nIrwin, David', 'Essentials of Electrical & Computer Engineering', 'Low Price Edition', '', '654', '', '', 'Pearson Education, Inc.', 'Singapore', '2004', '', '', '', '', '', '1', '1'),
 (5559, '', '', '8472081338', 'Escandon, Rafael\nGalvez, Cesar', 'Free from Drugs and Addictions', '', '', '191', '', '', 'Editorial safeliz', 'Madrid', '2005', '', '', '', '', '', '1', '1'),
 (5560, '', '', '9711011741', 'Kjeong, Kwang-Ho', 'CEO Business Fables', '', '', '114', '', '', 'New Day Publishers', 'Quezon City, PH', '2005', '', '', '', '', '', '1', '1'),
@@ -6063,7 +6063,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5950, '', '', '9710454150', 'Mherry Ann Andes', 'Simple Flash', '', '', '190', '', '', 'Convergelink Books Corp.', 'Bitano, legaspi City', '2008', '', '', '', '', '', '1', '1'),
 (5951, '', '', '9710454150', 'Mherry Ann Andes', 'Simple Flash', '', '', '190', '', '', 'Convergelink Books Corp.', 'Bitano, legaspi City', '2008', '', '', '', '', '', '1', '1'),
 (5952, '', '', '', 'Virgilio Vergel', 'The Educational System of the Filipinos', '', '', '40', '', '', 'Giraffe Books', 'Quezon City, PH', '2004', '', '', '', '', '', '1', '1'),
-(5953, '', '', '', 'Tomas Ongoco', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '-4'),
+(5953, '', '', '', 'Tomas Ongoco', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '2'),
 (5954, '', '', '', 'Lumbera, Taguiwalo, Tolentino, Alamon, & Guillermo', 'Serve the people Ang kasaysayan ng radikal na kilusan sa unibersidad ng pilipinas', '', '', '424', '', '', 'IBON Foundation, Inc.', 'Quezon City, PH', '2008', '', '', '', '', '', '1', '1'),
 (5955, '', '', '9715460011', 'Ongoco, Tomas C.', 'Gabay sa Pag-aaral sa El Fili Busterismo', '', '', '200', '', '', '', '', '1967', '', '', '', '', '', '1', '1'),
 (5956, '', '', '9719135352', 'Felice Prudente Sta. Maria', 'Visions of the Possible', '', '', '317', '', '', 'Studio 5 publishing, Inc.', 'Philippines', '1998', '', '', '', '', '', '1', '1'),
@@ -6094,17 +6094,17 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5981, '', '', '9789720000000', 'Santiago, Fernando & Alfonso, Ian Christopher', 'The Malay World', '', '', '112', '', '', 'Philippine Historical Association', 'Quezon City, PH', '2017', '', '', '', '', '', '1', '1'),
 (5982, '', '', '', 'Beltran,Herminio S.', 'The Animal Kingdom Kahayupan', '', '', '372', '', '', 'Cultural Center of the Philippines', 'Philippines', '2016', '', '', '', '', '', '1', '1'),
 (5983, '', '', '9789710000000', 'Baguilat, Raymond Marvic C.', 'Pagsasalin ng Katwiran: Isang sanggunian sa mga karapatan ng mga katutubo', '', '', '323', '', '', 'The University of the Philippines Law Center', 'Quezon City, PH', '2021', '', '', '', '', '', '1', '1'),
-(5984, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5985, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5986, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5987, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5988, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5989, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5990, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5991, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5992, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5993, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
-(5994, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '-4'),
+(5984, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5985, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5986, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5987, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5988, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5989, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5990, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5991, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5992, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5993, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
+(5994, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '2'),
 (5995, '', '', '', 'Elizalde, Fred J.\nMacuja-Elizalde, Lisa', 'A Marriage of the Arts', '', '', '178', '', '', 'Ortigas Foundation, Inc.', 'Ortigas PH', '2018', '', '', '', '', '', '1', '1'),
 (5996, '', '', '9780060000000', 'Dr. Boaler, Jo', 'Limitless Mind: Learn Lead, and Live Without Barriers', '', '', '248', '', '', 'HarperCollins Publishers', 'New York, USA', '2019', '', '', '', '', '', '1', '1'),
 (5997, '', '', '9780780000000', 'Ramzipoor, E.R.', 'The Ventriloquists', '', '', '534', '', '', 'Park Row Books', 'Toronto, USA', '2019', '', '', 'FIC R14 2019', '', '', '1', '1'),
@@ -6263,7 +6263,7 @@ CREATE TABLE `book_module` (
 --
 
 INSERT INTO `book_module` (`id`, `title_proper`, `responsibility`, `preffered_title`, `parallel_title`, `main_creator`, `add_entry_creator`, `contributors`, `add_entry_corporate`, `place_of_publication`, `publisher`, `date_of_publication`, `edition`, `extent_of_text`, `illustrations`, `dimension`, `acc_materials`, `series`, `supp_content`, `ISBN`, `content_type`, `media_type`, `carrier_type`, `URL`, `subject_type`, `subject_info`, `call_number_type`, `call_number_info`, `accession_number`, `language`, `library_location`, `electronic_access`, `book_image`, `entered_by`, `updated_by`, `date_entered`, `date_updated`, `quantity`, `available`, `location`, `content_notes`, `abstract`, `review`) VALUES
-(16, 'Selected Rizal day lectures / National Historical Institute.', 'upload_max_filesize', '123', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', '0003-12-31', '123', '213', '123', '123', '123', '123', '123', '123', '123', '123', '123', 'books-file/1712471437.pdf', 'Corporate', '123213                                                          ', 'Personal', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'books-image/1712471437.png', 'upload_max_filesize', 'upload_max_filesize', '0023-12-31', '0123-12-03', '123', '123', 'Circulation', '123123                                ', 'upload_max_filesize                                    ', 'upload_max_filesize                                  ');
+(16, 'Selected Rizal day lectures / National Historical Institute.', 'upload_max_filesize', '123', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', '2018', '123', '213', '123', '123', '123', '123', '123', '123', '123', '123', '123', 'books-file/1712471437.pdf', 'Corporate', '                                    123213                                                          ', 'Personal', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'upload_max_filesize', 'books-image/1712471437.png', 'upload_max_filesize', 'upload_max_filesize', '0023-12-31', '0123-12-03', '123', '123', 'Circulation', '123123                                ', 'upload_max_filesize                                    ', 'upload_max_filesize                                  ');
 
 -- --------------------------------------------------------
 
@@ -6827,15 +6827,6 @@ CREATE TABLE `finezone` (
   `fine` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `finezone`
---
-
-INSERT INTO `finezone` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `booksissuedate`, `booksreturndate`, `fine`) VALUES
-(281, 'Jenepir', 'Jabilo', '', '1234567', 'teacher', 'jenepir@gmail.com', 'Sams Teach Yourself iOS9 Application Development in 24 Hours', '2024-04-17', '2024-04-10', '0'),
-(282, 'Jenepir', 'Jabilo', '123', '123456', 'teacher', 'jenepir@gmail.com', 'The Essentials of Computer Organization and Architecture', '2024-04-18', '2024-04-11', '0'),
-(283, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Business Software Development: Principles and Practice', '2024-04-18', '2024-04-11', '0');
-
 -- --------------------------------------------------------
 
 --
@@ -6857,13 +6848,6 @@ CREATE TABLE `issue_book` (
   `booksreturndate` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `issue_book`
---
-
-INSERT INTO `issue_book` (`id`, `utype`, `student_number`, `name`, `last_name`, `middle_name`, `dept`, `phone`, `email`, `booksname`, `booksissuedate`, `booksreturndate`, `username`) VALUES
-(201, 'teacher', '123456', 'Jenepir', 'Jabilo', '123', 'BSCS', '', 'jenepir@gmail.com', 'Database Systems: A Practical Approach to Design, Implementation, and Management', '2024-04-11', '2024-04-18', '');
 
 -- --------------------------------------------------------
 
@@ -6942,7 +6926,7 @@ INSERT INTO `request_books` (`id`, `name`, `username`, `email`, `utype`, `bname`
 (27, 'Carlos Miguel', 'Autor', 'cautor2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
 (28, 'Carlos Miguel', 'Autor', 'cautor2021@student.nbscollege.edu.ph', 'student', '123', '123', 'yes'),
 (29, 'Jenepir', 'Jabilo', 'jenepir@gmail.com', 'teacher', '123', '123', 'yes'),
-(30, 'Jenepir', 'Jabilo', 'jenepir@gmail.com', 'teacher', '123', '123', 'no');
+(30, 'Jenepir', 'Jabilo', 'jenepir@gmail.com', 'teacher', '123', '123', 'yes');
 
 -- --------------------------------------------------------
 
@@ -7006,7 +6990,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_number`, `first_name`, `last_name`, `middle_name`, `email`, `course`, `year`, `semester`, `password`, `user_type`, `photo`, `status`, `vkey`, `verified`) VALUES
-('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd Year ', '6th', '2100028', 'student', 'upload/1711981226.jpeg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
+('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd Year ', '6th', '2100028', 'student', 'upload/1711981226.jpeg', 'no', '440044405e6a970387cc975b556c55e1', 'no'),
 ('2100029', 'Carlos Miguel', 'Autor', '', 'cautor2021@student.nbscollege.edu.ph', 'BSCS', '3rd year', '6th', '2100029', 'student', 'upload/avatar.jpg', 'yes', '54cc08c808f67f918d4774da317a4c09', 'yes');
 
 -- --------------------------------------------------------
@@ -7320,13 +7304,13 @@ ALTER TABLE `book_module`
 -- AUTO_INCREMENT for table `finezone`
 --
 ALTER TABLE `finezone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
 
 --
 -- AUTO_INCREMENT for table `issue_book`
 --
 ALTER TABLE `issue_book`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT for table `lib_registration`

@@ -39,7 +39,7 @@
 	<div class="login registration">
 		<div class="wrapper">
 			<div class="reg-header text-center">
-				<h2 style="color:#d52033">NBSS Library system</h2>
+				<h2 style="color:#d52033">NBSC Library system</h2>
                 <div class="gap-40"></div>
 			</div>
 			<div class="gap-30"></div>
@@ -60,11 +60,11 @@
 					</form>
 				</div>
 				<div class="login-footer text-center">
-					<div class="separator">
+					<!-- <div class="separator">
 		                <p class="change_link">New to site?
 		                    <a href="registration.php" class="text-right"> Create Account </a>
 		                </p>
-	                </div>
+	                </div> -->
 				</div>
                 <?php 
                     if (isset($_POST["login"])) {
