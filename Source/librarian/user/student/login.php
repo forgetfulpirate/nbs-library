@@ -39,16 +39,16 @@
 	<div class="login registration">
 		<div class="wrapper">
 			<div class="reg-header text-center">
-				<h2 style="color:#d52033">NBSS Library system</h2>
+				<h2 style="color:#d52033">NBSC Library system</h2>
                 <div class="gap-40"></div>
 			</div>
 			<div class="gap-30"></div>
 			<div class="login-content">
 				<div class="login-body">
-                    <h4>User Login Form</h4>
+                    <h4>Student Login Form</h4>
 					<form action="" method="post">
 						<div class="mb-20">
-							<input type="text" name="student_number" class="form-control" placeholder="Student number" required=""/>
+							<input type="text" name="student_number" class="form-control" placeholder="Student Number" required=""/>
 						</div>
 						<div class="mb-20">
 							<input type="password" name="password" class="form-control" placeholder="Password" required=""/>
@@ -74,7 +74,7 @@
                         if ($count==0) {
                             ?>
                                 <div class="alert alert-warning">
-                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Student Number Or Password.</span>
                                 </div>
                             <?php
                         }
@@ -84,7 +84,7 @@
                        
                             ?>
                             <script type="text/javascript">
-                                window.location="my-issued-books.php";
+                                window.location="dashboard.php";
                             </script>
                             <?php  
                         }

@@ -43,10 +43,10 @@
 			<div class="gap-30"></div>
 			<div class="login-content">
 				<div class="login-body">
-                    <h4>User Login Form</h4>
+                    <h4>Faculty Login Form</h4>
 					<form action="" method="post">
 						<div class="mb-20">
-							<input type="text" name="id_number" class="form-control" placeholder="Username" required=""/>
+							<input type="text" name="id_number" class="form-control" placeholder="ID Number" required=""/>
 						</div>
 						<div class="mb-20">
 							<input type="password" name="password" class="form-control" placeholder="Password" required=""/>
@@ -73,7 +73,7 @@
                         if ($count1==0) {
                             ?>
                                 <div class="alert alert-warning">
-                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
+                                <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">ID Number Or Password.</span>
                                 </div>
                             <?php
                         }
@@ -83,7 +83,7 @@
                        
                             ?>
                             <script type="text/javascript">
-                                window.location="my-issued-books.php";
+                                window.location="dashboard.php";
                             </script>
                             <?php  
                         }
@@ -92,6 +92,11 @@
 			</div>
 		</div>
 	</div>
+
+    <div class="footer text-center">
+        <p>&copy; NBS College</p>
+    </div>
+
 	<script src="inc/js/jquery-2.2.4.min.js"></script>
 	<script src="inc/js/bootstrap.min.js"></script>
 	<script src="inc/js/custom.js"></script>
