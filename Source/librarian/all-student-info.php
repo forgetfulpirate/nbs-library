@@ -105,8 +105,42 @@
     
     <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            $('#dtBasicExample').DataTable({
+        dom: '<"html5buttons"B>1Tfgitp',
+        buttons: [
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: ':not(:nth-last-child(2)):not(:last-child)' // Exclude last column from copying
+                }
+            },
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: ':not(:nth-last-child(2)):not(:last-child)' // Exclude last column from CSV
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: ':not(:nth-last-child(2)):not(:last-child)' // Exclude last column from Excel
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: ':not(:nth-last-child(2)):not(:last-child)' // Exclude last column from PDF
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':not(:nth-last-child(2)):not(:last-child)' // Exclude last column from printing
+                }
+            }
+        ],
+        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+    });
         });
     </script>	
     

@@ -6,7 +6,13 @@
     box-sizing: border-box;
 }
 
+.red {
+    color: red !important; /* Add !important to ensure it overrides other styles */
+}
 
+.black {
+    color: black !important; /* Add !important to ensure it overrides other styles */
+}
 
 body {
     font-family: 'Poppins', sans-serif;
