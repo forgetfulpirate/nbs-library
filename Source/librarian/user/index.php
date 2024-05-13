@@ -36,6 +36,7 @@
                                 </ul>
                             </li>
 							<li><a href="contactus.php">Contact Us</a></li>
+							<li><a href="book.php">Book</a></li>
 						</ul>		
 					</div>
 				</div>
