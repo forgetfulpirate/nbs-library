@@ -80,9 +80,54 @@
 
     
     <script>
-        $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+             $(document).ready(function () {
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+        buttons: [
+            {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape', // Set orientation to landscape
+                    customize: function (doc) {
+                        // Set page size and margins
+                        doc.pageOrientation = 'landscape';
+                        doc.pageSize = 'A3';
+                        doc.pageMargins = [15, 15, 15, 15];
+                    }
+            },
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: [0, 1, 2, 3]
+                }
+            },
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: [0, 1, 2, 3]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [0, 1, 2, 3]
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [0, 1, 2, 3]
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [0, 1, 2, 3]
+                }
+            },
+            
+        ],
+        "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
+    });
         });
     </script>		
 
