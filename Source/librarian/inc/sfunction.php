@@ -43,7 +43,6 @@
         }
         // elseif(mysqli_num_rows($sql2_p) > 0){
         //     $error_phone = "Phone already registered";
-    
         // }
         elseif(strlen($password) < 6){
             $error_ua ="password too short";

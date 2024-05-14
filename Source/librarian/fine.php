@@ -87,8 +87,18 @@
 <script>
     $(document).ready(function () {
    $('#dtBasicExample').DataTable({
-        dom: '<"html5buttons"B>1Tfgitp',
+    dom: '<html5buttons"B>1Tfgitp',
         buttons: [
+            {
+                    extend: 'pdfHtml5',
+                    orientation: 'landscape', // Set orientation to landscape
+                    customize: function (doc) {
+                        // Set page size and margins
+                        doc.pageOrientation = 'landscape';
+                        doc.pageSize = 'A3';
+                        doc.pageMargins = [15, 15, 15, 15];
+                    }
+            },
             {
                 extend: 'copy',
                 exportOptions: {

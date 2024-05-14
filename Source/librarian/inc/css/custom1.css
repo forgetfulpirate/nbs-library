@@ -6,13 +6,7 @@
     box-sizing: border-box;
 }
 
-.red {
-    color: red !important; /* Add !important to ensure it overrides other styles */
-}
 
-.black {
-    color: black !important; /* Add !important to ensure it overrides other styles */
-}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -35,6 +29,42 @@ a {
     background-color: #04AA6D; /* Change this to your desired hover color */
     color: #fff; /* Change this to your desired text color */
 }
+
+.theme-toggle {
+    position: relative;
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.theme-toggle .fa-sun {
+    display: none; /* Initially hide the sun icon */
+}
+
+.theme-toggle.active .fa-moon {
+    display: none; /* Hide the moon icon when dark mode is active */
+}
+
+.theme-toggle.active .fa-sun {
+    display: inline-block; /* Display the sun icon when dark mode is active */
+}
+
+/* Animation for sliding */
+.theme-toggle.active {
+    animation: slideForNight 0.5s linear forwards;
+}
+
+@keyframes slideForNight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px); /* Adjust the distance for sliding */
+    }
+}
+
 
 
 
