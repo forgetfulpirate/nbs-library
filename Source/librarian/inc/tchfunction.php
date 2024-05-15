@@ -48,15 +48,11 @@
 				$e_msg = "<div class='alert alert-danger'><strong>Error ! </strong>Email Address Not Valid</div>";
 			} else{
 		    $vkey = md5(time().$id_number);
-		    $insert = mysqli_query($link, "insert into teacher values('$id_number','$first_name','$last_name','$middle_name','$email','$dept','$password','$utype','$photo','pending','$vkey','no')");
+		    $insert = mysqli_query($link, "insert into teacher values('$id_number','$first_name','$last_name','$middle_name','$email','$dept','$password','$utype','$photo','no','$vkey','no')");
             if($insert){
-                // $to = "$email";
-                // $subject = "Email Verification";
-                // $message = "<a href='http://localhost/nbs-library/nbs-library/Source/librarian/user/student/verify.php?vkey=$vkey'>Verify Email</a>";
-                // $headers = "From: cevangelista2021@student.nbscollege.edu.ph \r\n";
-                // $headers.= "MIME-Version: 1.0". "\r\n";
-                // $headers.= "Content-type: text/html; charset-UTF-8". "\r\n";
-                // mail($to, $subject, $message,$headers);
+                $_SESSION['success_msg'] = "Teacher added successfully!";
+                echo '<script type="text/javascript">window.location="all-teacher-info.php";</script>';
+                exit();
 
             }else{
                 echo $mysqli->error;

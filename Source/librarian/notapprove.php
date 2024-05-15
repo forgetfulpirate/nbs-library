@@ -19,10 +19,10 @@
         // If the ID corresponds to a teacher
         $teacher_data = mysqli_fetch_assoc($teacher_result);
         if ($teacher_data['status'] == 'no') {
-            echo "<script>alert('Teacher account is already deactivated!'); window.location='all-teacher-info.php';</script>";
+            echo "<script>window.location='all-teacher-info.php';</script>";
         } elseif ($teacher_data['status'] == 'yes') {
             mysqli_query($link, "UPDATE teacher SET status='no', verified='no' WHERE id_number = $id");
-            echo "<script>alert('Teacher account deactivated successfully!'); window.location='all-teacher-info.php';</script>";
+            echo "<script>window.location='all-teacher-info.php';</script>";
         }
     } else {
         // If the ID does not correspond to either a student or a teacher

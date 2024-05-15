@@ -2,6 +2,8 @@
     include 'inc/connection.php';
     $id = $_GET["id"];
 
+    
+
     // Check if the account is already activated or deactivated
     $student_result = mysqli_query($link, "SELECT * FROM student WHERE student_number = $id");
     $teacher_result = mysqli_query($link, "SELECT * FROM teacher WHERE id_number = $id");
@@ -19,10 +21,10 @@
         // If the ID corresponds to a teacher
         $teacher_data = mysqli_fetch_assoc($teacher_result);
         if ($teacher_data['status'] == 'yes') {
-            echo "<script>alert('Teacher account is already activated!'); window.location='all-teacher-info.php';</script>";
+            echo "<script>window.location='all-teacher-info.php';</script>";
         } elseif ($teacher_data['status'] == 'no') {
             mysqli_query($link, "UPDATE teacher SET status='yes', verified='yes' WHERE id_number = $id");
-            echo "<script>alert('Teacher account activated successfully!'); window.location='all-teacher-info.php';</script>";
+            echo "<script>window.location='all-teacher-info.php';</script>";
         }
     } else {
         // If the ID does not correspond to either a student or a teacher

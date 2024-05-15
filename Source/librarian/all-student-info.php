@@ -44,7 +44,9 @@
                 $vkey = md5(time().$student_number);
                 $insert = mysqli_query($link, "INSERT INTO student VALUES('$student_number', '$first_name', '$last_name', '$middle_name', '$email', '$course', '$year', '$semester', '$password', 'student', 'upload/avatar.jpg', 'no', '$vkey', 'no')");
                 if ($insert) {
-                    // Email verification code here
+                    $_SESSION['success_msg'] = "Student added successfully!";
+                    echo '<script type="text/javascript">window.location="all-student-info.php";</script>';
+                        exit();
                 } else {
                     echo $mysqli->error;
                 }
@@ -114,6 +116,18 @@
                     </div>
                 </div>
             </div>
+
+              <!-- Display Success or Error Messages -->
+    <?php
+    if (!empty($_SESSION['success_msg'])) {
+        echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
+        unset($_SESSION['success_msg']);
+    }
+    if (isset($_SESSION['error_msg'])) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
+        unset($_SESSION['error_msg']);
+    }
+    ?>
 
             <div class="card border-0">
                 
@@ -279,16 +293,6 @@
                 dom: '<html5buttons"B>1Tfgitp',
         buttons: [
             {
-                    extend: 'pdfHtml5',
-                    orientation: 'landscape', // Set orientation to landscape
-                    customize: function (doc) {
-                        // Set page size and margins
-                        doc.pageOrientation = 'landscape';
-                        doc.pageSize = 'A3';
-                        doc.pageMargins = [15, 15, 15, 15];
-                    }
-            },
-            {
                 extend: 'copy',
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
@@ -308,6 +312,7 @@
             },
             {
                 extend: 'pdf',
+    
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
                 }
