@@ -21,6 +21,21 @@
         </div>
     </div>
 
+     <!-- Display Success or Error Messages -->
+     <?php
+                if (!empty($_SESSION['success_message'])) {
+                    echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
+                    unset($_SESSION['success_message']);
+                }
+                if (isset($_SESSION['error_msg'])) {
+                    echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
+                    unset($_SESSION['error_msg']);
+                }
+
+        
+           
+            
+                ?>
     <div class="card border-0">
         <div class="card-body">
             <table class="table table-hover text-center table-striped" id="dtBasicExample">
@@ -177,6 +192,8 @@
         }
     });
     });
+
+  
 </script>
 
 <?php include 'inc/footer.php'; ?>
