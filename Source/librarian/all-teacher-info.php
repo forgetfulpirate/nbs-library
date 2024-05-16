@@ -74,14 +74,18 @@
                                             echo "<td>"; echo $row["dept"]; echo "</td>";
                                             echo "<td>"; echo $row["verified"]; echo "</td>";
                                             echo "<td>";
-                                            ?>
-                                            <button class='btn btn-success btn-sm' onclick="activateUserConfirmation('<?php echo $row["id_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Activate</button>
-                                            <?php
+                                   
+                                                ?>
+                                                <button class='btn btn-success btn-sm' onclick="activateUserConfirmation('<?php echo $row["id_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Activate</button>
+                                                <?php
+                                            
                                             echo "</td>";
                                             echo "<td>";
-                                            ?>
-                                            <button class='btn btn-danger btn-sm' onclick="deactivateUserConfirmation('<?php echo $row["id_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Deactivate</button>
-                                            <?php
+                                            
+                                                ?>
+                                                <button class='btn btn-danger btn-sm' onclick="deactivateUserConfirmation('<?php echo $row["id_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Deactivate</button>
+                                                <?php
+                                            
                                             echo "</td>";
                                             echo "<td>";
                                             ?>

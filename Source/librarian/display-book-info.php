@@ -81,50 +81,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="inc/css/tabs.css">
 </head>
-<style>
-        .title {
-            padding: 25px;
-            display: table-cell;
-            position: relative;
-            vertical-align: top;
-            text-align: left;
-        }
 
-        h2 {
-            font-size: 500%;
-            line-height: 150%;
-            margin: 10px 0;
-            font-family: inherit;
-            font-weight: 100;
-            line-height: 20px;
-        }
-
-        .image-container {
-            float: left;
-            margin-right: 20px;
-            margin-bottom: 0px;
-        }
-
-        .normal-view .image-container {
-            display: block;
-            float: none;
-            margin: 0 auto 20px;
-        }
-
-        .image-container img {
-            height: 100px;
-            width: 80px;
-        }
-        .normal-view {
-            margin-bottom: 10px; /* Add space between each text */
-        }
-        .content-info{
-            margin-left: 30px;
-        }
-        
-        
-       
-    </style>
 <body>
     <div class="tabs-controller">
         <div class="tabs-wrapper">
@@ -148,10 +105,8 @@
                         <span class="title"><?php echo $title_proper; ?></span>
                     </h2>
                     </div>
-                  
-                
-                   
-                   
+                    
+                   <br>
                     <div class="normal-view">
                         <span style="color:gray">By:</span>
                         <span class="normal-value"><?php echo $main_creator ,", ", $add_entry_creator;?></span>
