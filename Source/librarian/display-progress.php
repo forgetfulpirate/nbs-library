@@ -85,10 +85,10 @@
                                     echo "</td>";   echo "</td>";
                                     echo "<td>";
                                    ?>
-                                   <a href="delete-book.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
+                                   <a href="delete-book-module.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
                                    
                                    echo "</td>";
-                                    
+                                                
                                     
                                     echo "</tr>";
                                 }

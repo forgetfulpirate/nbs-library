@@ -81,6 +81,50 @@
     <title>Document</title>
     <link rel="stylesheet" href="inc/css/tabs.css">
 </head>
+<style>
+        .title {
+            padding: 25px;
+            display: table-cell;
+            position: relative;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        h2 {
+            font-size: 500%;
+            line-height: 150%;
+            margin: 10px 0;
+            font-family: inherit;
+            font-weight: 100;
+            line-height: 20px;
+        }
+
+        .image-container {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 0px;
+        }
+
+        .normal-view .image-container {
+            display: block;
+            float: none;
+            margin: 0 auto 20px;
+        }
+
+        .image-container img {
+            height: 100px;
+            width: 80px;
+        }
+        .normal-view {
+            margin-bottom: 10px; /* Add space between each text */
+        }
+        .content-info{
+            margin-left: 30px;
+        }
+        
+        
+       
+    </style>
 <body>
     <div class="tabs-controller">
         <div class="tabs-wrapper">
@@ -94,8 +138,57 @@
             <div class="tab-contents">
                 <!-- NORMAL VIEW CONTENT -->
                 <div class="content active">
-                <img src="<?php echo $imagepath; ?>" height="100px" width="80">
-                <span class="title"><?php echo $title_proper; ?></span>
+              
+            
+                    <div class="image-container">
+                        <img src="<?php echo $imagepath; ?>">
+                    </div>
+                    <div class="normal-view">
+                    <h2>
+                        <span class="title"><?php echo $title_proper; ?></span>
+                    </h2>
+                    </div>
+                  
+                
+                   
+                   
+                    <div class="normal-view">
+                        <span style="color:gray">By:</span>
+                        <span class="normal-value"><?php echo $main_creator ,", ", $add_entry_creator;?></span>
+                    </div>
+                    <div class="normal-view">
+                        <span class="sub">Edition:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $edition?></span>
+                    </div>
+                    <div class="normal-view">
+                        <span  class="sub">Description:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $dimension?></span>
+                    </div>
+                    <div class="normal-view">
+                        <span  class="sub">Content Type: </span>
+                        <span class="normal-value" style="color:gray"><?php echo $content_type?></span>
+                        <span  class="sub">Carrier Type:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $carrier_type?></span>
+                    </div>
+
+                    <div class="normal-view">
+                        <span  class="sub">ISBN:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $ISBN?></span>
+                    </div>
+                    <div class="normal-view">
+                        <span  class="sub">Subjects:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $subject_type, ", ", $subject_info?></span>
+                    </div>
+                    <div class="normal-view">
+                        <span  class="sub">Contents:</span>
+                        <div class="content-info" style="color:gray"><?php echo $content_notes?></div>
+                    </div>
+                    <div class="normal-view">
+                        <span  class="sub">Summary:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $abstract?></span>
+                    </div>
+                  
+                    
                 </div>
                 <!-- END NORMAL VIEW CONTENT -->
 
@@ -111,7 +204,12 @@
             </div>
 
         </div>
+
+
+        
     </div>
+
+  
 
     <script src="inc/js/tabs.js"></script>
 </body>
