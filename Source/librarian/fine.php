@@ -86,7 +86,7 @@
                     <input type="hidden" id="fineId" name="fineId">
                     <div class="form-group">
                         <label for="fineAmount">Fine Amount:</label>
-                        <input type="text" class="form-control" id="fineAmount" name="fineAmount">
+                        <input type="number" class="form-control" id="fineAmount" name="fineAmount">
                         <small id="fineAmountError" class="text-danger"></small> <!-- Error message placeholder -->
                     </div>
                 </form>
