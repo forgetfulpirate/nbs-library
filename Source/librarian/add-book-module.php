@@ -482,7 +482,7 @@
                         '$_POST[location]',
                         '$_POST[content_notes]',
                         '$_POST[abstract]',
-                        '$_POST[review]')"
+                        '$_POST[review]','')"
                     );
                     
 

@@ -40,9 +40,9 @@
 
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0','')");
     }
 
     // Update return date in t_issuebook and issue_book tables

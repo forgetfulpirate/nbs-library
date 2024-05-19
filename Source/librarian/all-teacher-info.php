@@ -60,7 +60,7 @@
                                         <th scope="col">verified</th>
                                         <th>Activate</th>
                                         <th>Deactivate</th>
-                                        <th>Teacher</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>

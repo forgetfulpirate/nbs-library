@@ -192,11 +192,11 @@
                                         <div class="flex-grow-1">
 										<div class="box">
 							<div class="icon1">
-                            <i class="fa-solid fa-peso-sign"></i>
+                                <h3>Fine</h3>
 							</div>
 							<div class="text-left">
-                                
 								<h3><span class="counter">
+                                <span> <i class="fa-solid fa-peso-sign"></i></span>
                                         <?php
                                         $total_fine = 0;
                                         $res = mysqli_query($link, "SELECT fine FROM finezone");
