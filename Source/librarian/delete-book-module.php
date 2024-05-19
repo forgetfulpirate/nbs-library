@@ -12,7 +12,7 @@
     include 'inc/connection.php';
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
-        mysqli_query($link, "delete from book_module where id=$id");
+        mysqli_query($link, "delete from book_module where accession_number=$id");
        
 
         ?>

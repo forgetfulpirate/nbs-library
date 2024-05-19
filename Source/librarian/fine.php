@@ -31,10 +31,6 @@
                     echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
                     unset($_SESSION['error_msg']);
                 }
-
-        
-           
-            
                 ?>
     <div class="card border-0">
         <div class="card-body">
@@ -45,8 +41,10 @@
                         <th>Name</th>
                         <th>User Type</th>
                         <th>Email</th>
+                        <th>Accession Number</th>
                         <th>Books Name</th>
                         <th>Date Issued</th>
+                        <th>Date Due</th>
                         <th>Date Returned</th>
                         <th>Amount</th>
                         <th>Action</th>
@@ -61,10 +59,13 @@
                             echo "<td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
                             echo "<td>" . $row["utype"] . "</td>";
                             echo "<td>" . $row["email"] . "</td>";
+                            echo "<td>" . $row["accession_number"] . "</td>";
                             echo "<td>" . $row["booksname"] . "</td>";
+                            echo "<td>" . $row["date_issued"] . "</td>";
                             echo "<td>" . $row["booksissuedate"] . "</td>";
                             echo "<td>" . $row["booksreturndate"] . "</td>";
-                            echo "<td><a href='#' class='editFineLink' data-id='" . $row["id"] . "' data-amount='" . $row["fine"] . "' style='color: " . ($row["fine"] == 0 ? "black" : "red") . "'>" . $row["fine"] . "</a></td>";
+                            echo "<td><a href='#' class='editFineLink' data-id='" . $row["id"] . "' data-amount='" . $row["fine"] . "' style='color: " . ($row["fine"] == 0 ? "inherit" : "red") . "'>" . $row["fine"] . "</a></td>";
+
                             echo "<td><a href='delete-fine.php?id=" . $row["id"] . "' style='color: red'><i class='fas fa-trash'></i></a></td>";
                             echo "</tr>";
                         }
@@ -93,7 +94,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="dismissModalBtn">Close</button>
-                <button type="button" class="btn btn-primary" id="saveFineBtn">Save changes</button>
+                <button type="button" class="btn btn-danger" id="saveFineBtn">Save changes</button>
             </div>
         </div>
     </div>

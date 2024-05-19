@@ -38,9 +38,10 @@
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
+                                                <th>Accession Number</th>
                                                 <th>Books Name</th>
-                                                <th>Issue Date</th>
-                                                <th>Return Date</th>
+                                                <th>Date Issued</th>
+                                                <th>Date Due</th>
                                                 <th>User Type</th>
                                                 <th>Name</th>
                                                 <th>ID Number</th>
@@ -54,6 +55,7 @@
                                                 $res2= mysqli_query($link, "select * from t_issuebook");
                                                  while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
+                                                    echo "<td>"; echo $row["accession_number"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
@@ -77,6 +79,7 @@
                                                 }
                                                 while ($row=mysqli_fetch_array($res2)) {
                                                     echo "<tr>";
+                                            
                                                     echo "<td>"; echo $row["booksname"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                                     echo "<td>"; echo $row["booksreturndate"]; echo "</td>";

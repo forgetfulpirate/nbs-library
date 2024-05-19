@@ -53,7 +53,7 @@
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID Number</th>
+                                        <th scope="col">Faculty ID</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Department</th>
@@ -101,7 +101,7 @@
                             </table>
                             <br>
                             <div class="text-end">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudentModal">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addStudentModal">
                                 Add Teacher
                                 </button>
                                 </div>

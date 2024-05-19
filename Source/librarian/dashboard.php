@@ -97,8 +97,8 @@
 							<div class="text-left">
 								<h3><span class="counter">
                                     <?php
-                                         $res = mysqli_query($link, "select * from std_registration");
-                                         $res2 = mysqli_query($link, "select * from t_registration");
+                                         $res = mysqli_query($link, "select * from student");
+                                         $res2 = mysqli_query($link, "select * from teacher");
                                          $count2 = mysqli_num_rows($res2);
                                          $count = mysqli_num_rows($res);
                                          $result = $count + $count2;
@@ -170,7 +170,7 @@
 							<div class="text-left">
 								<h3><span class="counter">
 								<?php
-                                         $res = mysqli_query($link, "select * from add_book");
+                                         $res = mysqli_query($link, "select * from book");
                                          $count = mysqli_num_rows($res);
                                         echo $count;
                                     ?>
@@ -228,7 +228,7 @@
 							</div>
 							<div class="text-left">
 								
-								<h4><a href="display-progress.php">Manage Book</a></h4>
+								<h4><a href="display-book-module.php">Manage Book</a></h4>
 							</div>
 						</div>
                                             </div>

@@ -74,18 +74,18 @@
                                     echo "</td>";
                                     echo "<td>";
                                     ?>
-                                    <a href="display-book-info.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit">View</a><?php
+                                    <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
                                     
                                     echo "</td>";
                                      echo "<td>";
                                     ?>
                           
-                                    <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["id"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
+                                    <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["accession_number"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
                                     
                                     echo "</td>";   echo "</td>";
                                     echo "<td>";
                                    ?>
-                                   <a href="delete-book-module.php?id=<?php echo $row["id"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
+                                   <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
                                    
                                    echo "</td>";
                                                 

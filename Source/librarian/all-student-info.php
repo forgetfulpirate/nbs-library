@@ -210,10 +210,10 @@
                             </table>
                             <br>
                             <div class="text-end">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addStudentModal">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addStudentModal">
                                 Add Student
                                 </button>
-                                </div>
+                            </div>
                            
                             
                         </div>

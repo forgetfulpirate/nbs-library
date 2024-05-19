@@ -13,8 +13,10 @@
         $middle_name = $row3["middle_name"];
         $utype = $row3["utype"];
         $email = $row3["email"];
+        $accession_number = $row3["accession_number"];
         $booksname = $row3["booksname"];
         $brdate = $row3["booksreturndate"];
+        $booksissuedate = $row3["booksissuedate"];
     }
 
     // Fetch data from t_issuebook table
@@ -38,9 +40,9 @@
 
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','$fine')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$brdate','$a','0')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0')");
     }
 
     // Update return date in t_issuebook and issue_book tables
@@ -48,19 +50,19 @@
     mysqli_query($link, "update issue_book set booksreturndate='$a' where id=$id");
 
     // Fetch book name for updating availability
-    $books_name = "";
+    $accession_number = "";
     $res = mysqli_query($link, "select  * from t_issuebook where id=$id");
     $res2 = mysqli_query($link, "select  * from issue_book where id=$id");
     while($row=mysqli_fetch_array($res)){
-        $books_name = $row["booksname"];
+        $accession_number = $row["accession_number"];
     }
     while($row=mysqli_fetch_array($res2)){
-        $books_name = $row["booksname"];
+        $accession_number = $row["accession_number"];
     }
 
     // Update book availability in add_book table
-	mysqli_query($link, "update book set books_availability=books_availability+1 where title_of_book='$books_name'");
-    mysqli_query($link, "update add_book set books_availability=books_availability+1 where books_name='$books_name'");
+	mysqli_query($link, "update book_module set available=available+1 where accession_number='$accession_number'");
+
 
 
     // Delete entry from issue_book table

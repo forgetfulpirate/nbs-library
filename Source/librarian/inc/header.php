@@ -111,7 +111,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a href="progress.php" class="sidebar-link">Add Book Module</a>
+                                <a href="add-book-module.php" class="sidebar-link">Add Book Module</a>
                             </li>
                             <!-- <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
@@ -171,7 +171,7 @@
                     </li>
 
                     <li class="sidebar-item <?php if($page=='bmodule'){ echo 'active';} ?>">
-                                <a href="display-progress.php" class="sidebar-link">
+                                <a href="display-book-module.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display Book Module
                                 </a>

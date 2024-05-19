@@ -15,7 +15,7 @@
         $id = $_GET['id'];
 
         // Fetch book details based on ID
-        $query = "SELECT * FROM book_module WHERE id = $id";
+        $query = "SELECT * FROM book_module WHERE accession_number = $id";
         $result = mysqli_query($link, $query);
 
         if(mysqli_num_rows($result) == 1) {

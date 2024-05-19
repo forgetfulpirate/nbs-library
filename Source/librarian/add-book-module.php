@@ -441,7 +441,7 @@
                     move_uploaded_file($_FILES["file"]["tmp_name"],$filepath);
 
                     mysqli_query($link, "INSERT INTO book_module VALUES (
-                        '',
+                        '$_POST[accession_number]',
                         '$_POST[title_proper]',
                         '$_POST[responsibility]',
                         '$_POST[preffered_title]',
@@ -469,7 +469,6 @@
                         '$_POST[subject_info]',
                         '$_POST[call_number_type]',
                         '$_POST[call_number_info]',
-                        '$_POST[accession_number]',
                         '$_POST[language]',
                         '$_POST[library_location]',
                         '$_POST[electronic_access]',

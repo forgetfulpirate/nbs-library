@@ -12,10 +12,10 @@
         include 'inc/connection.php';
 
         if(isset($_GET['id'])) {
-            $id = $_GET['id'];
+            $accession_number = $_GET['id'];
     
             // Fetch book details based on ID
-            $query = "SELECT * FROM book_module WHERE id = $id";
+            $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
             $result = mysqli_query($link, $query);
     
             if(mysqli_num_rows($result) == 1) {
@@ -340,7 +340,7 @@
 
                         <div class="input-field1">
                                 <label>Accession Number</label>
-                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>">
+                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>" readonly>
 
                         </div>
 
@@ -598,7 +598,7 @@
                         review='$review' 
                         $imagepath_update 
                         $filepath_update 
-                        WHERE id=$id";
+                        WHERE accession_number=$accession_number";
                 
                     $result = mysqli_query($link, $query);
                 
