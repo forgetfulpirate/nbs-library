@@ -109,12 +109,23 @@
                    <br>
                     <div class="normal-view">
                         <span style="color:gray">By:</span>
-                        <span class="normal-value"><?php echo $main_creator ,", ", $add_entry_creator;?></span>
+                        <span class="normal-value"><?php echo $main_creator?></span>
                     </div>
+                    <div class="normal-view">
+                        <span class="sub">Contributor(s):</span>
+                        <span class="normal-value" style="color:gray"><?php echo $contributors?></span>
+                    </div>
+
+                    <div class="normal-view">
+                        <span class="sub">Publisher:</span>
+                        <span class="normal-value" style="color:gray"><?php echo $place_of_publication , ": ", ", ", $publisher, ",", $date_of_publication?></span>
+                    </div>
+
                     <div class="normal-view">
                         <span class="sub">Edition:</span>
                         <span class="normal-value" style="color:gray"><?php echo $edition?></span>
                     </div>
+
                     <div class="normal-view">
                         <span  class="sub">Description:</span>
                         <span class="normal-value" style="color:gray"><?php echo $dimension?></span>

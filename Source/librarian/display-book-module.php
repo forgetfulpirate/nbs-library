@@ -19,17 +19,31 @@
     }
 
  ?>
- 
             
             
             <main class="content px-3 py-2">
+                 
+             <?php
+                if (!empty($_SESSION['success_message'])) {
+                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['success_message'] . '</div>';
+                    unset($_SESSION['success_message']);
+                }
+                if (isset($_SESSION['error_msg'])) {
+                    echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
+                    unset($_SESSION['error_msg']);
+                }
             
+                ?>
             
+           
             <div class="card border-0">
                 
                   
+            
                  
                         <div class="card-body" >
+                               <!-- Display Success or Error Messages -->
+               
                             <table class="table table-hover text-center" id="dtBasicExample">
                                 
                                 <thead>

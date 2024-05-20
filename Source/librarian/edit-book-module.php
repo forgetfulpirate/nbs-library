@@ -17,7 +17,6 @@
             // Fetch book details based on ID
             $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
             $result = mysqli_query($link, $query);
-    
             if(mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
                 $title_proper =  $row['title_proper'];
@@ -285,6 +284,7 @@
                                         <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
                                         <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
                                         <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
+                                        
                                     </select>
                         </div>
                     
@@ -327,7 +327,7 @@
                                             <option <?php if ($call_number_type == 'Personal') echo 'selected'; ?>>Personal</option>
                                             <option <?php if ($call_number_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
                                             <option <?php if ($call_number_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                            <option <?php if ($call_number_type == 'None') echo 'selected'; ?>>None</option>
+                                            <option <?php if ($call_number_type == '') echo 'selected'; ?>></option>
                                         </select>
                         </div>
 
@@ -344,15 +344,42 @@
 
                         </div>
 
-                        <div class="input-field1">
+                        
+                        <div class="input-field2">
                                 <label>Language</label>
-                                <input type="text" placeholder="Language" name="language" value="<?php echo $language; ?>">
+                                        <select name="language">
+                                        
+                                            <option <?php if ($language == 'English') echo 'selected'; ?>>English </option>
+                                            <option <?php if ($language == 'Filipino') echo 'selected'; ?>>Filipino</option>
+                                            <option <?php if ($language == 'French') echo 'selected'; ?>>French</option>
+                                            <option <?php if ($language == 'German') echo 'selected'; ?>>German</option>
+                                            <option <?php if ($language == 'Italian') echo 'selected'; ?>>Italian</option>
+                                            <option <?php if ($language == 'Korean') echo 'selected'; ?>>Korean</option>
+                                            <option <?php if ($language == 'Latin') echo 'selected'; ?>>Latin</option>
+                                            <option <?php if ($language == 'Mandarin') echo 'selected'; ?>>Mandarin</option>
+                                            <option <?php if ($language == 'Nihongo') echo 'selected'; ?>>Nihongo</option>
+                                            <option <?php if ($language == 'Spanish') echo 'selected'; ?>>Spanish</option>
+                            
+                                        </select>
+                               
                         </div>
 
-                        <div class="input-field1">
+                        <div class="input-field2">
                                 <label>Library/Location</label>
-                                <input type="text" placeholder="Library/Location" name="library_location" value="<?php echo $library_location; ?>">
+                                <select name="library_location">
+                                            <option <?php if ($library_location == 'BIO') echo 'selected'; ?>>BIO </option>
+                                            <option <?php if ($library_location == 'CD-ROM') echo 'selected'; ?>>CD-ROM</option>
+                                            <option <?php if ($library_location == 'CIR') echo 'selected'; ?>>CIR</option>
+                                            <option <?php if ($library_location == 'FIC') echo 'selected'; ?>>FIC</option>
+                                            <option <?php if ($library_location == 'FIL') echo 'selected'; ?>>FIL</option>
+                                            <option <?php if ($library_location == 'REF') echo 'selected'; ?>>REF</option>
+                                            <option <?php if ($library_location == 'TH') echo 'selected'; ?>>TH</option>
+                                            <option <?php if ($library_location == '') echo 'selected'; ?>></option>
+                                        </select>
+                               
                         </div>
+
+
 
                         
                         <div class="input-field1">
@@ -422,7 +449,7 @@
                                     <option <?php if ($location == 'Fiction') echo 'selected'; ?>>Fiction</option>
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
                                 </select>
-                            </div>
+                        </div>
 
 
 
@@ -603,8 +630,15 @@
                     $result = mysqli_query($link, $query);
                 
                     if ($result) {
-                        echo "<script>alert('Book updated successfully');</script>";
+                        $_SESSION['success_message'] = "Book updated successfully";
+                        echo "<script>window.location.href = 'display-book-module.php'; alert('Success to update book');
+                       
+                        </script>";
+                        exit();
+                      
+                       
                     } else {
+                        
                         echo "<script>alert('Failed to update book');</script>";
                         echo "<p>Error updating book. Please try again.</p>";
                     }

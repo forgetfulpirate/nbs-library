@@ -354,7 +354,7 @@
                                             <option>Fiction</option>
                                             <option>Special Collection</option>
                                         </select>
-                            </div>
+                        </div>
 
 
 
