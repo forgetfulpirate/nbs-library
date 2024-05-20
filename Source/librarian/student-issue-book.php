@@ -123,7 +123,7 @@
                                                             $res= mysqli_query($link, "select books_name from add_book");
                                                             while($row=mysqli_fetch_array($res)){
                                                                 echo "<option>";
-                                                                echo $row["books_name"];
+                                                                echo $row = ["books_name"];
                                                                 echo "</option>";
                                                             }
                                                         ?>

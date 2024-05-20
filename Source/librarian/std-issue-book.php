@@ -193,8 +193,8 @@
                                             </div>
                                             <?php
                                         } else {
-                                            mysqli_query($link, "INSERT INTO issue_book 
-                                                    VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '$_POST[middle_name]', '$_POST[course]', '', '$_POST[email]', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','')");
+                                            $title_proper = mysqli_real_escape_string($link, $title_proper);
+                                            mysqli_query($link, "INSERT INTO issue_book VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '$_POST[middle_name]', '$_POST[course]', '', '$_POST[email]', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','')");
                                         
                                             mysqli_query($link, "update book_module set available=available-1 where accession_number='$accession_number'");
                                             ?>

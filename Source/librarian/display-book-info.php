@@ -1,11 +1,11 @@
 <?php 
-     session_start();
+    session_start();
     if (!isset($_SESSION["username"])) {
-        ?>
-            <script type="text/javascript">
-                window.location="login.php";
-            </script>
-        <?php
+?>
+        <script type="text/javascript">
+            window.location="login.php";
+        </script>
+<?php
     }
     $page = '';
     include 'inc/connection.php';
@@ -67,10 +67,10 @@
             echo "Book not found!";
             exit();
         }
-        } else {
+    } else {
         echo "Book ID not provided!";
         exit();
-        }
+    }
  ?>
 
 <!DOCTYPE html>
@@ -95,70 +95,113 @@
             <div class="tab-contents">
                 <!-- NORMAL VIEW CONTENT -->
                 <div class="content active">
-              
-            
                     <div class="image-container">
-                        <img src="<?php echo $imagepath; ?>">
+                        <?php if(!empty($imagepath)): ?>
+                            <img src="<?php echo $imagepath; ?>">
+                        <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                    <h2>
-                        <span class="title"><?php echo $title_proper; ?></span>
-                    </h2>
+                        <h2>
+                            <?php if(!empty($title_proper)): ?>
+                                <span class="title"><?php echo $title_proper; ?></span>
+                            <?php endif; ?>
+                        </h2>
                     </div>
                     
-                   <br>
+                    <br>
                     <div class="normal-view">
-                        <span style="color:gray">By:</span>
-                        <span class="normal-value"><?php echo $main_creator?></span>
+                        <?php if(!empty($main_creator)): ?>
+                            <span style="color:gray">By:</span>
+                            <span class="normal-value"><?php echo $main_creator?></span>
+                        <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <span class="sub">Contributor(s):</span>
-                        <span class="normal-value" style="color:gray"><?php echo $contributors?></span>
-                    </div>
-
-                    <div class="normal-view">
-                        <span class="sub">Publisher:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $place_of_publication , ": ", ", ", $publisher, ",", $date_of_publication?></span>
-                    </div>
-
-                    <div class="normal-view">
-                        <span class="sub">Edition:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $edition?></span>
+                        <?php if(!empty($contributors)): ?>
+                            <span class="sub">Contributor(s):</span>
+                            <span class="normal-value" style="color:gray"><?php echo $contributors?></span>
+                        <?php endif; ?>
                     </div>
 
                     <div class="normal-view">
-                        <span  class="sub">Description:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $dimension?></span>
-                    </div>
-                    <div class="normal-view">
-                        <span  class="sub">Content Type: </span>
-                        <span class="normal-value" style="color:gray"><?php echo $content_type?></span>
-                        <span  class="sub">Carrier Type:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $carrier_type?></span>
+                        <?php if(!empty($place_of_publication) || !empty($publisher) || !empty($date_of_publication)): ?>
+                            <span class="sub">Publisher:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $place_of_publication . ": " . $publisher . ", " . $date_of_publication?></span>
+                        <?php endif; ?>
                     </div>
 
                     <div class="normal-view">
-                        <span  class="sub">ISBN:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $ISBN?></span>
+                        <?php if(!empty($edition)): ?>
+                            <span class="sub">Edition:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $edition?></span>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="normal-view">
+
+                        <?php if(!empty($dimension) || !empty($illustrations)): ?>
+                        
+                            <?php if(!empty($dimension)): ?>
+                                <span class="sub">Description:</span>
+                                <span class="normal-value" style="color:gray"><?php echo $dimension . ": "; ?></span>
+                            <?php endif; ?>
+
+                            <?php if(!empty($illustrations)): ?>
+                                <span class="sub">Illustration:</span>
+                                <span class="normal-value" style="color:gray"><?php echo $illustrations; ?></span>
+                            <?php endif; ?>
+
+                        <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <span  class="sub">Subjects:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $subject_type, ", ", $subject_info?></span>
+                        <?php if(!empty($content_type) || !empty($carrier_type)): ?>
+
+                            <?php if(!empty($content_type)): ?>
+                            <span  class="sub">Content Type: </span>
+                            <span class="normal-value" style="color:gray"><?php echo $content_type?></span>
+                            <?php endif; ?>
+
+                            <?php if(!empty($carrier_type)): ?>
+                            <span  class="sub">Carrier Type:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $carrier_type?></span>
+                            <?php endif; ?>
+
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="normal-view">
+                        <?php if(!empty($ISBN)): ?>
+                            <span  class="sub">ISBN:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $ISBN?></span>
+                        <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <span  class="sub">Contents:</span>
-                        <div class="content-info" style="color:gray"><?php echo $content_notes?></div>
+                        <?php if(!empty($subject_info)): ?>
+                            <span  class="sub">Subjects:</span>
+                            <span class="normal-value" style="color:gray"> <?php echo $subject_info; ?></span>
+                        <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <span  class="sub">Summary:</span>
-                        <span class="normal-value" style="color:gray"><?php echo $abstract?></span>
+                        <?php if(!empty($call_number_info)): ?>
+                            <span  class="sub">DDC classification:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $call_number_info?></span>
+                        <?php endif; ?>
                     </div>
-                  
-                    
+                    <div class="normal-view">
+                        <?php if(!empty($content_notes)): ?>
+                            <span  class="sub">Contents:</span>
+                            <div class="content-info" style="color:gray"><?php echo $content_notes?></div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="normal-view">
+                        <?php if(!empty($review)): ?>
+                            <span  class="sub">Summary:</span>
+                            <span class="normal-value" style="color:gray"><?php echo $review?></span>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <!-- END NORMAL VIEW CONTENT -->
 
-                 <!-- MARC VIEW CONTENT -->
+                <!-- MARC VIEW CONTENT -->
                 <div class="content">
                     Content for MARC view
                 </div>
@@ -170,12 +213,7 @@
             </div>
 
         </div>
-
-
-        
     </div>
-
-  
 
     <script src="inc/js/tabs.js"></script>
 </body>

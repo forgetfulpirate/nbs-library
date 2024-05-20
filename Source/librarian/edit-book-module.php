@@ -291,10 +291,11 @@
                         <div class="input-field1">
                                     <label>Subject Info</label>
                         
-                                    <textarea name="subject_info" >
+                                    <textarea placeholder="Subject info" name="subject_info" >
                                     <?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?>
                                     </textarea>
                         </div>
+                        
                         
 
                     </div>

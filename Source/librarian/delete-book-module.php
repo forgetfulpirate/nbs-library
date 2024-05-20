@@ -17,7 +17,7 @@
 
         ?>
         <script type="text/javascript">
-            window.location="display-progress.php";
+            window.location="display-book-module.php";
         </script>   
         <?php
      

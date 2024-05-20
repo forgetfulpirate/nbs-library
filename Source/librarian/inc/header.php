@@ -210,6 +210,13 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-item <?php if($page=='a-book'){ echo 'active';} ?>">
+                        <a href="display-book-opac.php" class="sidebar-link">
+                        <i class="fa-solid fa-book pe-2"></i>
+                            View Book Opac
+                        </a>
+                    </li>
+
                     <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="requested-books.php" class="sidebar-link">
                         <i class="fa-solid fa-book pe-2"></i>
