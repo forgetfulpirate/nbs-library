@@ -29,6 +29,17 @@
 .h4 {
     float:left;
 }
+
+     /* Responsive adjustments */
+     @media only screen and (max-width: 768px) {
+        #time, #date, .h4 {
+            font-size: 20px; /* Adjust font size for smaller screens */
+            float: none; /* Remove float for center alignment */
+            text-align: center; /* Center align the elements */
+            margin: 10px auto; /* Add some margin for better spacing */
+        }
+    }
+ 
 </style>
 
 	

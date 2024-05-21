@@ -358,6 +358,13 @@ a.sidebar-link {
     }
 }
 
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
+
 #card1:hover{
     transform: scale(1.1);
     -webkit-transition: ease .5s all;
