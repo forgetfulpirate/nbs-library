@@ -12,9 +12,10 @@
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
         mysqli_query($link, "delete from finezone where id=$id");
-
+        $_SESSION['success_message'] = "Fine amount deleted successfully";
         ?>
         <script type="text/javascript">
+          
             window.location="fine.php";
         </script>
         <?php

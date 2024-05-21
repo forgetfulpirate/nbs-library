@@ -29,6 +29,17 @@
 .h4 {
     float:left;
 }
+
+     /* Responsive adjustments */
+     @media only screen and (max-width: 768px) {
+        #time, #date, .h4 {
+            font-size: 20px; /* Adjust font size for smaller screens */
+            float: none; /* Remove float for center alignment */
+            text-align: center; /* Center align the elements */
+            margin: 10px auto; /* Add some margin for better spacing */
+        }
+    }
+ 
 </style>
 
 	
@@ -97,8 +108,8 @@
 							<div class="text-left">
 								<h3><span class="counter">
                                     <?php
-                                         $res = mysqli_query($link, "select * from std_registration");
-                                         $res2 = mysqli_query($link, "select * from t_registration");
+                                         $res = mysqli_query($link, "select * from student");
+                                         $res2 = mysqli_query($link, "select * from teacher");
                                          $count2 = mysqli_num_rows($res2);
                                          $count = mysqli_num_rows($res);
                                          $result = $count + $count2;
@@ -170,7 +181,7 @@
 							<div class="text-left">
 								<h3><span class="counter">
 								<?php
-                                         $res = mysqli_query($link, "select * from add_book");
+                                         $res = mysqli_query($link, "select * from book");
                                          $count = mysqli_num_rows($res);
                                         echo $count;
                                     ?>
@@ -192,11 +203,11 @@
                                         <div class="flex-grow-1">
 										<div class="box">
 							<div class="icon1">
-                            <i class="fa-solid fa-peso-sign"></i>
+                                <h3>Fine</h3>
 							</div>
 							<div class="text-left">
-                                
 								<h3><span class="counter">
+                                <span> <i class="fa-solid fa-peso-sign"></i></span>
                                         <?php
                                         $total_fine = 0;
                                         $res = mysqli_query($link, "SELECT fine FROM finezone");
@@ -228,7 +239,7 @@
 							</div>
 							<div class="text-left">
 								
-								<h4><a href="display-progress.php">Manage Book</a></h4>
+								<h4><a href="display-book-module.php">Manage Book</a></h4>
 							</div>
 						</div>
                                             </div>

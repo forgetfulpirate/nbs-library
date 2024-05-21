@@ -51,7 +51,7 @@
                                 <tbody>
                                            <?php
                                                 $res= mysqli_query($link, "select * from student ORDER BY student_number DESC");
-                                                $res2= mysqli_query($link, "select * from t_registration ORDER BY id DESC");
+                                                $res2= mysqli_query($link, "select * from teacher ORDER BY id_number DESC");
                                                 while ($row=mysqli_fetch_array($res)) {
                                                     echo "<tr>";
                                                     echo "<td>"; echo $row["student_number"]; echo "</td>";
@@ -63,31 +63,29 @@
                                                     echo "<td>"; echo $row["verified"]; echo "</td>";
                                              
                                               
-                                      
                                                     echo "</tr>";
                                                 }
-                                                // while ($row=mysqli_fetch_array($res2)) {
-                                                //     echo "<tr>";
-                                                //     echo "<td>"; echo $row["name"]; echo "</td>";
-                                                //     echo "<td>"; echo $row["username"]; echo "</td>";
-                                                //     echo "<td>"; echo $row["utype"]; echo "</td>";
-                                                //     echo "<td>"; echo $row["email"]; echo "</td>";
-   
-                                                //     echo "<td>"; echo $row["verified"]; echo "</td>";
-                                            
-                                                //     echo "</tr>";
-                                                // }
+
+                                              
                                              ?>
                                        </tbody>
                             </table>
                         </div>
                     </div>
+
+                    
                 </div>
                 
-                </div>
+            </div>
+
+            
+
+         
+            
+                
                 
             
-            </main>
+ </main>
 
         
 

@@ -121,10 +121,7 @@
                                     <option>BSAIS</option>
                                 </select>
                             </div>
-
-                       
-                   
-                         
+            
                             <div class="submit">
                                 <input type="submit" value="Add Student" name="submit" class="btn change text-center">
                             </div>

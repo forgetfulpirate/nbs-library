@@ -30,6 +30,42 @@ a {
     color: #fff; /* Change this to your desired text color */
 }
 
+.theme-toggle {
+    position: relative;
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.theme-toggle .fa-sun {
+    display: none; /* Initially hide the sun icon */
+}
+
+.theme-toggle.active .fa-moon {
+    display: none; /* Hide the moon icon when dark mode is active */
+}
+
+.theme-toggle.active .fa-sun {
+    display: inline-block; /* Display the sun icon when dark mode is active */
+}
+
+/* Animation for sliding */
+.theme-toggle.active {
+    animation: slideForNight 0.5s linear forwards;
+}
+
+@keyframes slideForNight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px); /* Adjust the distance for sliding */
+    }
+}
+
+
 
 
 
@@ -321,6 +357,13 @@ a.sidebar-link {
         width: 100vw;
     }
 }
+
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
 
 #card1:hover{
     transform: scale(1.1);

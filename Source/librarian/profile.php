@@ -12,21 +12,16 @@
     include 'inc/connection.php';
  ?>
 	<!--dashboard area-->
-	<div class="dashboard-content">
+    <main class="content px-3 py-2">
 		<div class="dashboard-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
+							<p><span>Profile</p>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">profile</span>
-						</div>
-					</div>
+					
 				</div>
 				<div class="profile-content">
 					<div class="row">
@@ -97,6 +92,7 @@
                                         <label for="address">Address:</label>
                                          <input type="text" class="form-control custom"  name="address" value="<?php echo $address; ?>" />
                                     </div>
+                                    <br>
                                     <div class="text-right mt-20">
                                         <input type="submit" value="Save" class="btn btn-info" name="update">
                                     </div>
@@ -112,6 +108,7 @@
                                    phone='$_POST[phone]',
                                    address='$_POST[address]' 
                                    where username='$_SESSION[username]'");
+
                                     ?>
                                         <script type="text/javascript">
                                             window.location="profile.php";
@@ -123,8 +120,8 @@
 					</div>
 				</div>
 			</div>					
-		</div>
-	</div>
+		</div>            
+    </main>
 	<?php 
 		include 'inc/footer.php';
 	 ?>

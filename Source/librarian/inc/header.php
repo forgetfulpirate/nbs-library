@@ -18,7 +18,9 @@
     <title>NBS College Library</title>
     <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
    
@@ -111,7 +113,7 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a href="progress.php" class="sidebar-link">Add Book Module</a>
+                                <a href="add-book-module.php" class="sidebar-link">Add Book Module</a>
                             </li>
                             <!-- <li class="sidebar-item">
                                 <a href="display-books.php" class="sidebar-link">Display Book</a>
@@ -171,7 +173,7 @@
                     </li>
 
                     <li class="sidebar-item <?php if($page=='bmodule'){ echo 'active';} ?>">
-                                <a href="display-progress.php" class="sidebar-link">
+                                <a href="display-book-module.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display Book Module
                                 </a>
@@ -207,6 +209,13 @@
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
                             Issued book
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='a-book'){ echo 'active';} ?>">
+                        <a href="display-book-opac.php" class="sidebar-link">
+                        <i class="fa-solid fa-book pe-2"></i>
+                            View Book Opac
                         </a>
                     </li>
 

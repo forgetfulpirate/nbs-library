@@ -12,12 +12,11 @@
         include 'inc/connection.php';
 
         if(isset($_GET['id'])) {
-            $id = $_GET['id'];
+            $accession_number = $_GET['id'];
     
             // Fetch book details based on ID
-            $query = "SELECT * FROM book_module WHERE id = $id";
+            $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
             $result = mysqli_query($link, $query);
-    
             if(mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
                 $title_proper =  $row['title_proper'];
@@ -285,16 +284,18 @@
                                         <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
                                         <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
                                         <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
+                                        
                                     </select>
                         </div>
                     
                         <div class="input-field1">
                                     <label>Subject Info</label>
                         
-                                    <textarea name="subject_info" >
-                                    <?php echo $subject_info; ?>
+                                    <textarea placeholder="Subject info" name="subject_info" >
+                                    <?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?>
                                     </textarea>
                         </div>
+                        
                         
 
                     </div>
@@ -327,7 +328,7 @@
                                             <option <?php if ($call_number_type == 'Personal') echo 'selected'; ?>>Personal</option>
                                             <option <?php if ($call_number_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
                                             <option <?php if ($call_number_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                            <option <?php if ($call_number_type == 'None') echo 'selected'; ?>>None</option>
+                                            <option <?php if ($call_number_type == '') echo 'selected'; ?>></option>
                                         </select>
                         </div>
 
@@ -340,19 +341,46 @@
 
                         <div class="input-field1">
                                 <label>Accession Number</label>
-                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>">
+                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>" readonly>
 
                         </div>
 
-                        <div class="input-field1">
+                        
+                        <div class="input-field2">
                                 <label>Language</label>
-                                <input type="text" placeholder="Language" name="language" value="<?php echo $language; ?>">
+                                        <select name="language">
+                                        
+                                            <option <?php if ($language == 'English') echo 'selected'; ?>>English </option>
+                                            <option <?php if ($language == 'Filipino') echo 'selected'; ?>>Filipino</option>
+                                            <option <?php if ($language == 'French') echo 'selected'; ?>>French</option>
+                                            <option <?php if ($language == 'German') echo 'selected'; ?>>German</option>
+                                            <option <?php if ($language == 'Italian') echo 'selected'; ?>>Italian</option>
+                                            <option <?php if ($language == 'Korean') echo 'selected'; ?>>Korean</option>
+                                            <option <?php if ($language == 'Latin') echo 'selected'; ?>>Latin</option>
+                                            <option <?php if ($language == 'Mandarin') echo 'selected'; ?>>Mandarin</option>
+                                            <option <?php if ($language == 'Nihongo') echo 'selected'; ?>>Nihongo</option>
+                                            <option <?php if ($language == 'Spanish') echo 'selected'; ?>>Spanish</option>
+                            
+                                        </select>
+                               
                         </div>
 
-                        <div class="input-field1">
+                        <div class="input-field2">
                                 <label>Library/Location</label>
-                                <input type="text" placeholder="Library/Location" name="library_location" value="<?php echo $library_location; ?>">
+                                <select name="library_location">
+                                            <option <?php if ($library_location == 'BIO') echo 'selected'; ?>>BIO </option>
+                                            <option <?php if ($library_location == 'CD-ROM') echo 'selected'; ?>>CD-ROM</option>
+                                            <option <?php if ($library_location == 'CIR') echo 'selected'; ?>>CIR</option>
+                                            <option <?php if ($library_location == 'FIC') echo 'selected'; ?>>FIC</option>
+                                            <option <?php if ($library_location == 'FIL') echo 'selected'; ?>>FIL</option>
+                                            <option <?php if ($library_location == 'REF') echo 'selected'; ?>>REF</option>
+                                            <option <?php if ($library_location == 'TH') echo 'selected'; ?>>TH</option>
+                                            <option <?php if ($library_location == '') echo 'selected'; ?>></option>
+                                        </select>
+                               
                         </div>
+
+
 
                         
                         <div class="input-field1">
@@ -422,7 +450,7 @@
                                     <option <?php if ($location == 'Fiction') echo 'selected'; ?>>Fiction</option>
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
                                 </select>
-                            </div>
+                        </div>
 
 
 
@@ -450,26 +478,20 @@
                     <div class="fields">
 
                     
-                        <div class="input-field1">
-                                    <label>Content notes</label>
-                        
-                                    <textarea placeholder="Content Notes" name="content_notes"><?php echo $content_notes; ?></textarea>
+                    <div class="input-field1">
+                        <label>Content notes</label>
+                        <textarea placeholder="Content Notes" name="content_notes"><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
 
-                        </div>
+                    <div class="input-field1">
+                        <label>Abstract</label>
+                        <textarea placeholder="Abstract" name="abstract"><?php echo htmlspecialchars($abstract, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
 
-                        <div class="input-field1">
-                                    <label>Abstract</label>
-                        
-                                    <textarea placeholder="Abstract" name="abstract"><?php echo $abstract; ?></textarea>
-
-                        </div>
-
-                        <div class="input-field1">
-                                    <label>Review</label>
-                        
-                                    <textarea placeholder="Review" name="review"><?php echo $review; ?></textarea>
-
-                        </div>
+                    <div class="input-field1">
+                        <label>Review</label>
+                        <textarea placeholder="Review" name="review"><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
 
 
                         
@@ -495,131 +517,134 @@
 
             <?php
                 if (isset($_POST["submit"])) {
-
-                    $title_proper =  $_POST['title_proper'];
-                    $responsibility = $_POST['responsibility'];
-                    $preffered_title = $_POST['preffered_title'];
-                    $parallel_title = $_POST['parallel_title'];
-                    $main_creator = $_POST['main_creator'];
-                    $add_entry_creator = $_POST['add_entry_creator'];
-                    $contributors = $_POST['contributors'];
-                    $add_entry_corporate = $_POST['add_entry_corporate'];
-                    $place_of_publication = $_POST['place_of_publication'];
-                    $publisher = $_POST['publisher'];
-                    $date_of_publication = $_POST['date_of_publication'];
-                    $edition = $_POST['edition'];
-                    $extent_of_text = $_POST['extent_of_text'];
-                    $illustrations = $_POST['illustrations'];
-                    $dimension = $_POST['dimension'];
-                    $acc_materials = $_POST['acc_materials'];
-                    $series = $_POST['series'];
-                    $supp_content = $_POST['supp_content'];
-                    $ISBN = $_POST['ISBN'];
-                    $content_type = $_POST['content_type'];
-                    $media_type = $_POST['media_type'];
-                    $carrier_type = $_POST['carrier_type'];
-   
-                    $subject_type = $_POST['subject_type'];
-                    $subject_info = $_POST['subject_info'];
-                    $call_number_type = $_POST['call_number_type'];
-                    $call_number_info = $_POST['call_number_info'];
-                    $accession_number = $_POST['accession_number'];
-                    $language = $_POST['language'];
-                    $library_location = $_POST['library_location'];
-                    $electronic_access = $_POST['electronic_access'];
-   
-                    $entered_by = $_POST['entered_by'];
-                    $updated_by = $_POST['updated_by'];
-                    $date_entered = $_POST['date_entered'];
-                    $date_updated = $_POST['date_updated'];
-                    $quantity = $_POST['quantity'];
-                    $available = $_POST['available'];
-                    $location = $_POST['location'];
-                    $content_notes = $_POST['content_notes'];
-                    $abstract = $_POST['abstract'];
-                    $review = $_POST['review'];
-
+                    $title_proper = mysqli_real_escape_string($link, $_POST['title_proper']);
+                    $responsibility = mysqli_real_escape_string($link, $_POST['responsibility']);
+                    $preffered_title = mysqli_real_escape_string($link, $_POST['preffered_title']);
+                    $parallel_title = mysqli_real_escape_string($link, $_POST['parallel_title']);
+                    $main_creator = mysqli_real_escape_string($link, $_POST['main_creator']);
+                    $add_entry_creator = mysqli_real_escape_string($link, $_POST['add_entry_creator']);
+                    $contributors = mysqli_real_escape_string($link, $_POST['contributors']);
+                    $add_entry_corporate = mysqli_real_escape_string($link, $_POST['add_entry_corporate']);
+                    $place_of_publication = mysqli_real_escape_string($link, $_POST['place_of_publication']);
+                    $publisher = mysqli_real_escape_string($link, $_POST['publisher']);
+                    $date_of_publication = mysqli_real_escape_string($link, $_POST['date_of_publication']);
+                    $edition = mysqli_real_escape_string($link, $_POST['edition']);
+                    $extent_of_text = mysqli_real_escape_string($link, $_POST['extent_of_text']);
+                    $illustrations = mysqli_real_escape_string($link, $_POST['illustrations']);
+                    $dimension = mysqli_real_escape_string($link, $_POST['dimension']);
+                    $acc_materials = mysqli_real_escape_string($link, $_POST['acc_materials']);
+                    $series = mysqli_real_escape_string($link, $_POST['series']);
+                    $supp_content = mysqli_real_escape_string($link, $_POST['supp_content']);
+                    $ISBN = mysqli_real_escape_string($link, $_POST['ISBN']);
+                    $content_type = mysqli_real_escape_string($link, $_POST['content_type']);
+                    $media_type = mysqli_real_escape_string($link, $_POST['media_type']);
+                    $carrier_type = mysqli_real_escape_string($link, $_POST['carrier_type']);
+                    $subject_type = mysqli_real_escape_string($link, $_POST['subject_type']);
+                    $subject_info = mysqli_real_escape_string($link, $_POST['subject_info']);
+                    $call_number_type = mysqli_real_escape_string($link, $_POST['call_number_type']);
+                    $call_number_info = mysqli_real_escape_string($link, $_POST['call_number_info']);
+                    $accession_number = mysqli_real_escape_string($link, $_POST['accession_number']);
+                    $language = mysqli_real_escape_string($link, $_POST['language']);
+                    $library_location = mysqli_real_escape_string($link, $_POST['library_location']);
+                    $electronic_access = mysqli_real_escape_string($link, $_POST['electronic_access']);
+                    $entered_by = mysqli_real_escape_string($link, $_POST['entered_by']);
+                    $updated_by = mysqli_real_escape_string($link, $_POST['updated_by']);
+                    $date_entered = mysqli_real_escape_string($link, $_POST['date_entered']);
+                    $date_updated = mysqli_real_escape_string($link, $_POST['date_updated']);
+                    $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
+                    $available = mysqli_real_escape_string($link, $_POST['available']);
+                    $location = mysqli_real_escape_string($link, $_POST['location']);
+                    $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
+                    $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
+                    $review = mysqli_real_escape_string($link, $_POST['review']);
+                
                     // Handle image upload
-                    if($_FILES['f1']['name'] != "") {
-                        $image_name=$_FILES['f1']['name'];
+                    if ($_FILES['f1']['name'] != "") {
+                        $image_name = $_FILES['f1']['name'];
                         $temp = explode(".", $image_name);
                         $newfilename = round(microtime(true)) . '.' . end($temp);
-                        $imagepath="books-image/".$newfilename;
-                        move_uploaded_file($_FILES["f1"]["tmp_name"],$imagepath);
-                        $imagepath_update = ", books_image='$imagepath'";
+                        $imagepath = "books-image/" . $newfilename;
+                        move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
+                        $imagepath_update = ", book_image='$imagepath'";
                     } else {
                         $imagepath_update = "";
                     }
-
+                
                     // Handle file upload
-                    if($_FILES['file']['name'] != "") {
-                        $file_name=$_FILES['file']['name'];
+                    if ($_FILES['file']['name'] != "") {
+                        $file_name = $_FILES['file']['name'];
                         $temp2 = explode(".", $file_name);
                         $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-                        $filepath="books-file/".$newfilename2;
-                        move_uploaded_file($_FILES["file"]["tmp_name"],$filepath);
-                        $filepath_update = ", books_file='$filepath'";
+                        $filepath = "books-file/" . $newfilename2;
+                        move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
+                        $filepath_update = ", URL='$filepath'";
                     } else {
                         $filepath_update = "";
                     }
-
+                
                     // Update book details in database
                     $query = "UPDATE book_module SET 
-                    title_proper= '$title_proper', 
-                    responsibility='$responsibility', 
-                    preffered_title='$preffered_title', 
-                    parallel_title='$parallel_title', 
-                    main_creator='$main_creator', 
-                    add_entry_creator='$add_entry_creator', 
-                    contributors='$contributors',
-                    add_entry_corporate='$add_entry_corporate',
-                    place_of_publication='$place_of_publication',
-                    publisher='$publisher',
-                    date_of_publication='$date_of_publication',
-                    edition='$edition',
-                    extent_of_text='$extent_of_text',
-                    illustrations='$illustrations',
-                    contributors='$contributors',
-                    dimension='$dimension',
-                    acc_materials='$acc_materials',
-                    series='$series',
-                    supp_content='$supp_content',
-                    ISBN='$ISBN',
-                    content_type='$content_type',
-                    media_type='$media_type',
-                    carrier_type='$carrier_type',
-                    subject_type='$subject_type',
-                    subject_info='$subject_info',
-                    call_number_type='$call_number_type',
-                    call_number_info='$call_number_info',
-                    accession_number='$accession_number',
-                    language='$language',
-                    library_location='$library_location',
-                    electronic_access='$electronic_access',
-                    entered_by='$entered_by',
-                    updated_by='$updated_by',
-                    date_entered='$date_entered',
-                    date_updated='$date_updated',
-                    quantity='$quantity',
-                    available='$available',
-                    location='$location',
-                    content_notes='$content_notes',
-                    abstract='$abstract',
-                    review='$review'
-                    $imagepath_update 
-                    $filepath_update 
-                    WHERE id=$id";
-
+                        title_proper='$title_proper', 
+                        responsibility='$responsibility', 
+                        preffered_title='$preffered_title', 
+                        parallel_title='$parallel_title', 
+                        main_creator='$main_creator', 
+                        add_entry_creator='$add_entry_creator', 
+                        contributors='$contributors', 
+                        add_entry_corporate='$add_entry_corporate', 
+                        place_of_publication='$place_of_publication', 
+                        publisher='$publisher', 
+                        date_of_publication='$date_of_publication', 
+                        edition='$edition', 
+                        extent_of_text='$extent_of_text', 
+                        illustrations='$illustrations', 
+                        dimension='$dimension', 
+                        acc_materials='$acc_materials', 
+                        series='$series', 
+                        supp_content='$supp_content', 
+                        ISBN='$ISBN', 
+                        content_type='$content_type', 
+                        media_type='$media_type', 
+                        carrier_type='$carrier_type', 
+                        subject_type='$subject_type', 
+                        subject_info='$subject_info', 
+                        call_number_type='$call_number_type', 
+                        call_number_info='$call_number_info', 
+                        accession_number='$accession_number', 
+                        language='$language', 
+                        library_location='$library_location', 
+                        electronic_access='$electronic_access', 
+                        entered_by='$entered_by', 
+                        updated_by='$updated_by', 
+                        date_entered='$date_entered', 
+                        date_updated='$date_updated', 
+                        quantity='$quantity', 
+                        available='$available', 
+                        location='$location', 
+                        content_notes='$content_notes', 
+                        abstract='$abstract', 
+                        review='$review' 
+                        $imagepath_update 
+                        $filepath_update 
+                        WHERE accession_number=$accession_number";
+                
                     $result = mysqli_query($link, $query);
-
-                    if($result) {
-                        echo "<script>alert('Book updated successfully');</script>";
+                
+                    if ($result) {
+                        $_SESSION['success_message'] = "Book updated successfully";
+                        echo "<script>window.location.href = 'display-book-module.php'; alert('Success to update book');
+                       
+                        </script>";
+                        exit();
                       
+                       
                     } else {
+                        
                         echo "<script>alert('Failed to update book');</script>";
                         echo "<p>Error updating book. Please try again.</p>";
                     }
                 }
+                
             ?>
 
 
