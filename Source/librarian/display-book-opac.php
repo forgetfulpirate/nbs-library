@@ -127,7 +127,7 @@
     <div class="col-md-12 mb-3">
         <div class="card d-flex flex-row">
             <div class="card-body">
-                <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3>
+            <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3></a>
                 <br>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["main_creator"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
