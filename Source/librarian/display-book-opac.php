@@ -135,9 +135,9 @@
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $row["ISBN"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number_info"]; ?></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Available: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
+            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
         </div>
     </div>
     <?php

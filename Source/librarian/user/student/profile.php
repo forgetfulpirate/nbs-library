@@ -34,10 +34,7 @@
 								<?php
                                     $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
                                     $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
-                                    while ($row = mysqli_fetch_array($res)){
-                                        ?><img src="<?php echo $row["photo"]; ?> " height="300px" width="250px" alt="something wrong"></a> <?php
-                                    }   
-
+                           
                                     while ($row = mysqli_fetch_array($res1)){
                                         ?><img src="<?php echo $row["photo"]; ?> " height="300px" width="250px" alt="something wrong"></a> <?php
                                     }                                                          
@@ -59,7 +56,7 @@
                                     $newfilename = round(microtime(true)) . '.' . end($temp);
                                     $imagepath="upload/".$newfilename;
                                     move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
-                                    mysqli_query($link, "update std_registration set photo='".$imagepath."' where username='".$_SESSION['student']."'");
+                                    mysqli_query($link, "update student set photo='".$imagepath."' where student_number='".$_SESSION['student']."'");
                                     ?>
                                         <script type="text/javascript">
                                             window.location="profile.php";
@@ -68,100 +65,89 @@
                                 }
                             ?>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-7">
 							<div class="details">
                                 <?php
-                                       $res5 = mysqli_query($link, "select * from std_registration where username='$_SESSION[student]' ");
+                                  
                                        $res6 = mysqli_query($link, "select * from student where student_number='$_SESSION[student]' ");
-                                       while($row5 = mysqli_fetch_array($res5)){
-                                           $regno      = $row5['regno'];
-										   $username  = $row5['username'];
-                                           $name      = $row5['name'];
-                                           $sem      = $row5['sem'];
-                                           $session      = $row5['session'];
-                                           $dept      = $row5['dept'];
-                                           $email     = $row5['email'];
-                                           $phone     = $row5['phone']; 
-                                           $address     = $row5['address'];
-                                           $utype     = $row5['utype'];
-                                       }
-
+                                     
                                        while($row6 = mysqli_fetch_array($res6)){
-                                        $regno      = $row6['student_number'];
-                                        $username  = $row6['first_name'];
-                                        $name      = $row6['last_name'];
-                                        $sem      = $row6['middle_name'];
-                                        $session      = $row6['year'];
-                                        $dept      = $row6['course'];
-                                        $email     = $row6['email'];
-                                        $phone     = $row6['status']; 
-                                        $address     = $row6['status'];
-                                        $utype     = $row6['user_type'];
-                                    }
+                                        $student_number      = $row6['student_number'];
+                                        $first_name  = $row6['first_name'];
+                                        $last_name      = $row6['last_name'];
+                                        $middle_name      = $row6['middle_name'];
+                                        $email      = $row6['email'];
+                                        $year      = $row6['year'];
+                                        $semester     = $row6['semester'];
+                                        $user_type     = $row6['user_type'];
+                                        }
                                     ?>
                                 <form method="post">
-                                    <div class="form-group details-control">
-                                        <label for="regno" class="text-right">Reg No:</label>
-                                        <input type="text" class="form-control custom"  name="regno" value="<?php echo $regno; ?>" disabled />
-                                    </div>
-                                    <div class="form-group details-control">
-                                         <label for="username">Username:</label>
-                                        <input type="text" class="form-control custom"  name="username" value="<?php echo $username; ?>" disabled />
-                                    </div>
-                                    <div class="form-group details-control">
-                                        <label for="name" class="text-right">Name:</label>
-                                        <input type="text" class="form-control custom"  name="name" value="<?php echo $name; ?>" />
-                                    </div>
-
-                                    <div class="form-group details-control">
-                                        <label for="sem" class="text-right">Semester:</label>
-                                        <input type="text" class="form-control custom"  name="sem" value="<?php echo $sem; ?>" />
-                                    </div>
-                                    <div class="form-group details-control">
-                                        <label for="session" class="text-right">Session:</label>
-                                        <input type="text" class="form-control custom"  name="session" value="<?php echo $session; ?>" />
-                                    </div>
-                                    <div class="form-group details-control">
-                                        <label for="dept" class="text-right">Departemt:</label>
-                                        <input type="text" class="form-control custom"  name="dept" value="<?php echo $dept; ?>" />
-                                    </div>
-
-                                    <div class="form-group details-control">
-                                         <label for="email">Email:</label>
-                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" disabled/>
-                                    </div>
-                                    <div class="form-group details-control">
-                                         <label for="phone">Phone No:</label>
-                                        <input type="text" class="form-control custom"  name="phone" value="<?php echo $phone; ?>" />
-                                    </div>			                    
-                                    <div class="form-group details-control">
-                                        <label for="address">Address:</label>
-                                         <input type="text" class="form-control custom"  name="address" value="<?php echo $address; ?>" />
-                                    </div>
-                                    <div class="form-group details-control">
+                                      <div class="form-group details-control">
                                         <label for="utype">User Type:</label>
-                                         <input type="text" class="form-control custom"  name="utype" value="<?php echo $utype; ?>"  disabled="" />
+                                         <input type="text" class="form-control custom"  name="utype" value="<?php echo $user_type; ?>"  disabled="" />
                                     </div>
+                                    <div class="form-group details-control">
+                                        <label for="regno" class="text-right">Student Number:</label>
+                                        <input type="text" class="form-control custom"  name="regno" value="<?php echo $student_number; ?>" disabled />
+                                    </div>
+                                    <div class="form-group details-control">
+                                         <label for="first_name">First Name:</label>
+                                        <input type="text" class="form-control custom"  name="first_name" value="<?php echo $first_name; ?>"  />
+                                    </div>
+                                    <div class="form-group details-control">
+                                        <label for="name" class="text-right">Last Name:</label>
+                                        <input type="text" class="form-control custom"  name="name" value="<?php echo $last_name; ?>" />
+                                    </div>
+
+                                    <div class="form-group details-control">
+                                        <label for="sem" class="text-right">Middle Name:</label>
+                                        <input type="text" class="form-control custom"  name="sem" value="<?php echo $middle_name; ?>" />
+                                    </div>
+                                    <div class="form-group details-control">
+                                        <label for="session" class="text-right">Email:</label>
+                                        <input type="text" class="form-control custom"  name="session" value="<?php echo $email; ?>" />
+                                    </div>
+                                    <div class="form-group details-control">
+                                        <label for="dept" class="text-right">Year Level:</label>
+                                        <input type="text" class="form-control custom"  name="dept" value="<?php echo $year; ?>" />
+                                    </div>
+
+                                    <div class="form-group details-control">
+                                         <label for="email">Semester:</label>
+                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $semester; ?>" />
+                                    </div>
+                         		                    
+                    
+                                  
+                                    <br>
                                     <div class="text-right mt-20">
                                         <input type="submit" value="Save" class="btn btn-info" name="update">
                                     </div>
                                 <?php
                                 ?>
                                 </form>
-			                </div> 
+			                </div>  
                             <?php
-                               if (isset($_POST["update"])){
-                                   mysqli_query($link, "update std_registration set 
-                                   name='$_POST[name]',
-                                   phone='$_POST[phone]',
-                                   address='$_POST[address]'
-                                   where username='$_SESSION[student]'");
-                                    ?>
-                                        <script type="text/javascript">
-                                            window.location="profile.php";
-                                        </script>
-                                    <?php
-                               }
+                              if (isset($_POST["update"])){
+                                mysqli_query($link, "UPDATE student SET 
+                                    first_name='" . $_POST['first_name'] . "',
+                                    last_name='" . $_POST['name'] . "',
+                                    middle_name='" . $_POST['sem'] . "',
+                                    email='" . $_POST['session'] . "',
+                                    year='" . $_POST['dept'] . "'
+                                    WHERE student_number='" . $_SESSION['student'] . "'");
+
+                                    
+                                ?>
+                                <script type="text/javascript">
+                                 
+                                    window.location="profile.php";
+                                    alert('Successful edit profile');
+                                </script>
+                                <?php
+                            }
+                            
                             ?>
                           
 		                </div>    
@@ -169,7 +155,8 @@
 				</div>
 			</div>					
 		</div>
-	</div>
+        </div>
+        
 	<?php 
 		include 'inc/footer.php';
 	 ?>

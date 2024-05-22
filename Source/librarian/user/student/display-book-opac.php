@@ -22,9 +22,9 @@
     $offset = ($currentPage - 1) * $entriesPerPage;
 
     // Prepare SQL query to fetch books with optional search filter and limit
-    $sqlCount = "SELECT COUNT(*) as count FROM book";
+    $sqlCount = "SELECT COUNT(*) as count FROM book_module";
     if (!empty($search)) {
-        $sqlCount .= " WHERE title_of_book LIKE '%$search%' OR author LIKE '%$search%' OR program LIKE '%$search%' OR accession_number LIKE '%$search%'";
+        $sqlCount .= " WHERE title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR accession_number LIKE '%$search%'";
     }
     $resultCount = mysqli_query($link, $sqlCount);
     $rowCount = mysqli_fetch_assoc($resultCount);
@@ -34,9 +34,9 @@
     $totalPages = ceil($totalBooks / $entriesPerPage);
 
     // Update SQL query to include pagination
-    $sql = "SELECT * FROM book";
+    $sql = "SELECT * FROM book_module";
     if (!empty($search)) {
-        $sql .= " WHERE title_of_book LIKE '%$search%' OR author LIKE '%$search%' OR program LIKE '%$search%' OR accession_number LIKE '%$search%'";
+        $sql .= " WHERE title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR accession_number LIKE '%$search%'";
     }
     $sql .= " LIMIT $entriesPerPage OFFSET $offset";
 
@@ -70,53 +70,61 @@
             </table>
         </form>
     </div>
+
+    <?php
+    // Count total books shown
+    $booksShown = mysqli_num_rows($res);
+
+    // Display total books shown and total books found
+    echo "<p style='color: inherit; margin: 2em 0 1em;font-size: 130%;line-height: 150%; margin: 0; margin-left:10px;'>Your search returned $booksShown results.</p>";
+
+?>
     
 
 <!-- Pagination -->
 <div class="row mt-3">
     <div class="col-md-12">
-        <div class="d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-            <div class="pagination-container">
-                <ul class="pagination justify-content-center">
-                    <?php
-                        // First page
-                        if ($currentPage > 1) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
-                        }
+        
+        <nav aria-label="Page navigation example">
+        <div class="pagination-container">
+            <ul class="pagination justify-content-center" style="margin:0">
+                <?php
+                    // First page
+                    if ($currentPage > 1) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                    }
 
-                        // Previous page
-                        if ($currentPage > 1) {
-                            $prevPage = $currentPage - 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
-                        }
+                    // Previous page
+                    if ($currentPage > 1) {
+                        $prevPage = $currentPage - 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                    }
 
-                        // Page numbers
-                        $startPage = max(1, $currentPage - 5);
-                        $endPage = min($totalPages, $startPage + 9);
-                        for ($i = $startPage; $i <= $endPage; $i++) {
-                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
-                        }
+                    // Page numbers
+                    $startPage = max(1, $currentPage - 5);
+                    $endPage = min($totalPages, $startPage + 9);
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                        echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                    }
 
-                        // Next page
-                        if ($currentPage < $totalPages) {
-                            $nextPage = $currentPage + 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
-                        }
+                    // Next page
+                    if ($currentPage < $totalPages) {
+                        $nextPage = $currentPage + 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                    }
 
-                        // Last page
-                        if ($currentPage < $totalPages) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
-                        }
-                    ?>
-                </ul>
-                    </DIV>
-            </nav>
-        </div>
+                    // Last page
+                    if ($currentPage < $totalPages) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                    }
+                ?>
+            </ul>
+                </div>
+        </nav>
     </div>
+
+    
 </div>
-
-
 
 
 
@@ -125,23 +133,22 @@
         // Display books
         while ($row = mysqli_fetch_array($res)) {
             // Determine availability message
-            $availabilityMessage = ($row["books_availability"] > 0) ? "Available for loan" : "Not available for loan";
+            $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
     ?>
     <div class="col-md-12 mb-3">
         <div class="card d-flex flex-row">
             <div class="card-body">
-                <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_of_book"];?></h3>
+            <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3></a>
                 <br>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["author"]; ?></span></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["main_creator"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Program: <?php echo $row["program"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $row["ISBN"]; ?></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number"]; ?></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Available: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number_info"]; ?></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
+            <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
         </div>
     </div>
     <?php
