@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --lighting-color: #e0e0e0;
+    --theme1-color: #2a2d34;
+    --theme2-color: #5691bb;
+}
+body {
+    position: relative;
+    
+}
+
+.tabs-controller{
+    width: auto;
+
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tabs-wrapper{
+    width: 100%;
+    padding: 20px;
+    /* background-color: var(--theme2-color); */
+}
+
+.tab-buttons{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.button{
+    width: 200px;
+    min-width: auto;
+    background-color: var(--bs-body-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding:10px;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.tab-contents{
+    width: 100;
+ 
+    height:max(200px, 100%);
+    background-color: var(--bs-body-bg);
+    border-radius: 0px 7px 7px 7px;
+    padding: 30px;
+    overflow-x: scroll;
+   
+
+    
+}
+
+.content{
+    display: none;
+   
+}
+
+div{
+    display: block;
+}
+
+
+img {
+    max-width: 100%;
+    width: auto\9;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+
+.content.active{
+    display: block;
+}
+
+.button.active{
+    background-color: var(--theme2-color);
+}
+
+
+
+.title{
+    font-size: 100%;
+    position: relative;
+    margin-left: 20px;
+    line-height: 150%;
+    text-rendering: optimizelegibility;
+    font-family: inherit;
+    font-weight:lighter;
+   
+}
+
+h2 {
+    font-size: 200%;
+    line-height: 150%;
+    margin: 10px 0;
+    font-family: inherit;
+    font-weight: 100;
+    line-height: 50px;
+     text-align: left;
+
+}
+
+.image-container {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 0px;
+}
+
+.normal-view .image-container {
+    display: block;
+    float: none;
+    margin: 0 auto 20px;
+}
+
+.image-container img {
+    height: 100px;
+    width: 100px;
+}
+.normal-view {
+    margin-bottom: 10px; /* Add space between each text */
+}
+.content-info{
+    margin-left: 30px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 5px; /* Adjust font size for smaller screens */
+        float: none; /* Remove float for center alignment */
+        text-align: left; /* Center align the elements */
+     
+    }
+}
+
+

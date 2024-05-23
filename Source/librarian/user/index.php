@@ -37,6 +37,7 @@
                             </li>
 							<li><a href="contactus.php">Contact Us</a></li>
 							<li><a href="book.php">Book</a></li>
+							<li><a href="display-book-opac.php">Book Module</a></li>
 						</ul>		
 					</div>
 				</div>

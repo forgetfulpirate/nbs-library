@@ -22,9 +22,7 @@ include 'inc/connection.php';
 
 
 
-
-
-
+	<link rel="stylesheet" href="dist/css/main.css">
 </head>
 
 <body>
