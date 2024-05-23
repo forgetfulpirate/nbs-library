@@ -72,17 +72,18 @@
                                    }
                                    ?>
                                 <form method="post">
-                                    <div class="form-group">
-                                        <label for="name" class="text-right">Name:</label>
-                                        <input type="text" class="form-control custom"  name="name" value="<?php echo $name; ?>" />
-                                    </div>
+                                 
                                     <div class="form-group">
                                          <label for="username">Username:</label>
                                         <input type="text" class="form-control custom" placeholder="Username" name="username" value="<?php echo $username; ?>" disabled />
                                     </div>
                                     <div class="form-group">
+                                        <label for="name" class="text-right">Name:</label>
+                                        <input type="text" class="form-control custom"  name="name" value="<?php echo $name; ?>" />
+                                    </div>
+                                    <div class="form-group">
                                          <label for="email">Email:</label>
-                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" disabled />
+                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>"  />
                                     </div>
                                     <div class="form-group">
                                          <label for="phone">Phone No:</label>
@@ -105,13 +106,16 @@
                                if (isset($_POST["update"])){
                                    mysqli_query($link, "update lib_registration set 
                                    name='$_POST[name]',
+                                   email='$_POST[email]',
                                    phone='$_POST[phone]',
                                    address='$_POST[address]' 
                                    where username='$_SESSION[username]'");
 
                                     ?>
                                         <script type="text/javascript">
-                                            window.location="profile.php";
+                                       
+                                            window.location="profile.php"
+                                            alert('');
                                         </script>
                                     <?php
                               }

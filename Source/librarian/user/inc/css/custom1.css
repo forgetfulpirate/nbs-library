@@ -428,7 +428,7 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
       width: 58.33333333%;
     }
   }
-
+  
 /* CSS for responsive pagination */
 .pagination-container {
     white-space: nowrap; /* Prevent pagination links from wrapping */

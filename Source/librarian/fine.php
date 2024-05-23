@@ -27,6 +27,10 @@ include 'inc/connection.php';
         echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
         unset($_SESSION['success_message']);
     }
+    if (!empty($_SESSION['success_msg'])) {
+        echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
+        unset($_SESSION['success_msg']);
+    }
     if (isset($_SESSION['error_msg'])) {
         echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
         unset($_SESSION['error_msg']);
@@ -50,7 +54,10 @@ include 'inc/connection.php';
                         <th>Date Returned</th>
                         <th>Amount</th>
                         <th>Remarks</th>
+                        <th>Paid</th>
                         <th>Action</th>
+
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +76,36 @@ include 'inc/connection.php';
                         echo "<td>" . $row["booksreturndate"] . "</td>";
                         echo "<td><a href='#' class='editFineLink' data-id='" . $row["id"] . "' data-amount='" . $row["fine"] . "' style='color: " . ($row["fine"] == 0 ? "" : "red") . "'>" . $row["fine"] . "</a></td>";
                         echo "<td><a href='#' class='editRemarksLink' data-id='" . $row["id"] . "' data-remarks='" . htmlspecialchars($row["remarks"], ENT_QUOTES) . "'>" . ($row["remarks"] ? $row["remarks"] : "n/a") . "</a></td>";
-                        echo "<td><a href='delete-fine.php?id=" . $row["id"] . "' style='color: red'><i class='fas fa-trash'></i></a></td>";
+                        // echo "<td><a href='delete-fine.php?id=" . $row["id"] . "' style='color: red'><i class='fas fa-trash'></i></a> 
+                        //             <span> <a href='paid-fine.php?id=" . $row["id"] . "' style='color: red'>Paid</a></span>
+                        //     </td>";
+
+                        echo "<td>" . ($row["status"] == "yes" ? "Paid" : "Not Paid") . "</td>";
+
+                            echo "<td>";
+                                              
+                                                   ?>
+                                  <div class="d-flex justify-content-center align-items-center">
+                                        <a href="paid-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-sm ml-2" onclick="return confirm('Are you sure this student is paid?')" style="margin-right: 10px;"><span>Paid</span></a>
+                                        <a href="not-paid-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure this student is not paid?')"  style="margin-right: 0px; padding-right: 5px; padding-left: 5px;"><span style="margin-right:5px;">Not</span><span>Paid</span></a>
+                                </div>
+
+
+                                                    <?php 
+                                                    echo "</td>";
+
+
+                                                     echo "<td>";
+                                              
+                                                     ?>
+                                                           <div class="d-flex justify-content-center">
+                                                               
+                                                              <a href="delete-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this book?')" style="margin-right: "><span>Delete</span></a>
+                                                             
+                                                          </div>
+                                                      <?php 
+                                                      echo "</td>";
+                        
                         echo "</tr>";
                     }
                     ?>

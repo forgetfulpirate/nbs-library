@@ -36,30 +36,16 @@
 							<table id="dtBasicExample" class="table table-dark table-striped text-center">
 								<thead>
 								   <tr>
-                                        <th>Reg No</th>
-                                        <th>Username</th>
+                                        <th>Student number</th>
+                                        <th>Name</th>
+										<th>Accession Number</th>
                                         <th>Books Name</th>
-                                        <th>Books Issue Date</th>
-                                        <th>Books Return Date</th>
+                                        <th>Issued Date</th>
+                                        <th>Date Due</th>
 								   </tr>
 								</thead>
                                 <tbody>
-								<?php 
-									$res= mysqli_query($link, "select * from issue_book where username='".$_SESSION['student']."' ORDER BY id DESC");
-							
-									while ($row=mysqli_fetch_array($res)) {
-                                        echo "<tr>";
-                                        echo "<td>"; echo $row["regno"]; echo "</td>";
-                                        echo "<td>"; echo $row["username"]; echo "</td>";
-                                        echo "<td>"; echo $row["booksname"]; echo "</td>";
-                                        echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                                        echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
-                                        echo "</tr>";
-                                    }
-
-									
-									
-								 ?>
+						
 								 <?php 
 						
 									$res1= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['student']."' ORDER BY id DESC");
@@ -67,7 +53,8 @@
 									while ($row=mysqli_fetch_array($res1)) {
                                         echo "<tr>";
                                         echo "<td>"; echo $row["student_number"]; echo "</td>";
-                                        echo "<td>"; echo $row["name"]; echo "</td>";
+                                        echo "<td>"; echo $row["name"]; echo ' ';echo $row["last_name"]; echo "</td>";
+										echo "<td>"; echo $row["accession_number"]; echo "</td>";
                                         echo "<td>"; echo $row["booksname"]; echo "</td>";
                                         echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                         echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
@@ -76,12 +63,20 @@
 								 ?>
 							  </tbody>
 							</table>
-						</div>	
+						</div>		
 					</div>
 				</div>
 			</div>
+									
+			
 		</div>
+
+		
 	</div>
+
+	
+
+	
 	<?php 
 		include 'inc/footer.php';
 	 ?>

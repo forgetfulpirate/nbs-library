@@ -123,6 +123,14 @@ $not= mysqli_num_rows($res);
                             My issue book
                         </a>
                     </li>
+
+                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                        <a href="finezone.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            My Fine
+                        </a>
+                    </li>
                 
                     <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                         <a href="books.php" class="sidebar-link">
