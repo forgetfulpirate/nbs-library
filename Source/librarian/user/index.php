@@ -1,10 +1,18 @@
+<?php 
+    session_start();
+
+    $page = 'a-books';
+    include 'inc/header.php';
+    include 'inc/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Library Management System</title>
 	<link rel="icon" type="image/png" href="dist/img/favicon.ico">
-	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+
 	<link rel="stylesheet" href="dist/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="dist/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
@@ -12,37 +20,7 @@
 	<link rel="stylesheet" href="dist/css/main.css">
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-3">
-					<div class="logo">
-						<a href="#">
-						<img src="dist/img/NBS-LOGO.png" alt="logo">
-						</a>
-					</div>
-				</div>
-				<div class="col-9">
-					<div class="header-right">
-						<ul>
-							<li><a href="https://www.facebook.com/nbscollegeph"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-							<li><a href=""><i class="fab fa-instagram"></i></a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="student/login.php">Student Login</a></li>
-                                    <li><a href="teacher/login.php">Teacher Login</a></li>
-                                </ul>
-                            </li>
-							<li><a href="contactus.php">Contact Us</a></li>
-							<li><a href="book.php">Book</a></li>
-						</ul>		
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<!--Start slider-->
 	<div class="slider">
 		<div class="slide-carousel owl-carousel">

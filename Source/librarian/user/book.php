@@ -1,6 +1,6 @@
 <?php 
     session_start();
-   
+
     $page = 'a-books';
     include 'inc/header.php';
     include 'inc/connection.php';
@@ -40,6 +40,8 @@
     $res = mysqli_query($link, $sql);
 ?>
 
+
+
 <main class="content px-3 py-2">  
     <div class="gap-30"></div>
     <div class="container-fluid">
@@ -71,7 +73,7 @@
 <!-- Pagination -->
 <div class="row mt-3">
     <div class="col-md-12">
-        
+    <div class="pagination-container">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <?php
@@ -105,6 +107,7 @@
                     }
                 ?>
             </ul>
+                </div>
         </nav>
     </div>
 

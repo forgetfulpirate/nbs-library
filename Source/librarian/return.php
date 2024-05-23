@@ -40,9 +40,9 @@
     $booksname = mysqli_real_escape_string($link, $booksname);
     // Insert fine information into finezone table
     if($fine > 0){
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '','no')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0','')");
+        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0','','yes')");
     }
 
     // Update return date in t_issuebook and issue_book tables
@@ -62,8 +62,6 @@
 
     // Update book availability in add_book table
 	mysqli_query($link, "update book_module set available=available+1 where accession_number='$accession_number'");
-
-
 
     // Delete entry from issue_book table
     mysqli_query($link, "DELETE FROM issue_book WHERE id=$id");

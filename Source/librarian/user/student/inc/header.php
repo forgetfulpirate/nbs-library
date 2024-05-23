@@ -18,7 +18,8 @@ $not= mysqli_num_rows($res);
     <title>NBS Library</title>
 
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
 
@@ -36,7 +37,7 @@ $not= mysqli_num_rows($res);
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo text-center">
-                    <a href="dashboard.php">NBS LIBRARY</a>
+                    <a href="dashboard.php">NBS College Library</a>
                 </div>
 				
                 <ul class="sidebar-nav">
@@ -122,6 +123,14 @@ $not= mysqli_num_rows($res);
                             My issue book
                         </a>
                     </li>
+
+                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                        <a href="finezone.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+
+                            My Fine
+                        </a>
+                    </li>
                 
                     <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                         <a href="books.php" class="sidebar-link">
@@ -142,6 +151,13 @@ $not= mysqli_num_rows($res);
                                 <a href="book.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Books
+                                </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                                <a href="display-book-opac.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Book Module
                                 </a>
                     </li>
 <!-- 

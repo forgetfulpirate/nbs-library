@@ -75,45 +75,48 @@
 <!-- Pagination -->
 <div class="row mt-3">
     <div class="col-md-12">
-        
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <?php
-                    // First page
-                    if ($currentPage > 1) {
-                        echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
-                    }
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+            <div class="pagination-container">
+                <ul class="pagination justify-content-center">
+                    <?php
+                        // First page
+                        if ($currentPage > 1) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                        }
 
-                    // Previous page
-                    if ($currentPage > 1) {
-                        $prevPage = $currentPage - 1;
-                        echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
-                    }
+                        // Previous page
+                        if ($currentPage > 1) {
+                            $prevPage = $currentPage - 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                        }
 
-                    // Page numbers
-                    $startPage = max(1, $currentPage - 5);
-                    $endPage = min($totalPages, $startPage + 9);
-                    for ($i = $startPage; $i <= $endPage; $i++) {
-                        echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
-                    }
+                        // Page numbers
+                        $startPage = max(1, $currentPage - 5);
+                        $endPage = min($totalPages, $startPage + 9);
+                        for ($i = $startPage; $i <= $endPage; $i++) {
+                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                        }
 
-                    // Next page
-                    if ($currentPage < $totalPages) {
-                        $nextPage = $currentPage + 1;
-                        echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
-                    }
+                        // Next page
+                        if ($currentPage < $totalPages) {
+                            $nextPage = $currentPage + 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                        }
 
-                    // Last page
-                    if ($currentPage < $totalPages) {
-                        echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
-                    }
-                ?>
-            </ul>
-        </nav>
+                        // Last page
+                        if ($currentPage < $totalPages) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                        }
+                    ?>
+                </ul>
+                    </DIV>
+            </nav>
+        </div>
     </div>
-
-    
 </div>
+
+
 
 
 

@@ -67,10 +67,10 @@
                                                     echo "<td>";
                                               
                                                    ?>
-                                                        <ul>
-                                                      <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
-                                                        </ul> 
+                                                         <div class="d-flex justify-content-center">
+                                                            <a href="return.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want to return this book?')"  style="margin-right: 10px"><span>Return</span></a>
+                                                            <a href="delete.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Cancel</span></a>
+                                                        </div>
                                                     <?php 
                                                     echo "</td>";
                                                     echo "</tr>";
@@ -91,7 +91,7 @@
                                                    ?>
                                                         <ul>
                                                             <li><a style="color: green;" href="return.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure you want to return this book?')"><i class="fas fa-undo-alt"></i></a></li>
-                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to delete this row?')"><i class="fas fa-trash"></i></a></li>
+                                                            <li><a style="color: red;" href="delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('Are you sure you want to cancel this issue book?')"><i class="fas fa-trash"></i></a></li>
                                                         </ul> 
                                                         </ul> 
                                                     <?php 
