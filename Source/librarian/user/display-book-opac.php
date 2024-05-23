@@ -38,38 +38,7 @@
     $res = mysqli_query($link, $sql);
 ?>
 
-<div class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-3">
-					<div class="logo">
-						<a href="#">
-						<img src="dist/img/NBS-LOGO.png" alt="logo">
-						</a>
-					</div>
-				</div>
-				<div class="col-9">
-					<div class="header-right">
-						<ul>
-							<li><a href="https://www.facebook.com/nbscollegeph"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-							<li><a href=""><i class="fab fa-instagram"></i></a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="student/login.php">Student Login</a></li>
-                                    <li><a href="teacher/login.php">Teacher Login</a></li>
-                                </ul>
-                            </li>
-							<li><a href="contactus.php">Contact Us</a></li>
-							<li><a href="book.php">Book</a></li>
-							<li><a href="display-book-opac.php">Book Module</a></li>
-						</ul>		
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 
 <main class="content px-3 py-2">  
     <div class="gap-30"></div>
@@ -164,7 +133,7 @@
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number_info"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Available: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available">
+            <img src="../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
         </div>
     </div>
     <?php
@@ -173,7 +142,9 @@
 </div>
     
 </main>
-
+<?php 
+include 'inc/footer.php';
+?>
 <script>
     function submitForm() {
         document.getElementById("searchForm").submit();

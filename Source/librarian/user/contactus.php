@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+
+    $page = 'a-books';
+    include 'inc/header.php';
+    include 'inc/connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +13,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>Library Management System</title>
 	<link rel="icon" type="image/png" href="dist/img/mm.png">
-	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	
 	<link rel="stylesheet" href="dist/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="dist/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
@@ -15,29 +23,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-3">
-					<div class="logo">
-						<a href="index.php">
-						<img src="dist/img/NBS-LOGO.png" alt="logo">
-						</a>
-					</div>
-				</div>
-				<div class="col-9">
-					<div class="header-right">
-						<ul>
-							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="index.php">Home</a></li>
-						</ul>		
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+	
 	<div class="contactinfo">
 		<div class="container">
 			<div class="row">

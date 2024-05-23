@@ -19,14 +19,51 @@ include 'inc/connection.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
-
-
-
 	<link rel="stylesheet" href="dist/css/main.css">
+    <link rel="stylesheet" href="dist/css/responsive.css">
+    
+
+    
 </head>
 
 <body>
-
+<div class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-3">
+						<div class="logo">
+							<a href="index.php">
+							<img src="dist/img/NBS-LOGO.png" alt="logo">
+							</a>
+						</div>
+					</div>
+					<div class="col-9">
+						<div class="header-right">
+							<ul>
+								<li><a href="https://www.facebook.com/nbscollegeph"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+								<li><a href=""><i class="fab fa-instagram"></i></a></li>
+                                <li class="nav-item dropdown">
+								
+                                    <li class="dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">Login</a>
+                                     <div class="dropdown-menu dropdown-menu-end">
+                              
+                                <a href="student/login.php" class="dropdown-item">Student Login</a>
+								<a href="teacher/login.php" class="dropdown-item">Teacher Login</a>
+                                     </div>
+                                    </li>
+                                </li>
+								<li><a href="contactus.php">Contact Us</a></li>
+								<li><a href="book.php">Book</a></li>
+								<li><a href="display-book-opac.php">Book Module</a></li>
+							</ul>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    
         <div class="main">
       
               
@@ -75,7 +112,7 @@ include 'inc/connection.php';
 	<script src="inc/js/bootstrap.min.js"></script>
 	<script src="inc/js/bootstrap-select.min.js"></script>
 	<script src="inc/js/waypoints.min.js"></script>
-	<script src="inc/js/jquery.counterup.min.js"></script>
+
 	<script src="inc/js/datatables.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>

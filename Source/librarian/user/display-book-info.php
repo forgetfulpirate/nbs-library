@@ -78,6 +78,9 @@
 </head>
 
 <body>
+
+
+
     <div class="tabs-controller">
         <div class="tabs-wrapper">
 
@@ -92,7 +95,7 @@
                 <div class="content active">
                     <div class="image-container">
                         <?php if(!empty($imagepath)): ?>
-                            <img src="<?php echo $imagepath; ?>">
+                            <img src="../<?php echo $imagepath; ?>">
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
