@@ -139,9 +139,10 @@
                            
 							<div class="text-left">
                            
-								<h3><span class="counter">
+								<h3>
+                                    <span class="counter">
                                     
-								<?php
+								    <?php
                                          $res = mysqli_query($link, "select * from issue_book");
                                          $res2 = mysqli_query($link, "select * from t_issuebook");
                                          $count2 = mysqli_num_rows($res2);
@@ -149,13 +150,14 @@
                                          $result = $count + $count2;
                                         echo $result;
                                     ?>
-                                    </span></h3>
+                                    </span>
+                                </h3>
                                  
 								<h4><a href="issued-books.php">Issued Boooks </a></h4>
                                
 							</div>
                            
-						</div>
+						    </div>
                       
                                             </div>
                                            
@@ -227,6 +229,32 @@
                                 </div>
                             </div>
 
+                            <!--  -->
+							<div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0" id="card1">
+                                <div class="card-body py-4" id="card2">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
+								<i class="fas fa-user"></i>
+							</div>
+							<div class="text-left">
+							<h3>
+								<span class="counter1">
+								
+                                    </span>
+								</h3>
+								
+								<h4><a href="return-book.php">Returned Books</a></h4>
+							</div>
+						</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
@@ -249,31 +277,7 @@
                             </div>
 							
 
-							<!--  -->
-							<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1">
-                                <div class="card-body py-4" id="card2">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-										<div class="box">
-							<div class="icon1">
-								<i class="fas fa-user"></i>
-							</div>
-							<div class="text-left">
-							<h3>
-								<span class="counter1">
-								
-                                    </span>
-								</h3>
-								
-								<h4><a href="add-std.php">Manage User</a></h4>
-							</div>
-						</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+							
 
 								<!--  -->
 								<div class="col-md-4 d-flex">

@@ -1,23 +1,27 @@
 <?php 
-     session_start();
+    session_start();
     if (!isset($_SESSION["username"])) {
         ?>
-            <script type="text/javascript">
-                window.location="login.php";
-            </script>
+        <script type="text/javascript">
+            window.location="login.php";
+        </script>
         <?php
     }
     $page = 'return-books';
     include 'inc/header.php';
     include 'inc/connection.php';
- ?>
-	<!--dashboard area-->
+?>
+<style>
+    /* Custom CSS to prevent stretching of input fields */
+.no-stretch-input {
+    min-width: 0;
+}
 
-	    <!-- Display Success or Error Messages -->
-
-    <main class="content px-3 py-2">
-
-	<?php
+</style>
+<!-- Dashboard area -->
+<main class="content px-3 py-2">
+    <?php
+    // Display Success or Error Messages
     if (!empty($_SESSION['success_message'])) {
         echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
         unset($_SESSION['success_message']);
@@ -32,123 +36,131 @@
     }
     ?>
 
-            <div class="gap-30"></div>
-                <div class="container-fluid">
-				<div class="mb-3">
-          
-                        <h4>Returned Books
-                        <p id="time"></p>
-                          
-                            <p id="date"></p>
-                        </h4>
-                           
-             
-                 </div>
+    <div class="gap-30"></div>
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Returned Books</h4>
+            <p id="time"></p>
+            <p id="date"></p>
+        </div>
+        <div class="gap-30"></div>
+
+    </div>
+
+    <div class="col-md-10" style="">
+            <div class="row text-center align-items-center"> <!-- Added align-items-center for vertical alignment -->
+                <div class="col-md-1 p-0">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
+                </div>
+                <div class="col-md-2 p-0">
+                    <input type="date" id="start_date" class="form-control custom" placeholder="Start Date"  >
+                </div>
+                
+                <div class="col-md-1 p-0">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+                </div>
+            
+                <div class="col-md-2 p-0">
+                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date" style="border-color:inherit;">
+                </div>
+                
+                <div class="col-md-1 p-0">
+                    <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
+                </div>
             </div>
-            <br>
-          
-            <div class="card border-0">
-                
-                
-                  
-                 
-                        <div class="card-body">
-                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
-                            <thead>
-                                            <tr>
-											<th>ID Number</th>
-											<th>Name</th>
-											<th>User Type</th>
-											<th>Email</th>
-											<th>Accession Number</th>
-											<th>Books Name</th>
-											<th>Date Issued</th>
-											<th>Date Due</th>
-											<th>Date Returned</th>
-						
-											<th>Action</th>
-                                            </tr>
-                                       </thead>
-                                        <tbody>
-                                            <?php 
-                                                $res= mysqli_query($link, "select * from return_books");
-                                                $res2= mysqli_query($link, "select * from t_issuebook");
-                                                 while ($row=mysqli_fetch_array($res)) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . $row["student_number"] . "</td>";
-													echo "<td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
-													echo "<td>" . $row["utype"] . "</td>";
-													echo "<td>" . $row["email"] . "</td>";
-													echo "<td>" . $row["accession_number"] . "</td>";
-													echo "<td>" . $row["booksname"] . "</td>";
-													echo "<td>" . $row["date_issued"] . "</td>";
-													echo "<td>" . $row["booksissuedate"] . "</td>";
-													echo "<td>" . $row["booksreturndate"] . "</td>";
-                            
-                                                    echo "<td>";
-                                              
-                                                   ?>
-                                                         <div class="d-flex justify-content-center">
-                                                            <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Delete</span></a>
-                                                        </div>
-                                                    <?php 
-                                                    echo "</td>";
-                                                    echo "</tr>";
-                                               
-                                                   
-                                                }
-                                                while ($row=mysqli_fetch_array($res2)) {
-                                                    echo "<tr>";
-                                            
-                                                    echo "<td>"; echo $row["booksname"]; echo "</td>";
-                                                    echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                                                    echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
-                                                    echo "<td>"; echo $row["utype"]; echo "</td>";
-                                                    echo "<td>"; echo $row["name"]; echo "</td>";
-                                                    echo "<td>"; echo $row["username"]; echo "</td>";
-                                                    echo "<td>"; echo $row["email"]; echo "</td>";
-                                                  
-                                                    echo "<td>";
-                                              
-                                                   ?>
-                                                         <div class="d-flex justify-content-center">
-                                                            <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Delete</span></a>
-                                                        </div>
-                                                    <?php 
-                                                    echo "</td>";
-                                                    echo "</tr>";
-                                                 
-                                                
-                                                }
-                                             ?>
-                                        </tbody>
-                                
-                            </table>
-                        </div>
-                    </div>
-                    
-            
-
-                
-
-                
-                
-            
-            </main>
-
+        </div>
         
+        <div class="gap-30"></div>
 
 
     
+    <div class="card border-0">
+         
+        <div class="card-body">
+       
+      
+            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                <thead>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Name</th>
+                        <th>User Type</th>
+                        <th>Email</th>
+                        <th>Accession Number</th>
+                        <th>Books Name</th>
+                        <th>Date Issued</th>
+                        <th>Date Due</th>
+                        <th>Date Returned</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        // Fetch and display all data by default
+                        $res= mysqli_query($link, "select * from return_books");
+                        while ($row=mysqli_fetch_array($res)) {
+                            echo "<tr>";
+                            echo "<td>" . $row["student_number"] . "</td>";
+                            echo "<td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
+                            echo "<td>" . $row["utype"] . "</td>";
+                            echo "<td>" . $row["email"] . "</td>";
+                            echo "<td>" . $row["accession_number"] . "</td>";
+                            echo "<td>" . $row["booksname"] . "</td>";
+                            echo "<td>" . $row["date_issued"] . "</td>";
+                            echo "<td>" . $row["booksissuedate"] . "</td>";
+                            echo "<td>" . $row["booksreturndate"] . "</td>";
+                            echo "<td>";
+                    ?>
+                                <div class="d-flex justify-content-center">
+                                    <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Delete</span></a>
+                                </div>
+                    <?php 
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
 
-     <script>
-        $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
-        });
-    </script>
+<script>
+function filterByDateRange() {
+    var startDate = document.getElementById("start_date").value;
+    var endDate = document.getElementById("end_date").value;
+    var tableRows = document.querySelectorAll("#dtBasicExample tbody tr");
+
+    tableRows.forEach(function(row) {
+        var returnedDate = row.cells[8].textContent; // Assuming the date returned is in the 9th cell, adjust index accordingly
+        var dateReturned = new Date(returnedDate);
+        var start = new Date(startDate);
+        var end = new Date(endDate);
+
+        // Adjust end date to include the entire end day
+        end.setDate(end.getDate() + 1);
+
+        // If start date is empty or the returned date is within the date range
+        if ((startDate === "" || dateReturned >= start) && (endDate === "" || dateReturned < end)) {
+            row.style.display = ""; // Show the row
+        } else {
+            row.style.display = "none"; // Hide the row
+        }
+    });
+}
+
+    
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
 
 <?php 
-		include 'inc/footer.php';
-	 ?>
-    
+    include 'inc/footer.php';
+?>

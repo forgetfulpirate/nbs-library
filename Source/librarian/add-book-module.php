@@ -21,6 +21,7 @@ include 'inc/connection.php';
     <link rel="stylesheet" href="inc/css/progress.css">
 </head>
 <body>
+ 
     
 <div class="container">
     <header>Add Book Module</header>
@@ -228,10 +229,18 @@ include 'inc/connection.php';
                         <input type="text" placeholder="Call Number" name="call_number_info">
                     </div>
 
-                    <div class="input-field1">
-                        <label>Accession Number</label>
-                        <input type="text" placeholder="Accession Number" name="accession_number" required>
-                    </div>
+                
+                        <div class="input-field2">
+                            <label>Accession Number</label>
+                            <input type="text" placeholder="Accession Number" name="accession_number[]" required>
+                            <div id="accessionNumberFields"></div>
+
+                </div>
+                <div class="buttons">
+                    <button type="button" onclick="addAccessionNumberField()">
+                        <span>Add More</span>
+                    </button>
+                </div>
 
                     <div class="input-field2">
                         <label>Language</label>
@@ -370,61 +379,72 @@ include 'inc/connection.php';
 
 <?php
 if (isset($_POST["submit"])) {
-    $image_name = $_FILES['f1']['name'];
-    $file_name = $_FILES['file']['name'];
-    $temp = explode(".", $image_name);
-    $temp2 = explode(".", $file_name);
-    $newfilename = round(microtime(true)) . '.' . end($temp);
-    $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-    $imagepath = "books-image/" . $newfilename;
-    $filepath = "books-file/" . $newfilename2;
-    move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
-    move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
 
-    mysqli_query($link, "INSERT INTO book_module VALUES (
-        '$_POST[accession_number]',
-        '$_POST[title_proper]',
-        '$_POST[responsibility]',
-        '$_POST[preffered_title]',
-        '$_POST[parallel_title]',
-        '$_POST[main_creator]',
-        '$_POST[add_entry_creator]',
-        '$_POST[contributors]',
-        '$_POST[add_entry_corporate]',
-        '$_POST[place_of_publication]',
-        '$_POST[publisher]',
-        '$_POST[date_of_publication]',
-        '$_POST[edition]',
-        '$_POST[extent_of_text]',
-        '$_POST[illustrations]',
-        '$_POST[dimension]',
-        '$_POST[acc_materials]',
-        '$_POST[series]',
-        '$_POST[supp_content]',
-        '$_POST[ISBN]',
-        '$_POST[content_type]',
-        '$_POST[media_type]',
-        '$_POST[carrier_type]',
-        '$filepath',
-        '$_POST[subject_type]',
-        '$_POST[subject_info]',
-        '$_POST[call_number_type]',
-        '$_POST[call_number_info]',
-        '$_POST[language]',
-        '$_POST[library_location]',
-        '$_POST[electronic_access]',
-        '$imagepath',
-        '$_POST[entered_by]',
-        '$_POST[updated_by]',
-        '$_POST[date_entered]',
-        '$_POST[date_updated]',
-        '$_POST[quantity]',
-        '$_POST[available]',
-        '$_POST[location]',
-        '$_POST[content_notes]',
-        '$_POST[abstract]',
-        '$_POST[review]','')"
-    );
+    foreach ($_POST['accession_number'] as $accession_number) {
+        $image_name = $_FILES['f1']['name'];
+        $file_name = $_FILES['file']['name'];
+        $temp = explode(".", $image_name);
+        $temp2 = explode(".", $file_name);
+        $newfilename = round(microtime(true)) . '.' . end($temp);
+        $newfilename2 = round(microtime(true)) . '.' . end($temp2);
+        $imagepath = "books-image/" . $newfilename;
+        $filepath = "books-file/" . $newfilename2;
+        move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
+        move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
+        // Escape the values to prevent SQL injection
+
+        
+        $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
+
+        // Your existing code to insert into the database goes here
+        mysqli_query($link, "INSERT INTO book_module VALUES (
+            '$escaped_accession_number',
+            '$_POST[title_proper]',
+            '$_POST[responsibility]',
+            '$_POST[preffered_title]',
+            '$_POST[parallel_title]',
+            '$_POST[main_creator]',
+            '$_POST[add_entry_creator]',
+            '$_POST[contributors]',
+            '$_POST[add_entry_corporate]',
+            '$_POST[place_of_publication]',
+            '$_POST[publisher]',
+            '$_POST[date_of_publication]',
+            '$_POST[edition]',
+            '$_POST[extent_of_text]',
+            '$_POST[illustrations]',
+            '$_POST[dimension]',
+            '$_POST[acc_materials]',
+            '$_POST[series]',
+            '$_POST[supp_content]',
+            '$_POST[ISBN]',
+            '$_POST[content_type]',
+            '$_POST[media_type]',
+            '$_POST[carrier_type]',
+            '$filepath',
+            '$_POST[subject_type]',
+            '$_POST[subject_info]',
+            '$_POST[call_number_type]',
+            '$_POST[call_number_info]',
+            '$_POST[language]',
+            '$_POST[library_location]',
+            '$_POST[electronic_access]',
+            '$imagepath',
+            '$_POST[entered_by]',
+            '$_POST[updated_by]',
+            '$_POST[date_entered]',
+            '$_POST[date_updated]',
+            '$_POST[quantity]',
+            '$_POST[available]',
+            '$_POST[location]',
+            '$_POST[content_notes]',
+            '$_POST[abstract]',
+            '$_POST[review]','')"
+        );
+    }
+
+
+ 
 }
 ?>
 
@@ -436,3 +456,10 @@ include 'inc/footer.php';
 
 </body>
 </html>
+<script>
+    function addAccessionNumberField() {
+        var div = document.createElement('div');
+        div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
+        document.getElementById('accessionNumberFields').appendChild(div);
+    }
+</script>
