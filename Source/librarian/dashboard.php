@@ -203,11 +203,11 @@
                                         <div class="flex-grow-1">
 										<div class="box">
 							<div class="icon1">
-                                <h3>Fine</h3>
+                            <i class="fa-solid fa-peso-sign"></i>
 							</div>
 							<div class="text-left">
 								<h3><span class="counter">
-                                <span> <i class="fa-solid fa-peso-sign"></i></span>
+                                <span> </span>
                                         <?php
                                         $total_fine = 0;
                                         $res = mysqli_query($link, "SELECT fine FROM finezone");
@@ -218,7 +218,7 @@
                                         ?>
                                       
                                     </span></h3>    
-								<h4><a href="fine.php">Returned Books</a></h4>
+								<h4><a href="fine.php">Fine</a></h4>
 							</div>
 						</div>
                                             </div>

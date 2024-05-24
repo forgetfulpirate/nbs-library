@@ -40,9 +40,11 @@
     $booksname = mysqli_real_escape_string($link, $booksname);
     // Insert fine information into finezone table
     if($fine > 0){
+        mysqli_query($link, "insert into return_books values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a')");
         mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '','no')");
     } else {
-        mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0','','yes')");
+        // mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a','0','','yes')");
+        mysqli_query($link, "insert into return_books values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a')");
     }
 
     // Update return date in t_issuebook and issue_book tables
