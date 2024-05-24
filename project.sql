@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 06:05 PM
+-- Generation Time: May 23, 2024 at 06:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -5282,7 +5282,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5172, '', '', '9781610000000', 'Groves, Eric', 'Baby Names', '', '', '246', '', '', 'Adams Media', 'U.S.A', '2009', '', '', '', '', '', '1', '1'),
 (5173, '', '', '9719235055', 'Carlos, Victoria P.', 'I\'d like to speak filipino 3', 'Revised Edition', '', '104', '', '', 'Cityland Vito Cruz', 'Manila City, PH', '2007', '', '', '', '', '', '1', '1'),
 (5174, '', '', '9769720000000', 'Laurel, Celia', 'Mga Siniping Gintong Kaisipan', '', '', '413', '', '', '', 'Manila City, PH', '2012', '', '', '', '', '', '1', '1'),
-(5175, '', '', '9789720000000', 'Dr. Phillip Ledesma Ciocon, PhD (A.M), F.R.C.P.', '', '', '', '113', '', '', 'BeHappY&WeLL Enterprises', 'Mandaluyong City', '2010', '', '', '', '', '', '1', '16'),
+(5175, '', '', '9789720000000', 'Dr. Phillip Ledesma Ciocon, PhD (A.M), F.R.C.P.', '', '', '', '113', '', '', 'BeHappY&WeLL Enterprises', 'Mandaluyong City', '2010', '', '', '', '', '', '1', '17'),
 (5176, '', '', '9812533036', 'David Weaver', 'EcoTourism', '2nd edition', '', '347', '', '', '3rd Philippine reprint edition', 'Manila City, PH', '2012', '', '', '', '', '', '1', '1'),
 (5177, '', '', '9789720000000', 'Duque, Pat', 'Fighting for a Cause', '', '', '202', '', '', 'Paper and Prints Enterprises', 'Manila City, PH', '2009', '', '', '', '', '', '1', '1'),
 (5178, '', '', '9789720000000', 'Hizon, Cruz, Layugan, Llapitan, Marte, Rosueldo and Seballos', 'Entrepreneurship Creating, building and Growing your business enterprise', '', '', '144', '', '', 'Center for Small Entrepreneurs, Inc.', 'Manila City, PH', '2007', '', '', '', '', '', '1', '1'),
@@ -5467,7 +5467,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5356, '', '', '9789710000000', 'Favis-Villafuerte, Nelly', 'What Credit Cardholders Should Know About Interests and Penalties on Credit Card Transactions', '', '', '236', '', '', 'Apples of Gold Publishing', 'Makati City PH', '2011', '', '', '', '', '', '1', '1'),
 (5357, '', '', '9789710000000', 'Ataviado, Elias M.', 'The Philippine Revolution in the Bicol Region (Narrative of the Philippine Revolution in the Province of Albay)', '', '2', '196', '', '', 'New Day Publishers', 'Quezon City PH', '2011', '', '', '', '', '', '1', '1'),
 (5358, '', '', '9718350012', 'Ballesteros, Andre Gerard G.', 'A Divided Court: Case Material from the Constitutional Challenge to the Indigenous Peoples Rights Act of 1997', '', '', '622', '', '', 'Legal Rights and Natural Resources Center, Inc.', '', '2001', '', '', '', '', '', '1', '1'),
-(5359, '', '', '9789710000000', 'Dasig, Sheila', '', '', '', '110', '', '', 'Haribon Foundation for the Conservation of Natural Resources, Inc.', 'Quezon City PH', '2006', '', '', '', '', '', '1', '16'),
+(5359, '', '', '9789710000000', 'Dasig, Sheila', '', '', '', '110', '', '', 'Haribon Foundation for the Conservation of Natural Resources, Inc.', 'Quezon City PH', '2006', '', '', '', '', '', '1', '17'),
 (5360, '', '', '', '', 'University of the East: 2006 Diamond Jubilee Awards', '', '', '303', '', '', '', 'Makati City PH', '2006', '', '', '', '', '', '1', '1'),
 (5361, '', '', '9789720000000', 'Aniceto, Ben and others', 'Stay Tuned: The Golden Years of Philippine Radio', '', '', '678', '', '', 'Atlas Publishing Co. Inc.', 'Quezon City PH', '2007', '', '', '', '', '', '1', '1'),
 (5362, '', '', '9719103006', 'De La Torre, Visitacion R.', 'Faith Enshrined: Churches of Pangasinan', '', '', '185', '', '', 'Tower Book House', '', '1997', '', '', '', '', '', '1', '1'),
@@ -5653,20 +5653,20 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5541, '', '', '9789720000000', 'Fife, Bruce', 'Cooking with Coconut Flour', '', '', '159', '', '', 'Apples of Gold Publishing', 'Makati City PH', '2005', '', '', '', '', '', '1', '1'),
 (5542, '', '', '18403290077', 'Tierney, Jane', 'Is That All There Is?', '', '', '144', '', '', 'Marionette Books', 'Durham', '1998', '', '', '', '', '', '1', '1'),
 (5543, '', '', '9789720000000', 'Rabe-Aranda Maria Rosario\nLitao, Rodrigo Andaya\nGunobgunob-Mirasol, Rosalyn', 'English for Tourism and Hospitality Industry', '', '', '134', '', '', 'C&E Publishing, Inc.', 'Quezon City, PH', '2018', '', '', '', '', '', '1', '1'),
-(5544, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5545, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5546, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5547, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5548, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5549, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5550, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5551, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5552, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5553, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5554, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5555, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5556, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5557, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
+(5544, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5545, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5546, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5547, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5548, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5549, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5550, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5551, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5552, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5553, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5554, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5555, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5556, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5557, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
 (5558, '', '', '9789810000000', 'Kerns, David V.\nIrwin, David', 'Essentials of Electrical & Computer Engineering', 'Low Price Edition', '', '654', '', '', 'Pearson Education, Inc.', 'Singapore', '2004', '', '', '', '', '', '1', '1'),
 (5559, '', '', '8472081338', 'Escandon, Rafael\nGalvez, Cesar', 'Free from Drugs and Addictions', '', '', '191', '', '', 'Editorial safeliz', 'Madrid', '2005', '', '', '', '', '', '1', '1'),
 (5560, '', '', '9711011741', 'Kjeong, Kwang-Ho', 'CEO Business Fables', '', '', '114', '', '', 'New Day Publishers', 'Quezon City, PH', '2005', '', '', '', '', '', '1', '1'),
@@ -6063,7 +6063,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5950, '', '', '9710454150', 'Mherry Ann Andes', 'Simple Flash', '', '', '190', '', '', 'Convergelink Books Corp.', 'Bitano, legaspi City', '2008', '', '', '', '', '', '1', '1'),
 (5951, '', '', '9710454150', 'Mherry Ann Andes', 'Simple Flash', '', '', '190', '', '', 'Convergelink Books Corp.', 'Bitano, legaspi City', '2008', '', '', '', '', '', '1', '1'),
 (5952, '', '', '', 'Virgilio Vergel', 'The Educational System of the Filipinos', '', '', '40', '', '', 'Giraffe Books', 'Quezon City, PH', '2004', '', '', '', '', '', '1', '1'),
-(5953, '', '', '', 'Tomas Ongoco', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '16'),
+(5953, '', '', '', 'Tomas Ongoco', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '17'),
 (5954, '', '', '', 'Lumbera, Taguiwalo, Tolentino, Alamon, & Guillermo', 'Serve the people Ang kasaysayan ng radikal na kilusan sa unibersidad ng pilipinas', '', '', '424', '', '', 'IBON Foundation, Inc.', 'Quezon City, PH', '2008', '', '', '', '', '', '1', '1'),
 (5955, '', '', '9715460011', 'Ongoco, Tomas C.', 'Gabay sa Pag-aaral sa El Fili Busterismo', '', '', '200', '', '', '', '', '1967', '', '', '', '', '', '1', '1'),
 (5956, '', '', '9719135352', 'Felice Prudente Sta. Maria', 'Visions of the Possible', '', '', '317', '', '', 'Studio 5 publishing, Inc.', 'Philippines', '1998', '', '', '', '', '', '1', '1'),
@@ -6094,17 +6094,17 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 (5981, '', '', '9789720000000', 'Santiago, Fernando & Alfonso, Ian Christopher', 'The Malay World', '', '', '112', '', '', 'Philippine Historical Association', 'Quezon City, PH', '2017', '', '', '', '', '', '1', '1'),
 (5982, '', '', '', 'Beltran,Herminio S.', 'The Animal Kingdom Kahayupan', '', '', '372', '', '', 'Cultural Center of the Philippines', 'Philippines', '2016', '', '', '', '', '', '1', '1'),
 (5983, '', '', '9789710000000', 'Baguilat, Raymond Marvic C.', 'Pagsasalin ng Katwiran: Isang sanggunian sa mga karapatan ng mga katutubo', '', '', '323', '', '', 'The University of the Philippines Law Center', 'Quezon City, PH', '2021', '', '', '', '', '', '1', '1'),
-(5984, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5985, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5986, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5987, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5988, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5989, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5990, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5991, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5992, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5993, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
-(5994, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '16'),
+(5984, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5985, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5986, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5987, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5988, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5989, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5990, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5991, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5992, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5993, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
+(5994, '', '', '', '', '', '', '', '', '', '', '', '', '', 'Transferred to thesis collection', '', '', '', '', '1', '17'),
 (5995, '', '', '', 'Elizalde, Fred J.\nMacuja-Elizalde, Lisa', 'A Marriage of the Arts', '', '', '178', '', '', 'Ortigas Foundation, Inc.', 'Ortigas PH', '2018', '', '', '', '', '', '1', '1'),
 (5996, '', '', '9780060000000', 'Dr. Boaler, Jo', 'Limitless Mind: Learn Lead, and Live Without Barriers', '', '', '248', '', '', 'HarperCollins Publishers', 'New York, USA', '2019', '', '', '', '', '', '1', '1'),
 (5997, '', '', '9780780000000', 'Ramzipoor, E.R.', 'The Ventriloquists', '', '', '534', '', '', 'Park Row Books', 'Toronto, USA', '2019', '', '', 'FIC R14 2019', '', '', '1', '1'),
@@ -6214,7 +6214,7 @@ INSERT INTO `book` (`accession_number`, `date_recieved`, `call_no`, `ISBN`, `aut
 
 CREATE TABLE `book_module` (
   `accession_number` varchar(255) NOT NULL,
-  `title_proper` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `title_proper` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `responsibility` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `preffered_title` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `parallel_title` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -6238,7 +6238,7 @@ CREATE TABLE `book_module` (
   `carrier_type` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `URL` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `subject_type` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `subject_info` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `subject_info` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `call_number_type` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `call_number_info` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `language` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -6252,9 +6252,9 @@ CREATE TABLE `book_module` (
   `quantity` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `available` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `location` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `content_notes` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `abstract` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `review` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `content_notes` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `abstract` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `review` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `remarks` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -6263,8 +6263,7 @@ CREATE TABLE `book_module` (
 --
 
 INSERT INTO `book_module` (`accession_number`, `title_proper`, `responsibility`, `preffered_title`, `parallel_title`, `main_creator`, `add_entry_creator`, `contributors`, `add_entry_corporate`, `place_of_publication`, `publisher`, `date_of_publication`, `edition`, `extent_of_text`, `illustrations`, `dimension`, `acc_materials`, `series`, `supp_content`, `ISBN`, `content_type`, `media_type`, `carrier_type`, `URL`, `subject_type`, `subject_info`, `call_number_type`, `call_number_info`, `language`, `library_location`, `electronic_access`, `book_image`, `entered_by`, `updated_by`, `date_entered`, `date_updated`, `quantity`, `available`, `location`, `content_notes`, `abstract`, `review`, `remarks`) VALUES
-('111', '5', '123123', '213123', '123123', '', '', '', '', '12321', '12312', '312', '3123', '12', '', '', '', '', '', '', '', '', '', 'books-file/1716096564.', 'Tropical', '                                                                                                    ', 'Tropical', '', 'English', 'BIO', '', 'books-image/1716120762.jpeg', '', '', '', '', '1', '1', 'General Circulation', '                                    ', '                                    ', '                                    ', 'Lost'),
-('222', '111111', '111111', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'books-file/1716109146.', 'Tropical', '                                                                                                    ', 'Tropical', '', 'English', 'BIO', '', 'books-image/1716109146.', '', '', '', '', '1', '1', 'General Circulation', '                                    ', '                                    ', '                                    ', 'lost');
+('111', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '123123', '213123', '123123', 'Ocampo, Ambeth R', '', '', '', 'Mandaluyong City, Philippines', 'Anvil Publishing ', '2012', '1st edition', 'text', '24 cm', 'xv, 239 pages', '', '', '', '9789712726736', 'text ', '', 'volume', 'books-file/1716096564.', 'Tropical', 'Rizal, Jose&#769;, -- 1861-1896 | Nationalists -- Philippines -- Biography | Philippines -- History -- Revolution, 1896-1898                                                                                                                                                                                                                                                                             ', '', '920 Oc15r 2012 ', 'Filipino', 'FIL', '', 'books-image/1716393523.jpg', 'Cayce', 'Cayce', '2024-05-20', '2024-05-20', '1', '1', 'Filipiniana', 'MANY RIZALS, Rizal: Father of Hitler? Jack the Ripper? 1 Rizal did not write Sa aking mga Kabata 5 Why Rizal is the mational hero 9 Was Rizal an American-sponsored hero? 12 Deflating the historical ego 14 Rizal\'s trip to America 17 Rizal\'s anti-americanism 19 Recto\'s Rizal bill 22 FACTS AND POSSIBILITIES, Is Rizal reallt still alive? 25 Was Rizal psychic 27 The psychic in Rizal 31 The writ that could have cahnged history 33 Rizal\'s new Calamba in Sabah 35 FAMILY AND OTHERS, Discovery in Binan 37 The other Rizal 40 Look for priest in your closet 46 Blumetritt\'s role in the propaganda war 48 The ventura shipment 51 Recuerdo de patay 54 Ho Chi Minh and Rizal 57 EVERYDAY RIZAL Rizal ate tuyo for breakfast 61 In Rizal\'s service 64 Rizal\'s stinginess 67 What Dr. Rizal\'s clinic was like 70 Of smoker\'s street and betel nuts 73 What did Rizal read? 75 The bookworm in Rizal 80 The great Dapitan stocking market 82 Rizal as role model for students 85 THE LEGEND TALENT Rizal and Orwell 87 Rizal on DOmingo de Ramos 90 The Noli could hve been a cookbook 92 Lusty passages from Rizal\'s Noli Me Tangere 94 The house on anloague street 97 The Noli Me Tangere a century after 101 Comparing \'Noli\' translations by computer 104 The matter of reading Rizal\'s novels 107 One hundred years of Fili 109 Rizal\'s third novel 113 Rizal\'s unsigned and untitled poem 117 Overnight poetry 119 Translation of \'Ultimo Adios\' 122 THE NEVER-ENDING STORY, Living with Rizal: an interview with Rizal biographer Austin 125 OTHER VIEWS, Rizal\'s dream 141 Rizal\'s last letter 143 Leave Rizal\'s pieces in peace 146 A sensational theft 148 Comparing heroes 150 Rizal and Mariang Makiling 153 Rizal\'s vital statistics 155 What penmanship of our heroes reveals 158 The artist in Rizal 161 Was Rizal the prime mover of the revolution? 163 Rexto on Rizal 165 AT HOME AND ABROAD, Rizal, father of the Philippine comics 167 Rizal\'s prescription for \"Kulam\" 170 Rizal\'s assets 173 Expensive mistakes 175 Where/how did you learn English? 177 Rizal impersonating a Japanese 180 Fleecing the innocents in Rizal\'s time 183 Rizal\'s letters in English 185 The Pasig Rivers starts to live again 188 Rizal in the British library 190 The oinetrior designer in Rizal 193 Rizal, the teacher and his students 195 Rizal in far-off Dapitan 197 Rizal\'s poetry in Dapitan 199 Seeing beneath Rizal\'s greatness 201 Rizal and children 203 Rizal, the farmer and the businessman 206 Rizal\'s wide-ranging medical practice 208 OUR RIZALS (The 1996 Inquirer Rizal series), Was Rizal a fence-sitter? 211 Did Rizal retract from masonry 214 Was Rizal prophetic or a conscious hero? 218 Did the Katipunan frame Rizal 221 A ', '', '\"This book on Rizal no student could object to being given as assigned reading because it is lively, anecdotal, and human. Rizal Without Overcoat is a collection of journalistic essays on Rizal from Ambeth Ocampo\'s column \"Looking Back\". The title Rizal Withour Overcoat refers literally to the European overcoat in which Rizal is shown in statues and photos, and which Ambeth\'s columns \"take off\" by showing Rizal in his shirtsleeves, in his pambahay, as son, brother, doctor, student, writerm scholar, friend, lover. It refers to the \"countless myths and preconcieved ideas\" that wrap up the image of man and hero.\" - - Foreword', 'n/a');
 
 -- --------------------------------------------------------
 
@@ -6828,16 +6827,17 @@ CREATE TABLE `finezone` (
   `booksissuedate` varchar(50) NOT NULL,
   `booksreturndate` varchar(10) NOT NULL,
   `fine` varchar(50) NOT NULL,
-  `remarks` mediumtext NOT NULL
+  `remarks` mediumtext NOT NULL,
+  `status` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `finezone`
 --
 
-INSERT INTO `finezone` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `fine`, `remarks`) VALUES
-(313, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', '5', '111', '2024-05-19', '2024-05-26', '2024-05-19', '0', 'lost'),
-(314, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', '5', '111', '2024-05-19', '2024-05-10', '2024-05-19', '45', '-5 Holiday');
+INSERT INTO `finezone` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `fine`, `remarks`, `status`) VALUES
+(353, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelsita2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-23', '2024-05-30', '2024-05-23', '55', '', 'yes'),
+(354, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-23', '2024-05-30', '2024-05-23', '0', '', 'yes');
 
 -- --------------------------------------------------------
 
@@ -6855,7 +6855,7 @@ CREATE TABLE `issue_book` (
   `dept` varchar(10) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `booksname` varchar(200) NOT NULL,
+  `booksname` varchar(5000) NOT NULL,
   `accession_number` varchar(5000) NOT NULL,
   `booksissuedate` varchar(10) NOT NULL,
   `booksreturndate` varchar(10) NOT NULL,
@@ -7003,7 +7003,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_number`, `first_name`, `last_name`, `middle_name`, `email`, `course`, `year`, `semester`, `password`, `user_type`, `photo`, `status`, `vkey`, `verified`) VALUES
-('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd Year ', '6th', '2100028', 'student', 'upload/1711981226.jpeg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
+('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd', '6th', '2100028', 'student', 'upload/1716398779.png', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
 ('2100029', 'Carlos Miguel', 'Autor', '', 'cautor2021@student.nbscollege.edu.ph', 'BSCS', '3rd year', '6th', '2100029', 'student', 'upload/avatar.jpg', 'yes', '54cc08c808f67f918d4774da317a4c09', 'yes');
 
 -- --------------------------------------------------------
@@ -7311,13 +7311,13 @@ ALTER TABLE `add_book`
 -- AUTO_INCREMENT for table `finezone`
 --
 ALTER TABLE `finezone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=315;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
 
 --
 -- AUTO_INCREMENT for table `issue_book`
 --
 ALTER TABLE `issue_book`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `lib_registration`
