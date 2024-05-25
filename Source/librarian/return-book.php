@@ -47,7 +47,7 @@
 
     </div>
 
-    <div class="col-md-10" style="">
+    <div class="col-md-12" style="">
             <div class="row text-center align-items-center"> <!-- Added align-items-center for vertical alignment -->
                 <div class="col-md-1 p-0">
                     <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
@@ -61,7 +61,7 @@
                 </div>
             
                 <div class="col-md-2 p-0">
-                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date" style="border-color:inherit;">
+                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
                 </div>
                 
                 <div class="col-md-1 p-0">

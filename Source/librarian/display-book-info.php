@@ -101,7 +101,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <h2>
+                        <h2 style="line-height:0;">
                             <?php if(!empty($title_proper)): ?>
                                 <span class="title"><?php echo $title_proper; ?></span>
                             <?php endif; ?>
