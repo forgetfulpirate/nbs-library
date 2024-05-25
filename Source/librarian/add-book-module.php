@@ -392,10 +392,7 @@ if (isset($_POST["submit"])) {
         move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
         move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
         // Escape the values to prevent SQL injection
-
-        
         $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
-
         // Your existing code to insert into the database goes here
         mysqli_query($link, "INSERT INTO book_module VALUES (
             '$escaped_accession_number',

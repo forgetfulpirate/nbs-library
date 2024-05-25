@@ -326,3 +326,15 @@ form .buttons button, .backBtn{
 
 
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin: 0px;
+   
+}
+
+.header-container header {
+    margin: 0; /* Reset margin for the header */
+}
