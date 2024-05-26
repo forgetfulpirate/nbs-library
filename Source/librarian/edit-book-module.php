@@ -95,20 +95,22 @@ if(isset($_GET['id'])) {
     margin-bottom: 20px;
 }
 
+.tab-buttons button:hover{
+    background-color: #666769;
+}
+
 .tab-buttons button {
     padding: 10px;
     cursor: pointer;
     margin: 5px; /* Add some margin between buttons */
     margin-right: 10px; /* Add space between buttons */
+    background-color: #d52033; /* Default color for inactive buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove border for cleaner look */
 }
 
-.tab-buttons button:hover{
-    background-color: #666769;
-}
-
-.tab-buttons button.disabled {
-    cursor: not-allowed;
-    background-color: #ccc;
+.tab-buttons button.active {
+    background-color: #666769; /* Color for active button */
 }
 
 
@@ -332,11 +334,16 @@ if(isset($_GET['id'])) {
                                     
                         </div>
 
-                        <div class="input-field1">
-                                <label>Accession Number</label>
-                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>" readonly>
-
-                        </div>
+                        <div class="input-field2">
+        <label>Accession Number</label>
+        <input type="text" placeholder="Accession Number" name="accession_number[]" required value="<?php echo $accession_number; ?>" readonly>
+        <div id="accessionNumberFields"></div>
+    </div>
+    <div class="buttons">
+        <button type="button" onclick="addAccessionNumberField()">
+            <span>Add More</span>
+        </button>
+    </div>
 
                         
                         <div class="input-field2">
@@ -475,20 +482,45 @@ if(isset($_GET['id'])) {
     </div>
 
     <script>
+     
         let currentTab = 0;
 
         function showTab(n) {
             const tabs = document.querySelectorAll('.tab');
-            if (document.getElementById('title_proper').value.trim() === '') {
-                alert('Title Proper is required.');
-                return false;
-            }
+            const buttons = document.querySelectorAll('.tab-buttons button');
+
+         
+            // if (document.getElementById('title_proper').value.trim() === '') {
+            //     alert('Title Proper is required.');
+            //     return false;
+            // }
             
+            // Remove active class from the current tab and button
             tabs[currentTab].classList.remove('active');
+            buttons[currentTab].classList.remove('active');
+
+            // Set new current tab
             currentTab = n;
+
+            // Add active class to the new current tab and button
             tabs[currentTab].classList.add('active');
+            buttons[currentTab].classList.add('active');
         }
+
+        // Set the initial active button and tab on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.tab')[currentTab].classList.add('active');
+            document.querySelectorAll('.tab-buttons button')[currentTab].classList.add('active');
+        });
     </script>
+
+<script>
+    function addAccessionNumberField() {
+        var div = document.createElement('div');
+        div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
+        document.getElementById('accessionNumberFields').appendChild(div);
+    }
+</script>
 </body>
 </html>
 

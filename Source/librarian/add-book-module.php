@@ -22,6 +22,7 @@ include 'inc/connection.php';
 </head>
 <style>
 /* Style for tabs */
+
 .tab {
     display: none;
 }
@@ -37,20 +38,22 @@ include 'inc/connection.php';
     margin-bottom: 20px;
 }
 
+.tab-buttons button:hover{
+    background-color: #666769;
+}
+
 .tab-buttons button {
     padding: 10px;
     cursor: pointer;
     margin: 5px; /* Add some margin between buttons */
     margin-right: 10px; /* Add space between buttons */
+    background-color: #d52033; /* Default color for inactive buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove border for cleaner look */
 }
 
-.tab-buttons button:hover{
-    background-color: #666769;
-}
-
-.tab-buttons button.disabled {
-    cursor: not-allowed;
-    background-color: #ccc;
+.tab-buttons button.active {
+    background-color: #666769; /* Color for active button */
 }
 
 
@@ -487,25 +490,34 @@ include 'inc/footer.php';
 
 
 <script>
-    let currentTab = 0;
+  let currentTab = 0;
 
-    function showTab(n) {
-        const tabs = document.querySelectorAll('.tab');
+function showTab(n) {
+    const tabs = document.querySelectorAll('.tab');
+    const buttons = document.querySelectorAll('.tab-buttons button');
 
-        // Validate fields on the current tab before switching
-        // if (currentTab === 0 && document.getElementById('title_proper').value.trim() === '') {
-        //     alert('Title Proper is required.');
-        //     return false;
-        // } else if (currentTab === 1 && document.getElementById('place_of_publication').value.trim() === '') {
-        //     alert('Place of Publication is required.');
-        //     return false;
-        // }
-        // Add more else if conditions for other tabs if needed
-        
-        tabs[currentTab].classList.remove('active');
-        currentTab = n;
-        tabs[currentTab].classList.add('active');
-    }
+       // if (document.getElementById('title_proper').value.trim() === '') {
+            //     alert('Title Proper is required.');
+            //     return false;
+            // }
+            
+    // Remove active class from the current tab and button
+    tabs[currentTab].classList.remove('active');
+    buttons[currentTab].classList.remove('active');
+
+    // Set new current tab
+    currentTab = n;
+
+    // Add active class to the new current tab and button
+    tabs[currentTab].classList.add('active');
+    buttons[currentTab].classList.add('active');
+}
+
+// Set the initial active button and tab on page load
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tab')[currentTab].classList.add('active');
+    document.querySelectorAll('.tab-buttons button')[currentTab].classList.add('active');
+});
 </script>
 
 </body>

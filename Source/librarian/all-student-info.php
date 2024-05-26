@@ -331,7 +331,6 @@
    
 </script>
 
-
 <!-- SCRRIPT FOR DELETE STUDENT -->
 <script>
      function deleteUserConfirmation(userId, userName) {

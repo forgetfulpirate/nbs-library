@@ -61,7 +61,7 @@
                 </div>
             
                 <div class="col-md-2 p-0">
-                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date" style="border-color:inherit;">
+                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
                 </div>
                 
                 <div class="col-md-1 p-0">
