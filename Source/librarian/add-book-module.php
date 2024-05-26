@@ -20,20 +20,71 @@ include 'inc/connection.php';
     <title>NBS Library</title>
     <link rel="stylesheet" href="inc/css/progress.css">
 </head>
+<style>
+/* Style for tabs */
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center align the buttons */
+    margin-bottom: 20px;
+}
+
+.tab-buttons button {
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px; /* Add some margin between buttons */
+    margin-right: 10px; /* Add space between buttons */
+}
+
+.tab-buttons button:hover{
+    background-color: #666769;
+}
+
+.tab-buttons button.disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+
+    </style>
 <body>
  
     
 <div class="container">
-    <header>Add Book Module</header>
+   
 
-    <form action="#" method="post" enctype="multipart/form-data">
-        <div class="form first">
+    <form action="#" method="post" enctype="multipart/form-data" >
+    <div class="header-container">
+                <header>Edit Book Module</header>
+                <!-- Save button -->
+                <button type="submit" name="submit" class="editButton">
+                    <i class="fas fa-save"></i> Add Book
+                </button>
+    </div>
+
+            <div class="tab-buttons">
+                <button type="button" onclick="showTab(0)">Book Catalogue</button>
+                <button type="button" onclick="showTab(1)">Publication</button>
+                <button type="button" onclick="showTab(2)">Subject Entry</button>
+                <button type="button" onclick="showTab(3)">Local Information</button>
+                <button type="button" onclick="showTab(4)">Content</button>
+            </div>
+            
+    <div class="tab active">
             <div class="details personal">
                 <span class="title"> BOOK CATALOGUE MODULE</span>
                 <div class="fields">
                     <div class="input-field1">
                         <label>Title Proper</label>
-                        <input type="text" placeholder="Title Proper" name="title_proper" required="">
+                        <input type="text" placeholder="Title Proper" name="title_proper" required="" id="title_proper">
                     </div>
 
                     <div class="input-field1">
@@ -71,22 +122,21 @@ include 'inc/connection.php';
                         <input type="text" placeholder="Added Entry Corporate" name="add_entry_corporate">
                     </div>
                 </div> 
-
-                <button type="button" class="nextBtn">
-                    <span class="btnText">Next</span>
-                </button>                                        
+                                     
             </div>
         </div>
+
         <!-- END FIRST FORM -->
 
         <!-- SECOND FORM -->
-        <div class="form second">
+        <div class="tab">
+
             <div class="details ID">
                 <span class="title"> PUBLICATION</span>
                 <div class="fields">
                     <div class="input-field1">
                         <label>Place of Publication</label>
-                        <input type="text" placeholder="Place of Publication" name="place_of_publication">
+                        <input type="text" placeholder="Place of Publication" name="place_of_publication" required="" id="place_of_publication">
                     </div>
 
                     <div class="input-field1">
@@ -159,21 +209,15 @@ include 'inc/connection.php';
                     </div>
                 </div>
 
-                <div class="buttons">
-                    <div class="backBtn">
-                        <span class="btnText">Back</span>
-                    </div>
-
-                    <button type="button" class="nextBtn">
-                        <span class="btnText">Next</span>
-                    </button>
-                </div>
             </div>
         </div>
+
         <!--  SECOND FORM END  -->
 
+
+        <div class="tab">
         <!-- 3RD  FORM -->
-        <div class="form third">
+  
             <div class="details ID">
                 <span class="title"> SUBJECT ENTRY</span>
                 <div class="fields">
@@ -192,21 +236,15 @@ include 'inc/connection.php';
                         <textarea name="subject_info" placeholder="Subject Info"></textarea>
                     </div>
                 </div>
-                <div class="buttons">
-                    <div class="backBtn">
-                        <span class="btnText">Back</span>
-                    </div>
-
-                    <button type="button" class="nextBtn">
-                        <span class="btnText">Next</span>
-                    </button>
-                </div>
+              
             </div>
         </div>
+
         <!-- 3rd form end -->
 
         <!-- FOURTH  FORM -->
-        <div class="form fourth">
+        <div class="tab">
+   
             <div class="details ID">
                 <span class="title"> LOCAL INFORMATION</span>
                 <div class="fields">
@@ -329,21 +367,15 @@ include 'inc/connection.php';
                         </select>
                     </div>
                 </div>
-                <div class="buttons">
-                    <div class="backBtn">
-                        <span class="btnText">Back</span>
-                    </div>
-
-                    <button type="button" class="nextBtn">
-                        <span class="btnText">Next</span>
-                    </button>
-                </div>
+               
             </div>
         </div>
+
         <!-- fOURTH form end -->
 
         <!-- Fifth  FORM -->
-        <div class="form fifth">
+        <div class="tab">
+
             <div class="details ID">
                 <span class="title"> SUBJECT ENTRY</span>
                 <div class="fields">
@@ -362,94 +394,119 @@ include 'inc/connection.php';
                         <textarea placeholder="Review" name="review"></textarea>
                     </div>
                 </div>
-                <div class="buttons">
-                    <div class="backBtn">
-                        <span class="btnText">Back</span>
-                    </div>
-
-                    <button name="submit">
-                        <span>Add Book</span>
-                    </button>
-                </div>
+              
             </div>
         </div>
+
         <!-- FIFTH form end -->
     </form>
 </div>
 
 <?php
 if (isset($_POST["submit"])) {
-
+    // Establish database connection (assuming $link is already defined)
+    
     foreach ($_POST['accession_number'] as $accession_number) {
-        $image_name = $_FILES['f1']['name'];
-        $file_name = $_FILES['file']['name'];
-        $temp = explode(".", $image_name);
-        $temp2 = explode(".", $file_name);
-        $newfilename = round(microtime(true)) . '.' . end($temp);
-        $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-        $imagepath = "books-image/" . $newfilename;
-        $filepath = "books-file/" . $newfilename2;
-        move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
-        move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
-        // Escape the values to prevent SQL injection
-        $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
-        // Your existing code to insert into the database goes here
-        mysqli_query($link, "INSERT INTO book_module VALUES (
-            '$escaped_accession_number',
-            '$_POST[title_proper]',
-            '$_POST[responsibility]',
-            '$_POST[preffered_title]',
-            '$_POST[parallel_title]',
-            '$_POST[main_creator]',
-            '$_POST[add_entry_creator]',
-            '$_POST[contributors]',
-            '$_POST[add_entry_corporate]',
-            '$_POST[place_of_publication]',
-            '$_POST[publisher]',
-            '$_POST[date_of_publication]',
-            '$_POST[edition]',
-            '$_POST[extent_of_text]',
-            '$_POST[illustrations]',
-            '$_POST[dimension]',
-            '$_POST[acc_materials]',
-            '$_POST[series]',
-            '$_POST[supp_content]',
-            '$_POST[ISBN]',
-            '$_POST[content_type]',
-            '$_POST[media_type]',
-            '$_POST[carrier_type]',
-            '$filepath',
-            '$_POST[subject_type]',
-            '$_POST[subject_info]',
-            '$_POST[call_number_type]',
-            '$_POST[call_number_info]',
-            '$_POST[language]',
-            '$_POST[library_location]',
-            '$_POST[electronic_access]',
-            '$imagepath',
-            '$_POST[entered_by]',
-            '$_POST[updated_by]',
-            '$_POST[date_entered]',
-            '$_POST[date_updated]',
-            '$_POST[quantity]',
-            '$_POST[available]',
-            '$_POST[location]',
-            '$_POST[content_notes]',
-            '$_POST[abstract]',
-            '$_POST[review]','')"
-        );
+        // Check if the accession number already exists
+        $query = "SELECT COUNT(*) AS count FROM book_module WHERE accession_number = '$accession_number'";
+        $result = mysqli_query($link, $query);
+        $row = mysqli_fetch_assoc($result);
+        $count = $row['count'];
+
+        if ($count > 0) {
+            // If accession number already exists, alert the user
+            echo "<script>alert('Accession number $accession_number already exists.');</script>";
+          
+        } else {
+            // If accession number is unique, proceed with insertion
+            $image_name = $_FILES['f1']['name'];
+            $file_name = $_FILES['file']['name'];
+            $temp = explode(".", $image_name);
+            $temp2 = explode(".", $file_name);
+            $newfilename = round(microtime(true)) . '.' . end($temp);
+            $newfilename2 = round(microtime(true)) . '.' . end($temp2);
+            $imagepath = "books-image/" . $newfilename;
+            $filepath = "books-file/" . $newfilename2;
+            move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
+            move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
+            // Escape the values to prevent SQL injection
+            $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
+            // Your existing code to insert into the database goes here
+            mysqli_query($link, "INSERT INTO book_module VALUES (
+                '$escaped_accession_number',
+                '$_POST[title_proper]',
+                '$_POST[responsibility]',
+                '$_POST[preffered_title]',
+                '$_POST[parallel_title]',
+                '$_POST[main_creator]',
+                '$_POST[add_entry_creator]',
+                '$_POST[contributors]',
+                '$_POST[add_entry_corporate]',
+                '$_POST[place_of_publication]',
+                '$_POST[publisher]',
+                '$_POST[date_of_publication]',
+                '$_POST[edition]',
+                '$_POST[extent_of_text]',
+                '$_POST[illustrations]',
+                '$_POST[dimension]',
+                '$_POST[acc_materials]',
+                '$_POST[series]',
+                '$_POST[supp_content]',
+                '$_POST[ISBN]',
+                '$_POST[content_type]',
+                '$_POST[media_type]',
+                '$_POST[carrier_type]',
+                '$filepath',
+                '$_POST[subject_type]',
+                '$_POST[subject_info]',
+                '$_POST[call_number_type]',
+                '$_POST[call_number_info]',
+                '$_POST[language]',
+                '$_POST[library_location]',
+                '$_POST[electronic_access]',
+                '$imagepath',
+                '$_POST[entered_by]',
+                '$_POST[updated_by]',
+                '$_POST[date_entered]',
+                '$_POST[date_updated]',
+                '$_POST[quantity]',
+                '$_POST[available]',
+                '$_POST[location]',
+                '$_POST[content_notes]',
+                '$_POST[abstract]',
+                '$_POST[review]','')"
+            );
+        }
     }
-
-
- 
 }
 ?>
 
 <?php 
 include 'inc/footer.php';
 ?>
-            
-<script src="inc/js/progress.js"></script>
+
+
+<script>
+    let currentTab = 0;
+
+    function showTab(n) {
+        const tabs = document.querySelectorAll('.tab');
+
+        // Validate fields on the current tab before switching
+        // if (currentTab === 0 && document.getElementById('title_proper').value.trim() === '') {
+        //     alert('Title Proper is required.');
+        //     return false;
+        // } else if (currentTab === 1 && document.getElementById('place_of_publication').value.trim() === '') {
+        //     alert('Place of Publication is required.');
+        //     return false;
+        // }
+        // Add more else if conditions for other tabs if needed
+        
+        tabs[currentTab].classList.remove('active');
+        currentTab = n;
+        tabs[currentTab].classList.add('active');
+    }
+</script>
 
 </body>
 </html>
