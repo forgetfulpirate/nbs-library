@@ -55,6 +55,9 @@ include 'inc/connection.php';
 .tab-buttons button.active {
     background-color: #666769; /* Color for active button */
 }
+.error{
+    color:#d52033;
+}
 
 
     </style>
@@ -64,7 +67,7 @@ include 'inc/connection.php';
 <div class="container">
    
 
-    <form action="#" method="post" enctype="multipart/form-data" >
+    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
     <div class="header-container">
                 <header>Edit Book Module</header>
                 <!-- Save button -->
@@ -87,12 +90,13 @@ include 'inc/connection.php';
                 <div class="fields">
                     <div class="input-field1">
                         <label>Title Proper</label>
-                        <input type="text" placeholder="Title Proper" name="title_proper" required="" id="title_proper">
+                        <input type="text" placeholder="Title Proper" name="title_proper" id="title_proper">
+                        <div id="title_proper_error" class="error"></div>
                     </div>
 
                     <div class="input-field1">
                         <label>Responsibility</label>
-                        <input type="text" placeholder="Responsibility" name="responsibility" required="">
+                        <input type="text" placeholder="Responsibility" name="responsibility" >
                     </div>
 
                     <div class="input-field1">
@@ -139,7 +143,9 @@ include 'inc/connection.php';
                 <div class="fields">
                     <div class="input-field1">
                         <label>Place of Publication</label>
-                        <input type="text" placeholder="Place of Publication" name="place_of_publication" required="" id="place_of_publication">
+                        <input type="text" placeholder="Place of Publication" name="place_of_publication" id="place_of_publication">
+                        <div id="place_of_publication_error" class="error"></div>
+                        
                     </div>
 
                     <div class="input-field1">
@@ -273,8 +279,10 @@ include 'inc/connection.php';
                 
                         <div class="input-field2">
                             <label>Accession Number</label>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]" required>
+                            <input type="text" placeholder="Accession Number" name="accession_number[]">
+                            <div id="accession_number_error" class="error"></div>
                             <div id="accessionNumberFields"></div>
+                           
 
                 </div>
                 <div class="buttons">
@@ -350,7 +358,8 @@ include 'inc/connection.php';
 
                     <div class="input-field2">
                         <label>Available</label>
-                        <input type="number" placeholder="Available" name="available" required>
+                        <input type="number" placeholder="Available" name="available">
+                        <div id="available_error" class="error"></div>
                     </div>
 
                     <div class="input-field2">
@@ -407,8 +416,9 @@ include 'inc/connection.php';
 
 <?php
 if (isset($_POST["submit"])) {
-    // Establish database connection (assuming $link is already defined)
-    
+  
+  
+
     foreach ($_POST['accession_number'] as $accession_number) {
         // Check if the accession number already exists
         $query = "SELECT COUNT(*) AS count FROM book_module WHERE accession_number = '$accession_number'";
@@ -434,53 +444,101 @@ if (isset($_POST["submit"])) {
             move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
             // Escape the values to prevent SQL injection
             $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
-            // Your existing code to insert into the database goes here
+            $title_proper = mysqli_real_escape_string($link, $_POST['title_proper']);
+            $responsibility = mysqli_real_escape_string($link, $_POST['responsibility']);
+            $preffered_title = mysqli_real_escape_string($link, $_POST['preffered_title']);
+            $parallel_title = mysqli_real_escape_string($link, $_POST['parallel_title']);
+            $main_creator = mysqli_real_escape_string($link, $_POST['main_creator']);
+            $add_entry_creator = mysqli_real_escape_string($link, $_POST['add_entry_creator']);
+            $contributors = mysqli_real_escape_string($link, $_POST['contributors']);
+            $add_entry_corporate = mysqli_real_escape_string($link, $_POST['add_entry_corporate']);
+            $place_of_publication = mysqli_real_escape_string($link, $_POST['place_of_publication']);
+            $publisher = mysqli_real_escape_string($link, $_POST['publisher']);
+            $date_of_publication = mysqli_real_escape_string($link, $_POST['date_of_publication']);
+            $edition = mysqli_real_escape_string($link, $_POST['edition']);
+            $extent_of_text = mysqli_real_escape_string($link, $_POST['extent_of_text']);
+            $illustrations = mysqli_real_escape_string($link, $_POST['illustrations']);
+            $dimension = mysqli_real_escape_string($link, $_POST['dimension']);
+            $acc_materials = mysqli_real_escape_string($link, $_POST['acc_materials']);
+            $series = mysqli_real_escape_string($link, $_POST['series']);
+            $supp_content = mysqli_real_escape_string($link, $_POST['supp_content']);
+            $ISBN = mysqli_real_escape_string($link, $_POST['ISBN']);
+            $content_type = mysqli_real_escape_string($link, $_POST['content_type']);
+            $media_type = mysqli_real_escape_string($link, $_POST['media_type']);
+            $carrier_type = mysqli_real_escape_string($link, $_POST['carrier_type']);
+            $subject_type = mysqli_real_escape_string($link, $_POST['subject_type']);
+            $subject_info = mysqli_real_escape_string($link, $_POST['subject_info']);
+            $call_number_type = mysqli_real_escape_string($link, $_POST['call_number_type']);
+            $call_number_info = mysqli_real_escape_string($link, $_POST['call_number_info']);
+            $language = mysqli_real_escape_string($link, $_POST['language']);
+            $library_location = mysqli_real_escape_string($link, $_POST['library_location']);
+            $electronic_access = mysqli_real_escape_string($link, $_POST['electronic_access']);
+            $entered_by = mysqli_real_escape_string($link, $_POST['entered_by']);
+            $updated_by = mysqli_real_escape_string($link, $_POST['updated_by']);
+            $date_entered = mysqli_real_escape_string($link, $_POST['date_entered']);
+            $date_updated = mysqli_real_escape_string($link, $_POST['date_updated']);
+            $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
+            $available = mysqli_real_escape_string($link, $_POST['available']);
+            $location = mysqli_real_escape_string($link, $_POST['location']);
+            $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
+            $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
+            $review = mysqli_real_escape_string($link, $_POST['review']);
+            
+      
             mysqli_query($link, "INSERT INTO book_module VALUES (
                 '$escaped_accession_number',
-                '$_POST[title_proper]',
-                '$_POST[responsibility]',
-                '$_POST[preffered_title]',
-                '$_POST[parallel_title]',
-                '$_POST[main_creator]',
-                '$_POST[add_entry_creator]',
-                '$_POST[contributors]',
-                '$_POST[add_entry_corporate]',
-                '$_POST[place_of_publication]',
-                '$_POST[publisher]',
-                '$_POST[date_of_publication]',
-                '$_POST[edition]',
-                '$_POST[extent_of_text]',
-                '$_POST[illustrations]',
-                '$_POST[dimension]',
-                '$_POST[acc_materials]',
-                '$_POST[series]',
-                '$_POST[supp_content]',
-                '$_POST[ISBN]',
-                '$_POST[content_type]',
-                '$_POST[media_type]',
-                '$_POST[carrier_type]',
+                '$title_proper',
+                '$responsibility',
+                '$preffered_title',
+                '$parallel_title',
+                '$main_creator',
+                '$add_entry_creator',
+                '$contributors',
+                '$add_entry_corporate',
+                '$place_of_publication',
+                '$publisher',
+                '$date_of_publication',
+                '$edition',
+                '$extent_of_text',
+                '$illustrations',
+                '$dimension',
+                '$acc_materials',
+                '$series',
+                '$supp_content',
+                '$ISBN',
+                '$content_type',
+                '$media_type',
+                '$carrier_type',
                 '$filepath',
-                '$_POST[subject_type]',
-                '$_POST[subject_info]',
-                '$_POST[call_number_type]',
-                '$_POST[call_number_info]',
-                '$_POST[language]',
-                '$_POST[library_location]',
-                '$_POST[electronic_access]',
+                '$subject_type',
+                '$subject_info',
+                '$call_number_type',
+                '$call_number_info',
+                '$language',
+                '$library_location',
+                '$electronic_access',
                 '$imagepath',
-                '$_POST[entered_by]',
-                '$_POST[updated_by]',
-                '$_POST[date_entered]',
-                '$_POST[date_updated]',
-                '$_POST[quantity]',
-                '$_POST[available]',
-                '$_POST[location]',
-                '$_POST[content_notes]',
-                '$_POST[abstract]',
-                '$_POST[review]','')"
+                '$entered_by',
+                '$updated_by',
+                '$date_entered',
+                '$date_updated',
+                '$quantity',
+                '$available',
+                '$location',
+                '$content_notes',
+                '$abstract',
+                '$review','')"
+                
             );
+          
+            $_SESSION['success_message'] = "Book added Successfully!";
+            echo '<script type="text/javascript">alert("Book Add Successfull");window.location="display-book-module.php";</script>';
+          
+         
+
         }
     }
+  
 }
 ?>
 
@@ -496,10 +554,10 @@ function showTab(n) {
     const tabs = document.querySelectorAll('.tab');
     const buttons = document.querySelectorAll('.tab-buttons button');
 
-       if (document.getElementById('title_proper').value.trim() === '') {
-                alert('Title Proper is required.');
-                return false;
-            }
+    //    if (document.getElementById('title_proper').value.trim() === '') {
+    //             alert('Title Proper is required.');
+    //             return false;
+    //         }
             
     // Remove active class from the current tab and button
     tabs[currentTab].classList.remove('active');
@@ -523,9 +581,71 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html>
 <script>
+    function validateForm() {
+    // Get the value of the required fields
+    const titleProper = document.getElementById('title_proper').value.trim();
+    const placeOfPublication = document.getElementById('place_of_publication').value.trim();
+    const accession_number = document.querySelector('input[name="accession_number[]"]').value.trim();
+    const available = document.querySelector('input[name="available"]').value.trim();
+    const quantity = document.querySelector('input[name="quantity"]').value.trim();
+
+    // Check if any required field is empty
+    if (titleProper === '' ) {
+        // Display error message next to the title proper input field
+        alert('Please input Title Proper');
+        document.getElementById('title_proper_error').innerText = 'Title Proper is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('title_proper_error').innerText = '';
+    }
+
+    if (placeOfPublication === '') {
+    // Display error message next to the place of publication input field
+    document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
+    return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('place_of_publication_error').innerText = '';
+    }
+
+    if (accession_number === '') {
+        // Display error message next to the accession number input field
+        alert('Please input Accession Number');
+        document.getElementById('accession_number_error').innerText = 'Accession Number is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('accession_number_error').innerText = '';
+    }
+
+    if (available === '') {
+        // Display error message next to the available input field
+        document.getElementById('available_error').innerText = 'Available is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('available_error').innerText = '';
+    }
+
+    if (quantity === '') {
+        // Display error message next to the quantity input field
+        document.getElementById('quantity_error').innerText = 'Quantity is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('quantity_error').innerText = '';
+    }
+
+    // If all required fields are filled, allow form submission
+    return true;
+}
     function addAccessionNumberField() {
         var div = document.createElement('div');
         div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
         document.getElementById('accessionNumberFields').appendChild(div);
     }
+
 </script>
+
+
