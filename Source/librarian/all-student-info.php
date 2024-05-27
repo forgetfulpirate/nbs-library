@@ -269,10 +269,7 @@
             $('.dataTables_length').addClass('bs-select');
         });
 
-        $(document).ready(function () {
-            $('#dtBasicExample1').DataTable();
-            $('.dataTables_length').addClass('bs-select');
-        });
+       
     </script>
 
 <script type="text/javascript">

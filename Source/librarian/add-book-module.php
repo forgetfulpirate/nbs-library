@@ -496,10 +496,10 @@ function showTab(n) {
     const tabs = document.querySelectorAll('.tab');
     const buttons = document.querySelectorAll('.tab-buttons button');
 
-       // if (document.getElementById('title_proper').value.trim() === '') {
-            //     alert('Title Proper is required.');
-            //     return false;
-            // }
+       if (document.getElementById('title_proper').value.trim() === '') {
+                alert('Title Proper is required.');
+                return false;
+            }
             
     // Remove active class from the current tab and button
     tabs[currentTab].classList.remove('active');

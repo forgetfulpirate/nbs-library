@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page = 'ibook';
+    $page = 'finezone';
     include 'inc/header.php';
     include 'inc/connection.php';
 
@@ -23,31 +23,23 @@
              break;
          }
      }
+     
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">my issued books</span>
-						</div>
-					</div>
-				</div>
-			</div>	
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="st-issuedBook">
-							<table id="dtBasicExample" class="table table-dark table-striped text-center">
-								<thead>
+
+<main class="content px-3 py-2">
+    <div class="gap-30"></div>
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>My Fine</h4>
+            <p id="time"></p>
+            <p id="date"></p>
+        </div>
+    </div>
+    
+    <div class="card border-0">
+        <div class="card-body">
+            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <thead>
 								   <tr>
                                         <th>Student number</th>
                                         <th>Name</th>
@@ -57,6 +49,7 @@
                                         <th>Date due</th>
                                         <th>Date Returned</th>
                                         <th>Fine</th>
+                                        <th>Status</th>
 								   </tr>
 								</thead>
                                 <tbody>
@@ -74,25 +67,23 @@
                                             echo "<td>"; echo $row["date_issued"]; echo "</td>";
                                             echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
                                             echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
-                                            echo "<td>"; echo $row["fine"]; echo "</td>";
+                                            echo "<td style='color:red'>"; echo $row["fine"]; echo "</td>";
+                                            echo "<td>";
+                                            if ($row["status"] == "no") {
+                                                echo "Not paid";
+                                            } else {
+                                                echo $row["status"];
+                                            }
+                                            echo "</td>";
                                             echo "</tr>";
                                         }
                                     }
                                     ?>
 							  </tbody>
 							</table>
-						</div>		
-					</div>
-				</div>
-			</div>
-									
-			
-		</div>
-
-		
-	</div>
-
-	
+        </div>
+    </div>
+</main>
 
 	
 	<?php 

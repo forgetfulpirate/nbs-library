@@ -84,7 +84,7 @@
                        
                             ?>
                             <script type="text/javascript">
-                                window.location="my-issued-books.php";
+                                window.location="dashboard.php";
                             </script>
                             <?php  
                         }
