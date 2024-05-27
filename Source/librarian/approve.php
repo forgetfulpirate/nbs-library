@@ -15,7 +15,7 @@ if (mysqli_num_rows($student_result) > 0) {
     $student_data = mysqli_fetch_assoc($student_result);
     if ($student_data['status'] == 'yes') {
         $_SESSION['error_msg'] = "User already activated!";
-        echo "<script>window.location='all-student-info.php';</script>";
+        echo "<script>window.location='status.php';</script>";
     } elseif ($student_data['status'] == 'no') {
         mysqli_query($link, "UPDATE student SET status='yes', verified='yes' WHERE student_number = $id");
         // Send verification email
@@ -28,7 +28,7 @@ if (mysqli_num_rows($student_result) > 0) {
         } else {
             $_SESSION['error_msg'] = "Failed to send verification email. Please contact support.";
         }
-        echo "<script>window.location='all-student-info.php';</script>";
+        echo "<script>window.location='status.php';</script>";
         exit();
     }
 } elseif (mysqli_num_rows($teacher_result) > 0) {
@@ -49,7 +49,7 @@ if (mysqli_num_rows($student_result) > 0) {
         } else {
             $_SESSION['error_msg'] = "Failed to send verification email. Please contact support.";
         }
-        echo "<script>window.location='all-teacher-info.php';</script>";
+        echo "<script>window.location='status.php';</script>";
     }
 } else {
     // If the ID does not correspond to either a student or a teacher

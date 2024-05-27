@@ -1,4 +1,3 @@
-
 <?php 
      session_start();
     if (!isset($_SESSION["username"])) {
@@ -9,10 +8,10 @@
         <?php
     }
     $page = 'sinfo';
-    include 'inc/connection.php';
     include 'inc/header.php';
+    include 'inc/connection.php';
     include 'inc/sfunction.php';
-    
+
  ?>
 
 <style>
@@ -39,14 +38,12 @@
 
 </style>
 
-
-    
-            <main class="content px-3 py-2">
+<main class="content px-3 py-2">
             <div class="gap-30"></div>
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Student Information  
+                        <h4>Student Information 
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -56,69 +53,10 @@
                  </div>
             </div>
             <br>
-
-            <!-- Delete Confirmation Modal -->
-            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteConfirmationModalLabel" style="color: red;">Confirm Deletion</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete student "<span id="userNameToDelete"></span>"?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                  <!-- Activate Confirmation Modal -->
-                  <div class="modal fade" id="activateConfirmationModal" tabindex="-1" aria-labelledby="activateConfirmationModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                            <div class="modal-content">
-                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="activateConfirmationModalLabel" style="color: green;">Confirm Activation</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                            <div class="modal-body">
-                                Are you sure you want to activate "<span id="userNameToActivate"></span>"?
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-success" id="confirmActivateButton">Activate</button>
-                             </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- Deactivate Confirmation Modal -->
-                <div class="modal fade" id="deactivateConfirmationModal" tabindex="-1" aria-labelledby="deactivateConfirmationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deactivateConfirmationModalLabel" style="color: red;">Confirm Deactivation</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure you want to deactivate "<span id="userNameToDeactivate"></span>"?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-danger" id="confirmDeactivateButton">Deactivate</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        
+            
               <!-- Display Success or Error Messages -->
-                <?php
+              <?php
                 if (!empty($_SESSION['success_msg'])) {
                     echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
                     unset($_SESSION['success_msg']);
@@ -146,83 +84,92 @@
             
                 ?>
             
-  
-
+          
             <div class="card border-0">
                 
-                 
                         <div class="card-body">
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Student Number</th>
+                                        <th scope="col">User Type</th>
+                                        <th scope="col" class="text-center">Student Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Course</th>
                                         <th scope="col">Year</th>
                                         <th scope="col">Semester</th>
                                         <th scope="col">verified</th>
-                                        <th>Activate</th>
-                                        <th>Deactivate</th>
-                                        <th>Delete</th>
+                                        <th scope="col">Action</th>
+                                        
                                     </tr>
                                 </thead>
+                            
                                 <tbody>
-                                <?php
-                                        $res= mysqli_query($link, "select * from student");
-                                        while ($row=mysqli_fetch_array($res)) {
-                                            echo "<tr>";
-                                            echo "<td>"; echo $row["student_number"]; echo "</td>";
-                                            echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"]; echo "</td>";
-                                            echo "<td>"; echo $row["email"]; echo "</td>";
-                                            echo "<td>"; echo $row["course"]; echo "</td>";
-                                            echo "<td>"; echo $row["year"]; echo "</td>";
-                                            echo "<td>"; echo $row["semester"]; echo "</td>";
-                                            echo "<td>"; echo $row["verified"]; echo "</td>";
-                                            echo "<td>";
-                                        
-                                                ?>
-                                                <button class='btn btn-success btn-sm' onclick="activateUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Activate</button>
-                                                <?php
-                                           
-                                            echo "</td>";
-                                            echo "<td>";
-                                           
-                                                ?>
-                                                <button class='btn btn-danger btn-sm' onclick="deactivateUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Deactivate</button>
-                                                <?php
-                                            
-                                            echo "</td>";
-                                            echo "<td>";
-                                            ?>
-                                                <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Delete</button>
+                                           <?php
+                                                $res= mysqli_query($link, "select * from student ORDER BY student_number DESC");
+                                                $res2= mysqli_query($link, "select * from teacher ORDER BY id_number DESC");
+                                                while ($row=mysqli_fetch_array($res)) {
+                                                    echo "<tr>";
+                                                    echo "<td>"; echo $row["user_type"]; echo "</td>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["first_name"]; "<td>"; echo " "; echo $row["last_name"]; echo "</td>";
+                                                    echo "<td>"; echo $row["email"]; echo "</td>";
+                                                    echo "<td>"; echo $row["course"]; echo "</td>";
+                                                    echo "<td>"; echo $row["year"]; echo "</td>";
+                                                    echo "<td>"; echo $row["semester"]; echo "</td>";
+                                                    echo "<td>"; echo $row["verified"]; echo "</td>";
+                                                    echo "<td>";
+                                                    ?>
+                                                        <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Delete</button>
+        
+                                                    <?php
+                                                    echo "</td>";
+                                                    echo "</tr>";
+                                                }
 
-                                            <?php
-                                            echo "</td>";
-                              
-                                            echo "</tr>";
-                                        }
-                                   ?> 
-                                   
-                                </tbody>
-                               
-                               
+                                            
+
+                                              
+                                             ?>
+                                       </tbody>
                             </table>
                             <br>
                             <div class="text-end">
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addStudentModal">
                                 Add Student
                                 </button>
+                              
                             </div>
-                           
-                            
                         </div>
+
+                        
                     </div>
 
-                       <!-- Add Student Button and Modal -->
-        <div class="container my-4">
-       
 
+
+            
+            
+
+            
+                      <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel" style="color: red;">Confirm Deletion</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to delete Student "<span id="userNameToDelete"></span>"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+         
         <!-- Add Student Modal -->
         <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -306,61 +253,24 @@
             </div>
         </div>
     </div>
-              
-            </main>
-
-    <script>
-        $(document).ready(function () {
-            $('#dtBasicExample').DataTable({
-                dom: '<html5buttons"B>1Tfgitp',
-        buttons: [
-            {
-                extend: 'copy',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            },
-            {
-                extend: 'csv',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            },
-            {
-                extend: 'excel',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            },
-            {
-                extend: 'pdf',
-    
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            },
-            {
-                extend: 'print',
-                exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
-                }
-            },
             
-        ],
-        "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
-    });
-        });
-    </script>	
-    
-    <script> 
-         window.setInterval(ut, 1000);
+                
+                
+            
+ </main>
 
-        function ut() {
-        var d = new Date();
-        document.getElementById("time").innerHTML = d.toLocaleTimeString();
-        document.getElementById("date").innerHTML = d.toLocaleDateString();
-        }
-        </script>
+        
+
+  
+
+  <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+
+       
+    </script>
 
 <script type="text/javascript">
     var errorMsg = "";
@@ -399,6 +309,7 @@
     });
 });
 
+
     $(document).ready(function () {
         // Check if there are any error messages
         var errorMsg = '<?php echo $error_uname . $error_email . $error_ua . $e_msg; ?>';
@@ -413,14 +324,12 @@
         $('#addStudentModal').modal('hide');
     });
     });
-</script>
-    
-<?php 
-		include 'inc/footer.php';
-	 ?>
 
+   
+</script>
+
+<!-- SCRRIPT FOR DELETE STUDENT -->
 <script>
-     // Function to set the user ID and name and trigger the modal
      function deleteUserConfirmation(userId, userName) {
         // Set the delete link with the user ID
         document.getElementById("confirmDeleteButton").setAttribute("onclick", "window.location.href='delete-student.php?id=" + userId + "'");
@@ -429,25 +338,4 @@
         // Show the delete confirmation modal
         $('#deleteConfirmationModal').modal('show');
     }
-
-    function activateUserConfirmation(userId, userName) {
-        // Set the user ID and name in the modal
-        document.getElementById("confirmActivateButton").setAttribute("onclick", "window.location.href='approve.php?id=" + userId + "'");
-        document.getElementById("userNameToActivate").innerText = userName;
-        // Show the activate confirmation modal
-        $('#activateConfirmationModal').modal('show');
-    }
-
-    function deactivateUserConfirmation(userId, userName) {
-        // Set the user ID and name in the modal
-        document.getElementById("confirmDeactivateButton").setAttribute("onclick", "window.location.href='notapprove.php?id=" + userId + "'");
-        document.getElementById("userNameToDeactivate").innerText = userName;
-        // Show the deactivate confirmation modal
-        $('#deactivateConfirmationModal').modal('show');
-    }
 </script>
-
-
-    
-
-    

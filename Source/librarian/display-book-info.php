@@ -182,7 +182,7 @@
                     </div>
                     <div class="normal-view">
                         <?php if(!empty($call_number_info)): ?>
-                            <span  class="sub">DDC classification:</span>
+                            <span  class="sub">Call Number:</span>
                             <span class="normal-value" style="color:gray"><?php echo $call_number_info?></span>
                         <?php endif; ?>
                     </div>

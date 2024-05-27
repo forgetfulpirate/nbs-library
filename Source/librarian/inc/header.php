@@ -64,11 +64,7 @@
 							?>
                             
             			</h6>
-                        
-				
-						
-					
-					
+                    
                     </li>
                     <br>
                     <li class="sidebar-header">
@@ -92,6 +88,13 @@
                         <a href="all-teacher-info.php" class="sidebar-link">
                             <i class="fa-solid fa-users pe-2"></i>
                             All teacher information
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='return-books'){ echo 'active';} ?>">
+                        <a href="return-book.php" class="sidebar-link">
+                        <i class="fa-solid fa-file-lines pe-2"></i>
+                            Returned Books
                         </a>
                     </li>
                    

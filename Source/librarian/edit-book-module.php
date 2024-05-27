@@ -1,77 +1,76 @@
 <?php 
-		 session_start();
-		if (!isset($_SESSION["username"])) {
-            ?>
-                <script type="text/javascript">
-                    window.location="login.php";
-                </script>
-            <?php
-        }
-        $page = '';
-        include 'inc/header.php';
-        include 'inc/connection.php';
+session_start();
+if (!isset($_SESSION["username"])) {
+    ?>
+    <script type="text/javascript">
+        window.location="login.php";
+    </script>
+    <?php
+}
+$page = '';
+include 'inc/header.php';
+include 'inc/connection.php';
 
-        if(isset($_GET['id'])) {
-            $accession_number = $_GET['id'];
-    
-            // Fetch book details based on ID
-            $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
-            $result = mysqli_query($link, $query);
-            if(mysqli_num_rows($result) == 1) {
-                $row = mysqli_fetch_assoc($result);
-                $title_proper =  $row['title_proper'];
-                $responsibility = $row['responsibility'];
-                $preffered_title = $row['preffered_title'];
-                $parallel_title = $row['parallel_title'];
-                $main_creator = $row['main_creator'];
-                $add_entry_creator = $row['add_entry_creator'];
-                $contributors = $row['contributors'];
-                $add_entry_corporate = $row['add_entry_corporate'];
-                $place_of_publication = $row['place_of_publication'];
-                $publisher = $row['publisher'];
-                $date_of_publication = $row['date_of_publication'];
-                $edition = $row['edition'];
-                $extent_of_text = $row['extent_of_text'];
-                $illustrations = $row['illustrations'];
-                $dimension = $row['dimension'];
-                $acc_materials = $row['acc_materials'];
-                $series = $row['series'];
-                $supp_content = $row['supp_content'];
-                $ISBN = $row['ISBN'];
-                $content_type = $row['content_type'];
-                $media_type = $row['media_type'];
-                $carrier_type = $row['carrier_type'];
-                $filepath = $row['URL'];
-                $subject_type = $row['subject_type'];
-                $subject_info = $row['subject_info'];
-                $call_number_type = $row['call_number_type'];
-                $call_number_info = $row['call_number_info'];
-                $accession_number = $row['accession_number'];
-                $language = $row['language'];
-                $library_location = $row['library_location'];
-                $electronic_access = $row['electronic_access'];
-                $imagepath = $row['book_image'];
-                $entered_by = $row['entered_by'];
-                $updated_by = $row['updated_by'];
-                $date_entered = $row['date_entered'];
-                $date_updated = $row['date_updated'];
-                $quantity = $row['quantity'];
-                $available = $row['available'];
-                $location = $row['location'];
-                $content_notes = $row['content_notes'];
-                $abstract = $row['abstract'];
-                $review = $row['review'];
-              
-            } else {
-                echo "Book not found!";
-                exit();
-            }
-            } else {
-            echo "Book ID not provided!";
-            exit();
-            }
+if(isset($_GET['id'])) {
+    $accession_number = $_GET['id'];
+
+    // Fetch book details based on ID
+    $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
+    $result = mysqli_query($link, $query);
+    if(mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $title_proper =  $row['title_proper'];
+        $responsibility = $row['responsibility'];
+        $preffered_title = $row['preffered_title'];
+        $parallel_title = $row['parallel_title'];
+        $main_creator = $row['main_creator'];
+        $add_entry_creator = $row['add_entry_creator'];
+        $contributors = $row['contributors'];
+        $add_entry_corporate = $row['add_entry_corporate'];
+        $place_of_publication = $row['place_of_publication'];
+        $publisher = $row['publisher'];
+        $date_of_publication = $row['date_of_publication'];
+        $edition = $row['edition'];
+        $extent_of_text = $row['extent_of_text'];
+        $illustrations = $row['illustrations'];
+        $dimension = $row['dimension'];
+        $acc_materials = $row['acc_materials'];
+        $series = $row['series'];
+        $supp_content = $row['supp_content'];
+        $ISBN = $row['ISBN'];
+        $content_type = $row['content_type'];
+        $media_type = $row['media_type'];
+        $carrier_type = $row['carrier_type'];
+        $filepath = $row['URL'];
+        $subject_type = $row['subject_type'];
+        $subject_info = $row['subject_info'];
+        $call_number_type = $row['call_number_type'];
+        $call_number_info = $row['call_number_info'];
+        $accession_number = $row['accession_number'];
+        $language = $row['language'];
+        $library_location = $row['library_location'];
+        $electronic_access = $row['electronic_access'];
+        $imagepath = $row['book_image'];
+        $entered_by = $row['entered_by'];
+        $updated_by = $row['updated_by'];
+        $date_entered = $row['date_entered'];
+        $date_updated = $row['date_updated'];
+        $quantity = $row['quantity'];
+        $available = $row['available'];
+        $location = $row['location'];
+        $content_notes = $row['content_notes'];
+        $abstract = $row['abstract'];
+        $review = $row['review'];
+    } else {
+        echo "Book not found!";
+        exit();
+    }
+} else {
+    echo "Book ID not provided!";
+    exit();
+}
 ?>
-			
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,21 +78,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBS Library</title>
     <link rel="stylesheet" href="inc/css/progress.css">
+    <style>
+/* Style for tabs */
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center align the buttons */
+    margin-bottom: 20px;
+}
+
+.tab-buttons button:hover{
+    background-color: #666769;
+}
+
+.tab-buttons button {
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px; /* Add some margin between buttons */
+    margin-right: 10px; /* Add space between buttons */
+    background-color: #d52033; /* Default color for inactive buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove border for cleaner look */
+}
+
+.tab-buttons button.active {
+    background-color: #666769; /* Color for active button */
+}
+
+
+    </style>
 </head>
 <body>
-    
-            <div class="container">
-                <header>Add Book Module</header>
+    <div class="container">
+        <form action="update-book-module.php" method="post" enctype="multipart/form-data" id="bookForm">
+            <div class="header-container">
+                <header>Edit Book Module</header>
+                <!-- Save button -->
+                <button type="submit" name="submit" class="editButton">
+                    <i class="fas fa-save"></i> Save
+                </button>
+            </div>
 
-                <form action="#" method="post" enctype="multipart/form-data">
-                <div class="form first">
-                    <div class="details personal">
-                        <span class="title"> BOOK CATALOGUE MODULE</span>
-                        <div class="fields">
-                            <div class="input-field1">
-                                <label>Title Proper</label>
-                                <input type="text" placeholder="Title Proper" name="title_proper" required="" value="<?php echo $row['title_proper']; ?>">
-                            </div>
+            <div class="tab-buttons">
+                <button type="button" onclick="showTab(0)">Book Catalogue</button>
+                <button type="button" onclick="showTab(1)">Publication</button>
+                <button type="button" onclick="showTab(2)">Subject Entry</button>
+                <button type="button" onclick="showTab(3)">Local Information</button>
+                <button type="button" onclick="showTab(4)">Content</button>
+            </div>
+
+            <div class="tab active">
+                <div class="details personal">
+                    <span class="title">BOOK CATALOGUE MODULE</span>
+                    <div class="fields">
+                        <div class="input-field1">
+                            <label>Title Proper</label>
+                            <input type="text" placeholder="Title Proper" name="title_proper" required="" value="<?php echo $row['title_proper']; ?>" id="title_proper">
+                        </div>
 
                             <div class="input-field1">
                                 <label>Responsibility</label>
@@ -134,32 +183,17 @@
                                 <input type="text" placeholder="Added Entry Corporate" name="add_entry_corporate" value="<?php echo $add_entry_corporate; ?>">
 
                             </div>
-
-                            
-                        </div> 
-
-                        <button type="button" class="nextBtn">
-                            <span class="btnText">Next</span>
-                        </button>
-                                                        
                     </div>
                 </div>
+            </div>
 
-                <!-- END FIRST FORM -->
-
- 
-
-                <!-- SECOND FORM -->
-
-                <div class="form second">
-
-                        <div class="details ID">
-                        <span class="title"> PUBLICATION</span>
-                        <div class="fields">
-
-                            <div class="input-field1">
+            <div class="tab">
+                <div class="details ID">
+                    <span class="title">PUBLICATION</span>
+                    <div class="fields">
+                    <div class="input-field1">
                                 <label>Place of Publication</label>
-                                <input type="text" placeholder="Place of Publication" name="place_of_publication" value="<?php echo $place_of_publication; ?>">
+                                <input type="text" placeholder="Place of Publication" name="place_of_publication" value="<?php echo $place_of_publication; ?>" id="place_of_publication">
 
                             </div>
 
@@ -250,34 +284,15 @@
                                 <input type="file" name="file">
                                 <a href="<?php echo $filepath; ?>" target="_blank">View current file</a>
                             </div>
+                    </div>
+                </div>
+            </div>
 
-                            
-                        </div>
-
-                                <div class="buttons">
-                                    <div class="backBtn">
-                                        <span class="btnText">Back</span>
-                                    </div>
-
-                                    <button type="button" class="nextBtn">
-                            <span class="btnText">Next</span>
-                        </button>
-                                </div>
-                        </div>
-
-                       
-            </div> 
-            <!--  SECOND FORM END  -->
-
-            <!-- 3RD  FORM -->
-
-            <div class="form third">
-
-                    <div class="details ID">
-                    <span class="title"> SUBJECT ENTRY</span>
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">SUBJECT ENTRY</span>
                     <div class="fields">
-
-                        <div class="input-field">
+                    <div class="input-field">
                                     <label>Subject</label>
                                     <select name="subject_type">
                                         <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
@@ -289,39 +304,19 @@
                         </div>
                     
                         <div class="input-field1">
-                                    <label>Subject Info</label>
-                        
-                                    <textarea placeholder="Subject info" name="subject_info" >
-                                    <?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?>
-                                    </textarea>
-                        </div>
-                        
-                        
-
+    <label>Subject Info</label>
+    <textarea placeholder="Subject info" name="subject_info"><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
+</div>
                     </div>
-                            <div class="buttons">
-                                <div class="backBtn">
-                                    <span class="btnText">Back</span>
-                                </div>
-
-                                <button type="button" class="nextBtn">
-                            <span class="btnText">Next</span>
-                        </button>
-                            </div>
-                    </div>
-
+                </div>
             </div>
-            <!-- 3rd form end -->
 
-              <!-- FOURTH  FORM -->
-
-              <div class="form fourth">
-
-                <div class="details ID">
-                <span class="title"> LOCAL INFORMATION</span>
-                <div class="fields">
-
-                        <div class="input-field2">
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">LOCAL INFORMATION</span>
+                    <div class="fields">
+                        
+                    <div class="input-field2">
                                         <label>Call Number</label>
                                         <select name="call_number_type">
                                             <option <?php if ($call_number_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
@@ -339,11 +334,16 @@
                                     
                         </div>
 
-                        <div class="input-field1">
-                                <label>Accession Number</label>
-                                <input type="text" placeholder="Accession Number" name="accession_number" value="<?php echo $accession_number; ?>" readonly>
-
-                        </div>
+                        <div class="input-field2">
+        <label>Accession Number</label>
+        <input type="text" placeholder="Accession Number" name="accession_number[]" required value="<?php echo $accession_number; ?>" readonly>
+        <div id="accessionNumberFields"></div>
+    </div>
+    <div class="buttons">
+        <button type="button" onclick="addAccessionNumberField()">
+            <span>Add More</span>
+        </button>
+    </div>
 
                         
                         <div class="input-field2">
@@ -452,32 +452,14 @@
                                 </select>
                         </div>
 
-
-
+                    </div>
                 </div>
-                        <div class="buttons">
-                            <div class="backBtn">
-                                <span class="btnText">Back</span>
-                            </div>
+            </div>
 
-                            <button type="button" class="nextBtn">
-                            <span class="btnText">Next</span>
-                        </button>
-                        </div>
-                </div>
-
-                </div>
-                <!-- fORTH form end -->
-
-                            <!-- Fifth  FORM -->
-
-            <div class="form fifth">
-
-                    <div class="details ID">
-                    <span class="title"> SUBJECT ENTRY</span>
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">Abstracts</span>
                     <div class="fields">
-
-                    
                     <div class="input-field1">
                         <label>Content notes</label>
                         <textarea placeholder="Content Notes" name="content_notes"><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
@@ -492,171 +474,56 @@
                         <label>Review</label>
                         <textarea placeholder="Review" name="review"><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
                     </div>
-
-
-                        
-
                     </div>
-                            <div class="buttons">
-                                <div class="backBtn">
-                                    <span class="btnText">Back</span>
-                                </div>
-
-                                <button name="submit">
-                                    <span >Edit Book</span>
-                                </button>
-                            </div>
-                    </div>
-
+                </div>
             </div>
-            <!-- FIFTH form end -->
+
+        </form>
+    </div>
+
+    <script>
+     
+        let currentTab = 0;
+
+        function showTab(n) {
+            const tabs = document.querySelectorAll('.tab');
+            const buttons = document.querySelectorAll('.tab-buttons button');
+
          
-            </form>
+            // if (document.getElementById('title_proper').value.trim() === '') {
+            //     alert('Title Proper is required.');
+            //     return false;
+            // }
             
-            </div>
+            // Remove active class from the current tab and button
+            tabs[currentTab].classList.remove('active');
+            buttons[currentTab].classList.remove('active');
 
-            <?php
-                if (isset($_POST["submit"])) {
-                    $title_proper = mysqli_real_escape_string($link, $_POST['title_proper']);
-                    $responsibility = mysqli_real_escape_string($link, $_POST['responsibility']);
-                    $preffered_title = mysqli_real_escape_string($link, $_POST['preffered_title']);
-                    $parallel_title = mysqli_real_escape_string($link, $_POST['parallel_title']);
-                    $main_creator = mysqli_real_escape_string($link, $_POST['main_creator']);
-                    $add_entry_creator = mysqli_real_escape_string($link, $_POST['add_entry_creator']);
-                    $contributors = mysqli_real_escape_string($link, $_POST['contributors']);
-                    $add_entry_corporate = mysqli_real_escape_string($link, $_POST['add_entry_corporate']);
-                    $place_of_publication = mysqli_real_escape_string($link, $_POST['place_of_publication']);
-                    $publisher = mysqli_real_escape_string($link, $_POST['publisher']);
-                    $date_of_publication = mysqli_real_escape_string($link, $_POST['date_of_publication']);
-                    $edition = mysqli_real_escape_string($link, $_POST['edition']);
-                    $extent_of_text = mysqli_real_escape_string($link, $_POST['extent_of_text']);
-                    $illustrations = mysqli_real_escape_string($link, $_POST['illustrations']);
-                    $dimension = mysqli_real_escape_string($link, $_POST['dimension']);
-                    $acc_materials = mysqli_real_escape_string($link, $_POST['acc_materials']);
-                    $series = mysqli_real_escape_string($link, $_POST['series']);
-                    $supp_content = mysqli_real_escape_string($link, $_POST['supp_content']);
-                    $ISBN = mysqli_real_escape_string($link, $_POST['ISBN']);
-                    $content_type = mysqli_real_escape_string($link, $_POST['content_type']);
-                    $media_type = mysqli_real_escape_string($link, $_POST['media_type']);
-                    $carrier_type = mysqli_real_escape_string($link, $_POST['carrier_type']);
-                    $subject_type = mysqli_real_escape_string($link, $_POST['subject_type']);
-                    $subject_info = mysqli_real_escape_string($link, $_POST['subject_info']);
-                    $call_number_type = mysqli_real_escape_string($link, $_POST['call_number_type']);
-                    $call_number_info = mysqli_real_escape_string($link, $_POST['call_number_info']);
-                    $accession_number = mysqli_real_escape_string($link, $_POST['accession_number']);
-                    $language = mysqli_real_escape_string($link, $_POST['language']);
-                    $library_location = mysqli_real_escape_string($link, $_POST['library_location']);
-                    $electronic_access = mysqli_real_escape_string($link, $_POST['electronic_access']);
-                    $entered_by = mysqli_real_escape_string($link, $_POST['entered_by']);
-                    $updated_by = mysqli_real_escape_string($link, $_POST['updated_by']);
-                    $date_entered = mysqli_real_escape_string($link, $_POST['date_entered']);
-                    $date_updated = mysqli_real_escape_string($link, $_POST['date_updated']);
-                    $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
-                    $available = mysqli_real_escape_string($link, $_POST['available']);
-                    $location = mysqli_real_escape_string($link, $_POST['location']);
-                    $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
-                    $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
-                    $review = mysqli_real_escape_string($link, $_POST['review']);
-                
-                    // Handle image upload
-                    if ($_FILES['f1']['name'] != "") {
-                        $image_name = $_FILES['f1']['name'];
-                        $temp = explode(".", $image_name);
-                        $newfilename = round(microtime(true)) . '.' . end($temp);
-                        $imagepath = "books-image/" . $newfilename;
-                        move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
-                        $imagepath_update = ", book_image='$imagepath'";
-                    } else {
-                        $imagepath_update = "";
-                    }
-                
-                    // Handle file upload
-                    if ($_FILES['file']['name'] != "") {
-                        $file_name = $_FILES['file']['name'];
-                        $temp2 = explode(".", $file_name);
-                        $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-                        $filepath = "books-file/" . $newfilename2;
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
-                        $filepath_update = ", URL='$filepath'";
-                    } else {
-                        $filepath_update = "";
-                    }
-                
-                    // Update book details in database
-                    $query = "UPDATE book_module SET 
-                        title_proper='$title_proper', 
-                        responsibility='$responsibility', 
-                        preffered_title='$preffered_title', 
-                        parallel_title='$parallel_title', 
-                        main_creator='$main_creator', 
-                        add_entry_creator='$add_entry_creator', 
-                        contributors='$contributors', 
-                        add_entry_corporate='$add_entry_corporate', 
-                        place_of_publication='$place_of_publication', 
-                        publisher='$publisher', 
-                        date_of_publication='$date_of_publication', 
-                        edition='$edition', 
-                        extent_of_text='$extent_of_text', 
-                        illustrations='$illustrations', 
-                        dimension='$dimension', 
-                        acc_materials='$acc_materials', 
-                        series='$series', 
-                        supp_content='$supp_content', 
-                        ISBN='$ISBN', 
-                        content_type='$content_type', 
-                        media_type='$media_type', 
-                        carrier_type='$carrier_type', 
-                        subject_type='$subject_type', 
-                        subject_info='$subject_info', 
-                        call_number_type='$call_number_type', 
-                        call_number_info='$call_number_info', 
-                        accession_number='$accession_number', 
-                        language='$language', 
-                        library_location='$library_location', 
-                        electronic_access='$electronic_access', 
-                        entered_by='$entered_by', 
-                        updated_by='$updated_by', 
-                        date_entered='$date_entered', 
-                        date_updated='$date_updated', 
-                        quantity='$quantity', 
-                        available='$available', 
-                        location='$location', 
-                        content_notes='$content_notes', 
-                        abstract='$abstract', 
-                        review='$review' 
-                        $imagepath_update 
-                        $filepath_update 
-                        WHERE accession_number=$accession_number";
-                
-                    $result = mysqli_query($link, $query);
-                
-                    if ($result) {
-                        $_SESSION['success_message'] = "Book updated successfully";
-                        echo "<script>window.location.href = 'display-book-module.php'; alert('Success to update book');
-                       
-                        </script>";
-                        exit();
-                      
-                       
-                    } else {
-                        
-                        echo "<script>alert('Failed to update book');</script>";
-                        echo "<p>Error updating book. Please try again.</p>";
-                    }
-                }
-                
-            ?>
+            // Set new current tab
+            currentTab = n;
 
+            // Add active class to the new current tab and button
+            tabs[currentTab].classList.add('active');
+            buttons[currentTab].classList.add('active');
+        }
 
+        // Set the initial active button and tab on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.tab')[currentTab].classList.add('active');
+            document.querySelectorAll('.tab-buttons button')[currentTab].classList.add('active');
+        });
+    </script>
 
-
-
-    
-    <?php 
-		include 'inc/footer.php';
-	 ?>
-			
- <script src="inc/js/progress.js"></script>
-
+<script>
+    function addAccessionNumberField() {
+        var div = document.createElement('div');
+        div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
+        document.getElementById('accessionNumberFields').appendChild(div);
+    }
+</script>
 </body>
 </html>
+
+
+
+

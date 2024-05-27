@@ -21,6 +21,32 @@ include 'inc/connection.php';
         </div>
     </div>
 
+    
+    <div class="col-md-10" style="">
+            <div class="row text-center align-items-center"> <!-- Added align-items-center for vertical alignment -->
+                <div class="col-md-1 p-0">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
+                </div>
+                <div class="col-md-2 p-0">
+                    <input type="date" id="start_date" class="form-control custom" placeholder="Start Date"  >
+                </div>
+                
+                <div class="col-md-1 p-0">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+                </div>
+            
+                <div class="col-md-2 p-0">
+                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
+                </div>
+                
+                <div class="col-md-1 p-0">
+                    <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gap-30"></div>
+
     <!-- Display Success or Error Messages -->
     <?php
     if (!empty($_SESSION['success_message'])) {
@@ -43,19 +69,19 @@ include 'inc/connection.php';
             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                 <thead>
                     <tr>
-                        <th>ID Number</th>
-                        <th>Name</th>
-                        <th>User Type</th>
-                        <th>Email</th>
-                        <th>Accession Number</th>
-                        <th>Books Name</th>
-                        <th>Date Issued</th>
-                        <th>Date Due</th>
-                        <th>Date Returned</th>
+                        <th class="text-center">ID Number</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">User Type</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Accession Number</th>
+                        <th class="text-center">Books Name</th>
+                        <th class="text-center">Date Issued</th>
+                        <th class="text-center">Date Due</th>
+                        <th class="text-center">Date Returned</th>
                         <th>Amount</th>
-                        <th>Remarks</th>
-                        <th>Paid</th>
-                        <th>Action</th>
+                        <th class="text-center">Remarks</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Action</th>
 
                         <th>Delete</th>
                     </tr>
@@ -170,33 +196,38 @@ include 'inc/connection.php';
         buttons: [
                 {
                     extend: 'copy',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from copying
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]   
                     }
                 },
                 {
                     extend: 'csv',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from CSV
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]    
                     }
                 },
                 {
                     extend: 'excel',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from Excel
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  
                     }
                 },
                 {
                     extend: 'pdfHtml5',
+                    filename: 'return-fine',
                     orientation: 'landscape', // Set orientation to landscape
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from PDF
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]   
                     }
                 },
                 {
                     extend: 'print',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from printing
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  
                     }
                 }
             ],
@@ -298,6 +329,33 @@ include 'inc/connection.php';
             }
         });
     });
+</script>
+
+<script>
+function filterByDateRange() {
+    var startDate = document.getElementById("start_date").value;
+    var endDate = document.getElementById("end_date").value;
+    var tableRows = document.querySelectorAll("#dtBasicExample tbody tr");
+
+    tableRows.forEach(function(row) {
+        var returnedDate = row.cells[8].textContent; // Assuming the date returned is in the 9th cell, adjust index accordingly
+        var dateReturned = new Date(returnedDate);
+        var start = new Date(startDate);
+        var end = new Date(endDate);
+
+        // Adjust end date to include the entire end day
+        end.setDate(end.getDate() + 1);
+
+        // If start date is empty or the returned date is within the date range
+        if ((startDate === "" || dateReturned >= start) && (endDate === "" || dateReturned < end)) {
+            row.style.display = ""; // Show the row
+        } else {
+            row.style.display = "none"; // Hide the row
+        }
+    });
+}
+
+    
 </script>
 
 <?php include 'inc/footer.php'; ?>

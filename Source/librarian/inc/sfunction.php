@@ -17,7 +17,7 @@
             } else {
                 $sql_u = mysqli_query($link, "SELECT * FROM student WHERE student_number= '$student_number'");
                 $sql_e = mysqli_query($link, "SELECT * FROM student WHERE email= '$email'");
-                $sql2_e = mysqli_query($link, "SELECT * FROM t_registration WHERE email= '$email'");
+                $sql2_e = mysqli_query($link, "SELECT * FROM teacher WHERE email= '$email'");
     
                 if (mysqli_num_rows($sql_u) > 0) {
                     $error_uname = "Student number already exists";

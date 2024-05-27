@@ -413,4 +413,9 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 
 
 
+/* MAKE TABLE STRETCH */
+.table {
+    table-layout: auto !important;
+    width: 100% !important;
+}
 
