@@ -6,7 +6,6 @@ $not= mysqli_num_rows($res);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -23,13 +22,7 @@ $not= mysqli_num_rows($res);
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
 
-
-
-
-
-
 </head>
-
 <body>
     <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
@@ -80,11 +73,7 @@ $not= mysqli_num_rows($res);
 			   		?>
                             
             			</h6>
-                        
 				
-						
-					
-					
                     </li>
                     <br>
                     <li class="sidebar-header">
@@ -116,15 +105,14 @@ $not= mysqli_num_rows($res);
                         </ul>
                     </li>
 
-					<li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+					<li class="sidebar-item <?php if($page=='issue-book'){ echo 'active';} ?>">
                         <a href="my-issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
-
                             My issue book
                         </a>
                     </li>
 
-                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='finezone'){ echo 'active';} ?>">
                         <a href="finezone.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
@@ -175,6 +163,9 @@ $not= mysqli_num_rows($res);
                             Request Book
                         </a>
                     </li>
+                    <div class="sidebar-footer">
+                       
+                    </div>
 
                 
                 </ul>

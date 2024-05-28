@@ -155,10 +155,50 @@ function filterByDateRange() {
 
 
 <script>
-    $(document).ready(function () {
-        $('#dtBasicExample').DataTable();
-        $('.dataTables_length').addClass('bs-select');
+         $(document).ready(function () {
+            $('#dtBasicExample').DataTable({
+                dom: '<html5buttons"B>1Tfgitp',
+        buttons: [
+            {
+                extend: 'copy',
+                filename: 'return-books',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]                
+                }
+            },
+            {
+                extend: 'csv',
+                filename: 'return-books',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]                
+                }
+            },
+            {
+                extend: 'excel',
+                filename: 'return-books',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]               
+                 }
+            },
+            {
+                extend: 'pdf',
+                filename: 'return-books',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]               
+                 }
+            },
+            {
+                extend: 'print',
+                filename: 'return-books',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]               
+                 }
+            },
+            
+        ],
+        "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
     });
+        });
 </script>
 
 <?php 

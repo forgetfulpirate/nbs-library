@@ -80,7 +80,7 @@ include 'inc/connection.php';
                         <th class="text-center">Date Returned</th>
                         <th>Amount</th>
                         <th class="text-center">Remarks</th>
-                        <th class="text-center"> Paid</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
 
                         <th>Delete</th>
@@ -196,33 +196,38 @@ include 'inc/connection.php';
         buttons: [
                 {
                     extend: 'copy',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from copying
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]   
                     }
                 },
                 {
                     extend: 'csv',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from CSV
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]    
                     }
                 },
                 {
                     extend: 'excel',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from Excel
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  
                     }
                 },
                 {
                     extend: 'pdfHtml5',
+                    filename: 'return-fine',
                     orientation: 'landscape', // Set orientation to landscape
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from PDF
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]   
                     }
                 },
                 {
                     extend: 'print',
+                    filename: 'return-fine',
                     exportOptions: {
-                        columns: ':not(:last-child)' // Exclude last column from printing
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]  
                     }
                 }
             ],
@@ -326,9 +331,8 @@ include 'inc/connection.php';
     });
 </script>
 
-
 <script>
- function filterByDateRange() {
+function filterByDateRange() {
     var startDate = document.getElementById("start_date").value;
     var endDate = document.getElementById("end_date").value;
     var tableRows = document.querySelectorAll("#dtBasicExample tbody tr");
@@ -338,11 +342,12 @@ include 'inc/connection.php';
         var dateReturned = new Date(returnedDate);
         var start = new Date(startDate);
         var end = new Date(endDate);
-        var today = new Date(); // Get today's date
 
-        // If start date is empty or the returned date is today or later
-        // and end date is empty or the returned date is today or earlier
-        if ((dateReturned >= start || !startDate) && (dateReturned <= end || !endDate) && dateReturned.toDateString() === today.toDateString()) {
+        // Adjust end date to include the entire end day
+        end.setDate(end.getDate() + 1);
+
+        // If start date is empty or the returned date is within the date range
+        if ((startDate === "" || dateReturned >= start) && (endDate === "" || dateReturned < end)) {
             row.style.display = ""; // Show the row
         } else {
             row.style.display = "none"; // Hide the row

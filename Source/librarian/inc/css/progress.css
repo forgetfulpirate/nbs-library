@@ -16,9 +16,9 @@ body{
 .container{
  
     position: relative;
-    max-width: 900px;
+    max-width: auto;
     width: 100%;
-    height: 1200px;
+    height: auto;
     background-color: #fff;
     border-radius: 6px;
     padding: 30px;
@@ -42,7 +42,7 @@ body{
     height: 3px;
     width: 27px;
     border-radius: 8px;
-    background-color: #4070f4;
+    background-color: #248fc5;
 }
 
 .container header{
@@ -302,11 +302,12 @@ form .fields .input-field1{
     border: none;
     outline: none;
     color: white;
-    background-color: #4070f4;
+    background-color: #d52033;
     border-radius: 5px;
     margin: 25px 0;
     transition: all 0.3s linear;
     cursor: pointer;
+    margin-right:20px;
 }
 
 .form button:hover{
@@ -326,3 +327,15 @@ form .buttons button, .backBtn{
 
 
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin: 0px;
+   
+}
+
+.header-container header {
+    margin: 0; /* Reset margin for the header */
+}
