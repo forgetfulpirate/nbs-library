@@ -8,7 +8,7 @@
             </script>
         <?php
     }
-    $page = 'bmodule';
+    $page = 'manage-book';
     include 'inc/connection.php';
     include 'inc/header.php';
 
@@ -22,20 +22,6 @@
             
             
             <main class="content px-3 py-2">
-            <div class="gap-30"></div>
-                <div class="container-fluid">
-				<div class="mb-3">
-          
-                        <h4>Manage Book 
-                        <p id="time"></p>
-                          
-                            <p id="date"></p>
-                        </h4>
-                           
-             
-                 </div>
-            </div>
-            <br>
                  
              <?php
                 if (!empty($_SESSION['success_message'])) {
@@ -63,17 +49,16 @@
                                 <thead>
                                     <tr >
                               
-                                    <th class="col">Books image</th>
                                     <th class="col">Accession Number</th>
                                     <th class="col">Book name</th>
+                                    <th class="col">ISBN</th>
+                                    <th class="col">Call Number</th>
                                     <th class="col">Place of Publication</th>
                                     <th class="col">Publisher</th>
                                     <th class="col">Books quantity</th>
-                                    <th class="col">Books availability</th>
+                                    <th class="col">Location</th>
                                     <th class="col">Remarks</th>
-                                    <th class="col">View</th>
-                                    <th class="col">Edit</th>
-                                    <th class="col">Delete</th>
+                          
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -81,12 +66,18 @@
                                 $res = mysqli_query($link, "select * from book_module");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo "<tr>";
-                                    echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt=""> <?php echo "</td>";
+                              
                                     echo "<td>";                            
                                     echo $row["accession_number"];
                                     echo "</td>";
                                     echo "<td>";                            
                                     echo $row["title_proper"];
+                                    echo "</td>";
+                                    echo "<td>";                            
+                                    echo $row["ISBN"];
+                                    echo "</td>";
+                                    echo "<td>";                            
+                                    echo $row["call_number_info"];
                                     echo "</td>";
                                     echo "<td>";
                                     echo $row["place_of_publication"];
@@ -98,29 +89,15 @@
                                     echo "<td>";
                                     echo $row["quantity"];
                                     echo "</td>";
+
                                     echo "<td>";
-                                    echo $row["available"];
+                                    echo $row["location"];
                                     echo "</td>";
-                                    echo "<td><a href='#' class='editRemarksLink' data-accession_number='" . $row["accession_number"] . "' data-remarks='" . htmlspecialchars($row["remarks"], ENT_QUOTES) . "'>" . ($row["remarks"] ? $row["remarks"] : "n/a") . "</a></td>";
+                               
                                     echo "<td>";
-                                    ?>
-                                    <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
-                                    
+                                    echo $row["remarks"];
                                     echo "</td>";
-                                     echo "<td>";
-                                    ?>
-                          
-                                    <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["accession_number"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
-                                    
-                                    echo "</td>";   echo "</td>";
-                                    echo "<td>";
-                                   ?>
-                                   <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
-                                   
-                                   echo "</td>";
-                                                
-                                    
-                                    echo "</tr>";
+
                                 }
                                  ?>
                                 </tbody>
