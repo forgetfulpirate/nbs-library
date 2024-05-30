@@ -36,32 +36,36 @@ $not= mysqli_num_rows($res);
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
             
-                        <span>
+                    <span>
                         <?php
-                          $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-						
-						  while ($row = mysqli_fetch_array($res)){
-							  ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"></a> <?php
-						  }
-
+        
 						  $res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
 
 						  while ($row1 = mysqli_fetch_array($res1)){
-							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"> </a> <?php
+							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
 						  }
                         ?>
-                        
-                        </span>
+						<h6 style="float: right; margin-top: 10px; color:black;">
+						
+						Welcome
 
-                        <h6 style="float: right; margin-top: 10px;">
-						<?php
-					
-					    $res = mysqli_query($link, "select * from std_registration where username='".$_SESSION['student']."'");
-					    while ($row = mysqli_fetch_array($res)){
-						?><?php echo $row["name"]; ?><?php
+
+			   		<?php
+		   
+					$res1 = mysqli_query($link, "select * from student where student_number='".$_SESSION['student']."'");
+				   
+					while ($row = mysqli_fetch_array($res1)){
+						?><?php echo $row["user_type"]; ?><span>,</span><?php
 					}
-			   ?>
+			   		?>
+                            
+            			</h6>
+                        <br><br>
+                        </span>
+                        
 
+                        <h6 style="float:inline-end; margin-top: 1px; font-weight:normal;">
+				
 
 			   		<?php
 		   
@@ -73,6 +77,7 @@ $not= mysqli_num_rows($res);
 			   		?>
                             
             			</h6>
+                        
 				
                     </li>
                     <br>
@@ -120,13 +125,7 @@ $not= mysqli_num_rows($res);
                         </a>
                     </li>
                 
-                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
-                        <a href="books.php" class="sidebar-link">
-                         <i class="fa-solid fa-book pe-2"></i>
-
-                            Books
-                        </a>
-                    </li>
+    
 
                     <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
                                 <a href="ebooks.php" class="sidebar-link">

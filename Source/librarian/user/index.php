@@ -19,52 +19,7 @@
 	<link rel="stylesheet" href="dist/css/animate.css">
 	<link rel="stylesheet" href="dist/css/main.css">
 	<style>
-        /* Style for floating email icon */
-        .floating-email {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #d52033;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 65px; /* Center icon vertically */
-            cursor: pointer;
-            z-index: 1000;
-        }
 
-        .email-form-popup {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        /* Add animation to form popup */
-        @keyframes slideIn {
-            from {
-                bottom: -200px;
-            }
-            to {
-                bottom: 90px;
-            }
-        }
-		.email-form-popup.show {
-            animation: slideIn 0.3s forwards;
-        }
-
-        /* Style for feedback message */
-        #feedbackMessage {
-            color: green; /* Change the color to green or success */
-        }
 
 	
 
@@ -122,103 +77,27 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="item" style="background-image:url(dist/img/lib3.jpg);">
-				<div class="overlay"></div>
-				<div class="text">
-					<div class="this-item">
-						<h2>welcome to our library</h2>
-					</div>
-					<div class="this-item">
-						<h3>We stand behind your success</h3>
-					</div>
-					<div class="this-item">
-                        <p><a href="student/registration.php">student registration</a></p>
-                        <p><a href="teacher/registration.php">teacher registration</a></p>
-					</div>
-				</div>
-			</div> -->
-			<!-- <div class="item" style="background-image:url(dist/img/5.jpg);">
-				<div class="overlay"></div>
-				<div class="text">
-					<div class="this-item">
-						<h2>welcome to our library</h2>
-					</div>
-					<div class="this-item">
-						<h3>We stand behind your success</h3>
-					</div>
-					<div class="this-item">
-                        <p><a href="student/registration.php">student registration</a></p>
-                        <p><a href="teacher/registration.php">teacher registration</a></p>
-					</div>
-				</div>
-			</div>
-			<div class="item" style="background-image:url(dist/img/6.jpg);">
-				<div class="overlay"></div>
-				<div class="text">
-					<div class="this-item">
-						<h2>welcome to our library</h2>
-					</div>
-					<div class="this-item">
-						<h3>We stand behind your success</h3>
-					</div>
-					<div class="this-item">
-                        <p><a href="student/registration.php">student registration</a></p>
-                        <p><a href="teacher/registration.php">teacher registration</a></p>
-					</div>
-				</div>
-			</div> -->
+
 		</div>		
 	</div>
 
-	<div class="footer text-center">
-		<p>&copy; All rights reserved NBS College</p>
-	</div>			
-   <!-- Email form popup -->
-   <div class="email-form-popup" id="emailFormPopup">
-        <form id="feedbackForm" action="script.php" method="post">
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <label for="subject">Subject:</label><br>
-            <input type="text" id="subject" name="subject"><br>
-            <label for="details">Details:</label><br>
-            <textarea id="details" name="details" rows="4" cols="50"></textarea><br><br>
-            <input type="submit" value="Submit">
-        </form>
+	<footer style="text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="dist/img/NBS-LOGO.png" alt="Telephone and Fax" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 10px; margin:0;">
+        <div style="text-align: left;">
+            <p style="margin: 0; font-size:small;">NBS College Library, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon</p>
+            <p style="margin: 0; font-size:small;">Tel. (xxx) xxx-xxx; Cp No. (63+) xxx-xxx-xxx</p>
+            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
+        </div>
+    </div>
+  
+    <br>
+    
+</footer>
+
 
 		
-		<div id="feedbackMessage"></div>
-    </div>
-    
-    <!-- Floating email icon -->
-    <div class="floating-email" onclick="toggleFormPopup()">
-        <i class="fas fa-envelope" style="font-size: 24px;"></i>
-    </div>
 
-
-    <!-- Script to toggle form popup and handle form submission -->
-    <script src="dist/js/jquery-2.2.4.min.js"></script>
-    <script>
-        // Function to show/hide form popup
-        function toggleFormPopup() {
-            var formPopup = document.getElementById('emailFormPopup');
-            formPopup.style.display = formPopup.style.display === 'none' ? 'block' : 'none';
-        }
-
-        $(document).ready(function(){
-            $('#feedbackForm').submit(function(e){
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: 'script.php',
-                    data: $('#feedbackForm').serialize(),
-                    success: function(response){
-                        $('#feedbackMessage').html(response);
-                        $('#feedbackForm')[0].reset();
-                    }
-                });
-            });
-        });
-    </script>
 	
 
 	<script src="dist/js/jquery-2.2.4.min.js"></script>

@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (!isset($_SESSION["username"])) {
+    if (!isset($_SESSION["teacher"])) {
 ?>
         <script type="text/javascript">
             window.location="login.php";
@@ -97,7 +97,7 @@
                 <div class="content active">
                     <div class="image-container">
                         <?php if(!empty($imagepath)): ?>
-                            <img src="<?php echo $imagepath; ?>">
+                            <img src="../../<?php echo $imagepath; ?>">
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
@@ -146,7 +146,7 @@
                             <?php endif; ?>
 
                             <?php if(!empty($illustrations)): ?>
-                                <span class="sub">ill:</span>
+                                <span class="sub">Illustration:</span>
                                 <span class="normal-value" style="color:gray"><?php echo $illustrations; ?></span>
                             <?php endif; ?>
 
@@ -174,7 +174,6 @@
                             <span class="normal-value" style="color:gray"><?php echo $ISBN?></span>
                         <?php endif; ?>
                     </div>
-                    
                     <div class="normal-view">
                         <?php if(!empty($subject_info)): ?>
                             <span  class="sub">Subjects:</span>
@@ -183,7 +182,7 @@
                     </div>
                     <div class="normal-view">
                         <?php if(!empty($call_number_info)): ?>
-                            <span  class="sub">Call Number:</span>
+                            <span  class="sub">DDC classification:</span>
                             <span class="normal-value" style="color:gray"><?php echo $call_number_info?></span>
                         <?php endif; ?>
                     </div>

@@ -52,10 +52,9 @@ require 'PHPMailer/src/SMTP.php';
     
         // Send email using sendMail function from config.php
         $result = sendMail($email, $subject, $details);
-    
         if ($result === 'success') {
-            echo "Email sent successfully!";
+            echo '<span style="color: green;">Email sent successfully!</span>';
         } else {
-            echo "Email could not be sent. Error: " . $result;
+            echo '<span style="color: red;">Email could not be sent. Error: ' . $result . '</span>';
         }
     }

@@ -47,28 +47,25 @@
 
     </div>
 
-    <div class="col-md-12" style="">
-            <div class="row text-center align-items-center"> <!-- Added align-items-center for vertical alignment -->
-                <div class="col-md-1 p-0">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
-                </div>
-                <div class="col-md-2 p-0">
-                    <input type="date" id="start_date" class="form-control custom" placeholder="Start Date"  >
-                </div>
-                
-                <div class="col-md-1 p-0">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
-                </div>
-            
-                <div class="col-md-2 p-0">
-                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
-                </div>
-                
-                <div class="col-md-1 p-0">
-                    <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
-                </div>
-            </div>
+    <div class="col-md-12">
+    <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
+        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
+            <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
         </div>
+        <div class="col-md-2 p-2" style="width:200px;"> <!-- Adjusted padding to add more space -->
+            <input type="date" id="start_date" class="form-control custom" placeholder="Start Date">
+        </div>
+        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
+            <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+        </div>
+        <div class="col-md-2 p-2" style="width:200px;"> <!-- Adjusted padding to add more space -->
+            <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date" style=""> 
+        </div>
+        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
+            <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
+        </div>
+    </div>
+</div>
         
         <div class="gap-30"></div>
 
