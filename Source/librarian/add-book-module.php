@@ -67,7 +67,7 @@ include 'inc/connection.php';
 <div class="container">
    
 
-    <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()" >
     <div class="header-container">
                 <header>Edit Book Module</header>
                 <!-- Save button -->
@@ -415,130 +415,100 @@ include 'inc/connection.php';
 </div>
 
 <?php
-if (isset($_POST["submit"])) {
-  
-  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collecting data from form
+    $titleProper = $_POST['title_proper'];
+    $responsibility = $_POST['responsibility'];
+    $preferredTitle = $_POST['preferred_title'];
+    $parallelTitle = $_POST['parallel_title'];
+    $mainCreator = $_POST['main_creator'];
+    $addEntryCreator = $_POST['add_entry_creator'];
+    $contributors = $_POST['contributors'];
+    $addEntryCorporate = $_POST['add_entry_corporate'];
 
-    foreach ($_POST['accession_number'] as $accession_number) {
-        // Check if the accession number already exists
-        $query = "SELECT COUNT(*) AS count FROM book_module WHERE accession_number = '$accession_number'";
-        $result = mysqli_query($link, $query);
-        $row = mysqli_fetch_assoc($result);
-        $count = $row['count'];
+    $placeOfPublication = $_POST['place_of_publication'];
+    $publisher = $_POST['publisher'];
+    $dateOfPublication = $_POST['date_of_publication'];
+    $edition = $_POST['edition'];
+    $extentOfText = $_POST['extent_of_text'];
+    $illustrations = $_POST['illustrations'];
+    $dimension = $_POST['dimension'];
+    $accMaterials = $_POST['acc_materials'];
+    $series = $_POST['series'];
+    $suppContent = $_POST['supp_content'];
+    $ISBN = $_POST['ISBN'];
+    $contentType = $_POST['content_type'];
+    $mediaType = $_POST['media_type'];
+    $carrierType = $_POST['carrier_type'];
+    $filePath = "";
 
-        if ($count > 0) {
-            // If accession number already exists, alert the user
-            echo "<script>alert('Accession number $accession_number already exists.');</script>";
-          
-        } else {
-            // If accession number is unique, proceed with insertion
-            $image_name = $_FILES['f1']['name'];
-            $file_name = $_FILES['file']['name'];
-            $temp = explode(".", $image_name);
-            $temp2 = explode(".", $file_name);
-            $newfilename = round(microtime(true)) . '.' . end($temp);
-            $newfilename2 = round(microtime(true)) . '.' . end($temp2);
-            $imagepath = "books-image/" . $newfilename;
-            $filepath = "books-file/" . $newfilename2;
-            move_uploaded_file($_FILES["f1"]["tmp_name"], $imagepath);
-            move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
-            // Escape the values to prevent SQL injection
-            $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
-            $title_proper = mysqli_real_escape_string($link, $_POST['title_proper']);
-            $responsibility = mysqli_real_escape_string($link, $_POST['responsibility']);
-            $preffered_title = mysqli_real_escape_string($link, $_POST['preffered_title']);
-            $parallel_title = mysqli_real_escape_string($link, $_POST['parallel_title']);
-            $main_creator = mysqli_real_escape_string($link, $_POST['main_creator']);
-            $add_entry_creator = mysqli_real_escape_string($link, $_POST['add_entry_creator']);
-            $contributors = mysqli_real_escape_string($link, $_POST['contributors']);
-            $add_entry_corporate = mysqli_real_escape_string($link, $_POST['add_entry_corporate']);
-            $place_of_publication = mysqli_real_escape_string($link, $_POST['place_of_publication']);
-            $publisher = mysqli_real_escape_string($link, $_POST['publisher']);
-            $date_of_publication = mysqli_real_escape_string($link, $_POST['date_of_publication']);
-            $edition = mysqli_real_escape_string($link, $_POST['edition']);
-            $extent_of_text = mysqli_real_escape_string($link, $_POST['extent_of_text']);
-            $illustrations = mysqli_real_escape_string($link, $_POST['illustrations']);
-            $dimension = mysqli_real_escape_string($link, $_POST['dimension']);
-            $acc_materials = mysqli_real_escape_string($link, $_POST['acc_materials']);
-            $series = mysqli_real_escape_string($link, $_POST['series']);
-            $supp_content = mysqli_real_escape_string($link, $_POST['supp_content']);
-            $ISBN = mysqli_real_escape_string($link, $_POST['ISBN']);
-            $content_type = mysqli_real_escape_string($link, $_POST['content_type']);
-            $media_type = mysqli_real_escape_string($link, $_POST['media_type']);
-            $carrier_type = mysqli_real_escape_string($link, $_POST['carrier_type']);
-            $subject_type = mysqli_real_escape_string($link, $_POST['subject_type']);
-            $subject_info = mysqli_real_escape_string($link, $_POST['subject_info']);
-            $call_number_type = mysqli_real_escape_string($link, $_POST['call_number_type']);
-            $call_number_info = mysqli_real_escape_string($link, $_POST['call_number_info']);
-            $language = mysqli_real_escape_string($link, $_POST['language']);
-            $library_location = mysqli_real_escape_string($link, $_POST['library_location']);
-            $electronic_access = mysqli_real_escape_string($link, $_POST['electronic_access']);
-            $entered_by = mysqli_real_escape_string($link, $_POST['entered_by']);
-            $updated_by = mysqli_real_escape_string($link, $_POST['updated_by']);
-            $date_entered = mysqli_real_escape_string($link, $_POST['date_entered']);
-            $date_updated = mysqli_real_escape_string($link, $_POST['date_updated']);
-            $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
-            $available = mysqli_real_escape_string($link, $_POST['available']);
-            $location = mysqli_real_escape_string($link, $_POST['location']);
-            $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
-            $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
-            $review = mysqli_real_escape_string($link, $_POST['review']);
-            
-      
-            mysqli_query($link, "INSERT INTO book_module VALUES (
-                '$escaped_accession_number',
-                '$title_proper',
-                '$responsibility',
-                '$preffered_title',
-                '$parallel_title',
-                '$main_creator',
-                '$add_entry_creator',
-                '$contributors',
-                '$add_entry_corporate',
-                '$place_of_publication',
-                '$publisher',
-                '$date_of_publication',
-                '$edition',
-                '$extent_of_text',
-                '$illustrations',
-                '$dimension',
-                '$acc_materials',
-                '$series',
-                '$supp_content',
-                '$ISBN',
-                '$content_type',
-                '$media_type',
-                '$carrier_type',
-                '$filepath',
-                '$subject_type',
-                '$subject_info',
-                '$call_number_type',
-                '$call_number_info',
-                '$language',
-                '$library_location',
-                '$electronic_access',
-                '$imagepath',
-                '$entered_by',
-                '$updated_by',
-                '$date_entered',
-                '$date_updated',
-                '$quantity',
-                '$available',
-                '$location',
-                '$content_notes',
-                '$abstract',
-                '$review','')"
-                
-            );
-          
-            $_SESSION['success_message'] = "Book added Successfully!";
-            echo '<script type="text/javascript">alert("Book Add Successfull");window.location="display-book-module.php";</script>';
-          
-         
-
-        }
+    if ($_FILES['file']['name']) {
+        $filePath = 'uploads/' . $_FILES['file']['name'];
+        move_uploaded_file($_FILES['file']['tmp_name'], $filePath);
     }
-  
+
+    $subjectType = $_POST['subject_type'];
+    $subjectInfo = $_POST['subject_info'];
+
+    $callNumberType = $_POST['call_number_type'];
+    $callNumberInfo = $_POST['call_number_info'];
+    $accessionNumber = $_POST['accession_number'];
+    $language = $_POST['language'];
+    $libraryLocation = $_POST['library_location'];
+    $electronicAccess = $_POST['electronic_access'];
+    $coverImagePath = "";
+
+    if ($_FILES['cover_image']['name']) {
+        $coverImagePath = 'uploads/' . $_FILES['cover_image']['name'];
+        move_uploaded_file($_FILES['cover_image']['tmp_name'], $coverImagePath);
+    }
+
+    $enteredBy = $_POST['entered_by'];
+    $updatedBy = $_POST['updated_by'];
+    $dateEntered = $_POST['date_entered'];
+    $dateUpdated = $_POST['date_updated'];
+    $quantity = $_POST['quantity'];
+    $available = $_POST['available'];
+    $location = $_POST['location'];
+
+    $contentNotes = $_POST['content_notes'];
+    $abstract = $_POST['abstract'];
+    $review = $_POST['review'];
+
+    // Inserting data into book_catalogue
+    $sql1 = "INSERT INTO book_catalogue (title_proper, responsibility, preferred_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate)
+             VALUES ('$titleProper', '$responsibility', '$preferredTitle', '$parallelTitle', '$mainCreator', '$addEntryCreator', '$contributors', '$addEntryCorporate')";
+
+    if ($conn->query($sql1) === TRUE) {
+        $book_id = $conn->insert_id; // Get the last inserted ID to use as foreign key
+
+        // Inserting data into publication
+        $sql2 = "INSERT INTO publication (book_id, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, file_path)
+                 VALUES ('$book_id', '$placeOfPublication', '$publisher', '$dateOfPublication', '$edition', '$extentOfText', '$illustrations', '$dimension', '$accMaterials', '$series', '$suppContent', '$ISBN', '$contentType', '$mediaType', '$carrierType', '$filePath')";
+        $conn->query($sql2);
+
+        // Inserting data into subject_entry
+        $sql3 = "INSERT INTO subject_entry (book_id, subject_type, subject_info)
+                 VALUES ('$book_id', '$subjectType', '$subjectInfo')";
+        $conn->query($sql3);
+
+        // Inserting data into local_information
+        $sql4 = "INSERT INTO local_information (book_id, call_number_type, call_number_info, accession_number, language, library_location, electronic_access, cover_image_path, entered_by, updated_by, date_entered, date_updated, quantity, available, location)
+                 VALUES ('$book_id', '$callNumberType', '$callNumberInfo', '$accessionNumber', '$language', '$libraryLocation', '$electronicAccess', '$coverImagePath', '$enteredBy', '$updatedBy', '$dateEntered', '$dateUpdated', '$quantity', '$available', '$location')";
+        $conn->query($sql4);
+
+        // Inserting data into content
+        $sql5 = "INSERT INTO content (book_id, content_notes, abstract, review)
+                 VALUES ('$book_id', '$contentNotes', '$abstract', '$review')";
+        $conn->query($sql5);
+
+        echo '<script type="text/javascript">alert("Book added successfully!");</script>';
+    } else {
+        echo '<script type="text/javascript">alert("Error: ' . $sql1 . '<br>' . $conn->error . '");</script>';
+    }
+
+    // Close connection
+    $conn->close();
 }
 ?>
 

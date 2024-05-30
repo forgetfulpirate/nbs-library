@@ -310,7 +310,7 @@ viewer-pdf-toolbar{
 
 .dropdown a{
     text-decoration: none;
-    color: #fff;
+   
 
 }
 .dropdown img{
@@ -319,17 +319,7 @@ viewer-pdf-toolbar{
     border-radius: 50%;
 
 }
-.dropdown-menu{
-    background: #073f5f;
-    color: #fff;
-    min-width: 240px;
-    padding: 20px;
-     margin-left: -40px; 
-     top: 56px;
-     border-radius: 0;
-     border-top: 1px solid #ddd;
 
-}
 .dropdown-menu img{
     margin-left: 18px;
 }

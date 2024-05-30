@@ -28,6 +28,7 @@
 
 </head>
 
+
 <body>
     <div class="wrapper">
     <aside id="sidebar" class="js-sidebar">
@@ -175,12 +176,19 @@
                                 </a>
                     </li>
 
-                    <li class="sidebar-item <?php if($page=='bmodule'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='manage-book'){ echo 'active';} ?>">
+                        <a href="manage-book.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+                            Display Book Catalogue
+                        </a>
+                    </li>
+
+                    <!-- <li class="sidebar-item <?php if($page=='bmodule'){ echo 'active';} ?>">
                                 <a href="display-book-module.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display Book Module
                                 </a>
-                    </li>
+                    </li> -->
 
 
 
@@ -214,6 +222,10 @@
                             Issued book
                         </a>
                     </li>
+
+          
+
+                 
 
                     <li class="sidebar-item <?php if($page=='a-book'){ echo 'active';} ?>">
                         <a href="display-book-opac.php" class="sidebar-link">
@@ -331,7 +343,7 @@
                 </div>
             </footer> -->
                               
-            
+   
         
      
     <script src="inc/js/bootstrap.bundle.min.js"></script>

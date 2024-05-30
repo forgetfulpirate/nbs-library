@@ -25,84 +25,174 @@ include 'inc/connection.php';
 
     
 </head>
+<style>
+        /* CSS for hover effect */
+    .header-right ul li a:hover,
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        background-color: #d52033;
+        color: #fff;
+    }
 
-<body>
-<div class="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-3">
-						<div class="logo">
-							<a href="index.php">
-							<img src="dist/img/NBS-LOGO.png" alt="logo">
-							</a>
-						</div>
-					</div>
-					<div class="col-9">
-						<div class="header-right">
-							<ul>
-								<li><a href="https://www.facebook.com/nbscollegeph"><i class="fab fa-facebook-f"></i></a></li>
-								<li><a href=""><i class="fab fa-twitter"></i></a></li>
-								<li><a href=""><i class="fab fa-linkedin"></i></a></li>
-								<li><a href=""><i class="fab fa-instagram"></i></a></li>
-                                <li class="nav-item dropdown">
-								
-                                    <li class="dropdown"><a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">Login</a>
-                                     <div class="dropdown-menu dropdown-menu-end">
-                              
-                                <a href="student/login.php" class="dropdown-item">Student Login</a>
-								<a href="teacher/login.php" class="dropdown-item">Teacher Login</a>
-                                     </div>
-                                    </li>
-                                </li>
-								<li><a href="contactus.php">Contact Us</a></li>
-								<li><a href="book.php">Book</a></li>
-								<li><a href="display-book-opac.php">Book Module</a></li>
-							</ul>		
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    /* CSS to make navigation links bold and increase size */
+    .navbar-nav .nav-link {
+        font-weight: bold;
+        font-size: 18px; /* Adjust the size as needed */
+        border-radius: 5px; /* Add rounded corners to the button */
+        padding: 10px 15px; /* Add padding to the button */
+        transition: background-color 0.3s; /* Add transition effect */
+    }
+
+    /* CSS for dropdown hover effect */
+    .navbar-nav .dropdown:hover .dropdown-menu {
+        display: block;
+        background: var(--bs-dark-bg-subtle);
+    }
+</style>
+
+    	<style>
+        /* Style for floating email icon */
+        .floating-email {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #d52033;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 65px; /* Center icon vertically */
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .email-form-popup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* Add animation to form popup */
+        @keyframes slideIn {
+            from {
+                bottom: -200px;
+            }
+            to {
+                bottom: 90px;
+            }
+        }
+		.email-form-popup.show {
+            animation: slideIn 0.3s forwards;
+        }
+
+        /* Style for feedback message */
     
-        <div class="main">
-      
-              
-			
+
+	
+
+    </style>
+<body>
+<div class="main">
+        <nav class="navbar navbar-expand-lg  shadow" >
+            <div class="container">
+                <a class="navbar-brand" href="index.php">
+                    <img src="dist/img/NBS-LOGO.png" alt="logo" style="width:80px; height:70px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Login
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="student/login.php">Student Login</a></li>
+                                <li><a class="dropdown-item" href="teacher/login.php">Teacher Login</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.php">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="book.php">Book</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="display-book-opac.php">Book Module</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
             <a href="#" class="theme-toggle" id="sidebar-toggle" type="button">
                 <i class="fa-regular fa-moon"></i>
                 <i class="fa-regular fa-sun"></i>
             </a>
-            <!-- <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a href="#" class="text-muted">
-                                    <strong>CodzSwod</strong>
-                                </a>
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">About Us</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">Terms</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-muted">Booking</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer> -->
-                              
-            
+         
+     <!-- Email form popup -->
+     <div class="email-form-popup" id="emailFormPopup">
+        <form id="feedbackForm" action="script.php" method="post">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject"><br>
+            <label for="details">Details:</label><br>
+            <textarea id="details" name="details" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+		
+		<div id="feedbackMessage"></div>
+    </div>
+    
+    <!-- Floating email icon -->
+    <div class="floating-email" onclick="toggleFormPopup()">
+        <i class="fas fa-envelope" style="font-size: 24px;"></i>
+    </div>
+
+  
+
+
+    <!-- Script to toggle form popup and handle form submission -->
+    <script src="dist/js/jquery-2.2.4.min.js"></script>
+    <script>
+        // Function to show/hide form popup
+        function toggleFormPopup() {
+            var formPopup = document.getElementById('emailFormPopup');
+            formPopup.style.display = formPopup.style.display === 'none' ? 'block' : 'none';
+        }
+
+        $(document).ready(function(){
+            $('#feedbackForm').submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'script.php',
+                    data: $('#feedbackForm').serialize(),
+                    success: function(response){
+                        $('#feedbackMessage').html(response);
+                        $('#feedbackForm')[0].reset();
+                    }
+                });
+            });
+        });
+    </script>
+
+
         
      
     <script src="inc/js/bootstrap.bundle.min.js"></script>
@@ -118,7 +208,7 @@ include 'inc/connection.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 	<script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.js"></script>
-	
+
 
     
 </body>

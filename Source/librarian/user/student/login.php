@@ -15,7 +15,6 @@
         .login{
             background-image: url(inc/img/bg-login.png);
             margin-bottom: 30px;
-            
             padding: 50px;
             padding-bottom: 70px;
             height: 600px;

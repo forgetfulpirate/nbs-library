@@ -44,11 +44,11 @@
 				<div class="col-md-6">
 					<div class="right">
 						<h3>Contact Info</h3>
-						<p>Our Management Training Programmes can be tailored as in-house programmes to address specific issues within your own company.We figure that most people who end up managing other people never really set off to do that in the first place.</p>
+						<p>NBS College, established in 2017 in honor of the beloved National Book Store founder, Socorro Ramos, is a Philippine school of choice of aspiring leaders.</p>
 
 						<div class="box">
 							<p><i class="fas fa-home"></i><span> 3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila</span></p>
-							<p><i class="far fa-envelope"></i><span> cevangelista2021@student.nbscollge.edu.ph</span></p>
+							<p><i class="far fa-envelope"></i><span> info@nbscollege.edu.ph </span></p>
 							<p><i class="fas fa-phone"></i><span> (63+)993-959-3012</span></p>
 							<p>(63+)993-543-1566</p>
 						</div>
@@ -60,9 +60,21 @@
 	<div class="map-responsive mapw">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2928459266955!2d121.02825447588229!3d14.639310876126238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b6537dae97f7%3A0xa0caa46ccf11e301!2sNBS%20College%20-%20NBS%20Commercial%20Complex!5e0!3m2!1sen!2sus!4v1710944460834!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</div>
-    <div class="footer text-center">
-        <p style="margin: 20px; font-weight: bold;"><span>copyright &copy; NBS College all rights reserved</span></p>
+    
+	<footer style="text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="dist/img/NBS-LOGO.png" alt="Telephone and Fax" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 10px; margin:0;">
+        <div style="text-align: left;">
+            <p style="margin: 0; font-size:small;">NBS College Library, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon</p>
+            <p style="margin: 0; font-size:small;">Tel. (xxx) xxx-xxx; Cp No. (63+) xxx-xxx-xxx</p>
+            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
+        </div>
     </div>
+  
+    <br>
+    
+</footer>
+
 
 	<script src="dist/js/jquery-2.2.4.min.js"></script>
 	<script src="dist/js/bootstrap.min.js"></script>
