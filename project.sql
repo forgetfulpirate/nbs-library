@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2024 at 07:38 PM
+-- Generation Time: May 31, 2024 at 07:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -6831,17 +6831,43 @@ CREATE TABLE `finezone` (
   `booksreturndate` varchar(10) NOT NULL,
   `fine` varchar(50) NOT NULL,
   `remarks` mediumtext NOT NULL,
-  `status` varchar(7) NOT NULL
+  `status` varchar(7) NOT NULL,
+  `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `finezone`
+-- Table structure for table `finezone_archive`
 --
 
-INSERT INTO `finezone` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `fine`, `remarks`, `status`) VALUES
-(364, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-01', '2024-05-24', '115', '', 'yes'),
-(365, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-05-05', '2024-05-27', '110', '', 'no'),
-(366, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-05-03', '2024-05-27', '120', '', 'yes');
+CREATE TABLE `finezone_archive` (
+  `id` int(10) NOT NULL,
+  `first_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `middle_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `student_number` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `utype` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksname` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `accession_number` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `date_issued` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksissuedate` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksreturndate` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `fine` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `remarks` mediumtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` varchar(7) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `finezone_archive`
+--
+
+INSERT INTO `finezone_archive` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `fine`, `remarks`, `status`, `username`) VALUES
+(378, 'Jerald', 'Ysaac', '', '200026', 'student', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-07', '2024-05-31', '120', '', 'yes', ''),
+(379, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-20', '2024-05-31', '55', '', 'yes', ''),
+(380, 'Jerald', 'Ysaac', '', '200026', 'student', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-05-31', '2024-05-07', '2024-05-31', '120', '', 'yes', '');
 
 -- --------------------------------------------------------
 
@@ -6869,6 +6895,40 @@ CREATE TABLE `issue_book` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `issue_book_archive`
+--
+
+CREATE TABLE `issue_book_archive` (
+  `id` bigint(20) NOT NULL,
+  `utype` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `student_number` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `middle_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `dept` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `phone` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksname` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `accession_number` varchar(5000) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksissuedate` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksreturndate` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `username` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `issue_book_archive`
+--
+
+INSERT INTO `issue_book_archive` (`id`, `utype`, `student_number`, `name`, `last_name`, `middle_name`, `dept`, `phone`, `email`, `booksname`, `accession_number`, `booksissuedate`, `booksreturndate`, `username`) VALUES
+(147, 'student', '200026', 'Jerald', 'Ysaac', '', 'BSCS', '', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-31', ''),
+(148, 'student', '200026', 'Jerald', 'Ysaac', '', 'BSCS', '', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-31', ''),
+(149, 'student', '2100028', 'Cayce', 'Evangelista', 'Cadangan', 'BSCS', '', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-31', ''),
+(150, 'student', '2100028', 'Cayce', 'Evangelista', 'Cadangan', 'BSCS', '', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-31', ''),
+(151, 'student', '200026', 'Jerald', 'Ysaac', '', 'BSCS', '', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-05-31', '2024-05-31', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lib_registration`
 --
 
@@ -6889,7 +6949,7 @@ CREATE TABLE `lib_registration` (
 --
 
 INSERT INTO `lib_registration` (`id`, `name`, `username`, `password`, `email`, `phone`, `address`, `photo`, `status`) VALUES
-(1, 'Cayce Evangelista', 'admin', 'admin', 'cevangelista2021@student.nbscollege.edu.ph', '0993-959-3012', 'Quezon City, PH', 'upload/1716131011.jpeg', '');
+(1, 'NBS Library Admin', 'admin', 'admin', 'cevangelista2021@student.nbscollege.edu.ph', '0993-959-3012', 'Quezon City, PH', 'upload/1716131011.jpeg', '');
 
 -- --------------------------------------------------------
 
@@ -6972,22 +7032,11 @@ CREATE TABLE `return_books` (
 --
 
 INSERT INTO `return_books` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`) VALUES
-(9, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-31', '2024-05-24'),
-(10, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-01', '2024-05-24'),
-(11, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-20', '2024-05-01'),
-(12, 'Carlos Miguel', 'Autor', '', '2100029', 'student', 'cautor2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-31', '2024-05-24'),
-(13, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-24', '2024-05-01', '2024-05-24'),
-(14, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-26', '2024-06-02', '2024-05-26'),
-(15, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-26', '2024-06-02', '2024-05-26'),
-(16, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(17, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(19, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(20, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(21, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(22, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-06-03', '2024-05-27'),
-(23, 'Jerald', 'Ysaac', '', '200026', 'student', 'jyscaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-05-05', '2024-05-27'),
-(24, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-27', '2024-05-03', '2024-05-27'),
-(25, 'Vincent', 'Dais', '', '123456', 'teacher', 'nbsfaculty@gmail.com', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-30', '2024-06-06', '2024-05-30');
+(32, 'Jerald', 'Ysaac', '', '200026', 'student', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-07', '2024-05-31'),
+(33, 'Jerald', 'Ysaac', '', '200026', 'student', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-07', '2024-05-31'),
+(34, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-05-20', '2024-05-31'),
+(35, 'Cayce', 'Evangelista', 'Cadangan', '2100028', 'student', 'cevangelista2021@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-05-31', '2024-06-07', '2024-05-31'),
+(36, 'Jerald', 'Ysaac', '', '200026', 'student', 'jysaac2020@student.nbscollege.edu.ph', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-05-31', '2024-05-07', '2024-05-31');
 
 -- --------------------------------------------------------
 
@@ -7281,9 +7330,21 @@ ALTER TABLE `finezone`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `finezone_archive`
+--
+ALTER TABLE `finezone_archive`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `issue_book`
 --
 ALTER TABLE `issue_book`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `issue_book_archive`
+--
+ALTER TABLE `issue_book_archive`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -7366,13 +7427,25 @@ ALTER TABLE `add_book`
 -- AUTO_INCREMENT for table `finezone`
 --
 ALTER TABLE `finezone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=367;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
+
+--
+-- AUTO_INCREMENT for table `finezone_archive`
+--
+ALTER TABLE `finezone_archive`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 
 --
 -- AUTO_INCREMENT for table `issue_book`
 --
 ALTER TABLE `issue_book`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
+--
+-- AUTO_INCREMENT for table `issue_book_archive`
+--
+ALTER TABLE `issue_book_archive`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `lib_registration`
@@ -7396,7 +7469,7 @@ ALTER TABLE `request_books`
 -- AUTO_INCREMENT for table `return_books`
 --
 ALTER TABLE `return_books`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `std_registration`
