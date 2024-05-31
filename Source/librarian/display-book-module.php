@@ -22,6 +22,20 @@
             
             
             <main class="content px-3 py-2">
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>Manage Book 
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
                  
              <?php
                 if (!empty($_SESSION['success_message'])) {

@@ -38,19 +38,14 @@
             
                         <span>
                         <?php
-                          $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
-						
-						  while ($row = mysqli_fetch_array($res)){
-							  ?><img src="<?php echo $row["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle"></a> <?php
-						  }
-
+        
 						  $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
 
 						  while ($row1 = mysqli_fetch_array($res1)){
-							  ?><img src="<?php echo $row1["photo"]; ?> " height="70px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
+							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
 						  }
                         ?>
-						<h6 style="float: right; margin-top: 10px; color:#248fc5;">
+						<h6 style="float: right; margin-top: 10px; color:Black;">
 						
 						Welcome
 
@@ -151,6 +146,14 @@
                                 <a href="book.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Books
+                                </a>
+                    </li>
+
+                    
+                    <li class="sidebar-item">
+                                <a href="display-book-opac.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Book Module
                                 </a>
                     </li>
 <!-- 

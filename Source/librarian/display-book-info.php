@@ -101,7 +101,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <h2 style="line-height:0;">
+                        <h2>
                             <?php if(!empty($title_proper)): ?>
                                 <span class="title"><?php echo $title_proper; ?></span>
                             <?php endif; ?>
@@ -146,7 +146,7 @@
                             <?php endif; ?>
 
                             <?php if(!empty($illustrations)): ?>
-                                <span class="sub">Illustration:</span>
+                                <span class="sub">ill:</span>
                                 <span class="normal-value" style="color:gray"><?php echo $illustrations; ?></span>
                             <?php endif; ?>
 
@@ -174,6 +174,7 @@
                             <span class="normal-value" style="color:gray"><?php echo $ISBN?></span>
                         <?php endif; ?>
                     </div>
+                    
                     <div class="normal-view">
                         <?php if(!empty($subject_info)): ?>
                             <span  class="sub">Subjects:</span>

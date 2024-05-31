@@ -272,3 +272,10 @@ body{
     height: 400px;
 }
 
+
+
+/* MAKE TABLE STRETCH */
+.table {
+    table-layout: auto !important;
+    width: 100% !important;
+}

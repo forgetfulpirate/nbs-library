@@ -390,3 +390,18 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
     
     }
 }
+
+/* MAKE TABLE STRETCH */
+.table {
+    table-layout: auto !important;
+    width: 100% !important;
+}
+
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
+
+  
