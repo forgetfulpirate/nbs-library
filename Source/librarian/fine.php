@@ -15,7 +15,7 @@ include 'inc/connection.php';
     <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <h4>Returned Books</h4>
+            <h4>Overdue</h4>
             <p id="time"></p>
             <p id="date"></p>
         </div>
@@ -62,24 +62,24 @@ include 'inc/connection.php';
     
     <div class="card border-0">
         <div class="card-body">
-            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                 <thead>
                     <tr>
-                        <th class="text-center">ID Number</th>
-                        <th class="text-center">Name</th>
-                        <th class="text-center">User Type</th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Accession Number</th>
-                        <th class="text-center">Books Name</th>
-                        <th class="text-center">Date Issued</th>
-                        <th class="text-center">Date Due</th>
-                        <th class="text-center">Date Returned</th>
+                        <th>ID Number</th>
+                        <th>Name</th>
+                        <th>User Type</th>
+                        <th>Email</th>
+                        <th>Accession Number</th>
+                        <th>Books Name</th>
+                        <th>Date Issued</th>
+                        <th>Date Due</th>
+                        <th>Date Returned</th>
                         <th>Amount</th>
-                        <th class="text-center">Remarks</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Action</th>
+                        <th>Remarks</th>
+                        <th>Status</th>
+                        <th>Action</th>
 
-                        <th>Delete</th>
+                        <th>Print</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,17 +116,13 @@ include 'inc/connection.php';
                                                     <?php 
                                                     echo "</td>";
 
-
-                                                     echo "<td>";
-                                              
-                                                     ?>
-                                                           <div class="d-flex justify-content-center">
-                                                               
-                                                              <a href="delete-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this book?')" style="margin-right: "><span>Delete</span></a>
-                                                             
-                                                          </div>
-                                                      <?php 
-                                                      echo "</td>";
+                                                    echo "<td>";
+                                                    ?>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="#" class="btn btn-info btn-sm printReceiptBtn" data-id="<?php echo $row["id"]; ?>" data-name="<?php echo $row["first_name"] . " " . $row["last_name"]; ?>" data-email="<?php echo $row["email"]; ?>" data-book="<?php echo $row["booksname"]; ?>" data-fine="<?php echo $row["fine"]; ?>" onclick="return false;"><span>Print</span></a>
+                                                    </div>
+                                                    <?php 
+                                                    echo "</td>";
                         
                         echo "</tr>";
                     }
@@ -136,30 +132,6 @@ include 'inc/connection.php';
         </div>
     </div>
 </main>
-
-<div class="modal fade" id="editFineModal" tabindex="-1" role="dialog" aria-labelledby="editFineModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editFineModalLabel">Edit Fine Amount</h5>
-            </div>
-            <div class="modal-body">
-                <form id="editFineForm">
-                    <input type="hidden" id="fineId" name="fineId">
-                    <div class="form-group">
-                        <label for="fineAmount">Fine Amount:</label>
-                        <input type="number" class="form-control" id="fineAmount" name="fineAmount">
-                        <small id="fineAmountError" class="text-danger"></small> <!-- Error message placeholder -->
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="dismissFineModalBtn">Close</button>
-                <button type="button" class="btn btn-danger" id="saveFineBtn">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="modal fade" id="editRemarksModal" tabindex="-1" role="dialog" aria-labelledby="editRemarksModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -184,6 +156,156 @@ include 'inc/connection.php';
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="editFineModal" tabindex="-1" role="dialog" aria-labelledby="editFineModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editFineModalLabel">Edit Fine Amount</h5>
+            </div>
+            <div class="modal-body">
+                <form id="editFineForm">
+                    <input type="hidden" id="fineId" name="fineId">
+                    <div class="form-group">
+                        <label for="fineAmount">Fine Amount:</label>
+                        <input type="number" class="form-control" id="fineAmount" name="fineAmount">
+                        <small id="fineAmountError" class="text-danger"></small> <!-- Error message placeholder -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="dismissFineModalBtn">Close</button>
+                <button type="button" class="btn btn-danger" id="saveFineBtn">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for Print and PDF Download -->
+<div class="modal fade" id="printReceiptModal" tabindex="-1" role="dialog" aria-labelledby="printReceiptModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header-center">
+            <div style="display: flex; align-items: center; justify-content: center;">
+                        <img src="inc/img/nbs-icon.png" alt="NBS College Library" style="width: 100px; height: 150px;  margin-right: 10px; margin:0;">
+                        <div style="text-align: left; margin-left:20px;">
+                            <p style="margin: 0; font-size:small;">NBS College Library, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon</p>
+                            <p style="margin: 0; font-size:small;">Tel. (xxx) xxx-xxx; Cp No. (63+) xxx-xxx-xxx</p>
+                            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-body">
+                <div class="receipt">
+          
+                    <div class="receipt-header">
+                        <h3 style="font-weight:bold;">Library Fine Receipt</h3>
+                    </div>
+                    <div class="receipt-body">
+                        <div class="receipt-section">
+                            <p style="margin:0px;"><strong style="font-size:larger;">User Type:</strong> <span id="userType" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">User ID:</strong> <span id="userId" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Name:</strong> <span id="userName" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Accession No. Borrowed:</strong> <span id="accessionNo" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Book Name Borrowed:</strong> <span id="bookName" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Date Issued:</strong> <span id="dateIssued" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Date Due:</strong> <span id="dateDue" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Date Returned:</strong> <span id="dateReturned" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Amount:</strong> <span id="amount" style="font-size:16px;"></span></p>
+                            <p style="margin:0px;"><strong style="font-size:larger;">Remarks:</strong> <span id="remarks" style="font-size:16px;"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="$('#printReceiptModal').modal('hide');">Close</button>
+                <button type="button" class="btn btn-primary" onclick="printReceipt()">Print</button>
+                <button type="button" class="btn btn-danger" onclick="downloadPDF()">Download PDF</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT FOR PDF DOWNLOAD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<!-- Add this script for html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- SCRIPT FOR PRINT RECEIPT  -->
+<script>
+$(document).ready(function () {
+    // Handle print button click for a specific user
+    $('.printReceiptBtn').click(function () {
+        // Get the row data
+        var userType = $(this).closest('tr').find('td:eq(2)').text();
+        var userId = $(this).closest('tr').find('td:eq(0)').text();
+        var userName = $(this).closest('tr').find('td:eq(1)').text();
+        var accessionNo = $(this).closest('tr').find('td:eq(4)').text();
+        var bookName = $(this).closest('tr').find('td:eq(5)').text();
+        var dateIssued = $(this).closest('tr').find('td:eq(6)').text();
+        var dateDue = $(this).closest('tr').find('td:eq(7)').text();
+        var dateReturned = $(this).closest('tr').find('td:eq(8)').text();
+        var amount = $(this).closest('tr').find('td:eq(9)').text();
+        var remarks = $(this).closest('tr').find('td:eq(10)').text();
+
+        // Display the user details in the modal
+        $('#userType').text(userType);
+        $('#userId').text(userId);
+        $('#userName').text(userName);
+        $('#accessionNo').text(accessionNo);
+        $('#bookName').text(bookName);
+        $('#dateIssued').text(dateIssued);
+        $('#dateDue').text(dateDue);
+        $('#dateReturned').text(dateReturned);
+        $('#amount').text(amount);
+        $('#remarks').text(remarks);
+        $('#printReceiptModal').modal('show');
+    });
+
+    // Function to print the receipt
+    function printReceipt() {
+        var receiptContent = document.getElementById('printReceiptModal').innerHTML;
+        var originalContent = document.body.innerHTML;
+        document.body.innerHTML = receiptContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        window.location.reload(); // Reload to restore the original content
+    
+        
+    }
+
+    // Function to download the receipt as PDF
+    function downloadPDF() {
+        var { jsPDF } = window.jspdf;
+        $('.modal-footer').hide();
+
+
+        html2canvas(document.querySelector("#printReceiptModal")).then(canvas => {
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', 'a4');
+            var imgWidth = 210; 
+            var pageHeight = 295;  
+            var imgHeight = canvas.height * imgWidth / canvas.width;
+            var heightLeft = imgHeight;
+
+            var position = 0;
+
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+            pdf.save('receipt.pdf');
+        });
+    }
+
+    window.printReceipt = printReceipt;
+    window.downloadPDF = downloadPDF;
+});
+</script>
 
 <script>
      $(document).ready(function () {
@@ -354,4 +476,5 @@ function filterByDateRange() {
     
 </script>
 
+    
 <?php include 'inc/footer.php'; ?>

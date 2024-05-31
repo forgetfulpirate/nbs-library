@@ -76,7 +76,7 @@
         <div class="card-body">
        
       
-            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                 <thead>
                     <tr>
                         <th>ID Number</th>
