@@ -113,9 +113,8 @@
 
                                     ?>
                                         <script type="text/javascript">
-                                       
+                                           alert('Successfully Updated');
                                             window.location="profile.php"
-                                            alert('');
                                         </script>
                                     <?php
                               }
