@@ -16,11 +16,30 @@ $( ".menu-toggle1" ).click(function() {
     // Animation complete.
   });
 });
-//$(document).ready( function () {
-//    $('#example').DataTable();
-//} );
+$( ".menu-toggle2" ).click(function() {
+  $( ".menus2" ).toggle( "1000", function() {
+    // Animation complete.
+  });
+});
+$( ".menu-toggle3" ).click(function() {
+  $( ".menus3" ).toggle( "1000", function() {
+    // Animation complete.
+  });
+});
+$( ".menu-toggle5" ).click(function() {
+  $( ".menu3" ).toggle( "1000", function() {
+    // Animation complete.
+  });
+});
+$( ".menu-toggle4" ).click(function() {
+  $( ".menus4" ).toggle( "1000", function() {
+    // Animation complete.
+  });
+});
 
-$(document).ready(function () {
-$('#dtBasicExample').DataTable();
-$('.dataTables_length').addClass('bs-select');
+$(document).ready(function(){
+    $('.counter').counterUp({
+        delay: 15,
+        time: 1000
+    });
 });

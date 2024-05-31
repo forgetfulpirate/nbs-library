@@ -13,35 +13,83 @@
 ?>
   
   <?php
-    // Check if search term is provided
-    $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-    // Calculate pagination
-    $entriesPerPage = 50;
-    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $offset = ($currentPage - 1) * $entriesPerPage;
+// Check if search term and keyword are provided
+$search = isset($_GET['search']) ? mysqli_real_escape_string($link, $_GET['search']) : '';
+$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : 'all';
+$searchQuerySubmitted = !empty($search);
+// Calculate pagination
 
-    // Prepare SQL query to fetch books with optional search filter and limit
-    $sqlCount = "SELECT COUNT(*) as count FROM book_module";
-    if (!empty($search)) {
-        $sqlCount .= " WHERE title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR accession_number LIKE '%$search%'";
+if ($searchQuerySubmitted) {
+$entriesPerPage = 50;
+$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$offset = ($currentPage - 1) * $entriesPerPage;
+   // Check if search query is submitted
+
+// Prepare SQL query to fetch books with optional search filter and limit
+$sqlCount = "SELECT COUNT(*) as count FROM book_module";
+if (!empty($search)) {
+    $search = mysqli_real_escape_string($link, $search); // Escape the search input
+    $sqlCount .= " WHERE";
+    switch ($keyword) {
+        case 'title':
+            $sqlCount .= " title_proper LIKE '%$search%'";
+            break;
+        case 'accession':
+            $sqlCount .= " accession_number LIKE '%$search%'";
+            break;
+        case 'author':
+            $sqlCount .= " main_creator LIKE '%$search%'";
+            break;
+        case 'call_number':
+            $sqlCount .= " call_number_info LIKE '%$search%'";
+            break;
+        case 'isbn':
+            $sqlCount .= " ISBN LIKE '%$search%'";
+            break;
+        default:
+            $sqlCount .= " title_proper LIKE '%$search%' OR accession_number LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
+            break;
     }
-    $resultCount = mysqli_query($link, $sqlCount);
-    $rowCount = mysqli_fetch_assoc($resultCount);
-    $totalBooks = $rowCount['count'];
+}
+$resultCount = mysqli_query($link, $sqlCount);
+$rowCount = mysqli_fetch_assoc($resultCount);
+$totalBooks = $rowCount['count'];
 
-    // Calculate total pages
-    $totalPages = ceil($totalBooks / $entriesPerPage);
+// Calculate total pages
+$totalPages = ceil($totalBooks / $entriesPerPage);
 
-    // Update SQL query to include pagination
-    $sql = "SELECT * FROM book_module";
-    if (!empty($search)) {
-        $sql .= " WHERE title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR accession_number LIKE '%$search%'";
+// Update SQL query to include pagination
+$sql = "SELECT * FROM book_module";
+if (!empty($search)) {
+    $sql .= " WHERE";
+    switch ($keyword) {
+        case 'title':
+            $sql .= " title_proper LIKE '%$search%'";
+            break;
+        case 'accession':
+            $sql .= " accession_number LIKE '%$search%'";
+            break;
+        case 'author':
+            $sql .= " main_creator LIKE '%$search%'";
+            break;
+        case 'call_number':
+            $sql .= " call_number_info LIKE '%$search%'";
+            break;
+        case 'isbn':
+            $sql .= " ISBN LIKE '%$search%'";
+            break;
+        default:
+            $sql .= " title_proper LIKE '%$search%' OR accession_number LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
+            break;
     }
-    $sql .= " LIMIT $entriesPerPage OFFSET $offset";
+}
+$sql .= " LIMIT $entriesPerPage OFFSET $offset";
 
-    // Execute the query
-    $res = mysqli_query($link, $sql);
+// Execute the query
+$res = mysqli_query($link, $sql);
+}
+
 ?>
 
 <main class="content px-3 py-2">  
@@ -54,91 +102,93 @@
             </h4>
         </div>
     </div>
-    <div class="card-body">
-        
-        <!-- Search Form -->
-        <form id="searchForm" method="GET" action="">
-            <table class="table">
-                <tr>
-                    <td>
-                        <input type="text" class="form-control" placeholder="Search for books" name="search">
-                    </td>
-                    <td>
-                        <button type="submit" class="btn btn-primary">Search</button>
-                    </td>
-                </tr>
-            </table>
+   
+    <div class="row mt-3">
+    <div class="col-md-12 d-flex justify-content-center">
+        <form id="searchForm" method="GET" action="" class="d-flex flex-wrap justify-content-center">
+            <div class="form-group">
+                <select class="form-control" name="keyword" style="width:150px;">
+                    <option value="all" <?php if ($keyword == 'all') echo 'selected'; ?>>Keyword</option>
+                    <option value="title" <?php if ($keyword == 'title') echo 'selected'; ?>>Title</option>
+                    <option value="accession" <?php if ($keyword == 'accession') echo 'selected'; ?>>Accession No</option>
+                    <option value="author" <?php if ($keyword == 'author') echo 'selected'; ?>>Author</option>
+                    <option value="call_number" <?php if ($keyword == 'call_number') echo 'selected'; ?>>Call Number</option>
+                    <option value="isbn" <?php if ($keyword == 'isbn') echo 'selected'; ?>>ISBN</option>
+                </select>
+            </div>
+            <div class="form-group mx-2">
+                <input type="text" class="form-control" style="width: 400px; max-width:300px;" placeholder="Search for books" name="search" value="<?php echo htmlspecialchars($search); ?>">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
         </form>
     </div>
-
-    <?php
-    // Count total books shown
-    $booksShown = mysqli_num_rows($res);
-
-    // Display total books shown and total books found
-    echo "<p style='color: inherit; margin: 2em 0 1em;font-size: 130%;line-height: 150%; margin: 0; margin-left:10px;'>Your search returned $booksShown results.</p>";
-
-?>
-    
-
-<!-- Pagination -->
-<div class="row mt-3">
-    <div class="col-md-12">
-        
-        <nav aria-label="Page navigation example">
-        <div class="pagination-container">
-            <ul class="pagination justify-content-center" style="margin:0">
-                <?php
-                    // First page
-                    if ($currentPage > 1) {
-                        echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
-                    }
-
-                    // Previous page
-                    if ($currentPage > 1) {
-                        $prevPage = $currentPage - 1;
-                        echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
-                    }
-
-                    // Page numbers
-                    $startPage = max(1, $currentPage - 5);
-                    $endPage = min($totalPages, $startPage + 9);
-                    for ($i = $startPage; $i <= $endPage; $i++) {
-                        echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
-                    }
-
-                    // Next page
-                    if ($currentPage < $totalPages) {
-                        $nextPage = $currentPage + 1;
-                        echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
-                    }
-
-                    // Last page
-                    if ($currentPage < $totalPages) {
-                        echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
-                    }
-                ?>
-            </ul>
-                </div>
-        </nav>
-    </div>
-
-    
 </div>
 
 
+    <!-- Display the count of search results -->
+    <?php if (!empty($search)) { ?>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <p>You searched <?php echo $totalBooks; ?> results.</p>
+        </div>
+    </div>
+    <?php } ?>
+    
+    <?php if ($searchQuerySubmitted) { ?>
+    <!-- Pagination -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <?php
+                        // First page
+                        if ($currentPage > 1) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                        }
 
-<div class="row mt-3">
+                        // Previous page
+                        if ($currentPage > 1) {
+                            $prevPage = $currentPage - 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                        }
+
+                        // Page numbers
+                        $startPage = max(1, $currentPage - 5);
+                        $endPage = min($totalPages, $startPage + 9);
+                        for ($i = $startPage; $i <= $endPage; $i++) {
+                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                        }
+
+                        // Next page
+                        if ($currentPage < $totalPages) {
+                            $nextPage = $currentPage + 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                        }
+
+                        // Last page
+                        if ($currentPage < $totalPages) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                        }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+   
+    <div class="row mt-3">
     <?php
         // Display books
         while ($row = mysqli_fetch_array($res)) {
             // Determine availability message
             $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
     ?>
-    <div class="col-md-12 mb-3">
-        <div class="card d-flex flex-row">
+    <div class="col-md-12 mb-3 d-flex flex-wrap"> <!-- Added d-flex flex-wrap -->
+        <div class="card d-flex flex-row w-100"> <!-- Added w-100 to ensure the card takes full width -->
             <div class="card-body">
-            <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3></a>
+                <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3></a>
                 <br>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["main_creator"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
@@ -148,15 +198,63 @@
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number_info"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
+            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
         </div>
     </div>
     <?php
         }
     ?>
 </div>
-    
+<?php } ?>
+
+
+<?php if ($searchQuerySubmitted) { ?>
+ <!-- Pagination -->
+ <div class="row mt-3">
+        <div class="col-md-12">
+            
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <?php
+                        // First page
+                        if ($currentPage > 1) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                        }
+
+                        // Previous page
+                        if ($currentPage > 1) {
+                            $prevPage = $currentPage - 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                        }
+
+                        // Page numbers
+                        $startPage = max(1, $currentPage - 5);
+                        $endPage = min($totalPages, $startPage + 9);
+                        for ($i = $startPage; $i <= $endPage; $i++) {
+                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                        }
+
+                        // Next page
+                        if ($currentPage < $totalPages) {
+                            $nextPage = $currentPage + 1;
+                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                        }
+
+                        // Last page
+                        if ($currentPage < $totalPages) {
+                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                        }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<?php } ?>
+
+
 </main>
+
+
 
 <script>
     function submitForm() {
