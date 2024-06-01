@@ -88,11 +88,11 @@
             <div class="card border-0">
                 
                         <div class="card-body">
-                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
                                         <th scope="col">User Type</th>
-                                        <th scope="col" class="text-center">Student Number</th>
+                                        <th scope="col" class="text-left">Student Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Course</th>

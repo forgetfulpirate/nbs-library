@@ -153,7 +153,7 @@
                                     </span>
                                 </h3>
                                  
-								<h4><a href="issued-books.php">Issued Boooks </a></h4>
+								<h4><a href="issued-books.php">Borrowed Books </a></h4>
                                
 							</div>
                            
@@ -187,7 +187,7 @@
                                         echo $count;
                                     ?>
                                     </span></h3>
-								<h4><a href="display-book.php">Books</a></h4>
+								<h4><a href="display-book.php">Colletions</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -219,7 +219,7 @@
                                         ?>
                                       
                                     </span></h3>    
-								<h4><a href="fine.php">Fine</a></h4>
+								<h4><a href="fine.php">Overdue</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -290,7 +290,7 @@
 							</div>
 							<div class="text-left">
 								
-								<h4><a href="status.php">User Status</a></h4>
+								<h4><a href="status.php">User Verification</a></h4>
 							</div>
 						</div>
                                             </div>

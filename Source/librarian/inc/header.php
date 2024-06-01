@@ -215,13 +215,13 @@
                     </li>
               
             
-
+<!-- 
                     <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
                             Issued book
                         </a>
-                    </li>
+                    </li> -->
 
           
 
@@ -233,6 +233,8 @@
                             View Book Opac
                         </a>
                     </li>
+
+                    
 
                     <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="requested-books.php" class="sidebar-link">
@@ -255,6 +257,30 @@
                             </li>
                         </ul>
                         
+                    </li>
+
+                 
+
+                    
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#report" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-users pe-2"></i>
+                            Generate Report
+                        </a>
+                        <ul id="report" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-student.php" class="sidebar-link">Add student</a>
+                            </li> -->
+                            <li class="sidebar-item ">
+                                <a href="generate-report-borrowed.php" class="sidebar-link">Borrowed Books Report</a>
+                            </li>
+                            <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-tch.php" class="sidebar-link">Add Teacher</a>
+                            </li> -->
+                            <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
+                                <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
+                            </li> -->
+                        </ul>
                     </li>
                     
                 </ul>
