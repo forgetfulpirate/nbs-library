@@ -21,6 +21,12 @@ include 'inc/connection.php';
         </div>
     </div>
 
+    <form action="fine-receipt.php" method="post">
+    <label for="student_number">Enter Student Number:</label>
+    <input type="text" name="student_number" id="student_number" required>
+    <button type="submit" name="generate_receipt">Generate Receipt</button>
+</form>
+
     <div class="col-md-12">
     <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
         <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
@@ -78,8 +84,6 @@ include 'inc/connection.php';
                         <th>Remarks</th>
                         <th>Status</th>
                         <th>Action</th>
-
-                        <th>Print</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,13 +120,6 @@ include 'inc/connection.php';
                                                     <?php 
                                                     echo "</td>";
 
-                                                    echo "<td>";
-                                                    ?>
-                                                    <div class="d-flex justify-content-center">
-                                                        <a href="#" class="btn btn-info btn-sm printReceiptBtn" data-id="<?php echo $row["id"]; ?>" data-name="<?php echo $row["first_name"] . " " . $row["last_name"]; ?>" data-email="<?php echo $row["email"]; ?>" data-book="<?php echo $row["booksname"]; ?>" data-fine="<?php echo $row["fine"]; ?>" onclick="return false;"><span>Print</span></a>
-                                                    </div>
-                                                    <?php 
-                                                    echo "</td>";
                         
                         echo "</tr>";
                     }
@@ -133,22 +130,6 @@ include 'inc/connection.php';
     </div>
 
     <!-- HTML form -->
-<form action="generate_receipt.php" method="post">
-    <label for="student_number">Select Student Number:</label>
-    <select name="student_number" id="student_number">
-        <!-- Populate options dynamically from finezone table -->
-        <?php
-   
-
-        // Fetch unique student numbers from finezone table
-        $result = mysqli_query($link, "SELECT DISTINCT student_number FROM finezone");
-        while ($row = mysqli_fetch_array($result)) {
-            echo "<option value='" . $row['student_number'] . "'>" . $row['student_number'] . "</option>";
-        }
-        ?>
-    </select>
-    <button type="submit" name="generate_receipt">Generate Receipt</button>
-</form>
 </main>
 
 <div class="modal fade" id="editRemarksModal" tabindex="-1" role="dialog" aria-labelledby="editRemarksModalLabel" aria-hidden="true">

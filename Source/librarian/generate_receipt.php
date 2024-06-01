@@ -41,6 +41,7 @@ if (isset($_POST['generate_receipt'])) {
     $pdf->Cell(0, 10, 'Student Number: ' . $studentNumber, 0, 1);
     $pdf->Cell(0, 10, 'Name: ' . $studentInfo['first_name'] . ' ' . $studentInfo['last_name'], 0, 1);
     $pdf->Ln(5);
+    
 
     // Add table headers
     $pdf->Cell(30, 10, 'Accession Number', 1, 0, 'C');
