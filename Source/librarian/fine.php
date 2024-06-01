@@ -131,6 +131,24 @@ include 'inc/connection.php';
             </table>
         </div>
     </div>
+
+    <!-- HTML form -->
+<form action="generate_receipt.php" method="post">
+    <label for="student_number">Select Student Number:</label>
+    <select name="student_number" id="student_number">
+        <!-- Populate options dynamically from finezone table -->
+        <?php
+   
+
+        // Fetch unique student numbers from finezone table
+        $result = mysqli_query($link, "SELECT DISTINCT student_number FROM finezone");
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<option value='" . $row['student_number'] . "'>" . $row['student_number'] . "</option>";
+        }
+        ?>
+    </select>
+    <button type="submit" name="generate_receipt">Generate Receipt</button>
+</form>
 </main>
 
 <div class="modal fade" id="editRemarksModal" tabindex="-1" role="dialog" aria-labelledby="editRemarksModalLabel" aria-hidden="true">
