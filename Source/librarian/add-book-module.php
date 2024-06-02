@@ -22,7 +22,16 @@ include 'inc/connection.php';
 </head>
 <style>
 /* Style for tabs */
+.responsive-input {
+    width: 615px; /* Default width for larger screens */
+}
 
+/* Adjust input width for smaller screens */
+@media (max-width: 1290px) {
+    .responsive-input {
+        width: calc(100% - 20px); /* Subtract 20px from the full width */
+    }
+}
 .tab {
     display: none;
 }
@@ -257,6 +266,18 @@ include 'inc/connection.php';
             <div class="details ID">
                 <span class="title"> LOCAL INFORMATION</span>
                 <div class="fields">
+                <div class="input-field1">
+                            <span>
+                            <label>Accession Number</label>
+                            <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
+                            </input>
+                            </span>
+                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required />
+                            <div id="accession_number_error" class="error"></div>
+                            <div id="accessionNumberFields"></div>
+                </div>
+
+                
                     <div class="input-field2">
                         <label>Call Number</label>
                         <select placeholder="Title Proper" name="call_number_type">
@@ -277,19 +298,8 @@ include 'inc/connection.php';
                     </div>
 
                 
-                        <div class="input-field2">
-                            <label>Accession Number</label>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]">
-                            <div id="accession_number_error" class="error"></div>
-                            <div id="accessionNumberFields"></div>
-                           
-
-                </div>
-                <div class="buttons">
-                    <button type="button" onclick="addAccessionNumberField()">
-                        <span>Add More</span>
-                    </button>
-                </div>
+                 
+            
 
                     <div class="input-field2">
                         <label>Language</label>
@@ -422,11 +432,9 @@ if (isset($_POST["submit"])) {
         $result = mysqli_query($link, $query);
         $row = mysqli_fetch_assoc($result);
         $count = $row['count'];
-
         if ($count > 0) {
-            // If accession number already exists, alert the user
-            echo "<script>alert('Accession number $accession_number already exists.');</script>";
-          
+            // If accession number already exists, add it to the failed list
+            $failedList[] = $accession_number;
         } else {
             // If accession number is unique, proceed with insertion
             $image_name = $_FILES['f1']['name'];
@@ -528,13 +536,26 @@ if (isset($_POST["submit"])) {
                 
             );
           
-            $_SESSION['success_message'] = "Book added Successfully!";
-            echo '<script type="text/javascript">alert("Book Add Successfull");window.location="display-book-module.php";</script>';
+            $successList[] = $accession_number;
           
          
 
         }
 }
+
+if (!empty($successList)) {
+    // If there are successfully added accession numbers, display a success message with the list
+    $_SESSION['success_message'] = "Book added Successfully with Accession Number(s): " . implode(', ', $successList);
+    echo '<script type="text/javascript">alert("Book Add Successful with Accession Number(s): ' . implode(', ', $successList) . '");</script>';
+}
+
+if (!empty($failedList)) {
+    // If there are failed insertion due to existing accession numbers, alert the user
+    echo '<script type="text/javascript">alert("Failed to insert due to existing Accession Number(s): ' . implode(', ', $failedList) . '");</script>';
+}
+
+// Redirect to display-book-module.php after processing
+echo '<script>window.location="display-book-module.php";</script>';
 }
 ?>
 
@@ -636,11 +657,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // If all required fields are filled, allow form submission
     return true;
 }
-    function addAccessionNumberField() {
+function addAccessionNumberField() {
         var div = document.createElement('div');
-        div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
+        div.innerHTML = '<div class="input-field1"><span><label>Accession Number </label><input type="button" onclick="removeAccessionNumberField(this)" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="-" ></input></span>     <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required /></div>';
         document.getElementById('accessionNumberFields').appendChild(div);
     }
+
+    function removeAccessionNumberField(element) {
+    // Navigate up the DOM hierarchy to find the parent div containing both the button and the input
+    var parentDiv = element.closest('.input-field1');
+    // Remove the parent div
+    if (parentDiv) {
+        parentDiv.parentNode.removeChild(parentDiv);
+    }
+}
 
 </script>
 

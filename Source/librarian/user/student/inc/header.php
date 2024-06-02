@@ -45,7 +45,7 @@ $not= mysqli_num_rows($res);
 							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
 						  }
                         ?>
-						<h6 style="float: right; margin-top: 10px; color:black;">
+						<h6 style="float: right; margin-top: 10px; color:inherit;">
 						
 						Welcome
 

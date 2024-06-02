@@ -15,7 +15,11 @@
     .highlight {
         background-color: yellow;
         font-weight: bold;
-    }
+    }  
+    #ul #li a:hover {
+    text-decoration: underline;
+
+}
 </style>
 <?php
 
@@ -128,6 +132,17 @@ $res = mysqli_query($link, $sql);
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+<div class="col-md-11 d-flex justify-content-center">
+        <h5>Example Searches:</h5>
+        <ul id="ul">
+    <li id="li"><a href="?search=Rizal" style="color:inherit; position: relative;">Rizal (Search by all keyword)</a></li>
+    <li id="li"><a href="?search=Ambeth&keyword=author" style="color:inherit; position: relative;">Ambeth (Search by Author)</a></li>
+    <li id="li"><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">1234567890 (Search by ISBN)</a></li>
+</ul>
     </div>
 </div>
 

@@ -20,8 +20,8 @@ if (mysqli_num_rows($student_result) > 0) {
         mysqli_query($link, "UPDATE student SET status='yes', verified='yes' WHERE student_number = $id");
         // Send verification email
         $email = $student_data['email'];
-        $subject = "Account Verification";
-        $message = "Your account has been successfully activated.";
+        $subject = "NBS College Library Account Verification";
+        $message = "Your Library account has been successfully activated.";
         $result = sendMail($email, $subject, $message); // Send the email
         if ($result === 'success') {
             $_SESSION['success_msg'] = "User activated successfully!";
@@ -41,8 +41,8 @@ if (mysqli_num_rows($student_result) > 0) {
         mysqli_query($link, "UPDATE teacher SET status='yes', verified='yes' WHERE id_number = $id");
         // Send verification email
         $email = $teacher_data['email'];
-        $subject = "Account Verification";
-        $message = "Your account has been successfully activated.";
+        $subject = "NBS College Library Account Verification";
+        $message = "Your Library account has been successfully activated.";
         $result = sendMail($email, $subject, $message); // Send the email
         if ($result === 'success') {
             $_SESSION['success_msg'] = "User activated successfully!";

@@ -1,26 +1,43 @@
 <?php
-    session_start();
+session_start();
 
-    if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["username"])) {
+    ?>
+    <script type="text/javascript">
+        window.location = "login.php";
+    </script>
+    <?php
+}
+
+include 'inc/connection.php';
+
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+
+    // Prepare the SQL query
+    $query = "DELETE FROM book_module WHERE accession_number = ?";
+    $stmt = mysqli_prepare($link, $query);
+
+    // Bind the parameter
+    mysqli_stmt_bind_param($stmt, "s", $id);
+
+    // Execute the statement
+    mysqli_stmt_execute($stmt);
+
+    // Check if deletion was successful
+    if (mysqli_stmt_affected_rows($stmt) > 0) {
+        // Deletion successful, redirect to display-book-module.php
         ?>
         <script type="text/javascript">
-            window.location="login.php";
+            window.location = "display-book-module.php";
         </script>
         <?php
+    } else {
+        // Deletion failed, handle the error
+        echo "Error: Unable to delete the book module.";
     }
 
-    include 'inc/connection.php';
-    if (isset($_GET["id"])) {
-        $id = $_GET["id"];
-        mysqli_query($link, "delete from book_module where accession_number=$id");
-       
-
-        ?>
-        <script type="text/javascript">
-            window.location="display-book-module.php";
-        </script>   
-        <?php
-     
-    }
-
+    // Close the statement
+    mysqli_stmt_close($stmt);
+}
 ?>

@@ -95,35 +95,6 @@
 							
 					</div>
 					
-
-					<div class="col-md-4 d-flex">
-                            <div class="card flex-fill border-0" id="card1" >
-                                <div class="card-body py-4" id="card2">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-										<div class="box">
-							<div class="icon1">
-								<i class="fa fa-users"></i>
-							</div>
-							<div class="text-left">
-								<h3><span class="counter">
-                                    <?php
-                                         $res = mysqli_query($link, "select * from student");
-                                         $res2 = mysqli_query($link, "select * from teacher");
-                                         $count2 = mysqli_num_rows($res2);
-                                         $count = mysqli_num_rows($res);
-                                         $result = $count + $count2;
-                                         echo $result;
-                                    ?>
-                                    </span></h3>
-								<h4><a href="#">Members</a></h4>
-							</div>
-						</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 										<!--  -->
 						<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
@@ -182,12 +153,12 @@
 							<div class="text-left">
 								<h3><span class="counter">
 								<?php
-                                         $res = mysqli_query($link, "select * from book");
+                                         $res = mysqli_query($link, "select * from book_module");
                                          $count = mysqli_num_rows($res);
                                         echo $count;
                                     ?>
                                     </span></h3>
-								<h4><a href="display-book.php">Colletions</a></h4>
+								<h4><a href="manage-book.php">Collections</a></h4>
 							</div>
 						</div>
                                             </div>
@@ -299,6 +270,36 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-4 d-flex">
+                            <div class="card flex-fill border-0" id="card1" >
+                                <div class="card-body py-4" id="card2">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+										<div class="box">
+							<div class="icon1">
+								<i class="fa fa-users"></i>
+							</div>
+							<div class="text-left">
+								<h3><span class="counter">
+                                    <?php
+                                         $res = mysqli_query($link, "select * from student_archive");
+                                         $res2 = mysqli_query($link, "select * from teacher_archive");
+                                         $count2 = mysqli_num_rows($res2);
+                                         $count = mysqli_num_rows($res);
+                                         $result = $count + $count2;
+                                         echo $result;
+                                    ?>
+                                    </span></h3>
+								<h4><a href="#">User Archive</a></h4>
+							</div>
+						</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+										<!--  -->
+
 							<!--  -->
 							<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
@@ -320,6 +321,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
                        
 					
             </main>

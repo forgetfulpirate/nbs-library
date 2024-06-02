@@ -13,9 +13,11 @@ include 'inc/connection.php';
 
 if(isset($_GET['id'])) {
     $accession_number = $_GET['id'];
+    // Sanitize the input to prevent SQL injection
+    $accession_number = mysqli_real_escape_string($link, $accession_number);
 
     // Fetch book details based on ID
-    $query = "SELECT * FROM book_module WHERE accession_number = $accession_number";
+    $query = "SELECT * FROM book_module WHERE accession_number = '$accession_number'";
     $result = mysqli_query($link, $query);
     if(mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);

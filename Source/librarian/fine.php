@@ -21,32 +21,53 @@ include 'inc/connection.php';
         </div>
     </div>
 
-    <form action="fine-receipt.php" method="post">
-    <label for="student_number">Enter Student Number:</label>
-    <input type="text" name="student_number" id="student_number" required>
-    <button type="submit" name="generate_receipt">Generate Receipt</button>
-</form>
 
-    <div class="col-md-12">
-    <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
-        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
-            <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
+    <div class="container">
+    <div class="row">
+        <!-- Filter Date Form -->
+        <div class="col-lg-6 col-12 mb-4"> <!-- Full width on mobile, half width on large screens -->
+            <div class="row text-center text-lg-left align-items-center justify-content-center justify-content-lg-start"> <!-- Center on mobile, left align on large screens -->
+                <div class="col-auto p-2">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
+                </div>
+                <div class="col-auto p-2" style="width:200px;">
+                    <input type="date" id="start_date" class="form-control custom" placeholder="Start Date">
+                </div>
+                <div class="col-auto p-2">
+                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+                </div>
+                <div class="col-auto p-2" style="width:200px;">
+                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
+                </div>
+                <div class="col-auto p-2">
+                    <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-2 p-2" style="width:200px;"> <!-- Adjusted padding to add more space -->
-            <input type="date" id="start_date" class="form-control custom" placeholder="Start Date">
-        </div>
-        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
-            <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
-        </div>
-        <div class="col-md-2 p-2" style="width:200px;"> <!-- Adjusted padding to add more space -->
-            <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date" style=""> 
-        </div>
-        <div class="col-md-auto p-2"> <!-- Adjusted padding to add more space -->
-            <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
+
+        <!-- Generate Receipt Form -->
+        <div class="col-lg-6 col-12"> <!-- Full width on mobile, half width on large screens -->
+            <form action="fine-receipt.php" method="post" id="receiptForm" target="_blank" onsubmit="return validateForm()">
+                <div class="row text-center text-lg-end align-items-center justify-content-center justify-content-lg-end"> <!-- Center on mobile, right align on large screens -->
+                    <div class="col-auto p-2">
+                        <label for="student_number" class="col-form-label" style="font-size:medium;">Enter ID Number:</label>
+                    </div>
+                    <div class="col-auto p-2" style="width:200px;">
+                        <input type="text" name="student_number" id="student_number" class="form-control custom" placeholder="Enter ID" required>
+                    </div>
+                    <div class="col-auto p-2">
+                        <button class="btn btn-danger btn-block" type="submit" name="generate_receipt">Generate Receipt</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-        
+
+
+
+
+
         <div class="gap-30"></div>
 
     <!-- Display Success or Error Messages -->
@@ -126,9 +147,11 @@ include 'inc/connection.php';
                     ?>
                 </tbody>
             </table>
+            
         </div>
     </div>
 
+ 
     <!-- HTML form -->
 </main>
 
@@ -474,6 +497,18 @@ function filterByDateRange() {
 
     
 </script>
-
+<script>
+function validateForm() {
+    var studentNumber = document.getElementById("student_number").value;
+    
+    // Check if the student number is empty or not a number
+    if (studentNumber.trim() === "" || isNaN(studentNumber)) {
+        alert("Please enter a valid ID number.");
+        return false; // Prevent form submission
+    }
+    
+    return true; // Allow form submission
+}
+</script>
     
 <?php include 'inc/footer.php'; ?>

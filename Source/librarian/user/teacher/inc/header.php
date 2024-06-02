@@ -45,7 +45,7 @@
 							  ?><img src="<?php echo $row1["photo"]; ?> " height="50px" width="50px" alt="something wrong" class="rounded-circle" style="float:left;"> </a> <?php
 						  }
                         ?>
-						<h6 style="float: right; margin-top: 10px; color:Black;">
+						<h6 style="float: right; margin-top: 10px; color:inherit;">
 						
 						Welcome
 
@@ -126,6 +126,14 @@
                             My issue book
                         </a>
                     </li>
+
+                    
+                    <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
+                                <a href="finezone.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    My Fine
+                                </a>
+                    </li>
                 
                     <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                         <a href="books.php" class="sidebar-link">
@@ -134,28 +142,28 @@
                             Books
                         </a>
                     </li>
-
+<!-- 
                     <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
                                 <a href="ebooks.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     E-Book
                                 </a>
-                    </li>
+                    </li> -->
 
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                                 <a href="book.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Books
                                 </a>
-                    </li>
+                    </li> -->
 
                     
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Book Module
                                 </a>
-                    </li>
+                    </li> -->
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">

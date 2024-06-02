@@ -48,7 +48,7 @@
 								$cpass    = $_POST['cpassword'];
 								$npass    = $_POST['npassword'];
 								$conpass  = $_POST['conpass'];
-								$res = mysqli_query($link, "select password from t_registration where username='$_SESSION[teacher]'");								
+								$res = mysqli_query($link, "select password from teacher where id_number='$_SESSION[teacher]'");								
 								while($row = mysqli_fetch_array($res)){
                                     $pass   = $row['password'];
 								}
@@ -60,7 +60,7 @@
 									<?php
 								}else{
 									if($npass == $conpass){
-									mysqli_query($link, "update t_registration set password='$npass' where username='$_SESSION[teacher]'");
+									mysqli_query($link, "update teacher set password='$npass' where id_number='$_SESSION[teacher]'");
 									
 									 ?>
 										<div class="alert alert-success">
