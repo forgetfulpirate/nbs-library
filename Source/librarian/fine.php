@@ -92,7 +92,7 @@ include 'inc/connection.php';
                     while ($row = mysqli_fetch_array($res)) {
                         echo "<tr>";
                         echo "<td>" . $row["student_number"] . "</td>";
-                        echo "<td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
+                        echo "<td>" . $row["first_name"];"</td>";
                         echo "<td>" . $row["utype"] . "</td>";
                         echo "<td>" . $row["email"] . "</td>";
                         echo "<td>" . $row["accession_number"] . "</td>";

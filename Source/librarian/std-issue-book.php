@@ -31,8 +31,10 @@
                         <table class="table">
                             <tr>
                                 <td class="">
-                                    <input type="text" name="student_number" class="form-control" placeholder="Enter Student Number" required>
+                                <input type="text" name="student_number" class="form-control" placeholder="Enter Student Number" value="<?php echo isset($_POST['student_number']) ? htmlspecialchars($_POST['student_number']) : ''; ?>">
                                     <span id="invalidStudentNumber" style="color: red; display: none;">Student number is invalid</span>
+                                    <span id="emptyStudentNumber" style="color: red; display: none;">Student number cannot be empty</span>
+
                                 </td>
                                 <td>
                                     <input type="submit" class="btn btn-info" value="Select" name="submit1">
@@ -175,16 +177,16 @@
                                         continue; // Move to the next iteration if the current book is not available
                                     } else {
                                         // Check if return date is valid
-                                        $issuedDate = strtotime($_POST['booksissuedate']);
-                                        $returnDate = strtotime($_POST['booksreturndate']);
-                                        if ($returnDate < $issuedDate) {
+                                        // $issuedDate = strtotime($_POST['booksissuedate']);
+                                        // $returnDate = strtotime($_POST['booksreturndate']);
+                                        // if ($returnDate < $issuedDate) {
                                             ?>
-                                            <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                            <!-- <div class="alert alert-danger col-lg-6 col-lg-push-3">
                                                 <strong>Return date cannot be earlier than issue date.</strong>
-                                            </div>
+                                            </div> -->
                                             <?php
-                                            continue; // Move to the next iteration if return date is invalid
-                                        }
+                                        //     continue; // Move to the next iteration if return date is invalid
+                                        // }
                                         
                                         $title_proper = mysqli_real_escape_string($link, $title_proper);
                                         mysqli_query($link, "INSERT INTO issue_book VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '', '', '', '', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','$_POST[username]')");
@@ -207,16 +209,19 @@
     </div>
 </main>
 <script>
-    // JavaScript to validate the student number
-    document.forms['student_number'].addEventListener('submit', function(event) {
-        var studentNumber = document.forms['student_number']['student_number'].value;
-        if (studentNumber.trim() === '') {
-            event.preventDefault();
-            document.getElementById('invalidStudentNumber').style.display = 'none'; // Hide the error message if input is not empty
-            return;
-        }
-        // You can add more validation if needed, like length check, format check, etc.
-    });
+ // JavaScript to validate the student number
+document.forms['student_number'].addEventListener('submit', function(event) {
+    var studentNumber = document.forms['student_number']['student_number'].value;
+    if (studentNumber.trim() === '') {
+        event.preventDefault();
+        document.getElementById('invalidStudentNumber').style.display = 'none'; // Hide the invalid student number message
+        document.getElementById('emptyStudentNumber').style.display = 'block'; // Show the empty field message
+        return;
+    } else {
+        document.getElementById('emptyStudentNumber').style.display = 'none'; // Hide the empty field message if student number is not empty
+    }
+    // You can add more validation if needed, like length check, format check, etc.
+});
 
     // JavaScript to add more accession number input fields dynamically
     document.addEventListener("click", function(event) {
