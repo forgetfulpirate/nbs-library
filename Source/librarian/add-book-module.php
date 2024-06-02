@@ -363,7 +363,7 @@ include 'inc/connection.php';
                     </div>
 
                     <div class="input-field2">
-                        <label>Location</label>
+                        <label>Circulation</label>
                         <select name="location">
                             <option>General Circulation</option>
                             <option>Teachers Reference</option>

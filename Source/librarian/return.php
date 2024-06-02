@@ -16,6 +16,7 @@ while($row3=mysqli_fetch_array($res3)) {
     $booksname = $row3["booksname"];
     $brdate = $row3["booksreturndate"];
     $booksissuedate = $row3["booksissuedate"];
+    $issuedby = $row3["username"];
 }
 
 // Fetch data from t_issuebook table
@@ -39,13 +40,13 @@ $booksname = mysqli_real_escape_string($link, $booksname);
 
 // Insert fine information into finezone table
 if ($fine > 0) {
-    mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '','no','')");
+    mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '','no','$issuedby')");
     echo '<script type="text/javascript">  
         alert("The user returned the book overdue. Fine: $'.$fine.'");
         window.location="issued-books.php";
       </script>';
 } else {
-    mysqli_query($link, "insert into return_books values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a')");
+    mysqli_query($link, "insert into return_books values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a', '$issuedby')");
     echo '<script type="text/javascript">  
         alert("Book returned successfully");
         window.location="issued-books.php";
