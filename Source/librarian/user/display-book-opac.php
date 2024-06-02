@@ -5,7 +5,16 @@
     include 'inc/header.php';
     include 'inc/connection.php';
 ?>
-  
+   <style>
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+    ul li a:hover {
+    text-decoration: underline;
+    color: #248fc5;
+}
+</style>
 <?php
 
 // Check if search term and keyword are provided
@@ -29,9 +38,9 @@ if (!empty($search)) {
         case 'title':
             $sqlCount .= " title_proper LIKE '%$search%'";
             break;
-        case 'accession':
-            $sqlCount .= " accession_number LIKE '%$search%'";
-            break;
+        // case 'accession':
+        //     $sqlCount .= " accession_number LIKE '%$search%'";
+        //     break;
         case 'author':
             $sqlCount .= " main_creator LIKE '%$search%'";
             break;
@@ -42,7 +51,7 @@ if (!empty($search)) {
             $sqlCount .= " ISBN LIKE '%$search%'";
             break;
         default:
-            $sqlCount .= " title_proper LIKE '%$search%' OR accession_number LIKE '%$search%' OR publisher LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
+            $sqlCount .= " title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
             break;
     }
 }
@@ -61,9 +70,9 @@ if (!empty($search)) {
         case 'title':
             $sql .= " title_proper LIKE '%$search%'";
             break;
-        case 'accession':
-            $sql .= " accession_number LIKE '%$search%'";
-            break;
+        // case 'accession':
+        //     $sql .= " accession_number LIKE '%$search%'";
+        //     break;
         case 'author':
             $sql .= " main_creator LIKE '%$search%'";
             break;
@@ -74,7 +83,7 @@ if (!empty($search)) {
             $sql .= " ISBN LIKE '%$search%'";
             break;
         default:
-            $sql .= " title_proper LIKE '%$search%' OR accession_number LIKE '%$search%' OR publisher LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
+            $sql .= " title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
             break;
     }
 }
@@ -104,7 +113,7 @@ $res = mysqli_query($link, $sql);
                 <select class="form-control" name="keyword" style="width:150px;">
                     <option value="all" <?php if ($keyword == 'all') echo 'selected'; ?>>Keyword</option>
                     <option value="title" <?php if ($keyword == 'title') echo 'selected'; ?>>Title</option>
-                    <option value="accession" <?php if ($keyword == 'accession') echo 'selected'; ?>>Accession No</option>
+                    <!-- <option value="accession" <?php if ($keyword == 'accession') echo 'selected'; ?>>Accession No</option> -->
                     <option value="author" <?php if ($keyword == 'author') echo 'selected'; ?>>Author</option>
                     <option value="call_number" <?php if ($keyword == 'call_number') echo 'selected'; ?>>Call Number</option>
                     <option value="isbn" <?php if ($keyword == 'isbn') echo 'selected'; ?>>ISBN</option>
@@ -117,6 +126,17 @@ $res = mysqli_query($link, $sql);
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="row mt-3">
+<div class="col-md-11 d-flex justify-content-center">
+        <h5>Example Searches:</h5>
+        <ul>
+    <li><a href="?search=Rizal" style="color:inherit; position: relative;">Rizal (Search by all keyword)</a></li>
+    <li><a href="?search=Ambeth&keyword=author" style="color:inherit; position: relative;">Ambeth (Search by Author)</a></li>
+    <li><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">1234567890 (Search by ISBN)</a></li>
+</ul>
     </div>
 </div>
 
@@ -178,84 +198,38 @@ $res = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_array($res)) {
             // Determine availability message
             $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
+            $highlightedTitle = str_ireplace($search, "<span class='highlight'>$search</span>", $row["title_proper"]);
+            $highlightedCall_Number = str_ireplace($search, "<span class='highlight'>$search</span>", $row["call_number_info"]);
+            $highlightedMain_Creator = str_ireplace($search, "<span class='highlight'>$search</span>", $row["main_creator"]);
+            $highlightedISBN = str_ireplace($search, "<span class='highlight'>$search</span>", $row["ISBN"]);
+            
+
+    
     ?>
     <div class="col-md-12 mb-3 d-flex flex-wrap"> <!-- Added d-flex flex-wrap -->
         <div class="card d-flex flex-row w-100"> <!-- Added w-100 to ensure the card takes full width -->
             <div class="card-body">
-                <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $row["title_proper"];?></h3></a>
+            <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3></a>
+                
                 <br>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $row["main_creator"]; ?></span></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $highlightedMain_Creator  ?></span></p>
+                <!-- <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p> -->
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $row["ISBN"]; ?></p>
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $row["call_number_info"]; ?></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $highlightedISBN;?></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $highlightedCall_Number?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
+            <img src="../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:100px; width:100px;">
         </div>
     </div>
     <?php
         }
     ?>
 </div>
-
-    <!-- Pagination -->
-    <div class="row mt-3">
-        <div class="col-md-12">
-            
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <?php
-                        // First page
-                        if ($currentPage > 1) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
-                        }
-
-                        // Previous page
-                        if ($currentPage > 1) {
-                            $prevPage = $currentPage - 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
-                        }
-
-                        // Page numbers
-                        $startPage = max(1, $currentPage - 5);
-                        $endPage = min($totalPages, $startPage + 9);
-                        for ($i = $startPage; $i <= $endPage; $i++) {
-                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
-                        }
-
-                        // Next page
-                        if ($currentPage < $totalPages) {
-                            $nextPage = $currentPage + 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
-                        }
-
-                        // Last page
-                        if ($currentPage < $totalPages) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
-                        }
-                    ?>
-                </ul>
-            </nav>
-        </div>
-    </div>
 <?php } ?>
 </main>
 
-<footer style="text-align: center;">
-    <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="dist/img/NBS-LOGO.png" alt="Telephone and Fax" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 10px; margin:0;">
-        <div style="text-align: left;">
-            <p style="margin: 0; font-size:small;">NBS College Library, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon</p>
-            <p style="margin: 0; font-size:small;">Tel. (xxx) xxx-xxx; Cp No. (63+) xxx-xxx-xxx</p>
-            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
-        </div>
-    </div>
-  
-    <br>
-    
-</footer>
 
 
 <script>

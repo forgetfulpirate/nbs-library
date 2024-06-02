@@ -26,7 +26,7 @@ if (mysqli_num_rows($student_result) > 0) {
         // Send email notification
         $email = $student_data['email'];
         $subject = "Account Deactivation Notification";
-        $message = "Your account has been deactivated by the admin. If you have any questions, please contact the NBS Library.";
+        $message = "Your account has been deactivated by the librarian. If you have any questions, please contact the NBS Library.";
         sendMail($email, $subject, $message);
         echo "<script>window.location='status.php';</script>";
     }
@@ -42,7 +42,7 @@ if (mysqli_num_rows($student_result) > 0) {
         // Send email notification
         $email = $teacher_data['email'];
         $subject = "Account Deactivation Notification";
-        $message = "Your account has been deactivated by the admin. If you have any questions, please contact the NBS Library.";
+        $message = "Your account has been deactivated by the librarian. If you have any questions, please contact the NBS Library.";
         sendMail($email, $subject, $message);
         echo "<script>window.location='status.php';</script>";
     }

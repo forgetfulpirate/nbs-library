@@ -1,74 +1,91 @@
-	<?php 
+<?php 
      session_start();
-    if (!isset($_SESSION["teacher"])) {
+    if(!isset($_SESSION["teacher"])) {
         ?>
             <script type="text/javascript">
                 window.location="login.php";
             </script>
         <?php
     }
-    $page = 'home';
+    $page ='issue-book';
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
-     <main class="content px-3 py-2">
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">my issued books</span>
-						</div>
-					</div>
-				</div>
-				<div class="st-issuedBook">
-					<table id="dtBasicExample" class="table table-dark table-striped text-center">
-                        <thead>
-                           <tr>
-                            <th>Id No</th>
-                            <th>Username</th>
-                            <th>Books Name</th>
-                            <th>Books Issue Date</th>
-                            <th>Books Return Date</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                                $res1= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
-                                $res= mysqli_query($link, "select * from t_issuebook where username='".$_SESSION['teacher']."' ORDER BY id DESC");
-                                while ($row=mysqli_fetch_array($res1)) {
-                                    echo "<tr>";
-                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
-                                    echo "<td>"; echo $row["name"]; echo "</td>";
-                                    echo "<td>"; echo $row["booksname"]; echo "</td>";
-                                    echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                                    echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
-                                    echo "</tr>";
-                                }
-                             ?>
-                            </tbody>
-                            
-                    </table>
-				</div>
-			</div>					
-		</div>
-	</div>
-     </main>
-    <?php 
+
+<main class="content px-3 py-2">
+            <div class="gap-30"></div>
+                <div class="container-fluid">
+				<div class="mb-3">
+          
+                        <h4>My Issued Books
+                        <p id="time"></p>
+                          
+                            <p id="date"></p>
+                        </h4>
+                           
+             
+                 </div>
+            </div>
+            <br>
+          
+            <div class="card border-0">
+                
+                
+                  
+                 
+                        <div class="card-body">
+                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                            <thead>
+                                            <tr>
+												<th>Student Number</th>
+												<th>Name</th>
+												<th>Books Name</th>
+												<th>Books Issue Date</th>
+												<th>Books Return Date</th>
+                                            </tr>
+                                       </thead>
+                                        <tbody>
+										<?php 
+											$res= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
+											
+											while ($row=mysqli_fetch_array($res)) {
+												echo "<tr>";
+												echo "<td>"; echo $row["student_number"]; echo "</td>";
+												echo "<td>"; echo $row["name"]; echo "</td>";
+												echo "<td>"; echo $row["booksname"]; echo "</td>";
+												echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
+												echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
+												echo "</tr>";
+											}
+										?>
+                                        </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    
+            
+
+                
+
+                
+                
+            
+            </main>
+
+        
+
+
+    
+
+     <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
+<?php 
 		include 'inc/footer.php';
 	 ?>
-	
-	 <script>
-        $(document).ready(function () {
-        $('#dtBasicExample').DataTable();
-        $('.dataTables_length').addClass('bs-select');
-        });
-  </script>
+    

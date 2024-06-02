@@ -73,10 +73,10 @@
                 
                         <div class="card-body">
                             <table class="table table-hover  table-striped" id="dtBasicExample">
-                                <thead style="text-align: center;">
+                                <thead style="text-align: left;">
                                     <tr>
                                         <th scope="col">User Type</th>
-                                        <th scope="col" class="text-center">Faculty Number</th>
+                                        <th scope="col" class="text-left">Faculty Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Department</th>
@@ -84,7 +84,7 @@
                                     </tr>
                                 </thead>
                             
-                                <tbody class="text-center">
+                                <tbody class="text-left">
                                 <?php
                                         
                                         $res2= mysqli_query($link, "select * from teacher ORDER BY id_number DESC");

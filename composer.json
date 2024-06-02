@@ -1,0 +1,18 @@
+{
+    "name": "cyrille/nbs-library",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Cyrille\\NbsLibrary\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "cayceevans213",
+            "email": "cevangelista2021@student.nbscollege.edu.ph"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.1"
+    }
+}

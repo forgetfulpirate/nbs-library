@@ -14,9 +14,11 @@
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        // Fetch book details based on ID
-        $query = "SELECT * FROM book_module WHERE accession_number = $id";
-        $result = mysqli_query($link, $query);
+        $query = "SELECT * FROM book_module WHERE accession_number = ?";
+        $stmt = mysqli_prepare($link, $query);
+        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if(mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);

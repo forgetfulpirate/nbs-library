@@ -92,12 +92,12 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item <?php if($page=='return-books'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='return-books'){ echo 'active';} ?>">
                         <a href="return-book.php" class="sidebar-link">
                         <i class="fa-solid fa-file-lines pe-2"></i>
                             Returned Books
                         </a>
-                    </li>
+                    </li> -->
                    
                    
                     <li class="sidebar-item">
@@ -154,7 +154,7 @@
 
                     
 
-                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                         <a href="display-book.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
@@ -167,7 +167,7 @@
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display E-Book
                                 </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">
@@ -193,35 +193,31 @@
 
 
 
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#user" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-users pe-2"></i>
                             Manage User
                         </a>
                         <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <!-- <li class="sidebar-item <?php if($page=='a-std'){ echo 'active';} ?>">
-                                <a href="add-student.php" class="sidebar-link">Add student</a>
-                            </li> -->
+                    
                             <li class="sidebar-item ">
                                 <a href="add-std.php" class="sidebar-link">Add Student</a>
                             </li>
                             <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
                                 <a href="add-tch.php" class="sidebar-link">Add Teacher</a>
                             </li>
-                            <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
-                                <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
-                            </li> -->
+                      
                         </ul>
-                    </li>
+                    </li> -->
               
             
-
+<!-- 
                     <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
                             Issued book
                         </a>
-                    </li>
+                    </li> -->
 
           
 
@@ -233,6 +229,8 @@
                             View Book Opac
                         </a>
                     </li>
+
+                    
 
                     <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="requested-books.php" class="sidebar-link">
@@ -255,6 +253,38 @@
                             </li>
                         </ul>
                         
+                    </li>
+
+                 
+
+                    
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#report" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-users pe-2"></i>
+                            Generate Report
+                        </a>
+                        <ul id="report" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-student.php" class="sidebar-link">Add student</a>
+                            </li> -->
+                            <li class="sidebar-item ">
+                                <a href="generate-report-borrowed.php" class="sidebar-link">Borrowed Books Report</a>
+                            </li>
+                            <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                                <a href="add-tch.php" class="sidebar-link">Add Teacher</a>
+                            </li> -->
+                            <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
+                                <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
+                            </li> -->
+                        </ul>
+                    </li>
+
+                    
+                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                        <a href="archive-user.php" class="sidebar-link">
+                        <i class="fa-solid fa-book pe-2"></i>
+                            Archive Users
+                        </a>
                     </li>
                     
                 </ul>

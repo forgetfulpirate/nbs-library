@@ -76,7 +76,7 @@
         <div class="card-body">
        
       
-            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                 <thead>
                     <tr>
                         <th>ID Number</th>
@@ -88,6 +88,7 @@
                         <th>Date Issued</th>
                         <th>Date Due</th>
                         <th>Date Returned</th>
+                        <th>Issued By</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -98,7 +99,7 @@
                         while ($row=mysqli_fetch_array($res)) {
                             echo "<tr>";
                             echo "<td>" . $row["student_number"] . "</td>";
-                            echo "<td>" . $row["first_name"] . " " . $row["last_name"] . "</td>";
+                            echo "<td>" . $row["first_name"];"</td>";
                             echo "<td>" . $row["utype"] . "</td>";
                             echo "<td>" . $row["email"] . "</td>";
                             echo "<td>" . $row["accession_number"] . "</td>";
@@ -106,6 +107,7 @@
                             echo "<td>" . $row["date_issued"] . "</td>";
                             echo "<td>" . $row["booksissuedate"] . "</td>";
                             echo "<td>" . $row["booksreturndate"] . "</td>";
+                            echo "<td>" . $row["issuedby"] . "</td>";
                             echo "<td>";
                     ?>
                                 <div class="d-flex justify-content-center">

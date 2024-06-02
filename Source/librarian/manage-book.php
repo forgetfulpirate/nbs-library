@@ -21,7 +21,18 @@
  ?>
             
             
-            <main class="content px-3 py-2">
+
+
+            <main class="content px-3 py-2">  
+    <div class="gap-30"></div>
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Book Collections
+                <p id="time"></p>
+                <p id="date"></p>
+            </h4>
+        </div>
+    </div>
                  
              <?php
                 if (!empty($_SESSION['success_message'])) {
@@ -34,6 +45,8 @@
                 }
             
                 ?>
+
+
             
            
             <div class="card border-0">
@@ -44,7 +57,7 @@
                         <div class="card-body" >
                                <!-- Display Success or Error Messages -->
                
-                            <table class="table table-hover text-center" id="dtBasicExample">
+                            <table class="table table-hover text-left" id="dtBasicExample">
                                 
                                 <thead>
                                     <tr >
@@ -87,7 +100,7 @@
                                     echo "</td>";
                    
                                     echo "<td>";
-                                    echo $row["quantity"];
+                                    echo $row["available"];
                                     echo "</td>";
 
                                     echo "<td>";

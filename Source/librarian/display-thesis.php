@@ -17,14 +17,10 @@
             <main class="content px-3 py-2">
             
             <div class="card border-0">
-                
-                  
-                 
                         <div class="card-body">
                             <table class="table text-center table-striped" id="dtBasicExample">
                                 <thead>
                                     <tr>
-                              
                                         <th scope="col">Accession Number</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Author</th>

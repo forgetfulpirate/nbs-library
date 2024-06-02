@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page ='home';
+    $page ='issue-book';
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
