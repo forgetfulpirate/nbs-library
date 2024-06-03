@@ -68,7 +68,7 @@
                                     <th class="col">Call Number</th>
                                     <th class="col">Place of Publication</th>
                                     <th class="col">Publisher</th>
-                                    <th class="col">Books quantity</th>
+                                    <th class="col">Quantity</th>
                                     <th class="col">Location</th>
                                     <th class="col">Remarks</th>
                           
@@ -100,7 +100,7 @@
                                     echo "</td>";
                    
                                     echo "<td>";
-                                    echo $row["available"];
+                                    echo $row["quantity"];
                                     echo "</td>";
 
                                     echo "<td>";
