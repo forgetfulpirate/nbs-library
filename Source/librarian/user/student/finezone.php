@@ -38,7 +38,7 @@
     
     <div class="card border-0">
         <div class="card-body">
-            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <table class="table table-hover text-left table-striped" id="dtBasicExample">
             <thead>
 								   <tr>
                                         <th>Student number</th>
