@@ -135,13 +135,13 @@
                                 </a>
                     </li>
                 
-                    <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                         <a href="books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
                             Books
                         </a>
-                    </li>
+                    </li> -->
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
                                 <a href="ebooks.php" class="sidebar-link">
@@ -158,12 +158,13 @@
                     </li> -->
 
                     
-                    <!-- <li class="sidebar-item">
+                    <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Book Module
                                 </a>
-                    </li> -->
+                    </li>
+                    
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">

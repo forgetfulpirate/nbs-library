@@ -15,7 +15,7 @@
     .highlight {
         background-color: yellow;
         font-weight: bold;
-    }
+    }  
     #ul #li a:hover {
     text-decoration: underline;
 
@@ -204,13 +204,11 @@ $res = mysqli_query($link, $sql);
         while ($row = mysqli_fetch_array($res)) {
             // Determine availability message
             $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
-            $highlightedTitle = str_ireplace($search, "<span class='highlight'>$search</span>", $row["title_proper"]);
-            $highlightedCall_Number = str_ireplace($search, "<span class='highlight'>$search</span>", $row["call_number_info"]);
-            $highlightedMain_Creator = str_ireplace($search, "<span class='highlight'>$search</span>", $row["main_creator"]);
-            $highlightedISBN = str_ireplace($search, "<span class='highlight'>$search</span>", $row["ISBN"]);
-            
-
-    
+            $highlightedTitle = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["title_proper"]);
+            $highlightedCall_Number = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["call_number_info"]);
+            $highlightedMain_Creator = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["main_creator"]);
+            $highlightedISBN = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["ISBN"]);
+                
     ?>
     <div class="col-md-12 mb-3 d-flex flex-wrap"> <!-- Added d-flex flex-wrap -->
         <div class="card d-flex flex-row w-100"> <!-- Added w-100 to ensure the card takes full width -->
@@ -226,7 +224,7 @@ $res = mysqli_query($link, $sql);
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $highlightedCall_Number?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:100px; width:100px;">
+            <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
         </div>
     </div>
     <?php

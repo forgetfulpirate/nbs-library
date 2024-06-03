@@ -120,7 +120,7 @@
                                             echo "<td>";
                                         
                                                 ?>
-                                      <a href="unarchive.php?student_number=<?php echo $row["student_number"]; ?>">Unarchive</a>
+                                      <a href="unarchive.php?student_number=<?php echo $row["student_number"]; ?> " class="btn btn-danger btn-sm ml-2" style="margin-right: 0px; padding-right: 5px; padding-left: 5px;">Unarchive</a>
                                                 <?php
                                            
                                             echo "</td>";

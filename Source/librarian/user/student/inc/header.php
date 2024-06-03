@@ -127,7 +127,7 @@ $not= mysqli_num_rows($res);
                 
     
 
-                    <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
                                 <a href="ebooks.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     E-Book
@@ -139,7 +139,7 @@ $not= mysqli_num_rows($res);
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Books
                                 </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
