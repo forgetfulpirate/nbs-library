@@ -1,16 +1,13 @@
 <?php 
     session_start();
-    if (!isset($_SESSION["teacher"])) {
+ 
 ?>
-        <script type="text/javascript">
-            window.location="login.php";
-        </script>
+     
 <?php
-    }
-    $page = '123';
+    
+    $page = '';
     include 'inc/connection.php';
     include 'inc/header.php';
-
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
 
@@ -219,7 +216,7 @@
 
                <!-- HOLDINGS VIEW CONTENT -->
      
-               <?php if (mysqli_num_rows($result_all) > 0): ?>
+<?php if (mysqli_num_rows($result_all) > 0): ?>
     <div class="content">
         <div class="table-responsive">
             <table id="myTable" class="table table-bordered">

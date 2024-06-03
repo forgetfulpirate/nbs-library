@@ -63,6 +63,10 @@ a {
   
   
 }
+table.dataTable th.dt-type-numeric {
+    text-align: left;
+  }
+
 .table.dataTable td.dt-type-numeric{
     text-align: left;
 }
@@ -71,8 +75,16 @@ table.dataTable thead th{
     text-align: left;
 }
 
+table.dataTable th.dt-type-date {
+    text-align: left;
+  }
+
+  table.dataTable td.dt-type-date {
+    text-align: left;
+  }
 
 
+  
 
 
 .dt-length{
@@ -113,7 +125,7 @@ table.dataTable thead th{
 }
 
 .dropdown-item:hover{
-    background-color: #d52033;
+    background-color: #04AA6D;
 }
 
 
@@ -363,72 +375,13 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 }
 
 
-.header{
-	width: 100%;
-	height: 75px;
-	padding: 5px;
-
-
-	box-shadow: 0px 0px 3px;
-	
-
-}
-.header .logo{
-	float: left;
-	width: 200px;
-	overflow: hidden;
-}
-.header .logo img{
-    float: left;
-	width: 100px;
-    height: 60px;
-	overflow: hidden;
-}
-.header-right{
-	float: right;
-	padding: 15px;
-	margin-top: 5px;
-}
-.header-right ul{
-	list-style: none;
-	position: relative;
-	
-	
-}
-.header-right ul li{
-	float: left;
-}
-.header-right ul li a{
-	color: #d52033;
-	text-decoration: none;
-	padding: 10px;
-
-	font-size: 18px;
-	
-}
-.header-right ul ul{
-    position: absolute;
-    top: 45px;
-    left: 0;
-}
-.header-right ul ul li{
-    float: none;
-}
-.slider{
-	width: 100%;
-	height: auto;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 5px;
-}
-
 @media (min-width: 1280px) {
     .col-md-7 {
       flex: 0 0 auto;
       width: 58.33333333%;
     }
   }
-  
+
 /* CSS for responsive pagination */
 .pagination-container {
     white-space: nowrap; /* Prevent pagination links from wrapping */
@@ -450,3 +403,17 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
     }
 }
 
+/* MAKE TABLE STRETCH */
+.table {
+    table-layout: auto !important;
+    width: 100% !important;
+}
+
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
+
+  

@@ -1,12 +1,10 @@
 <?php 
     session_start();
-    if (!isset($_SESSION["student"])) {
+ 
 ?>
-        <script type="text/javascript">
-            window.location="login.php";
-        </script>
+     
 <?php
-    }
+    
     $page = '';
     include 'inc/connection.php';
     include 'inc/header.php';

@@ -12,7 +12,6 @@
 	<meta charset="UTF-8">
 	<title>Library Management System</title>
 	<link rel="icon" type="image/png" href="dist/img/favicon.ico">
-
 	<link rel="stylesheet" href="dist/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="dist/css/owl.carousel.min.css">
 	<link rel="stylesheet" href="dist/css/owl.theme.default.min.css">

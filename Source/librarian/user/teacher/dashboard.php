@@ -1,13 +1,7 @@
 <?php 
     session_start();
-    if (!isset($_SESSION["teacher"])) {
-        ?>
-            <script type="text/javascript">
-                window.location="login.php";
-            </script>
-        <?php
-    }
-    $page = 'a-books';
+
+    $page = 'home';
     include 'inc/header.php';
     include 'inc/connection.php';
 ?>
@@ -105,7 +99,7 @@ $res = mysqli_query($link, $sql);
     <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <h4>Book
+            <h4>Search Book
                 <p id="time"></p>
                 <p id="date"></p>
             </h4>
@@ -230,7 +224,7 @@ $res = mysqli_query($link, $sql);
         </div>
     </div>
     <?php
-        }
+        }   
     ?>
 </div>
 <?php } ?>
