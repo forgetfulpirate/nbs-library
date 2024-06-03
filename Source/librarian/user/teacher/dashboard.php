@@ -224,7 +224,7 @@ $res = mysqli_query($link, $sql);
         </div>
     </div>
     <?php
-        }
+        }   
     ?>
 </div>
 <?php } ?>
