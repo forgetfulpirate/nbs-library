@@ -77,7 +77,7 @@ if (isset($_POST['generate_receipt'])) {
     
     $receiptDate = date("m/d/Y");
 
-    $pdf->Cell(130,5,"Borrower's name: " . $studentInfo['first_name'] . ' ' . $studentInfo['last_name'],0,0);
+    $pdf->Cell(130,5,"Borrower's name: " . $studentInfo['first_name'],0,0);
     $pdf->Cell(25,5,'Date: ' . $receiptDate,0,0);
     $pdf->Cell(34,5,'',0,1);
 
