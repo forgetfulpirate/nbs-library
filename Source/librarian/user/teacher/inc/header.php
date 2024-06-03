@@ -131,7 +131,7 @@
                     <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
                                 <a href="finezone.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
-                                    My Overdue
+                                    My 
                                 </a>
                     </li>
                 
