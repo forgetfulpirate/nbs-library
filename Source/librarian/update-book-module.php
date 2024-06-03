@@ -11,6 +11,9 @@ if (!isset($_SESSION["username"])) {
 }
 
 if (isset($_POST["submit"])) {
+    $success_list = array();
+    $error_list = array();
+
     $title_proper = mysqli_real_escape_string($link, $_POST['title_proper']);
     $responsibility = mysqli_real_escape_string($link, $_POST['responsibility']);
     $preffered_title = mysqli_real_escape_string($link, $_POST['preffered_title']);
@@ -132,8 +135,7 @@ if (isset($_POST["submit"])) {
 
     $result = mysqli_query($link, $query);
 
-    // Handle additional accession numbers
-    foreach ($_POST['accession_number'] as $key => $accession_number) {
+       foreach ($_POST['accession_number'] as $key => $accession_number) {
         if ($key == 0) continue; // Skip the first accession number as it's already updated
 
         $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
@@ -186,22 +188,29 @@ if (isset($_POST["submit"])) {
                 '$imagepath',
                 '$filepath')";
 
-            mysqli_query($link, $query_insert);
+            $result_insert = mysqli_query($link, $query_insert);
 
+            if ($result_insert) {
+                $success_list[] = $escaped_accession_number;
+            } else {
+                $error_list[] = $escaped_accession_number;
+            }
         } else {
-            $_SESSION['error_message'] = " Failed to add Accession Number $escaped_accession_number to the book module due to existing accession number";
-            echo "<script>alert('Accession number $escaped_accession_number already exists.'); window.location.href = 'display-book-module.php';</script>";
-            exit();
+            $error_list[] = $escaped_accession_number;
         }
     }
 
-    if ($result) {
-        $_SESSION['success_message'] = "Book updated successfully";
-        echo "<script>window.location.href = 'display-book-module.php'; alert('Success to update book');</script>";
+    // Display success and error messages
+    if (!empty($success_list)) {
+        $success_message = "Successfully added: " . implode(", ", $success_list);
+        echo "<script>alert('$success_message');</script>";
+    }
+
+    if (!empty($error_list)) {
+        $error_message = "Failed to add: " . implode(", ", $error_list) . ". These accession numbers already exist.";
+        $_SESSION['error_message'] = $error_message;
+        echo "<script>alert('$error_message'); window.location.href = 'display-book-module.php';</script>";
         exit();
-    } else {
-        echo "<script>alert('Failed to update book');</script>";
-        echo "<p>Error updating book. Please try again.</p>";
     }
 }
 ?>

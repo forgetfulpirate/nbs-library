@@ -119,6 +119,8 @@ if(isset($_GET['id'])) {
     </style>
 </head>
 <body>
+<div id="successMessage" style="display: none; color: green;">Book added successfully!</div>
+<div id="errorMessage" style="display: none; color: red;">Failed to add book. Duplicate accession number exists.</div>
     <div class="container">
         <form action="update-book-module.php" method="post" enctype="multipart/form-data" id="bookForm">
             <div class="header-container">
@@ -317,6 +319,18 @@ if(isset($_GET['id'])) {
                 <div class="details personal">
                     <span class="title">LOCAL INFORMATION</span>
                     <div class="fields">
+
+
+    <div class="input-field1">
+                            <span>
+                            <label>Accession Number</label>
+                            <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
+                            </input>
+                            </span>
+                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required value="<?php echo $accession_number; ?>" readonly />
+                            <div id="accession_number_error" class="error"></div>
+                            <div id="accessionNumberFields"></div>
+                </div>
                         
                     <div class="input-field2">
                                         <label>Call Number</label>
@@ -336,16 +350,6 @@ if(isset($_GET['id'])) {
                                     
                         </div>
 
-                        <div class="input-field2">
-        <label>Accession Number</label>
-        <input type="text" placeholder="Accession Number" name="accession_number[]" required value="<?php echo $accession_number; ?>" readonly>
-        <div id="accessionNumberFields"></div>
-    </div>
-    <div class="buttons">
-        <button type="button" onclick="addAccessionNumberField()">
-            <span>Add More</span>
-        </button>
-    </div>
 
                         
                         <div class="input-field2">
@@ -517,11 +521,20 @@ if(isset($_GET['id'])) {
     </script>
 
 <script>
-    function addAccessionNumberField() {
+function addAccessionNumberField() {
         var div = document.createElement('div');
-        div.innerHTML = '<div class="input-field1"><label>Accession Number</label><input type="text" placeholder="Accession Number" name="accession_number[]" required></div>';
+        div.innerHTML = '<div class="input-field1"><span><label>Accession Number </label><input type="button" onclick="removeAccessionNumberField(this)" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="-" ></input></span>     <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required /></div>';
         document.getElementById('accessionNumberFields').appendChild(div);
     }
+
+    function removeAccessionNumberField(element) {
+    // Navigate up the DOM hierarchy to find the parent div containing both the button and the input
+    var parentDiv = element.closest('.input-field1');
+    // Remove the parent div
+    if (parentDiv) {
+        parentDiv.parentNode.removeChild(parentDiv);
+    }
+}
 </script>
 </body>
 </html>

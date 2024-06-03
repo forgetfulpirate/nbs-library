@@ -240,6 +240,7 @@
                                     <option>BSCS</option>
                                     <option>BSA</option>
                                     <option>BSTM</option>
+                                    <option>BSEntrep</option>
                                     <option>BSAIS</option>
                                 </select>
                             </div>
