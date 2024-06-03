@@ -1,6 +1,6 @@
 <?php 
         session_start();
-        if (!isset($_SESSION["student"])) {
+        if (!isset($_SESSION["teacher"])) {
             ?>
                 <script type="text/javascript">
                     window.location="login.php";

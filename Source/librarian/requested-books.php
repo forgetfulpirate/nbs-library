@@ -114,16 +114,33 @@ echo "</td>";
 <script>
   $(document).ready(function() {
     $('.sendMessageBtn').click(function() {
+      var id = $(this).data('id');
       var name = $(this).data('name');
+      $('#recipientID').val(id);
       $('#recipientName').val(name);
-    });
-
-    $('#sendMessageForm').submit(function(e) {
-      e.preventDefault();
-      // AJAX code for form submission
+      
+      // AJAX call to send message
+      $.ajax({
+        type: 'POST',
+        url: 'send_message.php',
+        data: $('#sendMessageForm').serialize(),
+        success: function(response) {
+          // Handle success response
+          console.log(response);
+          // Close the modal
+          $('#sendMessageModal').modal('hide');
+          // Optionally, display a success message or refresh the page
+        },
+        error: function(xhr, status, error) {
+          // Handle error
+          console.error(xhr.responseText);
+          // Optionally, display an error message to the user
+        }
+      });
     });
   });
 </script>
+
 
    <script>
         $(document).ready(function () {

@@ -97,7 +97,7 @@ $not= mysqli_num_rows($res);
                     <li class="sidebar-item <?php if($page=='home'){ echo 'active';} ?>">
                         <a href="dashboard.php" class="sidebar-link">
                         <i class="fa-solid fa-gauge pe-2"></i>
-                            Dashboard
+                            Search Book
                         </a>
                     </li>
 
@@ -149,13 +149,13 @@ $not= mysqli_num_rows($res);
                                     Books
                                 </a>
                     </li> -->
-
+<!-- 
                     <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Book Module
                                 </a>
-                    </li>
+                    </li> -->
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">

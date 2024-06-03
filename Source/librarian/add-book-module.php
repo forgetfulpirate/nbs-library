@@ -78,7 +78,7 @@ include 'inc/connection.php';
 
 <form action="#" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
     <div class="header-container">
-                <header>Edit Book Module</header>
+                <header>Add Book Module</header>
                 <!-- Save button -->
                 <button type="submit" name="submit" class="editButton">
                     <i class="fas fa-save"></i> Add Book

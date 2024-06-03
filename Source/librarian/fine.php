@@ -9,6 +9,33 @@ if (!isset($_SESSION["username"])) {
 }
 include 'inc/header.php';
 include 'inc/connection.php';
+
+  // Check if both start_date and end_date are set
+  if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
+    // Sanitize the input to prevent SQL injection
+    $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
+    $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
+
+    // Modify the SQL query to include date range filter
+    $query = "SELECT * FROM finezone WHERE booksreturndate BETWEEN '$start_date' AND '$end_date'";
+
+    // Set the filename based on the date range
+    $filename = "return-fine($start_date - $end_date)";
+} else {
+    // If start_date and end_date are not set, fetch all records
+    $query = "SELECT * FROM finezone";
+    $filename = "return-fine(all)";
+}
+
+$res = mysqli_query($link, $query);
+
+// Check if there are any results
+$num_rows = mysqli_num_rows($res);
+
+// If no results found, display an alert
+if ($num_rows == 0) {
+    echo "<script>alert('No results found in the selected date range.');</script>";
+}
 ?>
 
 <main class="content px-3 py-2">
@@ -25,25 +52,32 @@ include 'inc/connection.php';
     <div class="container">
     <div class="row">
         <!-- Filter Date Form -->
+     
         <div class="col-lg-6 col-12 mb-4"> <!-- Full width on mobile, half width on large screens -->
-            <div class="row text-center text-lg-left align-items-center justify-content-center justify-content-lg-start"> <!-- Center on mobile, left align on large screens -->
-                <div class="col-auto p-2">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
-                </div>
-                <div class="col-auto p-2" style="width:200px;">
-                    <input type="date" id="start_date" class="form-control custom" placeholder="Start Date">
-                </div>
-                <div class="col-auto p-2">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
-                </div>
-                <div class="col-auto p-2" style="width:200px;">
-                    <input type="date" id="end_date" class="form-control no-stretch-input" placeholder="End Date">
-                </div>
-                <div class="col-auto p-2">
-                    <button class="btn btn-danger btn-block" onclick="filterByDateRange()">Filter</button>
-                </div>
+    <form method="POST">
+        <div class="row text-center text-lg-left align-items-center justify-content-center justify-content-lg-start">
+            <!-- Center on mobile, left align on large screens -->
+            <div class="col-auto p-2">
+                <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
+            </div>
+            <div class="col-auto p-2" style="width:200px;">
+                <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>" required>
+            </div>
+            <div class="col-auto p-2">
+                <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+            </div>
+            <div class="col-auto p-2" style="width:200px;">
+                <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>" required>
+            </div>
+            <div class="col-lg-12 col-12 text-center mt-2"> <!-- Full width on mobile and large screens -->
+                <button type="submit" class="btn btn-danger">Filter</button>
+                <button type="button" class="btn btn-secondary" onclick="resetFilter()">Reset</button>
             </div>
         </div>
+    </form>
+</div>
+
+    
 
         <!-- Generate Receipt Form -->
         <div class="col-lg-6 col-12"> <!-- Full width on mobile, half width on large screens -->
@@ -109,7 +143,7 @@ include 'inc/connection.php';
                 </thead>
                 <tbody>
                     <?php
-                    $res = mysqli_query($link, "SELECT * FROM finezone");
+  
                     while ($row = mysqli_fetch_array($res)) {
                         echo "<tr>";
                         echo "<td>" . $row["student_number"] . "</td>";
@@ -472,27 +506,9 @@ $(document).ready(function () {
 </script>
 
 <script>
-function filterByDateRange() {
-    var startDate = document.getElementById("start_date").value;
-    var endDate = document.getElementById("end_date").value;
-    var tableRows = document.querySelectorAll("#dtBasicExample tbody tr");
-
-    tableRows.forEach(function(row) {
-        var returnedDate = row.cells[8].textContent; // Assuming the date returned is in the 9th cell, adjust index accordingly
-        var dateReturned = new Date(returnedDate);
-        var start = new Date(startDate);
-        var end = new Date(endDate);
-
-        // Adjust end date to include the entire end day
-        end.setDate(end.getDate() + 1);
-
-        // If start date is empty or the returned date is within the date range
-        if ((startDate === "" || dateReturned >= start) && (endDate === "" || dateReturned < end)) {
-            row.style.display = ""; // Show the row
-        } else {
-            row.style.display = "none"; // Hide the row
-        }
-    });
+function resetFilter() {
+    document.getElementsByName("start_date")[0].value = ''; // Reset start_date input
+    document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
 }
 
     
