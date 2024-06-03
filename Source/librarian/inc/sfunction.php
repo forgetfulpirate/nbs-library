@@ -8,11 +8,11 @@
             $middle_name = $_POST["middle_name"];                  
             $password = $_POST["password"];
             $email = $_POST["email"];
-            $semester = $_POST["semester"];
+            // $semester = $_POST["semester"];
             $year = $_POST["year"];
             $course = $_POST["course"];
     
-            if ($student_number == "" || $first_name == "" || $last_name == "" || $password == "" || $email == "" || $semester == "" || $year == "" || $course == "") {
+            if ($student_number == "" || $first_name == "" || $last_name == "" || $password == "" || $email == "" || $year == "" || $course == "") {
                 $error_m = "Error! <span>Field mustn't be empty</span>";
             } else {
                 $sql_u = mysqli_query($link, "SELECT * FROM student WHERE student_number= '$student_number'");
@@ -29,7 +29,7 @@
                     $e_msg = "Email address not valid";
                 } else {
                     $vkey = md5(time().$student_number);
-                    $insert = mysqli_query($link, "INSERT INTO student VALUES('$student_number', '$first_name', '$last_name', '$middle_name', '$email', '$course', '$year', '$semester', '$password', 'student', 'upload/avatar.jpg', 'no', '$vkey', 'no')");
+                    $insert = mysqli_query($link, "INSERT INTO student VALUES('$student_number', '$first_name', '$last_name', '$middle_name', '$email', '$course', '$year', '', '$password', 'student', 'upload/avatar.jpg', 'no', '$vkey', 'no')");
                     if ($insert) {
                         $_SESSION['success_msg'] = "Student added successfully!";
                         echo '<script type="text/javascript">window.location="all-student-info.php";</script>';

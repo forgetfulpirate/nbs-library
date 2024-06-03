@@ -17,7 +17,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                <h4>My Issued Books
+                        <h4>Borrowed Books
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -34,14 +34,14 @@
                   
                  
                         <div class="card-body">
-                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
 												<th>Student Number</th>
 												<th>Name</th>
 												<th>Books Name</th>
-												<th>Books Issue Date</th>
-												<th>Books Return Date</th>
+												<th>Issue Date</th>
+												<th>Return Date</th>
                                             </tr>
                                        </thead>
                                         <tbody>
@@ -88,4 +88,3 @@
 <?php 
 		include 'inc/footer.php';
 	 ?>
-    

@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-
+    $page = 'issue-student';
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m-d-Y", strtotime("+30 days"));
@@ -163,7 +163,7 @@
                         if ($totalBooksIssued + $booksToIssueCount > 5) {
                             ?>
                             <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                <strong>You can only issue a maximum of 5 books. Please return some books before issuing more.</strong>
+                                <strong>You can only issue a maximum of 5 books for students.</strong>
                             </div>
                             <?php
                         } else {
@@ -250,7 +250,8 @@ document.forms['student_number'].addEventListener('submit', function(event) {
 
     // JavaScript to add more accession number input fields dynamically
     document.addEventListener("click", function(event) {
-        if (event.target.classList.contains("add-accession") || event.target.parentElement.classList.contains("add-accession")) {
+        // Check if the clicked element is to add accession number and if the count is less than 5
+        if ((event.target.classList.contains("add-accession") || event.target.parentElement.classList.contains("add-accession")) && document.querySelectorAll('input[name="accession_number[]"]').length < 5) {
             var buttonRow = event.target.closest("tr");
             var newRow = document.createElement("tr");
             var newData = document.createElement("td");
@@ -275,7 +276,16 @@ document.forms['student_number'].addEventListener('submit', function(event) {
             inputGroup.appendChild(inputGroupAppend);
             newData.appendChild(inputGroup);
             newRow.appendChild(newData);
-            buttonRow.parentNode.insertBefore(newRow, buttonRow.nextSibling); // Insert the new row after the current row
+          
+            var lastAccessionRow = buttonRow.closest("table").querySelector(".accession-row:last-child");
+        if (lastAccessionRow) {
+            lastAccessionRow.parentNode.insertBefore(newRow, lastAccessionRow.nextSibling);
+        } else {
+            buttonRow.parentNode.insertBefore(newRow, buttonRow.nextSibling);
+        }
+        newRow.classList.add("accession-row");
+
+
         }
 
         // Handle removal of accession number input fields

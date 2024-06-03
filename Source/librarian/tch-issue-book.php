@@ -7,192 +7,299 @@
             </script>
         <?php
     }
-
+    $page = 'issue-tch';
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m-d-Y", strtotime("+30 days"));
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>Control panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">student issue book</span>
-						</div>
-					</div>
-				</div>
-				<div class="issueBook">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="issue-wrapper">
-								<form action="" class="form-control" method="post" name="id_number">
-                                <table class="table">
-                                    <tr>
-                                        <td class="">
-                                            <select name="id_number" class="form-control">
-                                                <?php 
-                                                // Assuming $link is your database connection
-                                                $res = mysqli_query($link, "SELECT id_number FROM teacher");
-                                                if (mysqli_num_rows($res) > 0) {
-                                                    while ($row = mysqli_fetch_array($res)) {
-                                                        echo "<option value='" . $row['id_number'] . "'>" . $row['id_number'] . "</option>";
-                                                    }
-                                                } else {
-                                                    echo "<option value=''>No student number registered</option>";
-                                                }
-                                                ?>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <input type="submit" class="btn btn-info" value="select" name="submit1">
-                                        </td>
-                                    </tr>
-                                </table>
 
-                                    <?php 
-                                    if (isset($_POST["submit1"])) {
-                                       $res5 = mysqli_query($link, "select * from teacher where id_number='$_POST[id_number]' ");
-                                       while($row5 = mysqli_fetch_array($res5)){   
+<main class="content px-3 py-2">
+    <div class="gap-30"></div>
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Student Information 
+                <p id="time"></p>
+                <p id="date"></p>
+            </h4>
+        </div>
+    </div>
+    <br>
+    <div class="issueBook">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="issue-wrapper">
+                    <form action="" class="form-control" method="post" name="id_number">
+                        <table class="table">
+                            <tr>
+                                <td class="">
+                                <input type="text" name="id_number" class="form-control" placeholder="Enter ID number" value="<?php echo isset($_POST['id_number']) ? htmlspecialchars($_POST['id_number']) : ''; ?>">
+                                    <span id="invalidStudentNumber" style="color: red; display: none;">ID number is invalid</span>
+                                    <span id="emptyStudentNumber" style="color: red; display: none;">ID number cannot be empty</span>
+
+                                </td>
+                                <td>
+                                    <input type="submit" class="btn btn-info" value="Select" name="submit1">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <br>
+                    <?php 
+                        if (isset($_POST["submit1"])) {
+                            $id_number = mysqli_real_escape_string($link, $_POST["id_number"]);
+                            $res5 = mysqli_query($link, "select * from teacher where id_number='$id_number' ");
+                            if(mysqli_num_rows($res5) == 0) {
+                    ?>
+                                <script>
+                                    document.getElementById('invalidStudentNumber').style.display = 'block';
+                                </script>
+                    <?php
+                            } else {
+                                while($row5 = mysqli_fetch_array($res5)){   
+
                                            $id_number  = $row5['id_number'];                
 										   $first_name  = $row5['first_name'];
                                            $last_name       = $row5['last_name'];
-                                           $middle_name      = $row5['middle_name'];
                                            $email   = $row5['email'];
                                            $dept     = $row5['dept'];
                                            $user_type     = $row5['user_type'];
                                            $_SESSION["user_type"]     = $user_type;
                                            $_SESSION["id_number"]     = $id_number;
-                                       }
-                                    ?>
-									<table class="table table-bordered">
-                                         <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="user_type" value="<?php echo $user_type; ?>" disabled> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="id_number" value="<?php echo $id_number; ?>"  disabled> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="email" value="<?php echo $email; ?>" readonly> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" readonly> 
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="last_name" value="<?php echo $last_name; ?>" readonly> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="middle_name" value="<?php echo $middle_name; ?>" readonly> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <input type="text" class="form-control" name="dept" value="<?php echo $dept; ?>" readonly> 
-                                            </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>
-                                                <input type="text" class="form-control" name="accession_number" placeholder="Enter Accession ID" required>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                               <input type="date" class="form-control" name="booksissuedate"  value="<?php echo date("Y-m-d"); ?>" readonly> 
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                            <input type="date" class="form-control" name="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+7 days')); ?>">
-                                            </td>
-                                        </tr>
-                                      
-                                        <tr>
-                                            <td>
-                                               <input type="submit" name="submit2" class="btn btn-info" value="Issue Book"> 
-                                            </td>
-                                        </tr>
-                                    </table>
-                                  <?php
+                                           $_SESSION["verified"] = $row5['verified']; // Add verified status to session
+                                       
                                 }
-                              
-                            ?>
-                                </form>
-                                <?php
-                                    if (isset($_POST["submit2"])) {
-                                        $qty = 0;
-                                        // Validate if the accession_number exists in the book_module table
-                                        $accession_number = $_POST['accession_number'];
-                                        $res = mysqli_query($link, "SELECT * FROM book_module WHERE accession_number='$accession_number'");
-                                        if (mysqli_num_rows($res) == 0) {
-                                            ?>
-                                            <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                                <strong style="">Book ID is invalid.</strong>
+                    ?>
+                        <br>
+                        <form action="" class="form-control" method="post" name="issue_book">
+                            <!-- Display student information -->
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td>
+                                        <label>User Type</label>
+                                        <input type="text" class="form-control" name="user_type" value="<?php echo $user_type; ?>" disabled> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Student Number</label>
+                                        <input type="text" class="form-control" name="student_number" value="<?php echo $id_number; ?>" disabled> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="first_name" value="<?php echo $first_name . ' ' . $last_name; ?>" readonly> 
+                                    </td>
+                                </tr>
+                                <tr hidden>
+                                    <td>
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" value="<?php echo $last_name;?>"> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Book Accession No</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="accession_number[]" placeholder="Enter Book Accession No" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-success add-accession" type="button"><i class="fas fa-plus"></i></button>
                                             </div>
-                                            <?php
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered" id="accession_table">
+                                <tr>
+                                    <td>
+                                        <label>Issued Date</label>
+                                        <input type="date" class="form-control" name="booksissuedate" value="<?php echo date("Y-m-d"); ?>" readonly> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Date Due</label>
+                                        <input type="date" class="form-control" name="booksreturndate" id="booksreturndate" value="<?php echo date('Y-m-d', strtotime('+7 days')); ?>">
+                                        <div id="returnDateError" style="color: red; display: none;">Return date cannot be earlier than issue date.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Issued By:</label>
+                                        <input type="text" class="form-control" name="username" value="" placeholder="Issued By" required> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <?php
+                                        // Check if the user is verified before allowing to issue the book
+                                        if ($_SESSION["verified"] == 'yes') {
+                                        ?>
+                                            <input type="submit" name="submit2" class="btn btn-info" value="Issue Book">
+                                        <?php
                                         } else {
-                                            while ($row = mysqli_fetch_array($res)) {
-                                                $qty = $row["available"];
-                                                $title_proper = $row["title_proper"];
-                                            }
-                                            if ($qty == 0) {
-                                                ?>
-                                                <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                                    <strong style="">This book is not available.</strong>
-                                                </div>
-                                                <?php
-                                            } else {
-                                                $title_proper = mysqli_real_escape_string($link, $title_proper);
-                                                mysqli_query($link, "INSERT INTO issue_book 
-                                                        VALUES ('', '$_SESSION[user_type]', '$_SESSION[id_number]', '$_POST[first_name]', '$_POST[last_name]', '$_POST[middle_name]', '$_POST[dept]','', '$_POST[email]' , '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','')");
-                                            
-                                                mysqli_query($link, "update book_module set available=available-1 where accession_number='$accession_number'");
-                                                ?>
-                                                <br>
-                                                <div class="alert alert-success col-lg-6 col-lg-push-3">
-                                                    <strong style="">Book issued successfully</strong>
-                                                </div>
-                                                <?php
-                                            }
+                                        ?>
+                                            <div class="alert alert-warning col-lg-6 col-lg-push-3">
+                                                <strong>Account is deactivated</strong>
+                                            </div>
+                                        <?php
                                         }
+                                        ?>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    <?php
+                            }
+                        }
+                    ?>
+                    <?php
+                       if (isset($_POST["submit2"])) {
+                        // Check if the student has already issued 5 books
+                        $id_number = $_SESSION["id_number"];
+                        $issuedBooksQuery = mysqli_query($link, "SELECT COUNT(*) AS total_books FROM issue_book WHERE student_number='$id_number'");
+                        $issuedBooksResult = mysqli_fetch_assoc($issuedBooksQuery);
+                        $totalBooksIssued = $issuedBooksResult["total_books"];
+                    
+                        // Calculate the number of books the student is attempting to issue in the current request
+                        $booksToIssueCount = count($_POST['accession_number']);
+                    
+                        // Check if issuing more books would exceed the limit of 5
+                        if ($totalBooksIssued + $booksToIssueCount > 10) {
+                            ?>
+                            <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                <strong>You can only issue a maximum of 10 books for students.</strong>
+                            </div>
+                            <?php
+                        } else {
+                            // Proceed with the issuance process
+                            $issuedCount = 0; // Counter for the number of successfully issued books
+                            foreach ($_POST['accession_number'] as $accession_number) {
+                                if ($issuedCount >= 10) {
+                                    // If already issued 5 books, stop issuing more
+                                    break;
+                                }
+                                $qty = 0;
+                                // Validate if the accession_number exists in the book_module table
+                                $accession_number = mysqli_real_escape_string($link, $accession_number);
+                                $res = mysqli_query($link, "SELECT * FROM book_module WHERE accession_number='$accession_number'");
+                                if (mysqli_num_rows($res) == 0) {
+                                    ?>
+                                    <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                        <strong>Book Accession No <?php echo $accession_number; ?> is invalid.</strong>
+                                    </div>
+                                    <?php
+                                    continue; // Move to the next iteration if the current book ID is invalid
+                                } else {
+                                    while ($row = mysqli_fetch_array($res)) {
+                                        $qty = $row["available"];
+                                        $title_proper = $row["title_proper"];
                                     }
-                                 ?>
-							</div>
-                            
-						</div>
+                                    if ($qty == 0) {
+                                        ?>
+                                        <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                            <strong>This book with Accession No <?php echo $accession_number; ?> is not available.</strong>
+                                        </div>
+                                        <?php
+                                        continue; // Move to the next iteration if the current book is not available
+                                    } else {
+                                        // Check if return date is valid
+                                        // $issuedDate = strtotime($_POST['booksissuedate']);
+                                        // $returnDate = strtotime($_POST['booksreturndate']);
+                                        // if ($returnDate < $issuedDate) {
+                                            ?>
+                                            <!-- <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                                <strong>Return date cannot be earlier than issue date.</strong>
+                                            </div> -->
+                                            <?php
+                                        //     continue; // Move to the next iteration if return date is invalid
+                                        // }
+                                        
+                                        $title_proper = mysqli_real_escape_string($link, $title_proper);
+                                        mysqli_query($link, "INSERT INTO issue_book VALUES ('', '$_SESSION[user_type]', '$_SESSION[id_number]', '$_POST[first_name]', '$_POST[last_name]', '', '', '', '', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','$_POST[username]')");
+                                        
+                                        mysqli_query($link, "update book_module set available=available-1 where accession_number='$accession_number'");
+                                        $issuedCount++; // Increment the counter for successfully issued books
+                                        ?>
+                                        <br>
+                                        <div class="alert alert-success col-lg-6 col-lg-push-3">
+                                            <strong>Book Accession No <?php echo $accession_number; ?> issued successfully</strong>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+ // JavaScript to validate the student number
+document.forms['id_number'].addEventListener('submit', function(event) {
+    var studentNumber = document.forms['id_number']['id_number'].value;
+    if (studentNumber.trim() === '') {
+        event.preventDefault();
+        document.getElementById('invalidStudentNumber').style.display = 'none'; // Hide the invalid student number message
+        document.getElementById('emptyStudentNumber').style.display = 'block'; // Show the empty field message
+        return;
+    } else {
+        document.getElementById('emptyStudentNumber').style.display = 'none'; // Hide the empty field message if student number is not empty
+    }
+    // You can add more validation if needed, like length check, format check, etc.
+});
 
-                        
-                        
-					</div>
-				</div>
-			</div>	
-            				
-		</div>
+document.addEventListener("click", function(event) {
+    // Check if the clicked element is to add accession number and if the count is less than 5
+    if ((event.target.classList.contains("add-accession") || event.target.parentElement.classList.contains("add-accession")) && document.querySelectorAll('input[name="accession_number[]"]').length < 10) {
+        var buttonRow = event.target.closest("tr");
+        var newRow = document.createElement("tr");
+        var newData = document.createElement("td");
+        var inputGroup = document.createElement("div");
+        inputGroup.className = "input-group";
+        var inputField = document.createElement("input");
+        inputField.type = "text";
+        inputField.className = "form-control";
+        inputField.name = "accession_number[]";
+        inputField.placeholder = "Enter Book Accession No";
+        inputField.required = true;
+        var inputGroupAppend = document.createElement("div");
+        inputGroupAppend.className = "input-group-append";
+        var removeButton = document.createElement("button");
+        removeButton.className = "btn btn-danger remove-accession";
+        removeButton.type = "button";
+        var removeIcon = document.createElement("i");
+        removeIcon.className = "fas fa-times";
+        removeButton.appendChild(removeIcon);
+        inputGroupAppend.appendChild(removeButton);
+        inputGroup.appendChild(inputField);
+        inputGroup.appendChild(inputGroupAppend);
+        newData.appendChild(inputGroup);
+        newRow.appendChild(newData);
         
-	</div>
+        // Find the last added accession number row and insert the new row after it
+        var lastAccessionRow = buttonRow.closest("table").querySelector(".accession-row:last-child");
+        if (lastAccessionRow) {
+            lastAccessionRow.parentNode.insertBefore(newRow, lastAccessionRow.nextSibling);
+        } else {
+            buttonRow.parentNode.insertBefore(newRow, buttonRow.nextSibling);
+        }
+        newRow.classList.add("accession-row");
+    }
 
-    <?php 
-		include 'inc/footer.php';
-	 ?>
+    // Handle removal of accession number input fields
+    if (event.target.classList.contains("remove-accession") || event.target.parentElement.classList.contains("remove-accession")) {
+        var row = event.target.closest("tr");
+        row.parentNode.removeChild(row);
+    }
+});
 
-	
+</script>
+<?php 
+    include 'inc/footer.php';
+?>
+

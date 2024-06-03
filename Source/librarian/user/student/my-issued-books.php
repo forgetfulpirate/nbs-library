@@ -34,14 +34,14 @@
                   
                  
                         <div class="card-body">
-                            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+                            <table class="table table-hover text-left table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
 												<th>Student Number</th>
 												<th>Name</th>
 												<th>Books Name</th>
-												<th>Books Issue Date</th>
-												<th>Books Return Date</th>
+												<th>Issue Date</th>
+												<th>Return Date</th>
                                             </tr>
                                        </thead>
                                         <tbody>

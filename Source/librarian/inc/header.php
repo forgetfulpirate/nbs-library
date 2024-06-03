@@ -112,11 +112,11 @@
                             <!-- <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                                 <a href="add-books.php" class="sidebar-link">Add Books</a>
                             </li> -->
-                            <li class="sidebar-item <?php if($page=='e-book'){ echo 'active';} ?>">
+                            <!-- <li class="sidebar-item <?php if($page=='e-book'){ echo 'active';} ?>">
                                 <a href="add-ebook.php" class="sidebar-link">Add E-Book</a>
-                            </li>
-
-                            <li class="sidebar-item">
+                            </li> -->
+                            
+                            <li class="sidebar-item <?php if($page=='add-b'){ echo 'active';} ?>">
                                 <a href="add-book-module.php" class="sidebar-link">Add Book Module</a>
                             </li>
                             <!-- <li class="sidebar-item">
@@ -137,18 +137,14 @@
                             Issue Book
                         </a>
                         <ul id="issue" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <!-- <li class="sidebar-item <?php if($page=='sissue'){ echo 'active';} ?>">
-                                <a href="student-issue-book.php" class="sidebar-link">Student issue book</a>
-                            </li> -->
-                            <li class="sidebar-item">
+
+                            <li class="sidebar-item <?php if($page=='issue-student'){ echo 'active';} ?>">
                                 <a href="std-issue-book.php" class="sidebar-link">Student Issue Book</a>
                             </li>
-                            <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
+                            <li class="sidebar-item <?php if($page=='issue-tch'){ echo 'active';} ?>">
                                 <a href="tch-issue-book.php" class="sidebar-link">Teacher Issue Book</a>
                             </li>
-                            <!-- <li class="sidebar-item <?php if($page=='tissue'){ echo 'active';} ?>">
-                                <a href="teacher-issue-book.php" class="sidebar-link">Teacher issue book</a>
-                            </li> -->
+
                         </ul>
                     </li>
 
@@ -169,12 +165,12 @@
                                 </a>
                     </li> -->
 
-                    <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Display Theses
                                 </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item <?php if($page=='manage-book'){ echo 'active';} ?>">
                         <a href="manage-book.php" class="sidebar-link">
@@ -280,7 +276,7 @@
                     </li>
 
                     
-                    <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
                         <a href="archive-user.php" class="sidebar-link">
                         <i class="fa-solid fa-book pe-2"></i>
                             Archive Users

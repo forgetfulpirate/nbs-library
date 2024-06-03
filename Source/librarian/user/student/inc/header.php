@@ -10,14 +10,14 @@ $not= mysqli_num_rows($res);
 <html lang="en" data-bs-theme="dark">
 
 <head>
-    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
+
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBS Library</title>
 
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-   
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="inc/css/bootstrap.min.css">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
@@ -88,7 +88,7 @@ $not= mysqli_num_rows($res);
                     <li class="sidebar-item <?php if($page=='home'){ echo 'active';} ?>">
                         <a href="dashboard.php" class="sidebar-link">
                         <i class="fa-solid fa-gauge pe-2"></i>
-                            Dashboard
+                            Search Book
                         </a>
                     </li>
 
@@ -121,7 +121,7 @@ $not= mysqli_num_rows($res);
                         <a href="finezone.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
-                            My Fine
+                            My Overdue
                         </a>
                     </li>
                 
@@ -141,12 +141,12 @@ $not= mysqli_num_rows($res);
                                 </a>
                     </li> -->
 
-                    <li class="sidebar-item">
+                    <!-- <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Book Module
                                 </a>
-                    </li>
+                    </li> -->
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">
