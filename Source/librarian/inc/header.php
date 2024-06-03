@@ -228,12 +228,12 @@
 
                     
 
-                    <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="requested-books.php" class="sidebar-link">
                         <i class="fa-solid fa-book pe-2"></i>
                             View requested book
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
@@ -249,6 +249,20 @@
                             </li>
                         </ul>
                         
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
+                        <a href="requested-books.php" class="sidebar-link">
+                        <i class="fa-solid fa-book pe-2"></i>
+                            View requested book
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
+                        <a href="archive-user.php" class="sidebar-link">
+                        <i class="fa-solid fa-book pe-2"></i>
+                            Archive Users
+                        </a>
                     </li>
 
                  
@@ -276,12 +290,7 @@
                     </li>
 
                     
-                    <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
-                        <a href="archive-user.php" class="sidebar-link">
-                        <i class="fa-solid fa-book pe-2"></i>
-                            Archive Users
-                        </a>
-                    </li>
+                  
                     
                 </ul>
 

@@ -1,4 +1,12 @@
 <?php
+   session_start();
+   if (!isset($_SESSION["teacher"])) {
+       ?>
+           <script type="text/javascript">
+               window.location="login.php";
+           </script>
+       <?php
+   }
     include 'inc/connection.php';
     $not=0;
     $res = mysqli_query($link,"select * from message where rusername='$_SESSION[teacher]' && read1='n'");
