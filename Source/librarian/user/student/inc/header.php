@@ -1,4 +1,13 @@
 <?php
+
+    if (!isset($_SESSION["student"])) {
+        ?>
+            <script type="text/javascript">
+                window.location="login.php";
+            </script>
+        <?php
+    }
+    
 include 'inc/connection.php';
 $not= 0;
 $res = mysqli_query($link,"select * from message where rusername='$_SESSION[student]' && read1='n'");
@@ -17,8 +26,7 @@ $not= mysqli_num_rows($res);
     <title>NBS Library</title>
 
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="inc/css/datatables.min.css">
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="inc/css/bootstrap.min.css">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
@@ -89,7 +97,7 @@ $not= mysqli_num_rows($res);
                     <li class="sidebar-item <?php if($page=='home'){ echo 'active';} ?>">
                         <a href="dashboard.php" class="sidebar-link">
                         <i class="fa-solid fa-gauge pe-2"></i>
-                            Search Book
+                            Dashboard
                         </a>
                     </li>
 
@@ -142,12 +150,12 @@ $not= mysqli_num_rows($res);
                                 </a>
                     </li> -->
 
-                    <!-- <li class="sidebar-item">
+                    <li class="sidebar-item">
                                 <a href="display-book-opac.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     Book Module
                                 </a>
-                    </li> -->
+                    </li>
 <!-- 
                     <li class="sidebar-item <?php if($page=='d-t-book'){ echo 'active';} ?>">
                                 <a href="display-thesis.php" class="sidebar-link">
