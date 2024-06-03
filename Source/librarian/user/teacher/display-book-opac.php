@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if (!isset($_SESSION["student"])) {
+    if (!isset($_SESSION["teacher"])) {
         ?>
             <script type="text/javascript">
                 window.location="login.php";
@@ -105,7 +105,7 @@ $res = mysqli_query($link, $sql);
     <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <h4>Book
+            <h4>Search Book
                 <p id="time"></p>
                 <p id="date"></p>
             </h4>

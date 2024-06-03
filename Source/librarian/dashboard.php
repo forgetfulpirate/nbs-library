@@ -290,7 +290,7 @@
                                          echo $result;
                                     ?>
                                     </span></h3>
-								<h4><a href="#">User Archive</a></h4>
+								<h4><a href="archive-user.php">User Archive</a></h4>
 							</div>
 						</div>
                                             </div>

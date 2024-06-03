@@ -98,7 +98,8 @@
                                             echo "<td>"; echo $row1["dept"]; echo "</td>";
                                             echo "<td>";
                                             ?>
-                                                <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation1('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Delete</button>
+                                                <button class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Reset Password</button>
+                                                <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation1('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Archive</button>
 
                                             <?php
                                             echo "</td>";
@@ -251,3 +252,14 @@
      
 </script>
 
+<script>
+    function resetPasswordConfirmation(idNumber, facultyName) {
+        // Set the reset password link with the student number
+        var resetPasswordUrl = 'reset-password-teacher.php?id_number=' + idNumber;
+        // Show confirmation modal
+        if(confirm("Are you sure you want to reset the password for " + facultyName + "?")) {
+            // Redirect to reset-password.php
+            window.location.href = resetPasswordUrl;
+        }
+    }
+</script>

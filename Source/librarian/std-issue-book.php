@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-
+    $page = 'issue-student';
     include 'inc/header.php';
     include 'inc/connection.php';
     $rdate = date("m-d-Y", strtotime("+30 days"));
@@ -45,7 +45,7 @@
                     <br>
                     <?php 
                         if (isset($_POST["submit1"])) {
-                            $studentNumber = $_POST["student_number"];
+                            $studentNumber = mysqli_real_escape_string($link, $_POST["student_number"]);
                             $res5 = mysqli_query($link, "select * from student where student_number='$studentNumber' ");
                             if(mysqli_num_rows($res5) == 0) {
                     ?>
@@ -149,9 +149,31 @@
                         }
                     ?>
                     <?php
-                        if (isset($_POST["submit2"])) {
-                            // Iterate over the array of accession numbers
+                       if (isset($_POST["submit2"])) {
+                        // Check if the student has already issued 5 books
+                        $studentNumber = $_SESSION["student_number"];
+                        $issuedBooksQuery = mysqli_query($link, "SELECT COUNT(*) AS total_books FROM issue_book WHERE student_number='$studentNumber'");
+                        $issuedBooksResult = mysqli_fetch_assoc($issuedBooksQuery);
+                        $totalBooksIssued = $issuedBooksResult["total_books"];
+                    
+                        // Calculate the number of books the student is attempting to issue in the current request
+                        $booksToIssueCount = count($_POST['accession_number']);
+                    
+                        // Check if issuing more books would exceed the limit of 5
+                        if ($totalBooksIssued + $booksToIssueCount > 5) {
+                            ?>
+                            <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                <strong>You can only issue a maximum of 5 books for students.</strong>
+                            </div>
+                            <?php
+                        } else {
+                            // Proceed with the issuance process
+                            $issuedCount = 0; // Counter for the number of successfully issued books
                             foreach ($_POST['accession_number'] as $accession_number) {
+                                if ($issuedCount >= 5) {
+                                    // If already issued 5 books, stop issuing more
+                                    break;
+                                }
                                 $qty = 0;
                                 // Validate if the accession_number exists in the book_module table
                                 $accession_number = mysqli_real_escape_string($link, $accession_number);
@@ -159,7 +181,7 @@
                                 if (mysqli_num_rows($res) == 0) {
                                     ?>
                                     <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                        <strong>Book ID <?php echo $accession_number; ?> is invalid.</strong>
+                                        <strong>Book Accession No <?php echo $accession_number; ?> is invalid.</strong>
                                     </div>
                                     <?php
                                     continue; // Move to the next iteration if the current book ID is invalid
@@ -171,7 +193,7 @@
                                     if ($qty == 0) {
                                         ?>
                                         <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                            <strong>This book with ID <?php echo $accession_number; ?> is not available.</strong>
+                                            <strong>This book with Accession No <?php echo $accession_number; ?> is not available.</strong>
                                         </div>
                                         <?php
                                         continue; // Move to the next iteration if the current book is not available
@@ -192,6 +214,7 @@
                                         mysqli_query($link, "INSERT INTO issue_book VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '', '', '', '', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','$_POST[username]')");
                                         
                                         mysqli_query($link, "update book_module set available=available-1 where accession_number='$accession_number'");
+                                        $issuedCount++; // Increment the counter for successfully issued books
                                         ?>
                                         <br>
                                         <div class="alert alert-success col-lg-6 col-lg-push-3">
@@ -202,6 +225,8 @@
                                 }
                             }
                         }
+                    }
+                    
                     ?>
                 </div>
             </div>
@@ -225,7 +250,8 @@ document.forms['student_number'].addEventListener('submit', function(event) {
 
     // JavaScript to add more accession number input fields dynamically
     document.addEventListener("click", function(event) {
-        if (event.target.classList.contains("add-accession") || event.target.parentElement.classList.contains("add-accession")) {
+        // Check if the clicked element is to add accession number and if the count is less than 5
+        if ((event.target.classList.contains("add-accession") || event.target.parentElement.classList.contains("add-accession")) && document.querySelectorAll('input[name="accession_number[]"]').length < 5) {
             var buttonRow = event.target.closest("tr");
             var newRow = document.createElement("tr");
             var newData = document.createElement("td");
@@ -250,7 +276,16 @@ document.forms['student_number'].addEventListener('submit', function(event) {
             inputGroup.appendChild(inputGroupAppend);
             newData.appendChild(inputGroup);
             newRow.appendChild(newData);
-            buttonRow.parentNode.insertBefore(newRow, buttonRow.nextSibling); // Insert the new row after the current row
+          
+            var lastAccessionRow = buttonRow.closest("table").querySelector(".accession-row:last-child");
+        if (lastAccessionRow) {
+            lastAccessionRow.parentNode.insertBefore(newRow, lastAccessionRow.nextSibling);
+        } else {
+            buttonRow.parentNode.insertBefore(newRow, buttonRow.nextSibling);
+        }
+        newRow.classList.add("accession-row");
+
+
         }
 
         // Handle removal of accession number input fields

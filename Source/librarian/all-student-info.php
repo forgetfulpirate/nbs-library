@@ -119,11 +119,16 @@
                                                     // echo "<td>"; echo $row["semester"]; echo "</td>";
                                                     echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
+                                                    
                                                     ?>
+                           
+
+                                                        <button class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Reset Password</button>
                                                         <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Archive</button>
         
                                                     <?php
                                                     echo "</td>";
+                                                    
                                                     echo "</tr>";
                                                 }
 
@@ -216,7 +221,7 @@
                                     <option>4th year</option>
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="semester">Select Semester <span>*</span></label>
                                 <select class="form-control" name="semester" required>
                                     <option>1st</option>
@@ -228,7 +233,7 @@
                                     <option>7th</option>
                                     <option>8th</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="course">Course <span>*</span></label>
                                 <select class="form-control" name="course" required>
@@ -337,5 +342,17 @@
         document.getElementById("userNameToDelete").innerText = userName;
         // Show the delete confirmation modal
         $('#deleteConfirmationModal').modal('show');
+    }
+</script>
+
+<script>
+    function resetPasswordConfirmation(studentNumber, studentName) {
+        // Set the reset password link with the student number
+        var resetPasswordUrl = 'reset-password.php?student_number=' + studentNumber;
+        // Show confirmation modal
+        if(confirm("Are you sure you want to reset the password for " + studentName + "?")) {
+            // Redirect to reset-password.php
+            window.location.href = resetPasswordUrl;
+        }
     }
 </script>

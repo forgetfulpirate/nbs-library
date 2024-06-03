@@ -7,7 +7,7 @@ if (!isset($_SESSION["username"])) {
     </script>
     <?php
 }
-$page = '';
+$page = 'add-b';
 include 'inc/header.php';
 include 'inc/connection.php';
 ?>

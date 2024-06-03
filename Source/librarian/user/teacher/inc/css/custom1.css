@@ -64,22 +64,22 @@ a {
   
 }
 .table.dataTable td.dt-type-numeric{
-    text-align: center;
+    text-align: left;
 }
 
 table.dataTable thead th{
-    text-align: center;
+    text-align: left;
 }
 
-
-
+table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date, table.dataTable td.dt-type-numeric, table.dataTable td.dt-type-date {
+    text-align: left;
+  }
 
 
 .dt-length{
     text-align: left;
     float: inline-start;
     margin-bottom: 20px;
-   
 }
 
 .dt-search{
@@ -87,7 +87,7 @@ table.dataTable thead th{
 }
 
 .dt-info{
-    text-align: center;
+    text-align: left;
     
 }
 
@@ -363,3 +363,43 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
 }
 
 
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }
+
+/* CSS for responsive pagination */
+.pagination-container {
+    white-space: nowrap; /* Prevent pagination links from wrapping */
+}
+
+/* Adjust pagination for smaller screens */
+@media (max-width: 767px) {
+    .pagination-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pagination-container .pagination {
+        flex-wrap: wrap;
+    }
+    .pagination-container .pagination li {
+        display: inline-block;
+    
+    }
+}
+
+/* MAKE TABLE STRETCH */
+.table {
+    table-layout: auto !important;
+    width: 100% !important;
+}
+
+@media (min-width: 1280px) {
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+  }

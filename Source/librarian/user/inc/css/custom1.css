@@ -64,11 +64,11 @@ a {
   
 }
 .table.dataTable td.dt-type-numeric{
-    text-align: center;
+    text-align: left;
 }
 
 table.dataTable thead th{
-    text-align: center;
+    text-align: left;
 }
 
 
@@ -87,7 +87,7 @@ table.dataTable thead th{
 }
 
 .dt-info{
-    text-align: center;
+    text-align: left;
     
 }
 

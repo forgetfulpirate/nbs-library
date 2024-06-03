@@ -58,7 +58,7 @@
                         <div class="card-body" >
                                <!-- Display Success or Error Messages -->
                
-                            <table class="table table-hover text-center" id="dtBasicExample">
+                            <table class="table table-hover text-left" id="dtBasicExample">
                                 
                                 <thead>
                                     <tr >
