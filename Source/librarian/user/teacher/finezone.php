@@ -38,7 +38,7 @@
     
     <div class="card border-0">
         <div class="card-body">
-            <table class="table table-hover text-center table-striped" id="dtBasicExample">
+            <table class="table table-hover text-left table-striped" id="dtBasicExample">
             <thead>
 								   <tr>
                                         <th>Student number</th>
@@ -61,7 +61,7 @@
                                         if ($row["fine"] > 0 && $row["status"] == "no") {
                                             echo "<tr>";
                                             echo "<td>"; echo $row["student_number"]; echo "</td>";
-                                            echo "<td>"; echo $row["first_name"] . ' ' . $row["last_name"]; echo "</td>";
+                                            echo "<td>"; echo $row["first_name"];echo "</td>";
                                             echo "<td>"; echo $row["accession_number"]; echo "</td>";
                                             echo "<td>"; echo $row["booksname"]; echo "</td>";
                                             echo "<td>"; echo $row["date_issued"]; echo "</td>";
