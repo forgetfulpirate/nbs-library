@@ -99,6 +99,7 @@
                                         <th scope="col">Year</th>
                                         <!-- <th scope="col">Semester</th> -->
                                         <th scope="col">verified</th>
+                                        <th scope="col">Reset Password</th>
                                         <th scope="col">Action</th>
                                         
                                     </tr>
@@ -121,9 +122,18 @@
                                                     echo "<td>";
                                                     
                                                     ?>
+
+
+                                                        <button style="text-align:left; width:128px; max-width:128px;"class='btn btn-danger btn-sm text' onclick="resetPasswordConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Reset Password</button>
+        
+                                                    <?php
+                                                    echo "</td>";
+                                                    echo "<td>";
+                                                    
+                                                    ?>
                            
 
-                                                        <button class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Reset Password</button>
+
                                                         <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Archive</button>
         
                                                     <?php
