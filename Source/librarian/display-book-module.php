@@ -99,7 +99,7 @@
                                     echo $row["quantity"];
                                     echo "</td>";
                                     echo "<td>";
-                                    echo $row["available"];
+                                    echo $row["available"] ? 'Available' : 'Not Available';
                                     echo "</td>";
                                     echo "<td><a href='#' class='editRemarksLink' data-accession_number='" . $row["accession_number"] . "' data-remarks='" . htmlspecialchars($row["remarks"], ENT_QUOTES) . "'>" . ($row["remarks"] ? $row["remarks"] : "n/a") . "</a></td>";
                                     echo "<td>";

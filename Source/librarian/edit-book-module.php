@@ -253,37 +253,74 @@ if(isset($_GET['id'])) {
 
                             </div>
 
-                            <div class="input-field1">
-                                <label>Suplementary content</label>
-                                <input type="text" placeholder="Supplementary Content" name="supp_content" value="<?php echo $supp_content; ?>">
+                            <div class="input-field2">
+                                <label>Suplementary content</label>      
+                                <select name="supp_content">
+                                <option <?php if ($supp_content == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($supp_content == 'Includes index') echo 'selected';?>>Includes index</option>
+                                    <option <?php if ($supp_content == 'Includes bibliographic references') echo 'selected'; ?>>Includes bibliographic references</option>
+                                    <option <?php if ($supp_content == 'Includes bibliographic and index') echo 'selected'; ?>>Includes bibliographic and index</option>
+                                    <option <?php if ($supp_content == 'Includes bibliographic ') echo 'selected'; ?>>Includes bibliographic</option>
+                                </select>
 
                             </div>
 
-                            <div class="input-field1">
+                            <div class="input-field2">
                                 <label>Identifier/ISBN</label>
                                 <input type="text" placeholder="Identifier/ISBN" name="ISBN" value="<?php echo $ISBN; ?>">
 
+
                             </div>
 
-                            <div class="input-field1">
+                            <div class="input-field2">
                                 <label>Content Type</label>
-                                <input type="text" placeholder="Content Type" name="content_type" value="<?php echo $content_type; ?>">
+                                <select name="content_type">
+                                <option <?php if ($content_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($content_type == 'cartographic date_time_set') echo 'selected'; ?>>cartographic date_time_set</option>
+                                    <option <?php if ($content_type == 'cartographic image') echo 'selected'; ?>>cartographic image</option>
+                                    <option <?php if ($content_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
+                                    <option <?php if ($content_type == 'cartographic tactile image') echo 'selected'; ?>>cartographic tactile image</option>
+                                    <option <?php if ($content_type == 'cartographic tactile three-dimensional form') echo 'selected'; ?>>cartographic tactile three-dimensional form</option>
+                                    <option <?php if ($content_type == 'cartographic three-dimensional form') echo 'selected'; ?>>cartographic three-dimensional form</option>
+                                </select>
 
                             </div>
 
-                            <div class="input-field1">
+                            <div class="input-field2">
                                 <label>Media Type</label>
-                                <input type="text" placeholder="Media Type" name="media_type" value="<?php echo $media_type; ?>">
-
+       
+                                <select name="media_type">
+                                <option <?php if ($media_type == '') echo 'selected'; ?>></option>
+                            <option <?php if ($media_type == 'audio') echo 'selected'; ?>>Audio</option>
+                            <option <?php if ($computer == 'audio') echo 'selected'; ?>>computer</option>
+                            <option <?php if ($media_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
+                            <option <?php if ($media_type == 'microform') echo 'selected'; ?>>microform</option>
+                            <option <?php if ($media_type == 'microscopic') echo 'selected'; ?>>microscopic</option>
+                            <option <?php if ($media_type == 'projected') echo 'selected'; ?>>projected</option>
+                            <option <?php if ($media_type == 'stereographic') echo 'selected'; ?>>stereographic</option>
+                            <option <?php if ($media_type == 'unmediated') echo 'selected'; ?>>unmediated</option>
+                            <option <?php if ($media_type == 'video') echo 'selected'; ?>>video</option>
+                        </select>
                             </div>
 
-                            <div class="input-field1">
+                            <div class="input-field2">
                                 <label>Carrier Type</label>
-                                <input type="text" placeholder="Carrier Type" name="carrier_type" value="<?php echo $carrier_type; ?>">
+
+                                <select name="carrier_type">
+                                <option <?php if ($carrier_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($carrier_type == 'audio cartridge') echo 'selected'; ?>>audio cartridge</option>
+                                    <option <?php if ($carrier_type == 'audio cylinde') echo 'selected'; ?>>audio cylinder</option>
+                                    <option <?php if ($carrier_type == 'audio disc') echo 'selected'; ?>>audio disc</option>
+                                    <option <?php if ($carrier_type == 'audio card') echo 'selected'; ?>>aperture card </option>
+                                    <option <?php if ($carrier_type == 'audio roll') echo 'selected'; ?>>audio roll</option>
+                                    <option <?php if ($carrier_type == 'audiocassette') echo 'selected'; ?>>audiocassette</option>
+                                    <option <?php if ($carrier_type == 'audiotape reel') echo 'selected'; ?>>audiotape reel</option>
+                                    <option <?php if ($carrier_type == 'card') echo 'selected'; ?>>card</option>
+                                </select>
 
                             </div>
 
-                            <div class="input-field1">
+                            <div class="input-field2">
                                 <label>URL</label>
                                 <input type="file" name="file">
                                 <a href="<?php echo $filepath; ?>" target="_blank">View current file</a>
@@ -299,11 +336,11 @@ if(isset($_GET['id'])) {
                     <div class="input-field">
                                     <label>Subject</label>
                                     <select name="subject_type">
+                                    <option <?php if ($subject_type == '') echo 'selected'; ?>></option>
                                         <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
                                         <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
                                         <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
                                         <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                        
                                     </select>
                         </div>
                     
@@ -335,11 +372,14 @@ if(isset($_GET['id'])) {
                     <div class="input-field2">
                                         <label>Call Number</label>
                                         <select name="call_number_type">
-                                            <option <?php if ($call_number_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
-                                            <option <?php if ($call_number_type == 'Personal') echo 'selected'; ?>>Personal</option>
-                                            <option <?php if ($call_number_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
-                                            <option <?php if ($call_number_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                            <option <?php if ($call_number_type == '') echo 'selected'; ?>></option>
+                                        <option <?php if ($call_number_type == '') echo 'selected'; ?>></option>
+                                            <option <?php if ($call_number_type == 'BIO') echo 'selected'; ?>>BIO</option>
+                                            <option <?php if ($call_number_type == 'CD-ROM') echo 'selected'; ?>>CD-ROM</option>
+                                            <option <?php if ($call_number_type == 'CIR') echo 'selected'; ?>>CIR</option>
+                                            <option <?php if ($call_number_type == 'FIC') echo 'selected'; ?>>FIC</option>
+                                            <option <?php if ($call_number_type == 'FIL') echo 'selected'; ?>>FIL</option>
+                                            <option <?php if ($call_number_type == 'REF') echo 'selected'; ?>>REF</option>
+                                            <option <?php if ($call_number_type == 'TH') echo 'selected'; ?>>TH</option>
                                         </select>
                         </div>
 
@@ -355,7 +395,7 @@ if(isset($_GET['id'])) {
                         <div class="input-field2">
                                 <label>Language</label>
                                         <select name="language">
-                                        
+                                        <option <?php if ($language == '') echo 'selected'; ?>></option>
                                             <option <?php if ($language == 'English') echo 'selected'; ?>>English </option>
                                             <option <?php if ($language == 'Filipino') echo 'selected'; ?>>Filipino</option>
                                             <option <?php if ($language == 'French') echo 'selected'; ?>>French</option>
@@ -373,26 +413,27 @@ if(isset($_GET['id'])) {
 
                         <div class="input-field2">
                                 <label>Library/Location</label>
-                                <select name="library_location">
-                                            <option <?php if ($library_location == 'BIO') echo 'selected'; ?>>BIO </option>
-                                            <option <?php if ($library_location == 'CD-ROM') echo 'selected'; ?>>CD-ROM</option>
-                                            <option <?php if ($library_location == 'CIR') echo 'selected'; ?>>CIR</option>
-                                            <option <?php if ($library_location == 'FIC') echo 'selected'; ?>>FIC</option>
-                                            <option <?php if ($library_location == 'FIL') echo 'selected'; ?>>FIL</option>
-                                            <option <?php if ($library_location == 'REF') echo 'selected'; ?>>REF</option>
-                                            <option <?php if ($library_location == 'TH') echo 'selected'; ?>>TH</option>
-                                            <option <?php if ($library_location == '') echo 'selected'; ?>></option>
-                                        </select>
+                
+   
+
+                                            <select placeholder="library_location" name="library_location">
+                                                <option <?php if ($library_location == '') echo 'selected'; ?>></option>
+                                                <option <?php if ($library_location == 'College Library') echo 'selected'; ?>>College Library</option>
+                                                <option <?php if ($library_location == 'Grade School Library') echo 'selected'; ?>>Grade School Library</option>
+                                                <option <?php if ($library_location == 'Graduate School Library') echo 'selected'; ?>>Graduate School Library</option>
+                                                <option <?php if ($library_location == 'High School Library') echo 'selected'; ?>>High School Library</option>
+                                                <option <?php if ($library_location == 'Junior High School Library') echo 'selected'; ?>>Junior High School Library</option>
+                                                <option <?php if ($library_location == 'Pre-School Library') echo 'selected'; ?>>Pre-School Library</option>
+                                                <option <?php if ($library_location == 'Senior High School Library') echo 'selected'; ?>>Senior High School Library</option>
+                             
+                                            </select>
+                        
                                
                         </div>
 
 
 
-                        
-                        <div class="input-field1">
-                                <label>Electronic Access</label>
-                                <input type="text" placeholder="Electronic Access" name="electronic_access" value="<?php echo $electronic_access; ?>">
-                        </div>
+                    
 
                         <div class="input-field1">
                       
@@ -411,15 +452,13 @@ if(isset($_GET['id'])) {
                         <div class="input-field2">
                                         <label>Updated by</label>
                                         <input type="text" placeholder="Updated by" name="updated_by" value="<?php echo $updated_by; ?>">
-
                         </div>
+
+
 
                         <div class="input-field2">
                                         <label>Date Entered</label>
                                         <input type="date" name="date_entered" value="<?php echo $date_entered; ?>">
-
-
-
                         </div>
 
                         <div class="input-field2">
@@ -428,6 +467,8 @@ if(isset($_GET['id'])) {
 
 
                         </div>
+
+
 
                         <div class="input-field2">
                                         <label>Quantity</label>
@@ -441,9 +482,12 @@ if(isset($_GET['id'])) {
 
                         </div>
 
+
+
                         <div class="input-field2">
                                 <label>Location</label>
                                 <select name="location">
+                                <option <?php if ($location == '') echo 'selected'; ?>></option>
                                     <option <?php if ($location == 'General Circulation') echo 'selected'; ?>>General Circulation</option>
                                     <option <?php if ($location == 'Teachers Reference') echo 'selected'; ?>>Teachers Reference</option>
                                     <option <?php if ($location == 'Filipiniana') echo 'selected'; ?>>Filipiniana</option>

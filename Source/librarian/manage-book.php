@@ -63,14 +63,19 @@
                                     <tr >
                               
                                     <th class="col">Accession Number</th>
-                                    <th class="col">Book name</th>
                                     <th class="col">ISBN</th>
-                                    <th class="col">Call Number</th>
+                                    <th class="col">Title of Book</th>
+                                    <th class="col">Author</th>
+                                    <th class="col">Edition</th>
+                                    <th class="col">Publisher</th>
                                     <th class="col">Place of Publication</th>
+                                    <th class="col">Year</th>
+                                    <th class="col">Call Number</th>
                                     <th class="col">Publisher</th>
                                     <th class="col">Quantity</th>
                                     <th class="col">Location</th>
                                     <th class="col">Remarks</th>
+
                           
                                     </tr>
                                 </thead>
@@ -83,18 +88,41 @@
                                     echo "<td>";                            
                                     echo $row["accession_number"];
                                     echo "</td>";
-                                    echo "<td>";                            
-                                    echo $row["title_proper"];
-                                    echo "</td>";
+
                                     echo "<td>";                            
                                     echo $row["ISBN"];
+                                    echo "</td>";   
+
+                                    echo "<td>";                   
+                                    echo $row["title_proper"];
                                     echo "</td>";
-                                    echo "<td>";                            
-                                    echo $row["call_number_info"];
+
+                                    echo "<td>";                         
+                                    echo $row["main_creator"];
                                     echo "</td>";
+
+                                    echo "<td>";                         
+                                    echo $row["edition"];
+                                    echo "</td>";
+
+                                    echo "<td>";                         
+                                    echo $row["publisher"];
+                                    echo "</td>";
+
                                     echo "<td>";
                                     echo $row["place_of_publication"];
                                     echo "</td>";
+
+                                    echo "<td>";
+                                    echo $row["date_of_publication"];
+                                    echo "</td>";
+ 
+                                    echo "<td>";                            
+                                    echo $row["call_number_info"];
+                                    echo "</td>";
+
+
+
                                     echo "<td>";
                                     echo $row["publisher"];
                                     echo "</td>";

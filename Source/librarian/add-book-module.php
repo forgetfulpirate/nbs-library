@@ -88,8 +88,9 @@ include 'inc/connection.php';
             <div class="tab-buttons">
                 <button type="button" onclick="showTab(0)">Book Catalogue</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
-                <button type="button" onclick="showTab(2)">Subject Entry</button>
-                <button type="button" onclick="showTab(3)">Local Information</button>
+                <button type="button" onclick="showTab(2)">Local Information</button>
+                <button type="button" onclick="showTab(3)">Subject Entry</button>
+
                 <button type="button" onclick="showTab(4)">Content</button>
             </div>
             
@@ -198,8 +199,8 @@ include 'inc/connection.php';
 
                     <div class="input-field2">
                         <label>Suplementary content</label>
-                   
                         <select name="supplementary_content">
+                            <option></option>
                             <option>Includes index</option>
                             <option>Includes bibliographic references</option>
                             <option>Includes bibliographic and index</option>
@@ -210,11 +211,13 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Identifier/ISBN</label>
                         <input type="text" placeholder="Identifier/ISBN" name="ISBN">
+                        <div id="ISBN_error" class="error"></div>
                     </div>
 
                     <div class="input-field2">
                         <label>Content Type</label>
                         <select name="content_type">
+                            <option></option>
                             <option>cartographic date_time_set</option>
                             <option>cartographic image</option>
                             <option>cartographic moving image</option>
@@ -227,6 +230,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Media Type</label>
                         <select name="media_type">
+                            <option></option>
                             <option>audio</option>
                             <option>computer</option>
                             <option>cartographic moving image</option>
@@ -242,6 +246,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Carrier Type</label>
                         <select name="carrier_type">
+                            <option></option>
                             <option>audio cartridge</option>
                             <option>audio cylinder</option>
                             <option>audio disc</option>
@@ -264,39 +269,12 @@ include 'inc/connection.php';
 
         <!--  SECOND FORM END  -->
 
-
-        <div class="tab">
-        <!-- 3RD  FORM -->
-  
-            <div class="details ID">
-                <span class="title"> SUBJECT ENTRY</span>
-                <div class="fields">
-                    <div class="input-field2">
-                        <label>Subject</label>
-                        <select name="subject_type">
-                            <option>Tropical</option>
-                            <option>Personal</option>
-                            <option>Corporate</option>
-                            <option>Geographical</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-field1">
-                        <label>Subject Info</label>
-                        <textarea name="subject_info" placeholder="Subject Info"></textarea>
-                    </div>
-                </div>
-              
-            </div>
-        </div>
-
-        <!-- 3rd form end -->
-
+        
         <!-- FOURTH  FORM -->
         <div class="tab">
    
             <div class="details ID">
-                <span class="title"> LOCAL INFORMATION</span>
+                <span class="title">LOCAL INFORMATION</span>
                 <div class="fields">
                 <div class="input-field1">
                             <span>
@@ -304,7 +282,7 @@ include 'inc/connection.php';
                             <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
                             </input>
                             </span>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required />
+                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input"/>
                             <div id="accession_number_error" class="error"></div>
                             <div id="accessionNumberFields"></div>
                 </div>
@@ -313,6 +291,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Call Number</label>
                         <select placeholder="Title Proper" name="call_number_type">
+                        <option></option>
                             <option>BIO</option>
                             <option>CD-ROM</option>
                             <option>CIR</option>
@@ -320,13 +299,14 @@ include 'inc/connection.php';
                             <option>FIL</option>
                             <option>REF</option>
                             <option>TH</option>
-                            <option></option>
+                        
                         </select>
                     </div>
 
                     <div class="input-field2">
                         <label>Call Number</label>
                         <input type="text" placeholder="Call Number" name="call_number_info">
+                        <div id="call_number_info_error" class="error"></div>
                     </div>
 
                 
@@ -336,6 +316,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Language</label>
                         <select placeholder="Title Proper" name="language">
+                        <option></option>
                             <option>English</option>
                             <option>Filipino</option>
                             <option>French</option>
@@ -352,6 +333,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Library/Location</label>
                         <select placeholder="Title Proper" name="library_location">
+                        <option></option>
                             <option>College Library</option>
                             <option>Grade School Library</option>
                             <option>Graduate School Library</option>
@@ -359,16 +341,16 @@ include 'inc/connection.php';
                             <option>Junior High School Library</option>
                             <option>Pre-School Library</option>
                             <option>Senior High School Library</option>
-                            <option></option>
+        
                         </select>
                     </div>
 
-                    <div class="input-field2">
+                    <!-- <div class="input-field2">
                         <label>Electronic Access</label>
                         <input type="text" placeholder="Library/Location" name="electronic_access">
-                    </div>
+                    </div> -->
 
-                    <div class="input-field2">
+                    <div class="input-field1">
                         <label>Cover Image file</label>
                         <input type="file" name="f1">
                     </div>
@@ -383,10 +365,14 @@ include 'inc/connection.php';
                         <input type="text" placeholder="Updated by" name="updated_by">
                     </div>
 
+
+
                     <div class="input-field2">
                         <label>Date Entered</label>
                         <input type="date" name="date_entered">
                     </div>
+
+                    
 
                     <div class="input-field2">
                         <label>Date Updated</label>
@@ -396,6 +382,7 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Quantity</label>
                         <input type="number" placeholder="Quantity" name="quantity">
+                        <div id="quantity_error" class="error"></div>
                     </div>
 
                     <div class="input-field2">
@@ -404,9 +391,12 @@ include 'inc/connection.php';
                         <div id="available_error" class="error"></div>
                     </div>
 
+
+
                     <div class="input-field2">
                         <label>Circulation</label>
                         <select name="location">
+                        <option></option>
                             <option>General Circulation</option>
                             <option>Teachers Reference</option>
                             <option>Filipiniana</option>
@@ -426,6 +416,36 @@ include 'inc/connection.php';
         </div>
 
         <!-- fOURTH form end -->
+
+
+        <div class="tab">
+        <!-- 3RD  FORM -->
+  
+            <div class="details ID">
+                <span class="title"> SUBJECT ENTRY</span>
+                <div class="fields">
+                    <div class="input-field2">
+                        <label>Subject</label>
+                        <select name="subject_type">
+                            <option></option>
+                            <option>Tropical</option>
+                            <option>Personal</option>
+                            <option>Corporate</option>
+                            <option>Geographical</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-field1">
+                        <label>Subject Info</label>
+                        <textarea name="subject_info" placeholder="Subject Info"></textarea>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- 3rd form end -->
+
 
         <!-- Fifth  FORM -->
         <div class="tab">
@@ -553,7 +573,7 @@ if (isset($_POST["submit"])) {
                 '$call_number_info',
                 '$language',
                 '$library_location',
-                '$electronic_access',
+                '',
                 '$imagepath',
                 '$entered_by',
                 '$updated_by',
@@ -637,6 +657,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const accession_number = document.querySelector('input[name="accession_number[]"]').value.trim();
     const available = document.querySelector('input[name="available"]').value.trim();
     const quantity = document.querySelector('input[name="quantity"]').value.trim();
+    const ISBN = document.querySelector('input[name="ISBN"]').value.trim();
+    const call_number_info = document.querySelector('input[name="call_number_info"]').value.trim();
 
     // Check if any required field is empty
     if (titleProper === '' ) {
@@ -651,6 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (placeOfPublication === '') {
     // Display error message next to the place of publication input field
+    alert('Please input place of publication');
     document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
     return false; // Prevent form submission
     } else {
@@ -670,6 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (available === '') {
         // Display error message next to the available input field
+        alert('Please input availability');
         document.getElementById('available_error').innerText = 'Available is required.';
         return false; // Prevent form submission
     } else {
@@ -679,12 +703,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (quantity === '') {
         // Display error message next to the quantity input field
+        alert('Please input quantity of books');
         document.getElementById('quantity_error').innerText = 'Quantity is required.';
         return false; // Prevent form submission
     } else {
         // Clear error message if the field is not empty
         document.getElementById('quantity_error').innerText = '';
     }
+
+    if (ISBN === '') {
+        // Display error message next to the quantity input field
+        alert('Please input ISBN');
+        document.getElementById('ISBN_error').innerText = 'ISBN is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('ISBN_error').innerText = '';
+    }
+
+    if (call_number_info === '') {
+        // Display error message next to the quantity input field
+        alert('Please input Call No');
+        document.getElementById('call_number_info_error').innerText = 'Call No is required.';
+        return false; // Prevent form submission
+    } else {
+        // Clear error message if the field is not empty
+        document.getElementById('call_number_info_error').innerText = '';
+    }
+
+    
 
     // If all required fields are filled, allow form submission
     return true;

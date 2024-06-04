@@ -42,7 +42,6 @@ if (isset($_POST["submit"])) {
     $call_number_info = mysqli_real_escape_string($link, $_POST['call_number_info']);
     $language = mysqli_real_escape_string($link, $_POST['language']);
     $library_location = mysqli_real_escape_string($link, $_POST['library_location']);
-    $electronic_access = mysqli_real_escape_string($link, $_POST['electronic_access']);
     $entered_by = mysqli_real_escape_string($link, $_POST['entered_by']);
     $updated_by = mysqli_real_escape_string($link, $_POST['updated_by']);
     $date_entered = mysqli_real_escape_string($link, $_POST['date_entered']);
@@ -118,7 +117,6 @@ if (isset($_POST["submit"])) {
         call_number_info='$call_number_info', 
         language='$language', 
         library_location='$library_location', 
-        electronic_access='$electronic_access', 
         entered_by='$entered_by', 
         updated_by='$updated_by', 
         date_entered='$date_entered', 
@@ -135,7 +133,13 @@ if (isset($_POST["submit"])) {
 
     $result = mysqli_query($link, $query);
 
-       foreach ($_POST['accession_number'] as $key => $accession_number) {
+    if ($result) {
+        $_SESSION['success_message'] = "Book details updated successfully.";
+        echo "<script>alert('Book details updated successfully.'); window.location.href = 'display-book-module.php';</script>";
+        exit();
+    }
+
+    foreach ($_POST['accession_number'] as $key => $accession_number) {
         if ($key == 0) continue; // Skip the first accession number as it's already updated
 
         $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
@@ -144,7 +148,7 @@ if (isset($_POST["submit"])) {
         $row_check = mysqli_fetch_assoc($result_check);
 
         if ($row_check['count'] == 0) {
-            $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, electronic_access, entered_by, updated_by, date_entered, date_updated, quantity, available, location, content_notes, abstract, review, book_image, URL) VALUES (
+            $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, entered_by, updated_by, date_entered, date_updated, quantity, available, location, content_notes, abstract, review, book_image, URL) VALUES (
                 '$escaped_accession_number',
                 '$title_proper',
                 '$responsibility',
@@ -174,7 +178,6 @@ if (isset($_POST["submit"])) {
                 '$call_number_info',
                 '$language',
                 '$library_location',
-                '$electronic_access',
                 '$entered_by',
                 '$updated_by',
                 '$date_entered',

@@ -176,7 +176,7 @@
                             if ($overdueBooksCount > 0) {
                                 ?>
                                 <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                    <strong>Cannot issue book. The student has overdue books.</strong>
+                                <strong>Cannot issue the book. The student has overdue books that have not been returned.</strong>
                                 </div>
                                 <?php
                             } else {

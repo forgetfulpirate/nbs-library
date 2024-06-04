@@ -216,7 +216,7 @@
 
                <!-- HOLDINGS VIEW CONTENT -->
      
-<?php if (mysqli_num_rows($result_all) > 0): ?>
+               <?php if (mysqli_num_rows($result_all) > 0): ?>
     <div class="content">
         <div class="table-responsive">
             <table id="myTable" class="table table-bordered">
@@ -225,8 +225,9 @@
                         <th class="text-left">Accession Number</th>
                         <th class="text-left">Call No</th>
                         <th class="text-left">Location</th>
-                        <th class="text-left">Date Due</th> <!-- New column -->
                         <th class="text-left">Status</th>
+                        <th class="text-left">Date Due</th> <!-- New column -->
+                 
                     </tr>
                 </thead>
                 <tbody>
@@ -250,8 +251,9 @@
                             <td class="text-left"><?php echo $similar_book['accession_number']; ?></td>
                             <td class="text-left"><?php echo $similar_book['call_number_info']; ?></td>
                             <td class="text-left"><?php echo $similar_book['location']; ?></td>
-                            <td class="text-left"><?php echo $date_due; ?></td> <!-- Display date due -->
+                     
                             <td class="text-left"><?php echo $similar_book['available'] == 1 ? 'Available' : 'Not Available'; ?></td>
+                            <td class="text-left"><?php echo $date_due; ?></td> <!-- Display date due -->
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
