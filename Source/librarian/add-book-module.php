@@ -363,10 +363,10 @@ include 'inc/connection.php';
                         </select>
                     </div>
 
-                    <div class="input-field2">
+                    <!-- <div class="input-field2">
                         <label>Electronic Access</label>
                         <input type="text" placeholder="Library/Location" name="electronic_access">
-                    </div>
+                    </div> -->
 
                     <div class="input-field2">
                         <label>Cover Image file</label>
@@ -553,7 +553,7 @@ if (isset($_POST["submit"])) {
                 '$call_number_info',
                 '$language',
                 '$library_location',
-                '$electronic_access',
+                '',
                 '$imagepath',
                 '$entered_by',
                 '$updated_by',
