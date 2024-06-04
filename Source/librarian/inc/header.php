@@ -280,9 +280,9 @@
                             <li class="sidebar-item ">
                                 <a href="generate-report-borrowed.php" class="sidebar-link">Borrowed Books Report</a>
                             </li>
-                            <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
-                                <a href="add-tch.php" class="sidebar-link">Add Teacher</a>
-                            </li> -->
+                            <li class="sidebar-item <?php if($page=='overdue-report'){ echo 'active';} ?>">
+                                <a href="overdue-report.php" class="sidebar-link">Overdue Report</a>
+                            </li>
                             <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
                             </li> -->
