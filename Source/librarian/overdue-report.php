@@ -11,16 +11,20 @@
     include 'inc/header.php';
     include 'inc/connection.php';
   // Check if both start_date and end_date are set
-  if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
+// Check if both start_date and end_date are set
+if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
     // Sanitize the input to prevent SQL injection
     $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
     $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
 
-    // Modify the SQL query to include date range filter
-    $query = "SELECT * FROM finezone_archive WHERE booksreturndate BETWEEN '$start_date' AND '$end_date'";
+    // Get the selected filtering criteria
+    $filter_criteria = $_POST['filter_criteria'];
+
+    // Modify the SQL query to include date range filter and selected criteria
+    $query = "SELECT * FROM finezone_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date'";
 
     // Set the filename based on the date range
-    $filename = "overdue-return($start_date - $end_date)";
+    $filename = "overdue-return($filter_criteria - $start_date - $end_date)";
 } else {
     // If start_date and end_date are not set, fetch all records
     $query = "SELECT * FROM finezone_archive";
@@ -105,32 +109,42 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                  </div>
             </div>
             <br>
-                <!--dashboard area--><form method="POST">
-            <div class="col-md-12">
-                <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
-                            <div class="col-auto p-2">
-                            <label for="start_date" class="col-form-label" style="font-size:medium;">Filter Date</label>
-                            </div>
-                            <div class="col-auto p-2" style="width:200px;">
-                            <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>">
-                            </div>
-                            <div class="col-auto p-2">
-                                <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
-                            </div>
-                            <div class="col-auto p-2" style="width:200px;">
-                            <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
-
-                            </div>
-                            <div class="col-auto p-2">
-                            <button type="submit" class="btn btn-danger btn-block">Filter</button>
-                            </div>
-                            <div class="col-auto p-2">
-                        
-                            <button type="button" class="btn btn-secondary btn-block" onclick="resetFilter()">Reset</button>
-                            </div>
-                </div>
+<!--dashboard area-->
+<form method="POST">
+    <div class="col-md-12">
+        <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
+            <div class="col-auto p-2">
+                <label for="filter_criteria" class="col-form-label" style="font-size:medium;">Filter By</label>
             </div>
-            </form>
+            <div class="col-auto p-2" style="width:200px;">
+                <select name="filter_criteria" class="form-control custom">
+                    <option value="date_issued">Date Issued</option>
+                    <option value="booksissuedate">Date Due</option>
+                    <option value="booksreturndate">Books Return Date</option>
+                </select>
+            </div>
+            <div class="col-auto p-2">
+                <label for="start_date" class="col-form-label" style="font-size:medium;">From</label>
+            </div>
+            <div class="col-auto p-2" style="width:200px;">
+                <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>">
+            </div>
+            <div class="col-auto p-2">
+                <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+            </div>
+            <div class="col-auto p-2" style="width:200px;">
+                <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>">
+            </div>
+            <div class="col-auto p-2">
+                <button type="submit" class="btn btn-danger btn-block">Filter</button>
+            </div>
+            <div class="col-auto p-2">
+                <button type="button" class="btn btn-secondary btn-block" onclick="resetFilter()">Reset</button>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 
           
