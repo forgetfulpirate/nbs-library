@@ -196,32 +196,64 @@ include 'inc/connection.php';
                         <input type="text" placeholder="Series" name="series">
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>Suplementary content</label>
-                        <input type="text" placeholder="Suplementary content" name="supp_content">
+                   
+                        <select name="supplementary_content">
+                            <option>Includes index</option>
+                            <option>Includes bibliographic references</option>
+                            <option>Includes bibliographic and index</option>
+                            <option>Includes bibliographic </option>
+                        </select>
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>Identifier/ISBN</label>
                         <input type="text" placeholder="Identifier/ISBN" name="ISBN">
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>Content Type</label>
-                        <input type="text" placeholder="Content Type" name="content_type">
+                        <select name="content_type">
+                            <option>cartographic date_time_set</option>
+                            <option>cartographic image</option>
+                            <option>cartographic moving image</option>
+                            <option>cartographic tactile image </option>
+                            <option>cartographic tactile three-dimensional form </option>
+                            <option>cartographic three-dimensional form </option>
+                        </select>
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>Media Type</label>
-                        <input type="text" placeholder="Media Type" name="media_type">
+                        <select name="media_type">
+                            <option>audio</option>
+                            <option>computer</option>
+                            <option>cartographic moving image</option>
+                            <option>microform </option>
+                            <option>microscopic</option>
+                            <option>projected</option>
+                            <option>stereographic</option>
+                            <option>unmediated</option>
+                            <option>video</option>
+                        </select>
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>Carrier Type</label>
-                        <input type="text" placeholder="Carrier Type" name="carrier_type">
+                        <select name="carrier_type">
+                            <option>audio cartridge</option>
+                            <option>audio cylinder</option>
+                            <option>audio disc</option>
+                            <option>aperture card </option>
+                            <option>audio roll</option>
+                            <option>audiocassette</option>
+                            <option>audiotape reel</option>
+                            <option>card</option>
+                        </select>
                     </div>
 
-                    <div class="input-field1">
+                    <div class="input-field2">
                         <label>URL</label>
                         <input type="file" name="file">
                     </div>
@@ -239,7 +271,7 @@ include 'inc/connection.php';
             <div class="details ID">
                 <span class="title"> SUBJECT ENTRY</span>
                 <div class="fields">
-                    <div class="input-field">
+                    <div class="input-field2">
                         <label>Subject</label>
                         <select name="subject_type">
                             <option>Tropical</option>
@@ -320,13 +352,13 @@ include 'inc/connection.php';
                     <div class="input-field2">
                         <label>Library/Location</label>
                         <select placeholder="Title Proper" name="library_location">
-                            <option>BIO</option>
-                            <option>CD-ROM</option>
-                            <option>CIR</option>
-                            <option>FIC</option>
-                            <option>FIL</option>
-                            <option>REF</option>
-                            <option>TH</option>
+                            <option>College Library</option>
+                            <option>Grade School Library</option>
+                            <option>Graduate School Library</option>
+                            <option>High School Library</option>
+                            <option>Junior High School Library</option>
+                            <option>Pre-School Library</option>
+                            <option>Senior High School Library</option>
                             <option></option>
                         </select>
                     </div>

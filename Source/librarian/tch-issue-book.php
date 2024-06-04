@@ -165,13 +165,26 @@
                         $booksToIssueCount = count($_POST['accession_number']);
                     
                         // Check if issuing more books would exceed the limit of 5
-                        if ($totalBooksIssued + $booksToIssueCount > 10) {
+                        if ($totalBooksIssued + $booksToIssueCount > 5) {
                             ?>
                             <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                <strong>You can only issue a maximum of 10 books for students.</strong>
+                                <strong>You can only issue a maximum of 5 books for students.</strong>
                             </div>
                             <?php
                         } else {
+                            // Check for overdue books
+                            $datetoday = date('Y-m-d');
+                            $overdueBooksQuery = mysqli_query($link, "SELECT COUNT(*) AS overdue_books FROM issue_book WHERE student_number='$id_number' AND booksreturndate < '$datetoday'");
+                            $overdueBooksResult = mysqli_fetch_assoc($overdueBooksQuery);
+                            $overdueBooksCount = $overdueBooksResult["overdue_books"];
+                    
+                            if ($overdueBooksCount > 0) {
+                                ?>
+                                <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                    <strong>Cannot issue book. The Faculty teacher has overdue books.</strong>
+                                </div>
+                                <?php
+                            } else {
                             // Proceed with the issuance process
                             $issuedCount = 0; // Counter for the number of successfully issued books
                             foreach ($_POST['accession_number'] as $accession_number) {
@@ -231,7 +244,7 @@
                             }
                         }
                     }
-                    
+                }
                     ?>
                 </div>
             </div>

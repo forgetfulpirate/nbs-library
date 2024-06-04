@@ -98,7 +98,7 @@
                                             echo "<td>"; echo $row1["dept"]; echo "</td>";
                                             echo "<td>";
                                             ?>
-                                                <button class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Reset Password</button>
+                                                <button style="text-align:left; width:128px; max-width:128px;" class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Reset Password</button>
                                                 <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation1('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Archive</button>
 
                                             <?php
