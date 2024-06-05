@@ -38,7 +38,7 @@
 							<input type="password" class="form-control mt-10" name="npassword" placeholder="New password">
 							<br>
 							<b>Conform Password:</b>
-							<input type="password" class="form-control mt-10" name="conpass" placeholder="Conform password">
+							<input type="password" class="form-control mt-10" name="conpass" placeholder="ConfIrm password">
 							<br>
 							<input type="submit" name="submit" class="btn" value="Change Password">
 						</form>

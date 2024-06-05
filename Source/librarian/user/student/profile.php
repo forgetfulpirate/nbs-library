@@ -9,6 +9,15 @@
     }
     include 'inc/header.php';
     include 'inc/connection.php';
+    
+    function showAlert($message, $type = 'success')
+{
+    echo "<div class='alert alert-$type fade show' role='alert'>
+            $message
+           
+        </div>";
+}
+
  ?>
 	<!--dashboard area-->
 	<div class="dashboard-content">
@@ -44,7 +53,7 @@
 							<div class="uploadPhoto">
 								<div class="gap-30"></div>
 								<form action="" method="post" enctype="multipart/form-data">
-									<input type="file" name="image" class="modal-mt" id="image">
+									<input type="file" name="image" class="modal-mt" id="image" required>
 									<div class="gap-30"></div>
 									<input type="submit" class="modal-mt btn btn-info" value="Upload Image" name="submit">
 								</form>
@@ -78,7 +87,6 @@
                                         $middle_name      = $row6['middle_name'];
                                         $email      = $row6['email'];
                                         $year      = $row6['year'];
-                                        $semester     = $row6['semester'];
                                         $user_type     = $row6['user_type'];
                                         }
                                     ?>
@@ -113,11 +121,7 @@
                                         <input type="text" class="form-control custom"  name="dept" value="<?php echo $year; ?>" />
                                     </div>
 
-                                    <div class="form-group details-control">
-                                         <label for="email">Semester:</label>
-                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $semester; ?>" />
-                                    </div>
-                         		                    
+      
                     
                                   
                                     <br>
@@ -128,28 +132,28 @@
                                 ?>
                                 </form>
 			                </div>  
-                            <?php
-                              if (isset($_POST["update"])){
-                                mysqli_query($link, "UPDATE student SET 
-                                    first_name='" . $_POST['first_name'] . "',
-                                    last_name='" . $_POST['name'] . "',
-                                    middle_name='" . $_POST['sem'] . "',
-                                    email='" . $_POST['session'] . "',
-                                    year='" . $_POST['dept'] . "'
-                                    WHERE student_number='" . $_SESSION['student'] . "'");
+                                    <br>
+                          
 
+                          <?php
+                              if (isset($_POST["update"])) {
+                                if (mysqli_query($link, "UPDATE student SET 
+                                first_name='" . $_POST['first_name'] . "',
+                                last_name='" . $_POST['name'] . "',
+                                middle_name='" . $_POST['sem'] . "',
+                                email='" . $_POST['session'] . "',
+                                year='" . $_POST['dept'] . "'
+                                WHERE student_number='" . $_SESSION['student'] . "'")) {
+                                    showAlert("Profile updated successfully!", "success");
                                     
-                                ?>
-                                <script type="text/javascript">
-                                 
-                                    window.location="profile.php";
-                                    alert('Successful edit profile');
-                                </script>
-                                <?php
+                        
+                                    
+                                } else {
+                                    showAlert("Error updating profile!", "danger");
+                                }
                             }
                             
                             ?>
-                          
 		                </div>    
 					</div>
 				</div>

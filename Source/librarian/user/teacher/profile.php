@@ -22,19 +22,14 @@
 	<div class="dashboard-content">
 		<div class="dashboard-header">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">profile</span>
-						</div>
-					</div>
-				</div>
+                <br>
+			<div class="mb-3">
+          
+                        <h4 class="text-center">Profile
+                        </h4>
+                           
+             
+                 </div>
 				<div class="profile-content">
 					<div class="row">
 						<div class="col-md-3">
@@ -51,7 +46,7 @@
 							<div class="uploadPhoto">
 								<div class="gap-30"></div>
 								<form action="" method="post" enctype="multipart/form-data">
-									<input type="file" name="image" class="modal-mt" id="image">
+									<input type="file" name="image" class="modal-mt" id="image" required>
 									<div class="gap-30"></div>
 									<input type="submit" class="modal-mt btn btn-info" value="Upload Image" name="submit">
 								</form>
@@ -92,7 +87,7 @@
                                 <form method="post">
                                     <div class="form-group details-control">
                                         <label for="id_number" class="text-right">ID Number:</label>
-                                        <input type="text" class="form-control custom"  name="id_number" value="<?php echo $id_number; ?>" readonly />
+                                        <input type="text" class="form-control custom"  name="id_number" value="<?php echo $id_number; ?>"  />
                                     </div>
                                     <div class="form-group details-control">
                                          <label for="first_name">First Name:</label>
@@ -100,7 +95,7 @@
                                     </div>
                                     <div class="form-group details-control">
                                         <label for="last_name" class="text-right">Last Name:</label>
-                                        <input type="text" class="form-control custom"  name="last_name" value="<?php echo $last_name; ?>" readonly/>
+                                        <input type="text" class="form-control custom"  name="last_name" value="<?php echo $last_name; ?>" />
                                     </div>
 
                                     <div class="form-group details-control">
@@ -109,7 +104,7 @@
                                     </div>
                                     <div class="form-group details-control">
                                         <label for="email" class="text-right">Email:</label>
-                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" readonly/>
+                                        <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" />
                                     </div>
                                     <div class="form-group details-control">
                                         <label for="course" class="text-right">Dept:</label>
@@ -133,6 +128,7 @@
                               if (isset($_POST["update"])) {
                                 if (mysqli_query($link, "update teacher set first_name='$_POST[first_name]', middle_name='$_POST[middle_name]' where id_number='$_SESSION[teacher]'")) {
                                     showAlert("Profile updated successfully!", "success");
+                                    
                         
                                     
                                 } else {

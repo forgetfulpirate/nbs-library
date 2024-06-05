@@ -109,7 +109,7 @@ $not= mysqli_num_rows($res);
 
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
-                                <a href="student-profile.php" class="sidebar-link">Profile</a>
+                                <a href="profile.php" class="sidebar-link">Profile</a>
                             </li>
                             <li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
                                 <a href="changepass.php" class="sidebar-link">Change Passowrd</a>
@@ -122,7 +122,7 @@ $not= mysqli_num_rows($res);
 					<li class="sidebar-item <?php if($page=='issue-book'){ echo 'active';} ?>">
                         <a href="my-issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
-                            My issue book
+                            My Borrowed book
                         </a>
                     </li>
 
@@ -164,16 +164,14 @@ $not= mysqli_num_rows($res);
                                 </a>
                     </li> -->
             
-                    <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='ibook'){ echo 'active';} ?>">
                         <a href="request-book.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
                             Request Book
                         </a>
-                    </li>
-                    <div class="sidebar-footer">
-                       
-                    </div>
+                    </li> -->
+        
 
                 
                 </ul>
@@ -191,11 +189,7 @@ $not= mysqli_num_rows($res);
 			
                 <div class="navbar-collapse navbar">
                         <ul class="navbar-nav" style="margin-right:10px;">
-                        <li class="icon">
-							<a href="notifications.php" ><i class="fas fa-bell"></i></a>
-								<span class="count" onclick="window.location='notifications.php'"><b id="notif"><?php echo $not; ?></b></span>
-                       		 </li>
-                        </ul>
+                 
                         
                         <li class="nav-item dropdown">
 								<?php

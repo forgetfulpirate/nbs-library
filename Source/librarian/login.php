@@ -68,7 +68,7 @@
             <?php
                 if (isset($_POST["login"])) {
                     $count=0;
-                    $res= mysqli_query($link, "select * from lib_registration where username='$_POST[username]' && password= '$_POST[password]' ");
+                    $res = mysqli_query($link, "SELECT * FROM lib_registration WHERE BINARY username = '$_POST[username]' AND password = '$_POST[password]'");
                     $count = mysqli_num_rows($res);
                     if ($count==0) {
                         ?>
