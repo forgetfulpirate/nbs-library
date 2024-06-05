@@ -93,7 +93,7 @@ if (isset($_POST['generate_receipt'])) {
     $pdf->Cell(23, 6, 'Date Due',1,0,'C');
     $pdf->Cell(30, 6, 'Date Returned',1,0,'C');
     $pdf->Cell(20, 6, 'Remarks',1,0,'C');
-    $pdf->Cell(15, 6, 'Fine',1,1,'C');
+    $pdf->Cell(15, 6, 'Overdue',1,1,'C');
 
     $pdf->SetFont('Arial', '', 10);
     // Add fetched data to PDF

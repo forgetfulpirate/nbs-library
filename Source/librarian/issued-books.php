@@ -28,6 +28,24 @@
                  </div>
             </div>
             <br>
+
+            
+        <!-- Generate Receipt Form -->
+        <div class="col-lg-12 col-12"> <!-- Full width on mobile, half width on large screens -->
+            <form action="issue-book-receipt.php" method="post" id="receiptForm" target="_blank" onsubmit="return validateForm()">
+                <div class="row text-center text-lg-end align-items-center justify-content-center justify-content-lg-end"> <!-- Center on mobile, right align on large screens -->
+                    <div class="col-auto p-2">
+                        <label for="student_number" class="col-form-label" style="font-size:medium;">Enter ID Number:</label>
+                    </div>
+                    <div class="col-auto p-2" style="width:200px;">
+                        <input type="text" name="student_number" id="student_number" class="form-control custom" placeholder="Enter ID" required>
+                    </div>
+                    <div class="col-auto p-2">
+                        <button class="btn btn-danger btn-block" type="submit" name="issue_book_receipt">Generate Receipt</button>
+                    </div>
+                </div>
+            </form>
+        </div>
           
             <div class="card border-0">
                 
@@ -104,7 +122,22 @@
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
         });
+
+        function validateForm() {
+    var studentNumber = document.getElementById("student_number").value;
+    
+    // Check if the student number is empty or not a number
+    if (studentNumber.trim() === "" || isNaN(studentNumber)) {
+        alert("Please enter a valid ID number.");
+        return false; // Prevent form submission
+    }
+    
+    return true; // Allow form submission
+}
+</script>
     </script>
+
+    
 
 <?php 
 		include 'inc/footer.php';

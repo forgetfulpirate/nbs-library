@@ -210,11 +210,16 @@
 								<i class="fas fa-user"></i>
 							</div>
 							<div class="text-left">
-							<h3>
-								<span class="counter1">
-								
-                                    </span>
-								</h3>
+                            <h3>
+                                <span class="counter1">
+                                    <?php
+                                        // Query to get the total number of returned books
+                                        $res = mysqli_query($link, "SELECT * FROM return_books");
+                                        $count = mysqli_num_rows($res);
+                                        echo $count;
+                                    ?>
+                                </span>
+                            </h3>
 								
 								<h4><a href="return-book.php">Returned Books</a></h4>
 							</div>
@@ -301,7 +306,7 @@
 										<!--  -->
 
 							<!--  -->
-							<div class="col-md-4 d-flex">
+							<!-- <div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
@@ -320,7 +325,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             
                        

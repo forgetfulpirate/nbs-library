@@ -77,8 +77,6 @@ if ($num_rows == 0) {
     </form>
 </div>
 
-    
-
         <!-- Generate Receipt Form -->
         <div class="col-lg-6 col-12"> <!-- Full width on mobile, half width on large screens -->
             <form action="fine-receipt.php" method="post" id="receiptForm" target="_blank" onsubmit="return validateForm()">
@@ -135,7 +133,7 @@ if ($num_rows == 0) {
                         <th>Date Issued</th>
                         <th>Date Due</th>
                         <th>Date Returned</th>
-                        <th>Amount</th>
+                        <th>Overdue</th>
                         <th>Remarks</th>
                         <th>Status</th>
                         <th>Action</th>

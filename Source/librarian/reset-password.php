@@ -1,4 +1,5 @@
 <?php
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
@@ -74,23 +75,24 @@ if(isset($_GET['student_number'])) {
 
         if(updateStudentPassword($link, $student_number, $new_password)) {
             if(sendPasswordEmail($email, $new_password) == 'success') {
-                // Password reset successfully, redirect with alert
-                echo '<script>alert("Password reset successfully!");';
-                echo 'window.location.href = "all-student-info.php";</script>';
+                // Password reset successfully, set success message
+                $_SESSION['success_msg'] = "Password reset successfully!";
             } else {
-                echo '<script>alert("Error sending email. Please try again later.");';
-                echo 'Error sending email. Please try again later.';
+                // Error sending email, set error message
+                $_SESSION['error_msg'] = "Error sending email. Please try again later.";
             }
         } else {
-            echo '<script>alert("Error updating password. Please try again later.");';
-            echo 'Error updating password. Please try again later.';
+            // Error updating password, set error message
+            $_SESSION['error_msg'] = "Error updating password. Please try again later.";
         }
     } else {
-        echo '<script>alert("Error: Student number not found.");';
-        echo 'Error: Student number not found.';
+        // Student number not found, set error message
+        $_SESSION['error_msg'] = "Error: Student number not found.";
     }
 } else {
-    echo '<script>alert("Error: Student number not provided.");';
-    echo 'Error: Student number not provided.';
+    // Student number not provided, set error message
+    $_SESSION['error_msg'] = "Error: Student number not provided.";
 }
-?>
+// Redirect to all-student-info.php
+header("Location: all-student-info.php");
+exit();

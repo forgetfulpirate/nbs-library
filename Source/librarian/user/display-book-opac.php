@@ -233,7 +233,19 @@ $res = mysqli_query($link, $sql);
 </div>
 <?php } ?>
 </main>
-
+<footer style="text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="dist/img/NBS-LOGO.png" alt="Telephone and Fax" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 10px; margin:0;">
+        <div style="text-align: left;">
+            <p style="margin: 0; font-size:small;">3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila</p>
+            <p style="margin: 0; font-size:small;">Phone: (02) 8376 5090</p>
+            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
+        </div>
+    </div>
+  
+<br>
+    
+</footer>
 
 
 <script>
