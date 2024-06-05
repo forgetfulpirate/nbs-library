@@ -41,7 +41,7 @@
                         <input type="text" name="student_number" id="student_number" class="form-control custom" placeholder="Enter ID" required>
                     </div>
                     <div class="col-auto p-2">
-                        <button class="btn btn-danger btn-block" type="submit" name="issue_book_receipt">Generate Receipt</button>
+                        <button class="btn btn-danger btn-block" type="submit" name="issue_book_receipt">Generate Loan Receipt</button>
                     </div>
                 </div>
             </form>

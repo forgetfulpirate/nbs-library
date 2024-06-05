@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
      session_start();
     if (!isset($_SESSION["student"])) {
         ?>
@@ -18,7 +18,7 @@
         </div>";
 }
  ?>
-	<!--dashboard area-->
+
 	<div class="dashboard-content">
 		<div class="dashboard-header">
 			<div class="container">
@@ -161,4 +161,4 @@
 	</div>
 	<?php 
 		include 'inc/footer.php';
-	 ?>
+	 ?> -->

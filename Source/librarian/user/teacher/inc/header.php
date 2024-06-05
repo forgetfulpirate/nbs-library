@@ -131,7 +131,7 @@
                         <a href="my-issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
-                            My issue book
+                            My Borrowed book
                         </a>
                     </li>
 
@@ -181,13 +181,13 @@
                                 </a>
                     </li> -->
             
-                    <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
+                    <!-- <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="request-book.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
                             Request Book
                         </a>
-                    </li>
+                    </li> -->
 
                 
                 </ul>
