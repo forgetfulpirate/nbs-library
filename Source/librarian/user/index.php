@@ -40,10 +40,10 @@
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
 					</div>
-					<!-- <div class="this-item">
+					<div class="this-item">
                         <p><a href="student/registration.php">student registration</a></p>
                         <p><a href="teacher/registration.php">teacher registration</a></p>
-					</div> -->
+					</div>
 				</div>
 			</div>
 			<div class="item" style="background-image:url(dist/img/lib1.jpg);">
@@ -55,10 +55,10 @@
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
 					</div>
-					<!-- <div class="this-item">
+					<div class="this-item">
                         <p><a href="student/registration.php">student registration</a></p>
                         <p><a href="teacher/registration.php">teacher registration</a></p>
-					</div> -->
+					</div>
 				</div>
 			</div>
 			<div class="item" style="background-image:url(dist/img/lib2.jpg);">
@@ -70,10 +70,10 @@
 					<div class="this-item">
 						<h3>we stand behind your success</h3>
 					</div>
-					<!-- <div class="this-item">
+					<div class="this-item">
 						<p><a href="student/registration.php">student registration</a></p>
 						<p><a href="teacher/registration.php">teacher registration</a></p>
-					</div> -->
+					</div>
 				</div>
 			</div>
 
