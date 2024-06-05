@@ -98,7 +98,7 @@
                                         <th scope="col">Course</th>
                                         <th scope="col">Year</th>
                                         <!-- <th scope="col">Semester</th> -->
-                                        <th scope="col">verified</th>
+                                        <!-- <th scope="col">verified</th> -->
                                         <th scope="col">Reset Password</th>
                                         <th scope="col">Action</th>
                                         
@@ -118,7 +118,7 @@
                                                     echo "<td>"; echo $row["course"]; echo "</td>";
                                                     echo "<td>"; echo $row["year"]; echo "</td>";
                                                     // echo "<td>"; echo $row["semester"]; echo "</td>";
-                                                    echo "<td>"; echo $row["verified"]; echo "</td>";
+                                                    // echo "<td>"; echo $row["verified"]; echo "</td>";
                                                     echo "<td>";
                                                     
                                                     ?>

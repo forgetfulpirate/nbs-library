@@ -86,12 +86,11 @@ include 'inc/connection.php';
     </div>
 
             <div class="tab-buttons">
-                <button type="button" onclick="showTab(0)">Book Catalogue</button>
+                <button type="button" onclick="showTab(0)">Title Proper</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
                 <button type="button" onclick="showTab(2)">Local Information</button>
-                <button type="button" onclick="showTab(3)">Subject Entry</button>
-
-                <button type="button" onclick="showTab(4)">Content</button>
+                <button type="button" onclick="showTab(3)">Access Point</button>
+                <button type="button" onclick="showTab(4)">Abstracts</button>
             </div>
             
     <div class="tab active">
@@ -428,7 +427,7 @@ include 'inc/connection.php';
                         <label>Subject</label>
                         <select name="subject_type">
                             <option></option>
-                            <option>Tropical</option>
+                            <option>Topical</option>
                             <option>Personal</option>
                             <option>Corporate</option>
                             <option>Geographical</option>
@@ -451,7 +450,7 @@ include 'inc/connection.php';
         <div class="tab">
 
             <div class="details ID">
-                <span class="title"> SUBJECT ENTRY</span>
+                <span class="title"> Content / Abstract / Review</span>
                 <div class="fields">
                     <div class="input-field1">
                         <label>Content notes</label>

@@ -10,37 +10,35 @@
     $page = 'return-books';
     include 'inc/header.php';
     include 'inc/connection.php';
-
-        // Check if both start_date and end_date are set
-        if (isset($_POST['start_date']) && isset($_POST['end_date'])) {
-            // Sanitize the input to prevent SQL injection
-            $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
-            $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
+    if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
+        // Sanitize the input to prevent SQL injection
+        $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
+        $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
     
-            // Get the selected filtering criteria
-            $filter_criteria = $_POST['filter_criteria'];
+        // Get the selected filtering criteria
+        $filter_criteria = $_POST['filter_criteria'];
     
-            // Modify the SQL query to include date range filter and selected criteria
-            $query = "SELECT * FROM return_books WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date'";
+        // Construct the SQL query
+        $query = "SELECT * FROM return_books WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
     
-            // Set the filename based on the date range
-            $filename = "return-books($filter_criteria - $start_date - $end_date)";
-        } else {
-            // If start_date and end_date are not set, fetch all records
-            $query = "SELECT * FROM return_books";
-            $filename = "return-books(all)";
-        }
+        // Set the filename based on the date range
+        $filename = "return-books($start_date - $end_date)";
+    } else {
+        // If start_date and end_date are not set, fetch all records
+        $query = "SELECT * FROM return_books ORDER BY date_issued ASC"; // Default ordering by date_issued
+        $filename = "return-books(all)";
+    }
     
-        $res = mysqli_query($link, $query);
+    $res = mysqli_query($link, $query);
     
-        // Check if there are any results
-        $num_rows = mysqli_num_rows($res);
+    // Check if there are any results
+    $num_rows = mysqli_num_rows($res);
     
-        // If no results found, display an alert
-        if ($num_rows == 0) {
-            echo "<script>alert('No results found in the selected date range.');</script>";
-        }
-?>
+    // If no results found, display an alert
+    if ($num_rows == 0) {
+        // You can handle this case as needed
+    }
+    ?>
 <style>
 
 .no-stretch-input {
@@ -82,6 +80,20 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
 </style>
 <!-- Dashboard area -->
 <main class="content px-3 py-2">
+
+
+
+    <div class="gap-30"></div>
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Return Books
+                <p id="time"></p>
+                <p id="date"></p>
+            </h4>
+        </div>
+    </div>
+    <br>
+
     <?php
     // Display Success or Error Messages
     if (!empty($_SESSION['success_message'])) {
@@ -98,52 +110,41 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
     }
     ?>
 
-
-    <div class="gap-30"></div>
-    <div class="container-fluid">
-        <div class="mb-3">
-            <h4>Overdue Return Report
-                <p id="time"></p>
-                <p id="date"></p>
-            </h4>
-        </div>
-    </div>
-    <br>
-
-    <form method="POST" id="filterForm">
-        <div class="col-md-12">
-            <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
-                <div class="col-auto p-2">
-                    <label for="filter_criteria" class="col-form-label" style="font-size:medium;">Filter By</label>
-                </div>
-                <div class="col-auto p-2" style="width:200px;">
-                <select name="filter_criteria" class="form-control custom">
+        <!--dashboard area-->
+        <form method="POST">
+                <div class="col-md-12">
+                    <div class="row text-center align-items-center justify-content-center"> <!-- Added justify-content-center for horizontal centering -->
+                        <div class="col-auto p-2">
+                            <label for="filter_criteria" class="col-form-label" style="font-size:medium;">Filter By</label>
+                        </div>
+                        <div class="col-auto p-2" style="width:200px;">
+                        <select name="filter_criteria" class="form-control custom">
     <option value="date_issued" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'date_issued' ? 'selected' : ''; ?>>Date Issued</option>
     <option value="booksissuedate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksissuedate' ? 'selected' : ''; ?>>Date Due</option>
     <option value="booksreturndate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksreturndate' ? 'selected' : ''; ?>>Books Return Date</option>
 </select>
+                        </div>
+                        <div class="col-auto p-2">
+                            <label for="start_date" class="col-form-label" style="font-size:medium;">From</label>
+                        </div>
+                        <div class="col-auto p-2" style="width:200px;">
+                            <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>" required>
+                        </div>
+                        <div class="col-auto p-2">
+                            <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+                        </div>
+                        <div class="col-auto p-2" style="width:200px;">
+                            <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>" required>
+                        </div>
+                        <div class="col-auto p-2">
+                            <button type="submit" class="btn btn-danger btn-block">Filter</button>
+                        </div>
+                        <div class="col-auto p-2">
+                            <button type="button" class="btn btn-secondary btn-block" onclick="resetFilter()">Reset</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-auto p-2">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">From</label>
-                </div>
-                <div class="col-auto p-2" style="width:200px;">
-                    <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>" required>
-                </div>
-                <div class="col-auto p-2">
-                    <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
-                </div>
-                <div class="col-auto p-2" style="width:200px;">
-                    <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>" required>
-                </div>
-                <div class="col-auto p-2">
-                    <button type="submit" class="btn btn-danger btn-block">Filter</button>
-                </div>
-                <div class="col-auto p-2">
-                    <button type="button" class="btn btn-secondary btn-block" onclick="resetFilter()">Reset</button>
-                </div>
-            </div>
-        </div>
-    </form>
+            </form>
 
 
 
@@ -176,7 +177,7 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                 <tbody>
                     <?php 
                         // Fetch and display all data by default
-                        $res= mysqli_query($link, "select * from return_books");
+                 
                         while ($row=mysqli_fetch_array($res)) {
                             echo "<tr>";
                             echo "<td>" . $row["student_number"] . "</td>";
@@ -201,14 +202,35 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                     ?>
                 </tbody>
             </table>
+
+        
         </div>
+        <div class="text-end" style="padding:20px;">
+                <button class="btn btn-danger" onclick="archiveAll()">Archive All</button>
+        </div>
+
+            
     </div>
 </main>
 
 <script>
-$(document).ready(function () {
+ $(document).ready(function () {
     var filterCriteria = '<?php echo isset($filter_criteria) ? $filter_criteria : "date_issued"; ?>';
-    var orderColumn = filterCriteria === "date_issued" ? 5 : (filterCriteria === "booksissuedate" ? 6 : 7); // Determine column index based on criteria
+    var orderColumn;
+    
+    switch (filterCriteria) {
+        case "date_issued":
+            orderColumn = 5; // Index for "Date Issued" column
+            break;
+        case "booksissuedate":
+            orderColumn = 6; // Index for "Date Due" column
+            break;
+        case "booksreturndate":
+            orderColumn = 7; // Index for "Books Return Date" column
+            break;
+        default:
+            orderColumn = 5; // Default to "Date Issued" column
+    }
 
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
@@ -218,7 +240,7 @@ $(document).ready(function () {
                 filename: '<?php echo $filename; ?>', // Dynamically set the filename
                 text: 'Export Excel', // Change the label to "Export Excel"
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] // Export all columns
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]               
                 }
             },
         ],
@@ -227,19 +249,51 @@ $(document).ready(function () {
     });
 });
 
-window.setInterval(ut, 1000);
 
-function ut() {
-    var d = new Date();
-    document.getElementById("time").innerHTML = d.toLocaleTimeString();
-    document.getElementById("date").innerHTML = d.toLocaleDateString();
-}
+        window.setInterval(ut, 1000);
 
-function resetFilter() {
-    document.getElementsByName("start_date")[0].value = ''; // Reset start_date input
-    document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
+        function ut() {
+            var d = new Date();
+            document.getElementById("time").innerHTML = d.toLocaleTimeString();
+            document.getElementById("date").innerHTML = d.toLocaleDateString();
+        }
+
+        function resetFilter() {
+        document.getElementsByName("start_date")[0].value = ''; // Reset start_date input
+        document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
+        document.querySelector("form").submit(); // Submit the form
+    }
+    
+        </script>
+<script>
+function archiveAll() {
+    // Check if there are any records in the table
+    var tableRows = document.querySelectorAll("#dtBasicExample tbody tr");
+    
+    if (tableRows.length === 1) {
+        alert("No records found to archive.");
+    } else {
+        // Prompt the user for confirmation
+        if (confirm("Are you sure you want to archive all return books?")) {
+            // Submit a form to a PHP script to handle archiving
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'archive-all-return.php'; // Replace with your PHP script handling archiving
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'archive_all';
+            input.value = '1';
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
 }
 </script>
+
+
 <?php 
     include 'inc/footer.php';
 ?>
