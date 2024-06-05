@@ -9,13 +9,23 @@ if (!isset($_SESSION["username"])) {
 }
 
 include 'inc/connection.php';
-if (isset($_GET["id"])) {
-    $id = $_GET["id"];
 
-    // Fetch the returned book information from the return_books table
-    $result = mysqli_query($link, "SELECT * FROM return_books WHERE id=$id");
-    $row = mysqli_fetch_assoc($result);
+// Check if the return_books table is empty
+$result = mysqli_query($link, "SELECT COUNT(*) AS total FROM return_books");
+$row = mysqli_fetch_assoc($result);
+$total_return_books = $row['total'];
 
+if ($total_return_books == 0) {
+    $_SESSION['error_msg'] = "No return books found to archive.";
+    header("Location: return-book.php");
+    exit();
+}
+
+// Fetch all return books
+$result = mysqli_query($link, "SELECT * FROM return_books");
+
+// Loop through each return book and insert into return_books_archive
+while ($row = mysqli_fetch_assoc($result)) {
     // Escape special characters in the values
     $first_name = mysqli_real_escape_string($link, $row['first_name']);
     $last_name = mysqli_real_escape_string($link, $row['last_name']);
@@ -34,15 +44,12 @@ if (isset($_GET["id"])) {
     $insert_query = "INSERT INTO return_books_archive (first_name, last_name, middle_name, student_number, utype, email, booksname, accession_number, date_issued, booksissuedate, booksreturndate, issuedby) 
                     VALUES ('$first_name', '$last_name', '$middle_name', '$student_number', '$utype', '$email', '$booksname', '$accession_number', '$date_issued', '$booksissuedate', '$booksreturndate', '$issuedby')";
     mysqli_query($link, $insert_query);
-
-    // Delete the returned book information from the return_books table
-    mysqli_query($link, "DELETE FROM return_books WHERE id=$id");
-
-    $_SESSION['success_message'] = "Returned books archived successfully";
-    ?>
-    <script type="text/javascript">
-        window.location="return-book.php";
-    </script>
-    <?php
 }
+
+// Delete all return books from return_books
+mysqli_query($link, "DELETE FROM return_books");
+
+$_SESSION['success_message'] = "All return books have been archived successfully.";
+header("Location: return-book.php");
+exit();
 ?>
