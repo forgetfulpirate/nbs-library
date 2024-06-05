@@ -262,6 +262,8 @@
     </div>
 <?php endif; ?>
 
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#myTable').DataTable({
@@ -282,6 +284,9 @@
         </div>
     </div>
 
+
+
     <script src="inc/js/tabs.js"></script>
+    
 </body>
 </html>

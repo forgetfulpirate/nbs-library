@@ -1,70 +1,69 @@
 <?php
+
+$id_error = $error_uname = $error_email = $error_ua = $e_msg = $error_m = "";
+
 	if (isset($_POST["submit"])) {
-		$name = $_POST["name"];
-		$username = $_POST["username"];                   
+        $id_number = $_POST["id_number"];
+		$first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+        $middle_name = $_POST["middle_name"];                  
 		$password = $_POST["password"];
 		$email = $_POST["email"];
-		$phone = $_POST["phone"];
-		$lecturer = $_POST["lecturer"];
-		$idno = $_POST["idno"];
-		$address = $_POST["address"];
-		if ($name == "" | $username =="" | $password =="" | $email == "" | $phone == "" | $lecturer == "" | $idno == "" | $address == "") {
-			$error_m= "<b>Error !</b> <span>Feild mustn't be empty</span>";
+		$dept = $_POST["dept"];
+
+		if ($id_number =="" | $first_name =="" | $last_name == "" | $password == "" | $email == "" | $dept == "") {
+			$error_m= "Error! <span>Feild mustn't be empty</span>";
+
 		}
 		$photo = "upload/avatar.jpg";
 		$utype = "teacher";
-		$sql_u= mysqli_query($link,"select * from std_registration where username= '$username'");
-		$sql_e= mysqli_query($link,"select * from std_registration where email= '$email'");
-		$sql_p= mysqli_query($link,"select * from std_registration where phone= '$phone'");
-		$sql_r= mysqli_query($link,"select * from t_registration where idno= '$idno'");
+		
+         
+//          elseif(preg_match('/[^a-z0-9_-]+/i', $username)){
+//             $error_msg = "<div class='alert alert-danger'><strong>Error ! </strong>username Must be contain numerical alphabet, dashes, number and Underscore</div>";
+//            }
+		
+
+        $sql_e= mysqli_query($link,"select * from student where email= '$email'");
+        $sql_r= mysqli_query($link,"select * from teacher where id_number= '$id_number'");
+
+        $sql2_e= mysqli_query($link,"select * from teacher where email= '$email'");
+        $sql2_p= mysqli_query($link,"select * from student where student_number= '$id_number'");
+
         
-        
-		$sql2_u= mysqli_query($link,"select * from t_registration where username= '$username'");
-        $sql2_e= mysqli_query($link,"select * from t_registration where email= '$email'");
-        $sql2_p= mysqli_query($link,"select * from t_registration where phone= '$phone'");
-		if(mysqli_num_rows($sql_u) > 0){
-			$error_uname = "Username already exist";
+		if(mysqli_num_rows($sql_r) > 0){
+			$error_uname = "ID number already exist";
 		}
-        if(mysqli_num_rows($sql2_u) > 0){
-			$error_uname = "Username already exist";
-		}elseif(mysqli_num_rows($sql_e) > 0){
+        // if(mysqli_num_rows($sql2_u) > 0){
+		// 	$error_uname = "Username already exist";
+		// }
+        elseif(mysqli_num_rows($sql_e) > 0){
             $error_email = "Email already exist";
         }elseif(mysqli_num_rows($sql2_e) > 0){
             $error_email = "Email already exist";
-        }elseif(mysqli_num_rows($sql_p) > 0){
-            $error_phone = "Phone already registered";
-        }elseif(mysqli_num_rows($sql2_p) > 0){
-            $error_phone = "Phone already registered";
-        }elseif(mysqli_num_rows($sql_r) > 0){
-            $error_id = "This idno already registered";
-        }elseif(strlen($username) < 6){
-            $error_ua ="Username too short";
-        }elseif(strlen($username) > 16 ){
-            $error_ua ="<b>Username too big !</b> <span>Your username must be 6-16 character</span>";
         }
-		 elseif(strlen($password) < 6 ){
-            $error_pw ="<b>Password too short !</b> <span>Your password must be 6-16 character</span>";
+        elseif(mysqli_num_rows($sql2_p) > 0){
+            $error_email = "ID number already exist exist";
         }
-		elseif(strlen($password) > 16 ){
-            $error_pw ="<b>Password too big !</b> <span>Your password must be 6-16 character</span>";
+    
+        elseif(strlen($password) < 6){
+            $error_ua ="password too short";
+        } elseif(strlen($id_number) < 6){
+            $id_error ="Invalid ID No";
         }elseif (filter_var($email, FILTER_VALIDATE_EMAIL)== false) {
-			$e_msg = "<strong>Error ! </strong> <span>Email Address Not Valid</span>";
-				
-        }else{
-            $vkey = md5(time().$username);
-            $insert = mysqli_query($link, "insert into t_registration values('','$name','$username','$password','$lecturer','$email','$phone','$idno','$address','$utype','$photo','pending','$vkey','no')");
+				$e_msg = "<div class='alert alert-danger'><strong>Error ! </strong>Email Address Not Valid</div>";
+			} else{
+		    $vkey = md5(time().$id_number);
+		    $insert = mysqli_query($link, "insert into teacher values('$id_number','$first_name','$last_name','$middle_name','$email','$dept','$password','$utype','$photo','no','$vkey','no')");
             if($insert){
-                $to = "$email";
-                $subject = "Email Verification";
-                $message = "<a href='http://localhost/nbs-library/nbs-library/Source/librarian/user/teacher/verify.php?vkey=$vkey'>Verify Email</a>";
-                $headers = "From: cevangelista2021@student.nbscollege.edu.ph \r\n";
-                $headers.= "MIME-Version: 1.0". "\r\n";
-                $headers.= "Content-type: text/html; charset-UTF-8". "\r\n";
-                mail($to, $subject, $message,$headers);
-                header('location: thankyou.php');
+      
+                echo '<script type="text/javascript">window.location="login.php.php";</script>';
+                exit();
+
             }else{
                 echo $mysqli->error;
             }
 		}
 	}
 ?>
+

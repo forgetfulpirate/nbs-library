@@ -19,13 +19,13 @@
         $filter_criteria = $_POST['filter_criteria'];
     
         // Construct the SQL query
-        $query = "SELECT * FROM return_books WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
+        $query = "SELECT * FROM return_books_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
     
         // Set the filename based on the date range
         $filename = "return-books($start_date - $end_date)";
     } else {
         // If start_date and end_date are not set, fetch all records
-        $query = "SELECT * FROM return_books ORDER BY date_issued ASC"; // Default ordering by date_issued
+        $query = "SELECT * FROM return_books_archive ORDER BY date_issued ASC"; // Default ordering by date_issued
         $filename = "return-books(all)";
     }
     
@@ -171,7 +171,7 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                         <th>Date Due</th>
                         <th>Date Returned</th>
                         <th>Issued By</th>
-                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -190,13 +190,7 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                             echo "<td>" . $row["booksissuedate"] . "</td>";
                             echo "<td>" . $row["booksreturndate"] . "</td>";
                             echo "<td>" . $row["issuedby"] . "</td>";
-                            echo "<td>";
-                    ?>
-                                <div class="d-flex justify-content-center">
-                                    <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to archive this row?')"><span>Archive</span></a>
-                                </div>
-                    <?php 
-                            echo "</td>";
+
                             echo "</tr>";
                         }
                     ?>
@@ -205,12 +199,10 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
 
         
         </div>
-        <div class="text-end" style="padding:20px;">
-                <button class="btn btn-danger" onclick="archiveAll()">Archive All</button>
-        </div>
 
             
     </div>
+    
 </main>
 
 <script>
@@ -220,16 +212,16 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
     
     switch (filterCriteria) {
         case "date_issued":
-            orderColumn = 5; // Index for "Date Issued" column
+            orderColumn = 4; // Index for "Date Issued" column
             break;
         case "booksissuedate":
-            orderColumn = 6; // Index for "Date Due" column
+            orderColumn = 5; // Index for "Date Due" column
             break;
         case "booksreturndate":
-            orderColumn = 7; // Index for "Books Return Date" column
+            orderColumn = 6; // Index for "Books Return Date" column
             break;
         default:
-            orderColumn = 5; // Default to "Date Issued" column
+            orderColumn = 4; // Default to "Date Issued" column
     }
 
     $('#dtBasicExample').DataTable({

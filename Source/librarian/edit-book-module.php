@@ -132,11 +132,11 @@ if(isset($_GET['id'])) {
             </div>
 
             <div class="tab-buttons">
-                <button type="button" onclick="showTab(0)">Book Catalogue</button>
+            <button type="button" onclick="showTab(0)">Title Proper</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
-                <button type="button" onclick="showTab(2)">Subject Entry</button>
-                <button type="button" onclick="showTab(3)">Local Information</button>
-                <button type="button" onclick="showTab(4)">Content</button>
+                <button type="button" onclick="showTab(2)">Local Information</button>
+                <button type="button" onclick="showTab(3)">Access Point</button>
+                <button type="button" onclick="showTab(4)">Abstracts</button>
             </div>
 
             <div class="tab active">
@@ -150,7 +150,7 @@ if(isset($_GET['id'])) {
 
                             <div class="input-field1">
                                 <label>Responsibility</label>
-                                <input type="text" placeholder="Responsibility" name="responsibility" required="" value="<?php echo $responsibility; ?>">
+                                <input type="text" placeholder="Responsibility" name="responsibility"  value="<?php echo $responsibility; ?>">
                             </div>
 
                             <div class="input-field1">
@@ -271,53 +271,109 @@ if(isset($_GET['id'])) {
 
 
                             </div>
-
                             <div class="input-field2">
                                 <label>Content Type</label>
                                 <select name="content_type">
-                                <option <?php if ($content_type == '') echo 'selected'; ?>></option>
-                                    <option <?php if ($content_type == 'cartographic date_time_set') echo 'selected'; ?>>cartographic date_time_set</option>
+                                    <option <?php if ($content_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($content_type == 'cartographic dataset') echo 'selected'; ?>>cartographic dataset</option>
                                     <option <?php if ($content_type == 'cartographic image') echo 'selected'; ?>>cartographic image</option>
                                     <option <?php if ($content_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
                                     <option <?php if ($content_type == 'cartographic tactile image') echo 'selected'; ?>>cartographic tactile image</option>
                                     <option <?php if ($content_type == 'cartographic tactile three-dimensional form') echo 'selected'; ?>>cartographic tactile three-dimensional form</option>
                                     <option <?php if ($content_type == 'cartographic three-dimensional form') echo 'selected'; ?>>cartographic three-dimensional form</option>
+                                    <option <?php if ($content_type == 'computer dataset') echo 'selected'; ?>>computer dataset</option>
+                                    <option <?php if ($content_type == 'computer program') echo 'selected'; ?>>computer program</option>
+                                    <option <?php if ($content_type == 'notated movement') echo 'selected'; ?>>notated movement</option>
+                                    <option <?php if ($content_type == 'notated music') echo 'selected'; ?>>notated music</option>
+                                    <option <?php if ($content_type == 'sounds') echo 'selected'; ?>>sounds</option>
+                                    <option <?php if ($content_type == 'spoken word') echo 'selected'; ?>>spoken word</option>
+                                    <option <?php if ($content_type == 'still image') echo 'selected'; ?>>still image</option>
+                                    <option <?php if ($content_type == 'tactile image') echo 'selected'; ?>>tactile image</option>
+                                    <option <?php if ($content_type == 'tactile notated music') echo 'selected'; ?>>tactile notated music</option>
+                                    <option <?php if ($content_type == 'tactile notated movement') echo 'selected'; ?>>tactile notated movement</option>
+                                    <option <?php if ($content_type == 'tactile text') echo 'selected'; ?>>tactile text</option>
+                                    <option <?php if ($content_type == 'tactile three-dimensional form') echo 'selected'; ?>>tactile three-dimensional form</option>
+                                    <option <?php if ($content_type == 'text') echo 'selected'; ?>>text</option>
+                                    <option <?php if ($content_type == 'three-dimensional form') echo 'selected'; ?>>three-dimensional form</option>
+                                    <option <?php if ($content_type == 'three-dimensional moving image') echo 'selected'; ?>>three-dimensional moving image</option>
+                                    <option <?php if ($content_type == 'other unspecified') echo 'selected'; ?>>other unspecified</option>
+                                    <!-- Add more options here -->
                                 </select>
-
                             </div>
 
                             <div class="input-field2">
                                 <label>Media Type</label>
-       
                                 <select name="media_type">
-                                <option <?php if ($media_type == '') echo 'selected'; ?>></option>
-                            <option <?php if ($media_type == 'audio') echo 'selected'; ?>>Audio</option>
-                            <option <?php if ($computer == 'audio') echo 'selected'; ?>>computer</option>
-                            <option <?php if ($media_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
-                            <option <?php if ($media_type == 'microform') echo 'selected'; ?>>microform</option>
-                            <option <?php if ($media_type == 'microscopic') echo 'selected'; ?>>microscopic</option>
-                            <option <?php if ($media_type == 'projected') echo 'selected'; ?>>projected</option>
-                            <option <?php if ($media_type == 'stereographic') echo 'selected'; ?>>stereographic</option>
-                            <option <?php if ($media_type == 'unmediated') echo 'selected'; ?>>unmediated</option>
-                            <option <?php if ($media_type == 'video') echo 'selected'; ?>>video</option>
-                        </select>
+                                    <option <?php if ($media_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($media_type == 'audio') echo 'selected'; ?>>audio</option>
+                                    <option <?php if ($computer == 'computer') echo 'selected'; ?>>computer</option>
+                                    <option <?php if ($media_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
+                                    <option <?php if ($media_type == 'microform') echo 'selected'; ?>>microform</option>
+                                    <option <?php if ($media_type == 'microscopic') echo 'selected'; ?>>microscopic</option>
+                                    <option <?php if ($media_type == 'projected') echo 'selected'; ?>>projected</option>
+                                    <option <?php if ($media_type == 'stereographic') echo 'selected'; ?>>stereographic</option>
+                                    <option <?php if ($media_type == 'unmediated') echo 'selected'; ?>>unmediated</option>
+                                    <option <?php if ($media_type == 'video') echo 'selected'; ?>>video</option>
+                                    <option <?php if ($media_type == 'other') echo 'selected'; ?>>other</option>
+                                    <option <?php if ($media_type == 'unspecified') echo 'selected'; ?>>unspecified</option>
+                                </select>
                             </div>
+
 
                             <div class="input-field2">
                                 <label>Carrier Type</label>
-
                                 <select name="carrier_type">
-                                <option <?php if ($carrier_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($carrier_type == '') echo 'selected'; ?>></option>
                                     <option <?php if ($carrier_type == 'audio cartridge') echo 'selected'; ?>>audio cartridge</option>
-                                    <option <?php if ($carrier_type == 'audio cylinde') echo 'selected'; ?>>audio cylinder</option>
+                                    <option <?php if ($carrier_type == 'audio cylinder') echo 'selected'; ?>>audio cylinder</option>
                                     <option <?php if ($carrier_type == 'audio disc') echo 'selected'; ?>>audio disc</option>
-                                    <option <?php if ($carrier_type == 'audio card') echo 'selected'; ?>>aperture card </option>
+                                    <option <?php if ($carrier_type == 'aperture card') echo 'selected'; ?>>aperture card</option>
                                     <option <?php if ($carrier_type == 'audio roll') echo 'selected'; ?>>audio roll</option>
                                     <option <?php if ($carrier_type == 'audiocassette') echo 'selected'; ?>>audiocassette</option>
                                     <option <?php if ($carrier_type == 'audiotape reel') echo 'selected'; ?>>audiotape reel</option>
                                     <option <?php if ($carrier_type == 'card') echo 'selected'; ?>>card</option>
+                                    <option <?php if ($carrier_type == 'computer card') echo 'selected'; ?>>computer card</option>
+                                    <option <?php if ($carrier_type == 'computer chip cartridge') echo 'selected'; ?>>computer chip cartridge</option>
+                                    <option <?php if ($carrier_type == 'computer disc') echo 'selected'; ?>>computer disc</option>
+                                    <option <?php if ($carrier_type == 'computer disc cartridge') echo 'selected'; ?>>computer disc cartridge</option>
+                                    <option <?php if ($carrier_type == 'computer tape cartridge') echo 'selected'; ?>>computer tape cartridge</option>
+                                    <option <?php if ($carrier_type == 'computer tape cassette') echo 'selected'; ?>>computer tape cassette</option>
+                                    <option <?php if ($carrier_type == 'computer tape reel') echo 'selected'; ?>>computer tape reel</option>
+                                    <option <?php if ($carrier_type == 'film cartridge') echo 'selected'; ?>>film cartridge</option>
+                                    <option <?php if ($carrier_type == 'film cassette') echo 'selected'; ?>>film cassette</option>
+                                    <option <?php if ($carrier_type == 'film reel') echo 'selected'; ?>>film reel</option>
+                                    <option <?php if ($carrier_type == 'film roll') echo 'selected'; ?>>film roll</option>
+                                    <option <?php if ($carrier_type == 'filmslip') echo 'selected'; ?>>filmslip</option>
+                                    <option <?php if ($carrier_type == 'filmstrip') echo 'selected'; ?>>filmstrip</option>
+                                    <option <?php if ($carrier_type == 'filmstrip cartridge') echo 'selected'; ?>>filmstrip cartridge</option>
+                                    <option <?php if ($carrier_type == 'flipchart') echo 'selected'; ?>>flipchart</option>
+                                    <option <?php if ($carrier_type == 'microfiche') echo 'selected'; ?>>microfiche</option>
+                                    <option <?php if ($carrier_type == 'microfiche cassette') echo 'selected'; ?>>microfiche cassette</option>
+                                    <option <?php if ($carrier_type == 'microfilm cartridge') echo 'selected'; ?>>microfilm cartridge</option>
+                                    <option <?php if ($carrier_type == 'microfilm cassette') echo 'selected'; ?>>microfilm cassette</option>
+                                    <option <?php if ($carrier_type == 'microfilm reel') echo 'selected'; ?>>microfilm reel</option>
+                                    <option <?php if ($carrier_type == 'microfilm roll') echo 'selected'; ?>>microfilm roll</option>
+                                    <option <?php if ($carrier_type == 'microfilm slip') echo 'selected'; ?>>microfilm slip</option>
+                                    <option <?php if ($carrier_type == 'microfilm slip') echo 'selected'; ?>>microfilm slip</option>
+                                    <option <?php if ($carrier_type == 'microopaque') echo 'selected'; ?>>microopaque</option>
+                                    <option <?php if ($carrier_type == 'microscope slide') echo 'selected'; ?>>microscope slide</option>
+                                    <option <?php if ($carrier_type == 'objecti') echo 'selected'; ?>>objecti</option>
+                                    <option <?php if ($carrier_type == 'online resource') echo 'selected'; ?>>online resource</option>
+                                    <option <?php if ($carrier_type == 'overhead transparency') echo 'selected'; ?>>overhead transparency</option>
+                                    <option <?php if ($carrier_type == 'roll') echo 'selected'; ?>>roll</option>
+                                    <option <?php if ($carrier_type == 'slide') echo 'selected'; ?>>slide</option>
+                                    <option <?php if ($carrier_type == 'sheet') echo 'selected'; ?>>sheet</option>
+                                    <option <?php if ($carrier_type == 'sound track reel') echo 'selected'; ?>>sound track reel</option>
+                                    <option <?php if ($carrier_type == 'stereograph card') echo 'selected'; ?>>stereograph card</option>
+                                    <option <?php if ($carrier_type == 'stereograph disc') echo 'selected'; ?>>stereograph disc</option>
+                                    <option <?php if ($carrier_type == 'volume') echo 'selected'; ?>>volume</option>
+                                    <option <?php if ($carrier_type == 'video cartridge') echo 'selected'; ?>>video cartridge</option>
+                                    <option <?php if ($carrier_type == 'videocassette') echo 'selected'; ?>>videocassette</option>
+                                    <option <?php if ($carrier_type == 'videodisc') echo 'selected'; ?>>videodisc</option>
+                                    <option <?php if ($carrier_type == 'videotape reel') echo 'selected'; ?>>videotape reel</option>
+                                    <option <?php if ($carrier_type == 'unspecified') echo 'selected'; ?>>unspecified</option>
+                                    <!-- Add more options here -->
                                 </select>
-
                             </div>
 
                             <div class="input-field2">
@@ -329,45 +385,25 @@ if(isset($_GET['id'])) {
                 </div>
             </div>
 
-            <div class="tab">
-                <div class="details personal">
-                    <span class="title">SUBJECT ENTRY</span>
-                    <div class="fields">
-                    <div class="input-field">
-                                    <label>Subject</label>
-                                    <select name="subject_type">
-                                    <option <?php if ($subject_type == '') echo 'selected'; ?>></option>
-                                        <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
-                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
-                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
-                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                    </select>
-                        </div>
-                    
-                        <div class="input-field1">
-    <label>Subject Info</label>
-    <textarea placeholder="Subject info" name="subject_info"><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
-</div>
-                    </div>
-                </div>
-            </div>
-
+            
             <div class="tab">
                 <div class="details personal">
                     <span class="title">LOCAL INFORMATION</span>
                     <div class="fields">
 
 
-    <div class="input-field1">
-                            <span>
-                            <label>Accession Number</label>
-                            <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
-                            </input>
-                            </span>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required value="<?php echo $accession_number; ?>" readonly />
-                            <div id="accession_number_error" class="error"></div>
-                            <div id="accessionNumberFields"></div>
-                </div>
+<!-- Accession Number -->
+<div class="input-field1">
+    <span>
+        <label>Accession Number</label>
+        <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
+    </span>
+  
+        <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required value="<?php echo $accession_number; ?>" readonly />
+
+    <div id="accession_number_error" class="error"></div>
+    <div id="accessionNumberFields"></div>
+</div>
                         
                     <div class="input-field2">
                                         <label>Call Number</label>
@@ -505,6 +541,29 @@ if(isset($_GET['id'])) {
                     </div>
                 </div>
             </div>
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">SUBJECT ENTRY</span>
+                    <div class="fields">
+                    <div class="input-field">
+                                    <label>Subject</label>
+                                    <select name="subject_type">
+                                    <option <?php if ($subject_type == '') echo 'selected'; ?>></option>
+                                        <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
+                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
+                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
+                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
+                                    </select>
+                        </div>
+                    
+                        <div class="input-field1">
+    <label>Subject Info</label>
+    <textarea placeholder="Subject info" name="subject_info"><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
+</div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="tab">
                 <div class="details personal">

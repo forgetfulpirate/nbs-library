@@ -124,7 +124,7 @@ include 'inc/connection.php';
                     </div>
 
                     <div class="input-field1">
-                        <label>Added Entry Creator</label>
+                        <label>Added Entry: Creator</label>
                         <input type="text" placeholder="Added Entry Creator" name="add_entry_creator">
                     </div>
 
@@ -134,7 +134,7 @@ include 'inc/connection.php';
                     </div>
 
                     <div class="input-field1">
-                        <label>Added Entry Corporate</label>
+                        <label>Added Entry: Corporate</label>
                         <input type="text" placeholder="Added Entry Corporate" name="add_entry_corporate">
                     </div>
                 </div> 
@@ -217,14 +217,31 @@ include 'inc/connection.php';
                         <label>Content Type</label>
                         <select name="content_type">
                             <option></option>
-                            <option>cartographic date_time_set</option>
+                            <option>cartographic dataset</option>
                             <option>cartographic image</option>
                             <option>cartographic moving image</option>
-                            <option>cartographic tactile image </option>
-                            <option>cartographic tactile three-dimensional form </option>
-                            <option>cartographic three-dimensional form </option>
+                            <option>cartographic tactile image</option>
+                            <option>cartographic tactile three-dimensional form</option>
+                            <option>cartographic three-dimensional form</option>
+                            <option>computer dataset</option>
+                            <option>computer program</option>
+                            <option>notated movement</option>
+                            <option>notated music</option>
+                            <option>sounds</option>
+                            <option>spoken word</option>
+                            <option>still image</option>
+                            <option>tactile image</option>
+                            <option>tactile notated music</option>
+                            <option>tactile notated movement</option>
+                            <option>tactile text</option>
+                            <option>tactile three-dimensional form</option>
+                            <option>text</option>
+                            <option>three-dimensional form</option>
+                            <option>three-dimensional moving image</option>
+                            <option>other unspecified</option>
                         </select>
                     </div>
+
 
                     <div class="input-field2">
                         <label>Media Type</label>
@@ -232,13 +249,14 @@ include 'inc/connection.php';
                             <option></option>
                             <option>audio</option>
                             <option>computer</option>
-                            <option>cartographic moving image</option>
-                            <option>microform </option>
+                            <option>microform</option>
                             <option>microscopic</option>
                             <option>projected</option>
                             <option>stereographic</option>
                             <option>unmediated</option>
                             <option>video</option>
+                            <option>other</option>
+                            <option>unspecified</option>
                         </select>
                     </div>
 
@@ -249,12 +267,54 @@ include 'inc/connection.php';
                             <option>audio cartridge</option>
                             <option>audio cylinder</option>
                             <option>audio disc</option>
-                            <option>aperture card </option>
+                            <option>aperture card</option>
                             <option>audio roll</option>
                             <option>audiocassette</option>
                             <option>audiotape reel</option>
                             <option>card</option>
+                            <option>computer card</option>
+                            <option>computer chip cartridge</option>
+                            <option>computer disc</option>
+                            <option>computer disc cartridge</option>
+                            <option>computer tape cartridge</option>
+                            <option>computer tape cassette</option>
+                            <option>computer tape reel</option>
+                            <option>film cartridge</option>
+                            <option>film cassette</option>
+                            <option>film reel</option>
+                            <option>film roll</option>
+                            <option>filmslip</option>
+                            <option>filmstrip</option>
+                            <option>filmstrip cartridge</option>
+                            <option>flipchart</option>
+                            <option>microfiche</option>
+                            <option>microfiche cassette</option>
+                            <option>microfilm cartridge</option>
+                            <option>microfilm cassette</option>
+                            <option>microfilm reel</option>
+                            <option>microfilm roll</option>
+                            <option>microfilm slip</option>
+                            <option>microfilm slip</option>
+                            <option>microopaque</option>
+                            <option>microscope slide</option>
+                            <option>objecti</option>
+                            <option>online resource</option>
+                            <option>overhead transparency</option>
+                            <option>roll</option>
+                            <option>slide</option>
+                            <option>sheet</option>
+                            <option>sound track reel</option>
+                            <option>stereograph card</option>
+                            <option>stereograph disc</option>
+                            <option>volume</option>
+                            <option>video cartridge</option>
+                            <option>videocassette</option>
+                            <option>videodisc</option>
+                            <option>videotape reel</option>
+                            <option>unspecified</option>
+                            <!-- Add more options here -->
                         </select>
+
                     </div>
 
                     <div class="input-field2">

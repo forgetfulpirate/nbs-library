@@ -80,6 +80,7 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Department</th>
+                                        <th scope="col">Reset Password</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -99,6 +100,13 @@
                                             echo "<td>";
                                             ?>
                                                 <button style="text-align:left; width:128px; max-width:128px;" class='btn btn-danger btn-sm' onclick="resetPasswordConfirmation('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Reset Password</button>
+
+
+                                            <?php
+                                            echo "</td>";
+                                            echo "<td>";
+                                            ?>
+                                               
                                                 <button class='btn btn-danger btn-sm' onclick="deleteUserConfirmation1('<?php echo $row1["id_number"]; ?>', '<?php echo $row1["first_name"] . ' ' . $row1["last_name"]; ?>')">Archive</button>
 
                                             <?php
@@ -213,20 +221,40 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteConfirmationModalLabel1" style="color: red;">Confirm Deletion</h5>
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel1" style="color: red;">Confirm Archive</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to delete Teacher "<span id="userNameToDelete1"></span>"?
+                            Are you sure you want to Archive Teacher "<span id="userNameToDelete1"></span>"?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" id="confirmDeleteButton1">Delete</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteButton1">Archive</button>
                         </div>
                     </div>
                 </div>
             </div> 
                  <!-- End DeleteConfirmation Modal -->
+
+                 <!-- Reset Password Confirmation Modal -->
+<div class="modal fade" id="resetPasswordConfirmationModal" tabindex="-1" aria-labelledby="resetPasswordConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resetPasswordConfirmationModalLabel">Reset Password Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to reset the password for <span id="facultyNameToReset"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmResetPasswordButton">Reset Password</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- END Reset Password Confirmation Modal -->
  </main>
 
   <script>
@@ -262,5 +290,23 @@
             // Redirect to reset-password.php
             window.location.href = resetPasswordUrl;
         }
+    }
+</script>
+
+<!-- reset password modal script -->
+<script>
+    function resetPasswordConfirmation(idNumber, facultyName) {
+        // Set the faculty name in the modal
+        document.getElementById("facultyNameToReset").innerText = facultyName;
+        // Show the reset password confirmation modal
+        $('#resetPasswordConfirmationModal').modal('show');
+        
+        // Set the action when the reset password button is clicked
+        document.getElementById("confirmResetPasswordButton").onclick = function() {
+            // Construct the reset password URL
+            var resetPasswordUrl = 'reset-password-teacher.php?id_number=' + idNumber;
+            // Redirect to the reset password URL
+            window.location.href = resetPasswordUrl;
+        };
     }
 </script>

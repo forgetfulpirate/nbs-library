@@ -114,10 +114,10 @@
                                     
                                     echo "</td>";   echo "</td>";
                                     echo "<td>";
-                                   ?>
-                                   <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit1">Delete</a><?php
-                                   
-                                   echo "</td>";
+                                    ?>
+                                    <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a>
+                                    <?php
+                                    echo "</td>";
                                                 
                                     
                                     echo "</tr>";

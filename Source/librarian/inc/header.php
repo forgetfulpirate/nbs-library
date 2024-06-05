@@ -20,7 +20,6 @@
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="inc/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
    
@@ -103,7 +102,7 @@
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#manage" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
-                            Manage Book
+                            Add Book
                         </a>
                         <ul id="manage" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <!-- <li class="sidebar-item <?php if($page=='abook'){ echo 'active';} ?>" >
@@ -234,7 +233,7 @@
                             View requested book
                         </a>
                     </li> -->
-
+<!-- 
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                             aria-expanded="false">    <i class="fa-solid fa-message pe-2"></i>
@@ -249,19 +248,19 @@
                             </li>
                         </ul>
                         
-                    </li>
-
+                    </li> -->
+<!-- 
                     <li class="sidebar-item <?php if($page=='rbook'){ echo 'active';} ?>">
                         <a href="requested-books.php" class="sidebar-link">
                         <i class="fa-solid fa-book pe-2"></i>
                             View requested book
                         </a>
-                    </li>
+                    </li> -->
 
                     <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
                         <a href="archive-user.php" class="sidebar-link">
-                        <i class="fa-solid fa-book pe-2"></i>
-                            Archive Users
+                        <i class="fa-solid fa-user-xmark"></i>
+                            Archived Users
                         </a>
                     </li>
 
@@ -270,8 +269,8 @@
                     
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#report" data-bs-toggle="collapse"
-                            aria-expanded="false"><i class="fa-solid fa-users pe-2"></i>
-                            Generate Report
+                            aria-expanded="false"><i class="fa-solid fa-chart-pie"></i></i>
+                             Generate Report
                         </a>
                         <ul id="report" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <!-- <li class="sidebar-item <?php if($page==''){ echo 'active';} ?>">
@@ -282,6 +281,9 @@
                             </li>
                             <li class="sidebar-item <?php if($page=='overdue-report'){ echo 'active';} ?>">
                                 <a href="overdue-report.php" class="sidebar-link">Overdue Report</a>
+                            </li>
+                            <li class="sidebar-item <?php if($page=='overdue-report'){ echo 'active';} ?>">
+                                <a href="return-book-report.php" class="sidebar-link">Returned Books Report</a>
                             </li>
                             <!-- <li class="sidebar-item <?php if($page=='a-tch'){ echo 'active';} ?>">
                                 <a href="add-teacher.php" class="sidebar-link">Add teacher</a>
@@ -309,11 +311,11 @@
 			
                 <div class="navbar-collapse navbar">
                         <ul class="navbar-nav" style="margin-right:10px;">
-                        <li class="icon">
+                        <!-- <li class="icon">
                                 <a href="requested-books.php" ><i class="fas fa-bell"></i></a>
                                 <span class="count" onclick="window.location='requested-books.php'"><b id="notif" ><?php echo $not; ?></b></span>
                         </li>
-                        </ul>
+                        </ul> -->
                         
                         <li class="nav-item dropdown">
 								<?php

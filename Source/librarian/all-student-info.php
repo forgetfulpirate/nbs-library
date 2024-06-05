@@ -81,6 +81,10 @@
                     // Clear the session variable to ensure it's only displayed once
                     unset($_SESSION['deactivation_success_msg']);
                 }
+                if (!empty($_SESSION['password_reset_success_msg'])) {
+                    echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['password_reset_success_msg'] . '</div>';
+                    unset($_SESSION['password_reset_success_msg']);
+                }
             
                 ?>
             
@@ -124,7 +128,7 @@
                                                     ?>
 
 
-                                                        <button style="text-align:left; width:128px; max-width:128px;"class='btn btn-danger btn-sm text' onclick="resetPasswordConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Reset Password</button>
+                                                        <button style="text-align:left; width:128px; max-width:128px;" class='btn btn-danger btn-sm text' onclick="resetPasswordConfirmation('<?php echo $row["student_number"]; ?>', '<?php echo $row["first_name"] . ' ' . $row["last_name"]; ?>')">Reset Password</button>
         
                                                     <?php
                                                     echo "</td>";
@@ -171,19 +175,39 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteConfirmationModalLabel" style="color: red;">Confirm Deletion</h5>
+                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Archive</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to delete Student "<span id="userNameToDelete"></span>"?
+                            Are you sure you want to Archive Student "<span id="userNameToDelete"></span>"?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Archive</button>
                         </div>
                     </div>
                 </div>
             </div> 
+
+            <!-- Reset Password Confirmation Modal -->
+<div class="modal fade" id="resetPasswordConfirmationModal" tabindex="-1" aria-labelledby="resetPasswordConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resetPasswordConfirmationModalLabel">Confirm Password Reset</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to reset the password for "<span id="userNameToReset"></span>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmResetPasswordButton">Reset Password</button>
+            </div>
+        </div>
+    </div>
+</div>
+
          
         <!-- Add Student Modal -->
         <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">
@@ -365,5 +389,17 @@
             // Redirect to reset-password.php
             window.location.href = resetPasswordUrl;
         }
+    }
+</script>
+
+<!-- JavaScript for resetpasswordconfirmation -->
+<script>
+    function resetPasswordConfirmation(studentNumber, studentName) {
+        // Set the reset password link with the student number
+        var resetPasswordUrl = 'reset-password.php?student_number=' + studentNumber;
+        // Show confirmation modal
+        $('#userNameToReset').text(studentName);
+        $('#confirmResetPasswordButton').attr('onclick', 'window.location.href="' + resetPasswordUrl + '"');
+        $('#resetPasswordConfirmationModal').modal('show');
     }
 </script>

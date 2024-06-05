@@ -1,141 +1,168 @@
-<?php 
-    include 'inc/connection.php';
-    include 'inc/function.php';
- ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>NBS Library</title>
-	<link rel="stylesheet" href="inc/css/bootstrap.min.css">
-	<link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="inc/css/pro1.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-    <style>
-        .registration{
-            background-image: url(inc/img/3.jpg);
-            margin-bottom: 30px;
-            padding: 50px;
-            padding-bottom: 70px;
-        }
-        .reg-header h2{
-            color: #DDDDDD;
-            z-index: 999999;
-        }
-        .login-body h4{
-            margin-bottom: 20px;
-        }
+<?php
+session_start();
+include 'inc/connection.php';
+include 'inc/function.php';
+?>
+<style>
+    .error{
+        color:red
+    }
     </style>
-</head>
-<body>
-	<div class="registration">
-		<div class="reg-wrapper">
-			<div class="reg-header text-center">
-				<h2>NBS Libarary</h2>
-			</div>
-			<div class="gap-40"></div>
-			<div class="reg-body">
-                <h4 style="text-align: center; margin-bottom: 25px;">Student registration form</h4>
-				
-				<form action="" class="form-inline" method="post">
-				<?php if(isset($s_msg)):?>
-                    <span class="success"> <?php echo $s_msg; ?></span>
-                <?php endif ?>
-                <?php if(isset($error_m)):?> 
-					<span class="error"> <?php echo $error_m; ?></span>
-				<?php endif ?>
-					 <div class="form-group">
-					 	<label for="name" class="text-right">Name <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Your Name" name="name"/>
-                    </div>
-                    <div class="form-group">
-                    	 <label for="username">Username <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Username" name="username" />
-                    </div>
-                     <?php if(isset($error_ua)):?> 
-                     <span class="error"> <?php echo $error_ua; ?></span>
-                      <?php endif ?>
-                      <?php if(isset($error_uname)):?> 
-                     <span class="error"> <?php echo $error_uname; ?></span>
-                      <?php endif ?>
-                    <div class="form-group">
-                    	 <label for="password">Password <span>*</span></label>
-                        <input type="password" class="form-control custom" placeholder="Password" name="password"/>
-                    </div>
-					<?php if(isset($error_pw)):?> 
-                     <span class="error"> <?php echo $error_pw; ?></span>
-                      <?php endif ?>
-                      
-                    <div class="form-group">
-                    	 <label for="email">Email <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Gmail" name="email"/>
-                    </div>
-                    <?php if(isset($e_msg)):?> 
-                    <span class="error"><?php echo $e_msg; ?> </span>
-                    <?php endif ?>
-                    <?php if(isset($error_email)):?> 
-                    <span class="error"><?php echo $error_email; ?> </span>
-                    <?php endif ?>
-                    <div class="form-group">
-                    	 <label for="phone">Phone No <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Phone No" name="phone"/>
-                    </div>
-                    <?php if(isset($error_phone)):?> 
-                    <span class="error"><?php echo $error_phone; ?></span>
-                      <?php endif ?>
-                    <div class="form-group">
-					    <label for="sem">Select Semester <span>*</span></label>
-					    <select class="form-control custom" name="sem">
-							<option>1th</option>
-							<option>2nd</option>
-							<option>3rd</option>
-							<option>4th</option>
-							<option>5th</option>
-							<option>6th</option>
-							<option>7th</option>
-							<option>8th</option>
-					    </select>
-					</div>
-                    <div class="form-group">
-					    <label for="dept">Department <span>*</span></label>
-					    <select class="form-control custom" name="dept">
-							<option>BSCS</option>
-							<option>BSA</option>
-							<option>BSAIS</option>
-							<option>BSTM</option>
-							<option>Others</option>
-					    </select>
-					</div>
-                    <div class="form-group">
-                    	 <label for="session">Session <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="14/15" name="session"/>
-                    </div>
-                    <div class="form-group">
-                    	 <label for="regno">Registration No <span>*</span></label>
-                        <input type="text" class="form-control custom" placeholder="Registration No" name="regno"/>
-                    </div>
-                    <?php if(isset($error_reg)):?> 
-                    <span class="error"><?php echo $error_reg; ?></span>
-                      <?php endif ?>
-                    <div class="form-group">
-                    	 <label for="address">Address <span>*</span></label>
-                        <textarea name="address" id="address"  class="form-control custom" placeholder="Your address"></textarea>
-                    </div>
-                    <div class="submit">
-                    	<a href="thankyou.php"><input type="submit" value="Register" name="submit" class="btn change text-center"></a>
-                    </div>
-				</form>
-			</div>
-        
-		</div>
-	</div>
 
-    <div class="footer text-center">
-        <p>&copy; NBS College</p>
-    </div>
 
-	<script src="inc/js/jquery-2.2.4.min.js"></script>
-	<script src="inc/js/bootstrap.min.js"></script>
-	<script src="inc/js/custom.js"></script>
-</body>
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="inc/css/login.css">
+
+      <title>Student Registration</title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="inc/img/bg-login.png" alt="login image" class="login__img">
+         
+
+         <form action="" method="post" class="login__form">
+            <h1 class="login__title">Admin Login</h1>
+            <?php if($error_m): ?>
+                <p class="error"><?php echo $error_m; ?></p>
+            <?php endif; ?>
+            <?php if($error_uname): ?>
+                <p class="error"><?php echo $error_uname; ?></p>
+            <?php endif; ?>
+            <?php if($error_email): ?>
+                <p class="error"><?php echo $error_email; ?></p>
+            <?php endif; ?>
+            <?php if($error_ua): ?>
+                <p class="error"><?php echo $error_ua; ?></p>
+            <?php endif; ?>
+            <?php if($e_msg): ?>
+                <p class="error"><?php echo $e_msg; ?></p>
+            <?php endif; ?>
+            <?php if($error_student): ?>
+                <p class="error"><?php echo $error_student; ?></p>
+            <?php endif; ?>
+<br>
+            <div class="login__content">
+
+            <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="student_number">
+                     <label for="login-name" class="login__label">Student No</label>
+                  </div>
+               </div>
+
+                <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="first_name">
+                     <label for="login-name" class="login__label">First Name</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="last_name">
+                     <label for="login-username" class="login__label">Last Name</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-email" placeholder=" " name="middle_name">
+                     <label for="login-username" class="login__label">Middle Name</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+               <i class="fa-regular fa-envelope login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="email" required class="login__input" id="login-email" placeholder="" name="email">
+                     <label for="login-email" class="login__label">Email</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                  <i class="ri-lock-2-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="password" required class="login__input" id="login-pass" placeholder=" " name="password" >
+                     <label for="login-pass" class="login__label">Password</label>
+                     <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                        <select class="login__input" id="login-role" name="year" style="border:0;">
+                            <option value="" selected></option>
+                            <option value="1st year">1st</option>
+                            <option value="2nd">2nd</option>
+                            <option value="3rd">3rd</option>
+                            <option value="4th">4th</option>
+                        </select>
+                        <label for="login-role" class="login__label">Year</label>
+                    </div>
+                </div>
+
+                <div class="login__box">
+                    <i class="ri-user-3-line login__icon"></i>
+                    <div class="login__box-input">
+                        <select class="login__input" id="login-role" name="course" style="border:0;">
+                            <option value="" selected></option>
+                            <option value="BSCS">BSCS</option>
+                            <option value="BSA">BSA</option>
+                            <option value="BSAIS">BSAIS</option>
+                            <option value="BSEntrep">BSEntrep</option>
+                        </select>
+                        <label for="login-role" class="login__label">Course</label>
+                    </div>
+                </div>
+
+               
+
+           
+            </div>
+
+            <div class="login__check">
+              
+
+              
+            </div>
+
+            <button type="submit" class="login__button" name="submit">Register</button>
+
+            <p class="login__register">
+                Already have an account?<a href="login.php" style="color:red"><span style="color:Red;">Login</span></a>
+            </p>
+         </form>
+       
+       
+      </div>
+
+      
+   
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="inc/js/login.js"></script>
+   </body>
 </html>
+
+
