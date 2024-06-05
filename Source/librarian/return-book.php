@@ -193,7 +193,7 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                             echo "<td>";
                     ?>
                                 <div class="d-flex justify-content-center">
-                                    <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Delete</span></a>
+                                    <a href="delete-return-book.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to archive this row?')"><span>Delete</span></a>
                                 </div>
                     <?php 
                             echo "</td>";

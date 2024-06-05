@@ -135,85 +135,104 @@ if (isset($_POST["submit"])) {
 
     if ($result) {
         $_SESSION['success_message'] = "Book details updated successfully.";
-        echo "<script>alert('Book details updated successfully.'); window.location.href = 'display-book-module.php';</script>";
-        exit();
-    }
 
-    foreach ($_POST['accession_number'] as $key => $accession_number) {
-        if ($key == 0) continue; // Skip the first accession number as it's already updated
+   // Check if duplicate accession numbers were provided
+    if (isset($_POST['accession_number'])) {
+        foreach ($_POST['accession_number'] as $key => $accession_number) {
+            // Skip the first accession number as it's already updated
+            if ($key == 0) continue;
 
-        $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
-        $query_check = "SELECT COUNT(*) AS count FROM book_module WHERE accession_number = '$escaped_accession_number'";
-        $result_check = mysqli_query($link, $query_check);
-        $row_check = mysqli_fetch_assoc($result_check);
+            $escaped_accession_number = mysqli_real_escape_string($link, $accession_number);
 
-        if ($row_check['count'] == 0) {
-            $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, entered_by, updated_by, date_entered, date_updated, quantity, available, location, content_notes, abstract, review, book_image, URL) VALUES (
-                '$escaped_accession_number',
-                '$title_proper',
-                '$responsibility',
-                '$preffered_title',
-                '$parallel_title',
-                '$main_creator',
-                '$add_entry_creator',
-                '$contributors',
-                '$add_entry_corporate',
-                '$place_of_publication',
-                '$publisher',
-                '$date_of_publication',
-                '$edition',
-                '$extent_of_text',
-                '$illustrations',
-                '$dimension',
-                '$acc_materials',
-                '$series',
-                '$supp_content',
-                '$ISBN',
-                '$content_type',
-                '$media_type',
-                '$carrier_type',
-                '$subject_type',
-                '$subject_info',
-                '$call_number_type',
-                '$call_number_info',
-                '$language',
-                '$library_location',
-                '$entered_by',
-                '$updated_by',
-                '$date_entered',
-                '$date_updated',
-                '$quantity',
-                '$available',
-                '$location',
-                '$content_notes',
-                '$abstract',
-                '$review',
-                '$imagepath',
-                '$filepath')";
+            // Check if the accession number already exists in the database
+            $query_check = "SELECT COUNT(*) AS count FROM book_module WHERE accession_number = '$escaped_accession_number'";
+            $result_check = mysqli_query($link, $query_check);
+            $row_check = mysqli_fetch_assoc($result_check);
 
-            $result_insert = mysqli_query($link, $query_insert);
+            // If the accession number doesn't exist, insert a new record
+            if ($row_check['count'] == 0) {
+                $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, entered_by, updated_by, date_entered, date_updated, quantity, available, location, content_notes, abstract, review, book_image, URL) VALUES (
+                    '$escaped_accession_number',
+                    '$title_proper',
+                    '$responsibility',
+                    '$preffered_title',
+                    '$parallel_title',
+                    '$main_creator',
+                    '$add_entry_creator',
+                    '$contributors',
+                    '$add_entry_corporate',
+                    '$place_of_publication',
+                    '$publisher',
+                    '$date_of_publication',
+                    '$edition',
+                    '$extent_of_text',
+                    '$illustrations',
+                    '$dimension',
+                    '$acc_materials',
+                    '$series',
+                    '$supp_content',
+                    '$ISBN',
+                    '$content_type',
+                    '$media_type',
+                    '$carrier_type',
+                    '$subject_type',
+                    '$subject_info',
+                    '$call_number_type',
+                    '$call_number_info',
+                    '$language',
+                    '$library_location',
+                    '$entered_by',
+                    '$updated_by',
+                    '$date_entered',
+                    '$date_updated',
+                    '$quantity',
+                    '$available',
+                    '$location',
+                    '$content_notes',
+                    '$abstract',
+                    '$review',
+                    '$imagepath',
+                    '$filepath')";
 
-            if ($result_insert) {
-                $success_list[] = $escaped_accession_number;
+                $result_insert = mysqli_query($link, $query_insert);
+
+                if ($result_insert) {
+                    $success_list[] = $escaped_accession_number;
+                } else {
+                    $error_list[] = $escaped_accession_number;
+                }
             } else {
-                $error_list[] = $escaped_accession_number;
+                // If the accession number already exists, add it to the error list
+                $error_list[] = $escaped_accession_number . " already exists.";
             }
-        } else {
-            $error_list[] = $escaped_accession_number;
-        }
-    }
+            
 
-    // Display success and error messages
+        }
+
+            // Display success and error messages
     if (!empty($success_list)) {
+
         $success_message = "Successfully added: " . implode(", ", $success_list);
+        $_SESSION['success_message'] = $success_message;
         echo "<script>alert('$success_message');</script>";
     }
 
     if (!empty($error_list)) {
-        $error_message = "Failed to add: " . implode(", ", $error_list) . ". These accession numbers already exist.";
+        $error_message = "Failed to add: " . implode(", ", $error_list) . ".";
         $_SESSION['error_message'] = $error_message;
         echo "<script>alert('$error_message'); window.location.href = 'display-book-module.php';</script>";
         exit();
     }
+    }
+
+    // Redirect after processing all accession numbers
+    echo "<script>alert('Book details updated successfully.'); window.location.href = 'display-book-module.php';</script>";
+    exit();
+    }
+
+    
+
+
+
 }
 ?>

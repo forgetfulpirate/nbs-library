@@ -291,8 +291,8 @@ if(isset($_GET['id'])) {
        
                                 <select name="media_type">
                                 <option <?php if ($media_type == '') echo 'selected'; ?>></option>
-                            <option <?php if ($media_type == 'audio') echo 'selected'; ?>>Audio</option>
-                            <option <?php if ($computer == 'audio') echo 'selected'; ?>>computer</option>
+                            <option <?php if ($media_type == 'audio') echo 'selected'; ?>>audio</option>
+                            <option <?php if ($computer == 'computer') echo 'selected'; ?>>computer</option>
                             <option <?php if ($media_type == 'cartographic moving image') echo 'selected'; ?>>cartographic moving image</option>
                             <option <?php if ($media_type == 'microform') echo 'selected'; ?>>microform</option>
                             <option <?php if ($media_type == 'microscopic') echo 'selected'; ?>>microscopic</option>
@@ -358,16 +358,18 @@ if(isset($_GET['id'])) {
                     <div class="fields">
 
 
-    <div class="input-field1">
-                            <span>
-                            <label>Accession Number</label>
-                            <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
-                            </input>
-                            </span>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required value="<?php echo $accession_number; ?>" readonly />
-                            <div id="accession_number_error" class="error"></div>
-                            <div id="accessionNumberFields"></div>
-                </div>
+<!-- Accession Number -->
+<div class="input-field1">
+    <span>
+        <label>Accession Number</label>
+        <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
+    </span>
+  
+        <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required value="<?php echo $accession_number; ?>" readonly />
+
+    <div id="accession_number_error" class="error"></div>
+    <div id="accessionNumberFields"></div>
+</div>
                         
                     <div class="input-field2">
                                         <label>Call Number</label>
