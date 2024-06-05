@@ -134,7 +134,7 @@ if (isset($_POST["submit"])) {
     $result = mysqli_query($link, $query);
 
     if ($result) {
-        $_SESSION['success_message'] = "Book details updated successfully.";
+   
 
    // Check if duplicate accession numbers were provided
     if (isset($_POST['accession_number'])) {
@@ -226,6 +226,7 @@ if (isset($_POST["submit"])) {
     }
 
     // Redirect after processing all accession numbers
+         $_SESSION['success_message'] = "Book details updated successfully.";
     echo "<script>alert('Book details updated successfully.'); window.location.href = 'display-book-module.php';</script>";
     exit();
     }
