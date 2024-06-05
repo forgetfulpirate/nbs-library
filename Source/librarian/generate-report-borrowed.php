@@ -20,15 +20,15 @@
         // Get the selected filtering criteria
         $filter_criteria = $_POST['filter_criteria'];
 
-        // Modify the SQL query to include date range filter and selected criteria
-        $query = "SELECT * FROM issue_book_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date'";
+        // Modify the SQL query to include date range filter, selected criteria, and order by clause
+        $query = "SELECT * FROM issue_book_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
 
         // Set the filename based on the date range
-        $filename = "return-books($filter_criteria - $start_date - $end_date)";
+        $filename = "borrowed-books($start_date - $end_date)";
     } else {
         // If start_date and end_date are not set, fetch all records
-        $query = "SELECT * FROM issue_book_archive";
-        $filename = "return-books(all)";
+        $query = "SELECT * FROM issue_book_archive ORDER BY booksissuedate ASC"; // Default ordering by booksissuedate
+        $filename = "borrowed-books(all)";
     }
 
     $res = mysqli_query($link, $query);
@@ -107,8 +107,8 @@
                 </div>
                 <div class="col-auto p-2" style="width:200px;">
                     <select name="filter_criteria" class="form-control custom">
-                        <option value="booksissuedate">Date Issued</option>
-                        <option value="booksreturndate">Date Due</option>
+                    <option value="booksissuedate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksissuedate' ? 'selected' : ''; ?>>Date Issued</option>
+        <option value="booksreturndate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksreturndate' ? 'selected' : ''; ?>>Date Due</option>
                     </select>
                 </div>
                 <div class="col-auto p-2">
@@ -168,6 +168,9 @@
 </main>
 <script>
 $(document).ready(function () {
+    var filterCriteria = '<?php echo isset($filter_criteria) ? $filter_criteria : "booksissuedate"; ?>';
+    var orderColumn = filterCriteria === "booksissuedate" ? 5 : 6; // 5 is the index for "Date Issued" column, 6 is for "Date Due" column
+
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
         buttons: [
@@ -180,7 +183,8 @@ $(document).ready(function () {
                 }
             },
         ],
-        "lengthMenu": [[5,10, 25, 50, 100, 500], [5,10, 25, 50, 100, 500]]
+        "lengthMenu": [[5, 10, 25, 50, 100, 500], [5, 10, 25, 50, 100, 500]],
+        "order": [[orderColumn, 'asc']] // Order by the selected date criteria column
     });
 });
 
@@ -193,14 +197,10 @@ function ut() {
 }
 
 function resetFilter() {
-    // Reset the form fields
-    document.getElementsByName("start_date")[0].value = ''; // Reset start_date input
-    document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
-    document.getElementsByName("filter_criteria")[0].value = 'booksissuedate'; // Reset filter criteria
-
-    // Submit the form to display all data
-    document.getElementById("filterForm").submit();
-}
+        document.getElementsByName("start_date")[0].value = ''; // Reset start_date input
+        document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
+        document.querySelector("form").submit(); // Submit the form
+    }
 </script>
 
 <?php 
