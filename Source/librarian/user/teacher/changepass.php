@@ -25,16 +25,17 @@
 						<form action="" class="pass-content" method="post">
 						
 							<b>Current Password:</b>
-							<input type="password" class="form-control mt-10" name="cpassword" placeholder="Current password">
+							<input type="password" class="form-control mt-10" name="cpassword" placeholder="Current password" required>
 							<br>
 							<b>New Password:</b>
-							<input type="password" class="form-control mt-10" name="npassword" placeholder="New password">
+							<input type="password" class="form-control mt-10" name="npassword" placeholder="New password" required>
 							<br>
-							<b>Conform Password:</b>
-							<input type="password" class="form-control mt-10" name="conpass" placeholder="Confirm password">
+							<b>Confirm Password:</b>
+							<input type="password" class="form-control mt-10" name="conpass" placeholder="Confirm password" required>
 							<br>
 							<input type="submit" name="submit" class="btn" value="Change Password" style="background-color:#d52033; color:white;">
 						</form>
+						<br>
 						  <?php
 							if (isset($_POST["submit"])){
 							

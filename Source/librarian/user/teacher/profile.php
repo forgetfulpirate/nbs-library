@@ -54,22 +54,52 @@
 									<div class="gap-30"></div>
 									<input type="submit" class="btn" value="Upload Image" name="submit" style="background-color:#d52033; color:white;">
 								</form>
+                                <br>
 							</div>
                             <?php 
-                                if (isset($_POST["submit"])) {
-                                    $image_name=$_FILES['image']['name'];
-                                    $temp = explode(".", $image_name);
-                                    $newfilename = round(microtime(true)) . '.' . end($temp);
-                                    $imagepath="upload/".$newfilename;
-                                    move_uploaded_file($_FILES["image"]["tmp_name"],$imagepath);
-                                    mysqli_query($link, "update teacher set photo='".$imagepath."' where id_number='".$_SESSION['teacher']."'");
-                                    ?>
-                                        <script type="text/javascript">
-                                            window.location="profile.php";
-                                        </script>
-                                    <?php
-                                }
-                            ?>
+                                                  if (isset($_POST["submit"])) {
+                                                    // Error handling for file upload
+                                                    $errors = [];
+                                                    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+                                                    $fileExtension = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+                                                    $fileSize = $_FILES['image']['size'];
+                                                    $maxFileSize = 2 * 1024 * 1024; // 2MB
+                            
+                                                    if (!in_array($fileExtension, $allowedExtensions)) {
+                                                        $errors[] = "Invalid file type. Only JPG, JPEG, and, PNG files are allowed.";
+                                                    }
+                            
+                                                    if ($fileSize > $maxFileSize) {
+                                                        $errors[] = "File size exceeds the maximum limit of 2MB.";
+                                                    }
+                            
+                                                    if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+                                                        $errors[] = "File upload error. Please try again.";
+                                                    }
+                            
+                                                    if (empty($errors)) {
+                                                        $image_name = $_FILES['image']['name'];
+                                                        $temp = explode(".", $image_name);
+                                                        $newfilename = round(microtime(true)) . '.' . end($temp);
+                                                        $imagepath = "upload/" . $newfilename;
+                                                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $imagepath)) {
+                                                            mysqli_query($link, "UPDATE teacher SET photo='".$imagepath."' WHERE id_number='".$_SESSION['teacher']."'");
+                                                            ?>
+                                                            <script type="text/javascript">
+                                                                window.location="profile.php";
+                                                            </script>
+                                                            <?php
+                                                        } else {
+                                                            showAlert("Failed to move uploaded file.", "danger");
+                                                        }
+                                                    } else {
+                                                        foreach ($errors as $error) {
+                                                            showAlert($error, "danger");
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                     
 						</div>
 						<div class="col-md-7">
 							<div class="details">
