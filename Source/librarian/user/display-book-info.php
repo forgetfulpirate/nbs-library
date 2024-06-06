@@ -14,7 +14,7 @@
         // Fetch book details based on ID
         $query = "SELECT * FROM book_module WHERE accession_number = ?";
         $stmt = mysqli_prepare($link, $query);
-        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_bind_param($stmt, "s", $accession_number);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
