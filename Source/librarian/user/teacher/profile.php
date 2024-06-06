@@ -16,11 +16,15 @@
             $message
            
         </div>";
+
+      
 }
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
+
+
+
+ </style>
+<main class="content px-3 py-2">  
 			<div class="container">
                 <br>
 			<div class="mb-3">
@@ -48,7 +52,7 @@
 								<form action="" method="post" enctype="multipart/form-data">
 									<input type="file" name="image" class="modal-mt" id="image" required>
 									<div class="gap-30"></div>
-									<input type="submit" class="modal-mt btn btn-info" value="Upload Image" name="submit">
+									<input type="submit" class="btn" value="Upload Image" name="submit" style="background-color:#d52033; color:white;">
 								</form>
 							</div>
                             <?php 
@@ -117,7 +121,7 @@
                                     </div>
                                     <br>
                                     <div class="text-right mt-20">
-                                        <input type="submit" value="Save" class="btn btn-info" name="update">
+                                        <input type="submit" value="Save" class="btn" name="update" style="background-color:#d52033; color:white;">
                                     </div>
                                 <?php
                                 ?>
@@ -142,8 +146,7 @@
 					</div>
 				</div>
 			</div>					
-		</div>
-	</div>
+</main>
 	<?php 
 		include 'inc/footer.php';
 	 ?>

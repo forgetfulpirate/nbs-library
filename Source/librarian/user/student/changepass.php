@@ -10,37 +10,30 @@
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
+<main class="content px-3 py-2">  
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">change password</span>
-						</div>
-					</div>
-				</div>
+                <br>
+			<div class="mb-3">
+          
+                        <h4 class="text-center">Change Password
+                        </h4>
+                           
+             
+                 </div>
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" class="pass-content" method="post">
 						
 							<b>Current Password:</b>
-							<input type="password" class="form-control mt-10" name="cpassword" placeholder="Current password">
+							<input type="password" class="form-control mt-10" name="cpassword" placeholder="Current password" required>
 							<br>
 							<b>New Password:</b>
-							<input type="password" class="form-control mt-10" name="npassword" placeholder="New password">
+							<input type="password" class="form-control mt-10" name="npassword" placeholder="New password" required>
 							<br>
 							<b>Conform Password:</b>
-							<input type="password" class="form-control mt-10" name="conpass" placeholder="ConfIrm password">
+							<input type="password" class="form-control mt-10" name="conpass" placeholder="ConfIrm password" required>
 							<br>
-							<input type="submit" name="submit" class="btn" value="Change Password">
+							<input type="submit" name="submit" class="btn" value="Change Password" style="background-color:#d52033; color:white;">
 						</form>
 						  <?php
 							if (isset($_POST["submit"])){
@@ -81,8 +74,8 @@
 					</div>
 				</div>
 			</div>					
-		</div>
-	</div>
+</main>
+	
 	<?php 
 		include 'inc/footer.php';
 	 ?>

@@ -165,10 +165,10 @@
                         $booksToIssueCount = count($_POST['accession_number']);
                     
                         // Check if issuing more books would exceed the limit of 5
-                        if ($totalBooksIssued + $booksToIssueCount > 5) {
+                        if ($totalBooksIssued + $booksToIssueCount > 10) {
                             ?>
                             <div class="alert alert-danger col-lg-6 col-lg-push-3">
-                                <strong>You can only issue a maximum of 5 books for students.</strong>
+                                <strong>You can only issue a maximum of 10 books for teacher.</strong>
                             </div>
                             <?php
                         } else {

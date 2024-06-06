@@ -127,7 +127,7 @@
                         </ul>
                     </li>
 
-					<li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+					<li class="sidebar-item <?php if($page=='issue-book'){ echo 'active';} ?>">
                         <a href="my-issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
@@ -136,7 +136,7 @@
                     </li>
 
                     
-                    <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='overdue-book'){ echo 'active';} ?>">
                                 <a href="finezone.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     My Overdue
@@ -196,7 +196,6 @@
             
         </aside>
         
-        
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom">
                 <button class="btn" id="sidebar-toggle" type="button">
@@ -205,28 +204,27 @@
 			
                 <div class="navbar-collapse navbar">
                         <ul class="navbar-nav" style="margin-right:10px;">
-                        <li class="icon">
+                        <!-- <li class="icon">
 							<a href="notifications.php" ><i class="fas fa-bell"></i></a>
 								<span class="count" onclick="window.location='notifications.php'"><b id="notif"><?php echo $not; ?></b></span>
                        		 </li>
-                        </ul>
+                        </ul> -->
                         
                         <li class="nav-item dropdown">
 								<?php
                                       $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
 									  $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
 									  while ($row = mysqli_fetch_array($res)){
-										  ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" alt="" height="50px" width="50px" ><span><?php echo $_SESSION["student"]; ?></span></a> <?php
+										  ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" alt="" height="50px" width="50px"><span><?php echo $_SESSION["student"]; ?></span></a> <?php
 									  }
 									  while ($row = mysqli_fetch_array($res1)){
-										 ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span><?php echo $row["first_name"]; ?></span></a> <?php
+										 ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" style="color:inherit; font-weight:bold;"><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span style="margin-left:10px;"><?php echo $row["first_name"]; ?></span></a> <?php
 									 }
                                 ?>
 								
                          
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a href="profile.php" class="dropdown-item">Profile</a>
-                
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                                 <a href="changepass.php" class="dropdown-item">Change Password</a>
                             </div>

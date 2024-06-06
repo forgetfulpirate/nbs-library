@@ -1,4 +1,4 @@
 
 <div class="footer text-center">
-        <p>&copy; All rights reserved NBS College</p>
+        <p style="font-weight:bolder;">&copy; All rights reserved NBS College</p>
     </div>

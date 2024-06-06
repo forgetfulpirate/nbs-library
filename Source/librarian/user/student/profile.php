@@ -19,23 +19,16 @@
 }
 
  ?>
-	<!--dashboard area-->
-	<div class="dashboard-content">
-		<div class="dashboard-header">
+<main class="content px-3 py-2">  
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left">
-							<p><span>dashboard</span>User panel</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="right text-right">
-							<a href="dashboard.php"><i class="fas fa-home"></i>home</a>
-							<span class="disabled">profile</span>
-						</div>
-					</div>
-				</div>
+                <br>
+			<div class="mb-3">
+          
+                        <h4 class="text-center">Profile
+                        </h4>
+                           
+             
+                 </div>
 				<div class="profile-content">
 					<div class="row">
 						<div class="col-md-3">
@@ -55,7 +48,7 @@
 								<form action="" method="post" enctype="multipart/form-data">
 									<input type="file" name="image" class="modal-mt" id="image" required>
 									<div class="gap-30"></div>
-									<input type="submit" class="modal-mt btn btn-info" value="Upload Image" name="submit">
+									<input type="submit" class="modal-mt btn" value="Upload Image" name="submit" style="background-color:#d52033; color:white;">
 								</form>
 							</div>
                             <?php 
@@ -87,6 +80,7 @@
                                         $middle_name      = $row6['middle_name'];
                                         $email      = $row6['email'];
                                         $year      = $row6['year'];
+                                        $course = $row6['course'];
                                         $user_type     = $row6['user_type'];
                                         }
                                     ?>
@@ -117,16 +111,30 @@
                                         <input type="text" class="form-control custom"  name="session" value="<?php echo $email; ?>" />
                                     </div>
                                     <div class="form-group details-control">
-                                        <label for="dept" class="text-right">Year Level:</label>
-                                        <input type="text" class="form-control custom"  name="dept" value="<?php echo $year; ?>" />
+                                        <label for="year" class="text-right">Year Level:</label>
+                                        <input type="text" class="form-control custom"  name="year" value="<?php echo $year; ?>" />
+                                        
                                     </div>
 
-      
+                                    <div class="form-group details-control">
+                                    <label for="course">Course <span>*</span></label>
+                                <select class="form-control" name="course" required>
+                                    <option></option>
+                                    <option <?php if ($course == 'Bachelor of Science in Computer Science') echo 'selected'; ?>>Bachelor of Science in Computer Science</option>
+                                    <option <?php if ($course == 'Bachelor of Science in Accountancy') echo 'selected'; ?>>Bachelor of Science in Accountancy</option>
+                                    <option <?php if ($course == 'Bachelor of Science in Tourism Management') echo 'selected'; ?>>Bachelor of Science in Tourism Management</option>
+                                    <option <?php if ($course == 'Bachelor of Science in Entrepreneurship') echo 'selected'; ?>>Bachelor of Science in Entrepreneurship</option>
+                                    <option <?php if ($course == 'Bachelor of Science in Applied Information Systems') echo 'selected'; ?>>Bachelor of Science in Applied Information Systems</option>
+                                </select>
+                                        
+                                    </div>
+
+                          
                     
                                   
                                     <br>
                                     <div class="text-right mt-20">
-                                        <input type="submit" value="Save" class="btn btn-info" name="update">
+                                        <input type="submit" value="Save" class="btn" name="update" style="background-color:#d52033; color:white;">
                                     </div>
                                 <?php
                                 ?>
@@ -142,7 +150,8 @@
                                 last_name='" . $_POST['name'] . "',
                                 middle_name='" . $_POST['sem'] . "',
                                 email='" . $_POST['session'] . "',
-                                year='" . $_POST['dept'] . "'
+                                year='" . $_POST['year'] . "',
+                                course='" . $_POST['course'] . "'
                                 WHERE student_number='" . $_SESSION['student'] . "'")) {
                                     showAlert("Profile updated successfully!", "success");
                                     
@@ -158,8 +167,7 @@
 					</div>
 				</div>
 			</div>					
-		</div>
-        </div>
+                        </main>
         
 	<?php 
 		include 'inc/footer.php';

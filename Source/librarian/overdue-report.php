@@ -40,7 +40,7 @@ if ($num_rows == 0) {
   
 }
 ?>
-        ?>
+     
         <style>
             /* Change color of Export Excel button to btn-danger */
         /* Style the Export Excel button */
