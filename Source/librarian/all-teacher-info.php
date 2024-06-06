@@ -50,6 +50,7 @@
                     echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
                     unset($_SESSION['error_msg']);
                 }
+            
                 ?>
           
             <div class="card border-0">

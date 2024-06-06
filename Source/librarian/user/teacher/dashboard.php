@@ -105,11 +105,13 @@ $res = mysqli_query($link, $sql);
 <main class="content px-3 py-2">  
     <div class="gap-30"></div>
     <div class="container-fluid">
-        <div class="mb-3">
-            <h4>Search Book
-                <p id="time"></p>
-                <p id="date"></p>
-            </h4>
+    <div class="row mt-3">
+            <div class="col-md-9 d-flex justify-content-center">
+                <div class="mb-3">
+                    <h4>Search Book
+                    </h4>
+                </div>
+            </div>
         </div>
     </div>
    
