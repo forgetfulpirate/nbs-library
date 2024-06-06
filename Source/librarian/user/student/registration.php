@@ -126,12 +126,14 @@ include 'inc/function.php';
                     <i class="ri-user-3-line login__icon"></i>
                     <div class="login__box-input">
                         <select class="login__input" id="login-role" name="course" style="border:0;">
-                            <option value="" selected></option>
-                            <option value="BSCS">BSCS</option>
-                            <option value="BSA">BSA</option>
-                            <option value="BSAIS">BSAIS</option>
-                            <option value="BSEntrep">BSEntrep</option>
+                        <option></option>
+                                    <option>Bachelor of Science in Computer Science</option>
+                                    <option>Bachelor of Science in Accountancy</option>
+                                    <option>Bachelor of Science in Tourism Management</option>
+                                    <option>Bachelor of Science in Entrepreneurship</option>
+                                    <option>Bachelor of Science in Applied Information Systems</option>
                         </select>
+ 
                         <label for="login-role" class="login__label">Course</label>
                     </div>
                 </div>
