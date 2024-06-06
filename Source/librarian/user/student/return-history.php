@@ -27,6 +27,22 @@
                  </div>
             </div>
             <br>
+
+            <?php
+    // Display Success or Error Messages
+    if (!empty($_SESSION['success_message'])) {
+        echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']);
+    }
+    if (!empty($_SESSION['success_msg'])) {
+        echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
+        unset($_SESSION['success_msg']);
+    }
+    if (isset($_SESSION['error_msg'])) {
+        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
+        unset($_SESSION['error_msg']);
+    }
+    ?>
           
             <div class="card border-0">
                 
