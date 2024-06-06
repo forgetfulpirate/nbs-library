@@ -104,7 +104,7 @@
                                     echo "<td><a href='#' class='editRemarksLink' data-accession_number='" . $row["accession_number"] . "' data-remarks='" . htmlspecialchars($row["remarks"], ENT_QUOTES) . "'>" . ($row["remarks"] ? $row["remarks"] : "n/a") . "</a></td>";
                                     echo "<td>";
                                     ?>
-                                    <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
+                                    <a href="display-book-info.php?accession_number=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
                                     
                                     echo "</td>";
                                      echo "<td>";

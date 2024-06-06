@@ -308,6 +308,8 @@ document.forms['student_number'].addEventListener('submit', function(event) {
             row.parentNode.removeChild(row);
         }
     });
+
+    
 </script>
 <?php 
     include 'inc/footer.php';
