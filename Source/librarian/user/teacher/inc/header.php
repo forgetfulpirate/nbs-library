@@ -127,7 +127,7 @@
                         </ul>
                     </li>
 
-					<li class="sidebar-item <?php if($page=='tbook'){ echo 'active';} ?>">
+					<li class="sidebar-item <?php if($page=='issue-book'){ echo 'active';} ?>">
                         <a href="my-issued-books.php" class="sidebar-link">
                          <i class="fa-solid fa-book pe-2"></i>
 
@@ -136,7 +136,7 @@
                     </li>
 
                     
-                    <li class="sidebar-item <?php if($page=='d-ebook'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='overdue-book'){ echo 'active';} ?>">
                                 <a href="finezone.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     My Overdue

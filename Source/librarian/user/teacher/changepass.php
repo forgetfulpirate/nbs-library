@@ -33,7 +33,7 @@
 							<b>Conform Password:</b>
 							<input type="password" class="form-control mt-10" name="conpass" placeholder="Confirm password">
 							<br>
-							<input type="submit" name="submit" class="btn" value="Change Password">
+							<input type="submit" name="submit" class="btn" value="Change Password" style="background-color:#d52033; color:white;">
 						</form>
 						  <?php
 							if (isset($_POST["submit"])){

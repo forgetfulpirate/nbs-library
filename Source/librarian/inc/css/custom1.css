@@ -420,3 +420,8 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
     width: 100% !important;
 }
 
+@media (max-width: 767px) {
+    .pagination-container .pagination {
+      flex-wrap: wrap;
+    }
+  }

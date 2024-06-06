@@ -30,7 +30,7 @@ $searchQuerySubmitted = !empty($search);
 // Calculate pagination
 
 if ($searchQuerySubmitted) {
-$entriesPerPage = 50;
+$entriesPerPage = 1;
 $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($currentPage - 1) * $entriesPerPage;
    // Check if search query is submitted
@@ -158,45 +158,49 @@ $res = mysqli_query($link, $sql);
     
     <?php if ($searchQuerySubmitted) { ?>
     <!-- Pagination -->
-    <div class="row mt-3">
-        <div class="col-md-12">
-            
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <?php
-                        // First page
-                        if ($currentPage > 1) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
-                        }
+<!-- Pagination -->
+<div class="row mt-3">
+    <div class="col-md-12">
+    <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <?php
+                    // First page
+                    if ($currentPage > 1) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                    }
 
-                        // Previous page
-                        if ($currentPage > 1) {
-                            $prevPage = $currentPage - 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
-                        }
+                    // Previous page
+                    if ($currentPage > 1) {
+                        $prevPage = $currentPage - 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                    }
 
-                        // Page numbers
-                        $startPage = max(1, $currentPage - 5);
-                        $endPage = min($totalPages, $startPage + 9);
-                        for ($i = $startPage; $i <= $endPage; $i++) {
-                            echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
-                        }
+                    // Page numbers
+                    $startPage = max(1, $currentPage - 5);
+                    $endPage = min($totalPages, $startPage + 9);
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                        echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                    }
 
-                        // Next page
-                        if ($currentPage < $totalPages) {
-                            $nextPage = $currentPage + 1;
-                            echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
-                        }
+                    // Next page
+                    if ($currentPage < $totalPages) {
+                        $nextPage = $currentPage + 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                    }
 
-                        // Last page
-                        if ($currentPage < $totalPages) {
-                            echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
-                        }
-                    ?>
-                </ul>
-            </nav>
-        </div>
+                    // Last page
+                    if ($currentPage < $totalPages) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                    }
+                ?>
+            </ul>
+                </div>
+        </nav>
     </div>
+
+    
+</div>
    
     <div class="row mt-3">
     <?php
@@ -232,12 +236,50 @@ $res = mysqli_query($link, $sql);
     ?>
 </div>
 <?php } ?>
+
+<!-- Pagination -->
+<div class="row mt-3">
+    <div class="col-md-12">
+    <div class="pagination-container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <?php
+                    // First page
+                    if ($currentPage > 1) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=1" . (!empty($search) ? "&search=$search" : "") . "'>&laquo; First </a></li>";
+                    }
+
+                    // Previous page
+                    if ($currentPage > 1) {
+                        $prevPage = $currentPage - 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$prevPage" . (!empty($search) ? "&search=$search" : "") . "'> Previous</a></li>";
+                    }
+
+                    // Page numbers
+                    $startPage = max(1, $currentPage - 5);
+                    $endPage = min($totalPages, $startPage + 9);
+                    for ($i = $startPage; $i <= $endPage; $i++) {
+                        echo "<li class='page-item " . ($currentPage == $i ? "active" : "") . "'><a class='page-link' href='?page=$i" . (!empty($search) ? "&search=$search" : "") . "'>$i</a></li>";
+                    }
+
+                    // Next page
+                    if ($currentPage < $totalPages) {
+                        $nextPage = $currentPage + 1;
+                        echo "<li class='page-item'><a class='page-link' href='?page=$nextPage" . (!empty($search) ? "&search=$search" : "") . "'>Next</a></li>";
+                    }
+
+                    // Last page
+                    if ($currentPage < $totalPages) {
+                        echo "<li class='page-item'><a class='page-link' href='?page=$totalPages" . (!empty($search) ? "&search=$search" : "") . "'>Last &raquo; </a></li>";
+                    }
+                ?>
+            </ul>
+                </div>
+        </nav>
+    </div>
 </main>
 
 
-<?php 
-		include 'inc/footer.php';
-	 ?>
 
 <script>
     function submitForm() {
