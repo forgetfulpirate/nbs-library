@@ -30,7 +30,7 @@ $searchQuerySubmitted = !empty($search);
 // Calculate pagination
 
 if ($searchQuerySubmitted) {
-$entriesPerPage = 1;
+$entriesPerPage = 5;
 $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($currentPage - 1) * $entriesPerPage;
    // Check if search query is submitted
@@ -141,7 +141,7 @@ $res = mysqli_query($link, $sql);
         <ul id="ul">
     <li id="li"><a href="?search=Rizal" style="color:inherit; position: relative;">Rizal (Search by all keyword)</a></li>
     <li id="li"><a href="?search=Ambeth&keyword=author" style="color:inherit; position: relative;">Ambeth (Search by Author)</a></li>
-    <li id="li"><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">1234567890 (Search by ISBN)</a></li>
+    <li id="li"><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">9789712726736 (Search by ISBN)</a></li>
 </ul>
     </div>
 </div>
@@ -151,7 +151,7 @@ $res = mysqli_query($link, $sql);
     <?php if (!empty($search)) { ?>
     <div class="row mt-3">
         <div class="col-md-12">
-            <p>You searched <?php echo $totalBooks; ?> results.</p>
+            <p style="font-weight:bold; font-size:large">You searched <?php echo $totalBooks; ?> results.</p>
         </div>
     </div>
     <?php } ?>
@@ -217,7 +217,7 @@ $res = mysqli_query($link, $sql);
     <div class="col-md-12 mb-3 d-flex flex-wrap"> <!-- Added d-flex flex-wrap -->
         <div class="card d-flex flex-row w-100"> <!-- Added w-100 to ensure the card takes full width -->
             <div class="card-body">
-            <a href="display-book-info.php?id=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3></a>
+            <a href="display-book-info.php?accession_number=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3></a>
                 
                 <br>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $highlightedMain_Creator  ?></span></p>
@@ -228,14 +228,13 @@ $res = mysqli_query($link, $sql);
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $highlightedCall_Number?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
             </div>
-            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:200px; width:200px;">
+            <img src="<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:150px; width:100px;">
         </div>
     </div>
     <?php
         }
     ?>
 </div>
-<?php } ?>
 
 <!-- Pagination -->
 <div class="row mt-3">
@@ -277,6 +276,9 @@ $res = mysqli_query($link, $sql);
                 </div>
         </nav>
     </div>
+<?php } ?>
+
+
 </main>
 
 
