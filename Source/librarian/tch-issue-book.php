@@ -17,7 +17,7 @@
     <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <h4>Teacher Issue Book 
+            <h4>Faculty Issue Book 
                 <p id="time"></p>
                 <p id="date"></p>
             </h4>
@@ -81,7 +81,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Student Number</label>
+                                        <label>ID Number</label>
                                         <input type="text" class="form-control" name="student_number" value="<?php echo $id_number; ?>" disabled> 
                                     </td>
                                 </tr>

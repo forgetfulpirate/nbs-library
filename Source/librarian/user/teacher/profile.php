@@ -71,7 +71,7 @@
                                 }
                             ?>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-7">
 							<div class="details">
                                 <?php
                                  
@@ -89,13 +89,17 @@
                                     }
                                     ?>
                                 <form method="post">
+                                <div class="form-group details-control">
+                                        <label for="user_type">User Type:</label>
+                                         <input type="text" class="form-control custom"  name="user_type" value="<?php echo $user_type; ?>"  disabled />
+                                    </div>
                                     <div class="form-group details-control">
                                         <label for="id_number" class="text-right">ID Number:</label>
-                                        <input type="text" class="form-control custom"  name="id_number" value="<?php echo $id_number; ?>"  />
+                                        <input type="text" class="form-control custom"  name="id_number" value="<?php echo $id_number; ?>"  disabled/>
                                     </div>
                                     <div class="form-group details-control">
                                          <label for="first_name">First Name:</label>
-                                        <input type="text" class="form-control custom"  name="first_name" value="<?php echo $first_name; ?>"  />
+                                        <input type="text" class="form-control custom"  name="first_name" value="<?php echo $first_name; ?>" />
                                     </div>
                                     <div class="form-group details-control">
                                         <label for="last_name" class="text-right">Last Name:</label>
@@ -111,14 +115,19 @@
                                         <input type="text" class="form-control custom"  name="email" value="<?php echo $email; ?>" />
                                     </div>
                                     <div class="form-group details-control">
-                                        <label for="course" class="text-right">Dept:</label>
-                                        <input type="text" class="form-control custom"  name="dept" value="<?php echo $dept; ?>" readonly/>
+                                        <label for="dept" class="text-right">Dept:</label>
+                                        <select class="form-control" name="dept" required>
+                                            <option></option>
+                                            <option <?php if ($dept == 'BSCS') echo 'selected'; ?>>BSCS</option>
+                                            <option <?php if ($dept == 'BSA') echo 'selected'; ?>>BSA</option>
+                                            <option <?php if ($dept == 'BSAIS') echo 'selected'; ?>>BSAIS</option>
+                                            <option <?php if ($dept == 'BSEntrep') echo 'selected'; ?>>BSEntrep</option>
+                                            <option <?php if ($dept == 'BSTM') echo 'selected'; ?>>BSTM</option>
+                                        </select>
+
                                     </div>
 		                         
-                                    <div class="form-group details-control">
-                                        <label for="user_type">User Type:</label>
-                                         <input type="text" class="form-control custom"  name="user_type" value="<?php echo $user_type; ?>"  readonly />
-                                    </div>
+
                                     <br>
                                     <div class="text-right mt-20">
                                         <input type="submit" value="Save" class="btn" name="update" style="background-color:#d52033; color:white;">
@@ -130,11 +139,9 @@
                             <BR>
                             <?php
                               if (isset($_POST["update"])) {
-                                if (mysqli_query($link, "update teacher set first_name='$_POST[first_name]', middle_name='$_POST[middle_name]' where id_number='$_SESSION[teacher]'")) {
+                                if (mysqli_query($link, "update teacher set first_name='$_POST[first_name]', middle_name='$_POST[middle_name]' , last_name='$_POST[last_name]' , email='$_POST[email]' , dept='$_POST[dept]' where id_number='$_SESSION[teacher]'")) {
                                     showAlert("Profile updated successfully!", "success");
-                                    
-                        
-                                    
+
                                 } else {
                                     showAlert("Error updating profile!", "danger");
                                 }

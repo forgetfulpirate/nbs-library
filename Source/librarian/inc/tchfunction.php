@@ -23,13 +23,17 @@
 
         $sql_e= mysqli_query($link,"select * from student where email= '$email'");
         $sql_r= mysqli_query($link,"select * from teacher where id_number= '$id_number'");
+        $sql1_r= mysqli_query($link,"select * from teacher_archive where id_number= '$id_number'");
 
         $sql2_e= mysqli_query($link,"select * from teacher where email= '$email'");
         $sql2_p= mysqli_query($link,"select * from student where student_number= '$id_number'");
 
         
 		if(mysqli_num_rows($sql_r) > 0){
-            $_SESSION['error_msg'] = "ID number already exist";
+            $_SESSION['error_msg'] = "ID number already exist!";
+			$error_uname = "ID number already exist";
+		} elseif(mysqli_num_rows($sql1_r) > 0){
+            $_SESSION['error_msg'] = "ID number already exist. Please check Archive";
 			$error_uname = "ID number already exist";
 		}
         // if(mysqli_num_rows($sql2_u) > 0){

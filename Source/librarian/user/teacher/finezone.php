@@ -41,7 +41,7 @@
             <table class="table table-hover text-left table-striped" id="dtBasicExample">
             <thead>
 								   <tr>
-                                        <th>Student number</th>
+                                        <th>ID number</th>
                                         <th>Name</th>
 										<th>Accession Number</th>
                                         <th>Books Name</th>

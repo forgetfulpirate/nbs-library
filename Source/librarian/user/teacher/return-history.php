@@ -1,6 +1,6 @@
 <?php 
      session_start();
-    if(!isset($_SESSION["student"])) {
+    if(!isset($_SESSION["teacher"])) {
         ?>
             <script type="text/javascript">
                 window.location="login.php";
@@ -37,7 +37,7 @@
                             <table class="table table-hover text-left table-striped" id="dtBasicExample">
                             <thead>
                                             <tr>
-												<th>Student Number</th>
+												<th>ID Number</th>
 												<th>Name</th>
                                                 <th>Accession No</th>
 												<th>Books Name</th>
@@ -51,7 +51,7 @@
                                        </thead>
                                         <tbody>
 										<?php 
-											$res= mysqli_query($link, "select * from return_history where student_number='".$_SESSION['student']."' ORDER BY id DESC");
+											$res= mysqli_query($link, "select * from return_history where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
 											
 											while ($row=mysqli_fetch_array($res)) {
 												echo "<tr>";

@@ -257,7 +257,7 @@
                         </a>
                     </li> -->
 
-                    <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='user-archive'){ echo 'active';} ?>">
                         <a href="archive-user.php" class="sidebar-link">
                         <i class="fa-solid fa-user-xmark"></i>
                             Archived Users

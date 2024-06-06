@@ -20,9 +20,11 @@
                 $sql2_e = mysqli_query($link, "SELECT * FROM teacher WHERE email= '$email'");
                 $sql3_e = mysqli_query($link, "SELECT * FROM student_archive WHERE student_number= '$student_number'");
     
-                if (mysqli_num_rows($sql_u) > 0 || mysqli_num_rows($sql3_e) > 0) {
+                if (mysqli_num_rows($sql_u) > 0) {
                     $error_uname = "Student number already exists";
-                } elseif (mysqli_num_rows($sql_e) > 0 || mysqli_num_rows($sql2_e) > 0) {
+                } else if (mysqli_num_rows($sql3_e) > 0) {
+                    $error_uname = "Student number already exists in archive user.";
+                }elseif (mysqli_num_rows($sql_e) > 0 || mysqli_num_rows($sql2_e) > 0) {
                     $error_email = "Email already exists";
                 } elseif (strlen($password) < 6) {
                     $error_ua = "Password too short";

@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page = 'user-v';
+    $page = 'user-archive';
     include 'inc/connection.php';
     include 'inc/header.php';
     include 'inc/sfunction.php';
@@ -96,12 +96,12 @@
                                     <tr>
 
                                         <th scope="col">User Type</th>
-                                        <th scope="col">Student Number</th>
+                                        <th scope="col">ID Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Course/Department</th>
                                         <th scope="col">verified</th>
-                                        <th>Activate</th>
+                                        <th>Action</th>
                             
                                    
                                     </tr>
@@ -120,8 +120,13 @@
                                             echo "<td>";
                                         
                                                 ?>
-                                      <a href="unarchive.php?student_number=<?php echo $row["student_number"]; ?> " class="btn btn-danger btn-sm ml-2" style="margin-right: 0px; padding-right: 5px; padding-left: 5px;">Unarchive</a>
-                                                <?php
+                <a href="#" 
+                class="btn btn-danger btn-sm ml-2 unarchiveBtn" 
+                data-toggle="modal" 
+                data-target="#unarchiveModal" 
+                data-id="<?php echo $row["student_number"]; ?>" 
+                data-name="<?php echo $row["first_name"]; echo ' ';echo $row["last_name"]; ?>"
+                data-type="student">Unarchive</a>                                                <?php
                                            
                                             echo "</td>";
                                   
@@ -142,8 +147,13 @@
                                             echo "<td>";
                                    
                                                 ?>
-                                                 <a href="unarchive-teacher.php?id_number=<?php echo $row1["id_number"]; ?>" class="btn btn-danger btn-sm ml-2" style="margin-right: 0px; padding-right: 5px; padding-left: 5px;"><span style="margin-right:5px;">Unarchive</span></a>
-                                                <?php
+                                                    <a href="#" 
+                                                    class="btn btn-danger btn-sm ml-2 unarchiveBtn" 
+                                                    data-toggle="modal" 
+                                                    data-target="#unarchiveModal" 
+                                                    data-id="<?php echo $row1["id_number"]; ?>" 
+                                                    data-name="<?php echo $row1["first_name"]; echo ' '; echo $row1["last_name"]; ?>"
+                                                    data-type="teacher">Unarchive</a>                                                <?php
                                             
                                             echo "</td>";
                                 
@@ -170,6 +180,24 @@
 </main>
     
 <?php include 'inc/footer.php';?>
+
+<div class="modal fade" id="unarchiveModal" tabindex="-1" role="dialog" aria-labelledby="unarchiveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="unarchiveModalLabel">Confirm Unarchive</h5>
+
+      </div>
+      <div class="modal-body">
+        Are you sure you want to unarchive <span id="unarchiveUserName" style="color:#d52033"></span>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="#" id="confirmUnarchiveBtn" class="btn btn-danger">Unarchive</a>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script>
         $(document).ready(function () {
@@ -214,16 +242,27 @@
         });
     </script>	
     
-
-
-
-
-
-   
      
+
+
+
+    <script>
+$(document).ready(function() {
+    $('.unarchiveBtn').on('click', function() {
+        var userId = $(this).data('id');
+        var userName = $(this).data('name');
+        var userType = $(this).data('type');
+        
+        $('#unarchiveUserName').text(userName);
+        
+        var unarchiveUrl = userType === 'student' 
+            ? 'unarchive.php?student_number=' + userId 
+            : 'unarchive-teacher.php?id_number=' + userId;
+        
+        $('#confirmUnarchiveBtn').attr('href', unarchiveUrl);
+    });
+});
 </script>
 
-
-    
 
     

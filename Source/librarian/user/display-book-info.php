@@ -8,8 +8,8 @@
     $page = '';
     include 'inc/connection.php';
     include 'inc/header.php';
-    if(isset($_GET['id'])) {
-        $id = $_GET['id'];
+    if(isset($_GET['accession_number'])) {
+        $accession_number = $_GET['accession_number'];
 
         // Fetch book details based on ID
         $query = "SELECT * FROM book_module WHERE accession_number = ?";

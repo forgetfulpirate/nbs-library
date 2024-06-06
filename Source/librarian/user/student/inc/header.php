@@ -39,7 +39,7 @@ $not= mysqli_num_rows($res);
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo text-center">
-                    <a href="dashboard.php">NBS College Library</a>
+                    <a href="dashboard.php">NBSC College Library</a>
                 </div>
 				
                 <ul class="sidebar-nav">
