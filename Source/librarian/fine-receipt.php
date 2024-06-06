@@ -1,6 +1,9 @@
 <?php
 require 'fpdf/fpdf.php';
 
+
+
+
 if (isset($_POST['generate_receipt'])) {
     // Retrieve selected student number from form
     $studentNumber = $_POST['student_number'];
@@ -70,14 +73,14 @@ if (isset($_POST['generate_receipt'])) {
 
     $pdf->SetFont('Arial', 'B', 10);
 
-    $pdf->Cell(130,5,'ID Number: ' . $studentNumber ,0,0);
+    $pdf->Cell(155,5,'ID Number: ' . $studentNumber ,0,0);
     $pdf->Cell(25,5,'User Type: ' . $userTypeDisplay,0,0,);
     $pdf->Cell(34,5,'',0,1);
 
     
     $receiptDate = date("m/d/Y");
 
-    $pdf->Cell(130,5,"Borrower's name: " . $studentInfo['first_name'],0,0);
+    $pdf->Cell(155,5,"Borrower's name: " . $studentInfo['first_name'],0,0);
     $pdf->Cell(25,5,'Date: ' . $receiptDate,0,0);
     $pdf->Cell(34,5,'',0,1);
 
@@ -156,7 +159,26 @@ while ($row = mysqli_fetch_array($result)) {
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(0, 10, '_______________________', 0, 1, 'R');
         $pdf->Cell(0, 0, 'Librarian Signature', 0, 1, 'R');
-    
+
+        $pdf->SetY(-40);
+
+        // Width of the page
+        $pageWidth = $pdf->GetPageWidth();
+        // Image width
+        $imageWidth = 20;
+        // Calculate total width of the footer content
+        $totalWidth = $imageWidth + 5 + 90; // 90 is the approximate width of the text block
+
+        // Calculate starting X position to center the footer content
+        $startX = ($pageWidth - $totalWidth) / 2;
+
+        // Add the image to the left of the text
+        $pdf->Image('inc/img/NBS-LOGO.png', $startX, $pdf->GetY(), $imageWidth, 15, 'PNG');
+
+        $pdf->SetFont('Arial', '', 8);
+        $pdf->SetXY($startX + $imageWidth + 0, $pdf->GetY() + 2); // Adjust the Y position to align with the image
+        $pdf->MultiCell(90, 3, "3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila\nPhone: (02) 8376 5090\nlibrary@nbscollege.edu.ph", 0, 'L');
+        
         $pdfFilename = 'receipt_' . $studentInfo['last_name'] . '.pdf';
 
     $pdfFilename = 'receipt_' . $studentInfo['last_name'] . '.pdf';

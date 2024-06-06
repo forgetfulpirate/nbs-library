@@ -235,6 +235,9 @@ $res = mysqli_query($link, $sql);
 </main>
 
 
+<?php 
+		include 'inc/footer.php';
+	 ?>
 
 <script>
     function submitForm() {

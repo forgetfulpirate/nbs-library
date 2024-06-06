@@ -143,7 +143,7 @@
                         <form action="" method="post">
                             <div class="form-group">
                                 <label for="id_number" class="text-right">ID Number <span>*</span></label>
-                                <input type="text" class="form-control custom" placeholder="Student Number" name="id_number" required=""/>
+                                <input type="text" class="form-control custom" placeholder="ID Number" name="id_number" required=""/>
                             </div>
                             <?php if(isset($error_uname)):?>
                                 <span class="error"> <?php echo $error_uname; ?></span>
@@ -189,7 +189,7 @@
                             <?php endif ?>
 
                             <div class="form-group">
-                                <label for="dept">Course <span>*</span></label>
+                                <label for="dept">Department <span>*</span></label>
                                 <select class="form-control custom" name="dept" required="">
                                     <option>BSCS</option>
                                     <option>BSA</option>
@@ -256,6 +256,11 @@
 </div>
  <!-- END Reset Password Confirmation Modal -->
  </main>
+
+ <?php 
+		include 'inc/footer.php';
+	 ?>
+
 
   <script>
         $(document).ready(function () {

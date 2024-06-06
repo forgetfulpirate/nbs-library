@@ -271,11 +271,12 @@
                             <div class="form-group">
                                 <label for="course">Course <span>*</span></label>
                                 <select class="form-control" name="course" required>
-                                    <option>BSCS</option>
-                                    <option>BSA</option>
-                                    <option>BSTM</option>
-                                    <option>BSEntrep</option>
-                                    <option>BSAIS</option>
+                                    <option></option>
+                                    <option>Bachelor of Science in Computer Science</option>
+                                    <option>Bachelor of Science in Accountancy</option>
+                                    <option>Bachelor of Science in Tourism Management</option>
+                                    <option>Bachelor of Science in Entrepreneurship</option>
+                                    <option>Bachelor of Science in Applied Information Systems</option>
                                 </select>
                             </div>
                             <br>
@@ -292,14 +293,17 @@
                 </div>
             </div>
         </div>
-    </div>
+ 
             
                 
                 
             
  </main>
 
-        
+ <?php 
+		include 'inc/footer.php';
+	 ?>
+
 
   
 

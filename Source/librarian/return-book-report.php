@@ -86,7 +86,7 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
     <div class="gap-30"></div>
     <div class="container-fluid">
         <div class="mb-3">
-            <h4>Return Books
+            <h4>Return Books Report
                 <p id="time"></p>
                 <p id="date"></p>
             </h4>
@@ -212,16 +212,16 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
     
     switch (filterCriteria) {
         case "date_issued":
-            orderColumn = 4; // Index for "Date Issued" column
+            orderColumn = 5; // Index for "Date Issued" column
             break;
         case "booksissuedate":
-            orderColumn = 5; // Index for "Date Due" column
+            orderColumn = 6; // Index for "Date Due" column
             break;
         case "booksreturndate":
-            orderColumn = 6; // Index for "Books Return Date" column
+            orderColumn = 7; // Index for "Books Return Date" column
             break;
         default:
-            orderColumn = 4; // Default to "Date Issued" column
+            orderColumn = 5; // Default to "Date Issued" column
     }
 
     $('#dtBasicExample').DataTable({
