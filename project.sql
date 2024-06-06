@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 07:02 PM
+-- Generation Time: Jun 06, 2024 at 04:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -6263,10 +6263,16 @@ CREATE TABLE `book_module` (
 --
 
 INSERT INTO `book_module` (`accession_number`, `title_proper`, `responsibility`, `preffered_title`, `parallel_title`, `main_creator`, `add_entry_creator`, `contributors`, `add_entry_corporate`, `place_of_publication`, `publisher`, `date_of_publication`, `edition`, `extent_of_text`, `illustrations`, `dimension`, `acc_materials`, `series`, `supp_content`, `ISBN`, `content_type`, `media_type`, `carrier_type`, `URL`, `subject_type`, `subject_info`, `call_number_type`, `call_number_info`, `language`, `library_location`, `electronic_access`, `book_image`, `entered_by`, `updated_by`, `date_entered`, `date_updated`, `quantity`, `available`, `location`, `content_notes`, `abstract`, `review`, `remarks`) VALUES
+('1000', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
 ('111', 'Rizal without the overcoat:', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Ambeth R. Ocampo. ', '1', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Mandaluyong City, Philippines', 'Anvil Publishing ', '2012', '1st edition', 'text', '24 cm', 'xv, 239 pages', '', '', 'Includes bibliographic references', '9789712726736', 'other unspecified', 'unspecified', 'unspecified', 'books-file/1717570201.pdf', 'Tropical', 'Rizal, Jose?, -- 1861-1896 | Nationalists -- Philippines -- Biography | Philippines -- History -- Revolution, 1896-1898', 'BIO', '920 Oc15r 2012 ', 'Filipino', 'College Library', '', 'books-image/1716393523.jpg', 'C', 'C', '2024-05-20', '2024-05-20', '1', '1', 'Filipiniana', 'MANY RIZALS, Rizal: Father of Hitler? Jack the Ripper? 1 Rizal did not write Sa aking mga Kabata 5 Why Rizal is the mational hero 9 Was Rizal an American-sponsored hero? 12 Deflating the historical ego 14 Rizal\'s trip to America 17 Rizal\'s anti-americanism 19 Recto\'s Rizal bill 22 FACTS AND POSSIBILITIES, Is Rizal reallt still alive? 25 Was Rizal psychic 27 The psychic in Rizal 31 The writ that could have cahnged history 33 Rizal\'s new Calamba in Sabah 35 FAMILY AND OTHERS, Discovery in Binan 37 The other Rizal 40 Look for priest in your closet 46 Blumetritt\'s role in the propaganda war 48 The ventura shipment 51 Recuerdo de patay 54 Ho Chi Minh and Rizal 57 EVERYDAY RIZAL Rizal ate tuyo for breakfast 61 In Rizal\'s service 64 Rizal\'s stinginess 67 What Dr. Rizal\'s clinic was like 70 Of smoker\'s street and betel nuts 73 What did Rizal read? 75 The bookworm in Rizal 80 The great Dapitan stocking market 82 Rizal as role model for students 85 THE LEGEND TALENT Rizal and Orwell 87 Rizal on DOmingo de Ramos 90 The Noli could hve been a cookbook 92 Lusty passages from Rizal\'s Noli Me Tangere 94 The house on anloague street 97 The Noli Me Tangere a century after 101 Comparing \'Noli\' translations by computer 104 The matter of reading Rizal\'s novels 107 One hundred years of Fili 109 Rizal\'s third novel 113 Rizal\'s unsigned and untitled poem 117 Overnight poetry 119 Translation of \'Ultimo Adios\' 122 THE NEVER-ENDING STORY, Living with Rizal: an interview with Rizal biographer Austin 125 OTHER VIEWS, Rizal\'s dream 141 Rizal\'s last letter 143 Leave Rizal\'s pieces in peace 146 A sensational theft 148 Comparing heroes 150 Rizal and Mariang Makiling 153 Rizal\'s vital statistics 155 What penmanship of our heroes reveals 158 The artist in Rizal 161 Was Rizal the prime mover of the revolution? 163 Rexto on Rizal 165 AT HOME AND ABROAD, Rizal, father of the Philippine comics 167 Rizal\'s prescription for \"Kulam\" 170 Rizal\'s assets 173 Expensive mistakes 175 Where/how did you learn English? 177 Rizal impersonating a Japanese 180 Fleecing the innocents in Rizal\'s time 183 Rizal\'s letters in English 185 The Pasig Rivers starts to live again 188 Rizal in the British library 190 The oinetrior designer in Rizal 193 Rizal, the teacher and his students 195 Rizal in far-off Dapitan 197 Rizal\'s poetry in Dapitan 199 Seeing beneath Rizal\'s greatness 201 Rizal and children 203 Rizal, the farmer and the businessman 206 Rizal\'s wide-ranging medical practice 208 OUR RIZALS (The 1996 Inquirer Rizal series), Was Rizal a fence-sitter? 211 Did Rizal retract from masonry 214 Was Rizal prophetic or a conscious hero? 218 Did the Katipunan frame Rizal 221 A ', '', '\"This book on Rizal no student could object to being given as assigned reading because it is lively, anecdotal, and human. Rizal Without Overcoat is a collection of journalistic essays on Rizal from Ambeth Ocampo\'s column \"Looking Back\". The title Rizal Withour Overcoat refers literally to the European overcoat in which Rizal is shown in statues and photos, and which Ambeth\'s columns \"take off\" by showing Rizal in his shirtsleeves, in his pambahay, as son, brother, doctor, student, writerm scholar, friend, lover. It refers to the \"countless myths and preconcieved ideas\" that wrap up the image of man and hero.\" - - Foreword', '5'),
 ('222', 'Rizal without the overcoat:', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Ambeth R. Ocampo. ', '1', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Mandaluyong City, Philippines', 'Anvil Publishing ', '2012', '1st edition', 'text', '24 cm', 'xv, 239 pages', '', '', 'Includes bibliographic references', '9789712726736', 'other unspecified', 'unspecified', 'unspecified', 'books-file/1717570201.pdf', 'Tropical', 'Rizal, Jose?, -- 1861-1896 | Nationalists -- Philippines -- Biography | Philippines -- History -- Revolution, 1896-1898', 'BIO', '920 Oc15r 2012 ', 'Filipino', 'College Library', '', 'books-image/1716393523.jpg', 'C', 'C', '2024-05-20', '2024-05-20', '1', '1', 'Filipiniana', 'MANY RIZALS, Rizal: Father of Hitler? Jack the Ripper? 1 Rizal did not write Sa aking mga Kabata 5 Why Rizal is the mational hero 9 Was Rizal an American-sponsored hero? 12 Deflating the historical ego 14 Rizal\'s trip to America 17 Rizal\'s anti-americanism 19 Recto\'s Rizal bill 22 FACTS AND POSSIBILITIES, Is Rizal reallt still alive? 25 Was Rizal psychic 27 The psychic in Rizal 31 The writ that could have cahnged history 33 Rizal\'s new Calamba in Sabah 35 FAMILY AND OTHERS, Discovery in Binan 37 The other Rizal 40 Look for priest in your closet 46 Blumetritt\'s role in the propaganda war 48 The ventura shipment 51 Recuerdo de patay 54 Ho Chi Minh and Rizal 57 EVERYDAY RIZAL Rizal ate tuyo for breakfast 61 In Rizal\'s service 64 Rizal\'s stinginess 67 What Dr. Rizal\'s clinic was like 70 Of smoker\'s street and betel nuts 73 What did Rizal read? 75 The bookworm in Rizal 80 The great Dapitan stocking market 82 Rizal as role model for students 85 THE LEGEND TALENT Rizal and Orwell 87 Rizal on DOmingo de Ramos 90 The Noli could hve been a cookbook 92 Lusty passages from Rizal\'s Noli Me Tangere 94 The house on anloague street 97 The Noli Me Tangere a century after 101 Comparing \'Noli\' translations by computer 104 The matter of reading Rizal\'s novels 107 One hundred years of Fili 109 Rizal\'s third novel 113 Rizal\'s unsigned and untitled poem 117 Overnight poetry 119 Translation of \'Ultimo Adios\' 122 THE NEVER-ENDING STORY, Living with Rizal: an interview with Rizal biographer Austin 125 OTHER VIEWS, Rizal\'s dream 141 Rizal\'s last letter 143 Leave Rizal\'s pieces in peace 146 A sensational theft 148 Comparing heroes 150 Rizal and Mariang Makiling 153 Rizal\'s vital statistics 155 What penmanship of our heroes reveals 158 The artist in Rizal 161 Was Rizal the prime mover of the revolution? 163 Rexto on Rizal 165 AT HOME AND ABROAD, Rizal, father of the Philippine comics 167 Rizal\'s prescription for \"Kulam\" 170 Rizal\'s assets 173 Expensive mistakes 175 Where/how did you learn English? 177 Rizal impersonating a Japanese 180 Fleecing the innocents in Rizal\'s time 183 Rizal\'s letters in English 185 The Pasig Rivers starts to live again 188 Rizal in the British library 190 The oinetrior designer in Rizal 193 Rizal, the teacher and his students 195 Rizal in far-off Dapitan 197 Rizal\'s poetry in Dapitan 199 Seeing beneath Rizal\'s greatness 201 Rizal and children 203 Rizal, the farmer and the businessman 206 Rizal\'s wide-ranging medical practice 208 OUR RIZALS (The 1996 Inquirer Rizal series), Was Rizal a fence-sitter? 211 Did Rizal retract from masonry 214 Was Rizal prophetic or a conscious hero? 218 Did the Katipunan frame Rizal 221 A ', '', '\"This book on Rizal no student could object to being given as assigned reading because it is lively, anecdotal, and human. Rizal Without Overcoat is a collection of journalistic essays on Rizal from Ambeth Ocampo\'s column \"Looking Back\". The title Rizal Withour Overcoat refers literally to the European overcoat in which Rizal is shown in statues and photos, and which Ambeth\'s columns \"take off\" by showing Rizal in his shirtsleeves, in his pambahay, as son, brother, doctor, student, writerm scholar, friend, lover. It refers to the \"countless myths and preconcieved ideas\" that wrap up the image of man and hero.\" - - Foreword', ''),
 ('333', 'Rizal without the overcoat:', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Ambeth R. Ocampo. ', '1', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', 'Mandaluyong City, Philippines', 'Anvil Publishing ', '2012', '1st edition', 'text', '24 cm', 'xv, 239 pages', '', '', 'Includes bibliographic references', '9789712726736', 'other unspecified', 'unspecified', 'unspecified', 'books-file/1717570201.pdf', 'Tropical', 'Rizal, Jose?, -- 1861-1896 | Nationalists -- Philippines -- Biography | Philippines -- History -- Revolution, 1896-1898', 'BIO', '920 Oc15r 2012 ', 'Filipino', 'College Library', '', 'books-image/1716393523.jpg', 'C', 'C', '2024-05-20', '2024-05-20', '1', '1', 'Filipiniana', 'MANY RIZALS, Rizal: Father of Hitler? Jack the Ripper? 1 Rizal did not write Sa aking mga Kabata 5 Why Rizal is the mational hero 9 Was Rizal an American-sponsored hero? 12 Deflating the historical ego 14 Rizal\'s trip to America 17 Rizal\'s anti-americanism 19 Recto\'s Rizal bill 22 FACTS AND POSSIBILITIES, Is Rizal reallt still alive? 25 Was Rizal psychic 27 The psychic in Rizal 31 The writ that could have cahnged history 33 Rizal\'s new Calamba in Sabah 35 FAMILY AND OTHERS, Discovery in Binan 37 The other Rizal 40 Look for priest in your closet 46 Blumetritt\'s role in the propaganda war 48 The ventura shipment 51 Recuerdo de patay 54 Ho Chi Minh and Rizal 57 EVERYDAY RIZAL Rizal ate tuyo for breakfast 61 In Rizal\'s service 64 Rizal\'s stinginess 67 What Dr. Rizal\'s clinic was like 70 Of smoker\'s street and betel nuts 73 What did Rizal read? 75 The bookworm in Rizal 80 The great Dapitan stocking market 82 Rizal as role model for students 85 THE LEGEND TALENT Rizal and Orwell 87 Rizal on DOmingo de Ramos 90 The Noli could hve been a cookbook 92 Lusty passages from Rizal\'s Noli Me Tangere 94 The house on anloague street 97 The Noli Me Tangere a century after 101 Comparing \'Noli\' translations by computer 104 The matter of reading Rizal\'s novels 107 One hundred years of Fili 109 Rizal\'s third novel 113 Rizal\'s unsigned and untitled poem 117 Overnight poetry 119 Translation of \'Ultimo Adios\' 122 THE NEVER-ENDING STORY, Living with Rizal: an interview with Rizal biographer Austin 125 OTHER VIEWS, Rizal\'s dream 141 Rizal\'s last letter 143 Leave Rizal\'s pieces in peace 146 A sensational theft 148 Comparing heroes 150 Rizal and Mariang Makiling 153 Rizal\'s vital statistics 155 What penmanship of our heroes reveals 158 The artist in Rizal 161 Was Rizal the prime mover of the revolution? 163 Rexto on Rizal 165 AT HOME AND ABROAD, Rizal, father of the Philippine comics 167 Rizal\'s prescription for \"Kulam\" 170 Rizal\'s assets 173 Expensive mistakes 175 Where/how did you learn English? 177 Rizal impersonating a Japanese 180 Fleecing the innocents in Rizal\'s time 183 Rizal\'s letters in English 185 The Pasig Rivers starts to live again 188 Rizal in the British library 190 The oinetrior designer in Rizal 193 Rizal, the teacher and his students 195 Rizal in far-off Dapitan 197 Rizal\'s poetry in Dapitan 199 Seeing beneath Rizal\'s greatness 201 Rizal and children 203 Rizal, the farmer and the businessman 206 Rizal\'s wide-ranging medical practice 208 OUR RIZALS (The 1996 Inquirer Rizal series), Was Rizal a fence-sitter? 211 Did Rizal retract from masonry 214 Was Rizal prophetic or a conscious hero? 218 Did the Katipunan frame Rizal 221 A ', '', '\"This book on Rizal no student could object to being given as assigned reading because it is lively, anecdotal, and human. Rizal Without Overcoat is a collection of journalistic essays on Rizal from Ambeth Ocampo\'s column \"Looking Back\". The title Rizal Withour Overcoat refers literally to the European overcoat in which Rizal is shown in statues and photos, and which Ambeth\'s columns \"take off\" by showing Rizal in his shirtsleeves, in his pambahay, as son, brother, doctor, student, writerm scholar, friend, lover. It refers to the \"countless myths and preconcieved ideas\" that wrap up the image of man and hero.\" - - Foreword', ''),
-('555', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '');
+('444', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
+('555', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
+('666', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
+('777', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
+('888', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', ''),
+('999', 'Fundamentals of computing I : logic, problem solving, programs, and computers', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '', '', 'Tucker, Allen B', '', ' Bernat, Andrew P. University of Texas at El Paso | Bradley, W. James. Calvin College | Cupper, Robert D. Allegheny College | Scragg, Greg W', '', 'New York ', 'McGraw-Hill', '1995', 'International edition', '', ' 23 cm', 'xxii, 494 pages', '', '', '', '9780071137133', '', '', 'volume', 'books-file/1717339702.', 'Corporate', 'Computer program -- Logic', '', '', 'English', '', '', 'books-image/1717339702.jpg', 'Cayce', 'Cayce', '2024-06-02', '2024-06-02', '1', '1', 'Special Collection', 'Preface xvii -- Chapter 1 Computing as a human enterprise 1 -- Chapter 2 Computers and problems solving 21 -- Chapter 3 Logic and problem solving 67 -- Chapter 4 Problem breakdown and abstraction 111 -- Chapter 5 Coding and presentation 163 -- Chapter 6 Program robustness and testing 207 -- Chapter 7 Logic and program corrrectness 251 -- Chapter 8 Logic and computers 291 -- Chapter 9 Programs and computers 339 -- Chapter 10 The social context of computing 381 -- Chapter 11 Computing as a discipline 411 -- Appendix A The ASCII character set 437 -- Appendix B C++ syntax summary 439 -- Appendix C The list class 455 -- Appendix D The grid classs 457 -- Appendix E Taxonomy of the computing literature 459 -- Appendix F Answer to selected exercises 465 -- Index', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '\"This text covers problem-solving and programming in computing, integrating the use of logic and proof methods. A lab manual with many examples of C++ syntax and usage is provided. This text is part of a four-volume series of introductory computer science texts, based on the ACM/IEEE curriculum.\" -- Copac', '');
 
 -- --------------------------------------------------------
 
@@ -6907,17 +6913,6 @@ CREATE TABLE `finezone` (
   `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `finezone`
---
-
-INSERT INTO `finezone` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `fine`, `remarks`, `status`, `username`) VALUES
-(391, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '333', '2024-06-02', '2024-06-01', '2024-06-02', '5', '-5 Deduc ', 'no', 'cayce'),
-(392, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'no', 'Cayce'),
-(395, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-03', '2024-06-01', '2024-06-03', '10', '', 'no', 'Cayce'),
-(396, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-06-03', '2024-06-01', '2024-06-03', '10', '', 'no', 'cayce'),
-(397, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-04', '2024-06-01', '2024-06-04', '15', '', 'no', 'cayce');
-
 -- --------------------------------------------------------
 
 --
@@ -6956,8 +6951,28 @@ INSERT INTO `finezone_archive` (`id`, `first_name`, `last_name`, `middle_name`, 
 (388, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', 'cayce'),
 (389, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', 'cayce'),
 (390, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', 'cayce'),
+(391, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '333', '2024-06-02', '2024-06-01', '2024-06-02', '5', '-5 Deduc ', 'yes', 'cayce'),
+(392, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', 'Cayce'),
 (393, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', 'Cayce'),
-(394, 'Vincent', 'Dais', '', '123456', 'teacher', 'nbsfaculty@gmail.com', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', '');
+(394, 'Vincent', 'Dais', '', '123456', 'teacher', 'nbsfaculty@gmail.com', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', '5', '', 'yes', ''),
+(395, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-03', '2024-06-01', '2024-06-03', '10', '', 'yes', 'Cayce'),
+(396, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-06-03', '2024-06-01', '2024-06-03', '10', '', 'yes', 'cayce'),
+(397, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-04', '2024-06-01', '2024-06-04', '15', '', 'yes', 'cayce'),
+(398, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(399, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(400, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'cAYCE'),
+(401, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(402, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(403, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-01', '2024-06-06', '25', 'n/a', 'yes', 'Cayce'),
+(404, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(405, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(406, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(407, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(408, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(409, 'Cayce Evangelista', 'Evangelista', '', '1234567', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(410, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(411, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce'),
+(412, 'Cayce Evangelista', 'Evangelista', '', '1234567', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '25', '', 'yes', 'Cayce');
 
 -- --------------------------------------------------------
 
@@ -7058,7 +7073,47 @@ INSERT INTO `issue_book_archive` (`id`, `utype`, `student_number`, `name`, `last
 (249, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-05', 'cayce'),
 (250, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-05', '2024-06-05', 'cayce'),
 (251, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-05', '2024-06-05', 'cayce'),
-(252, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-05', 'cayce');
+(252, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-05', 'cayce'),
+(260, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'cayce'),
+(261, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-06', 'cayce'),
+(262, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-06', 'cayce'),
+(263, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-06', 'cayce'),
+(264, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-06', 'cayce'),
+(265, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '666', '2024-06-06', '2024-06-06', 'cayce'),
+(266, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '777', '2024-06-06', '2024-06-06', 'cayce'),
+(267, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '888', '2024-06-06', '2024-06-06', 'cayce'),
+(268, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '999', '2024-06-06', '2024-06-06', 'cayce'),
+(269, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '1000', '2024-06-06', '2024-06-06', 'CAYCE'),
+(270, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'cayce'),
+(271, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-06', 'cayce'),
+(272, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-06', 'cayce'),
+(273, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-06', 'cayce'),
+(274, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-06', 'cayce'),
+(275, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'cayce'),
+(276, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(277, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(278, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(279, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'cAYCE'),
+(280, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(281, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(282, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-06', 'Cayce'),
+(283, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-06', 'Cayce'),
+(284, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-06', 'Cayce'),
+(285, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-06', 'Cayce'),
+(286, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(287, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-06', 'Cayce'),
+(288, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-06', 'Cayce'),
+(289, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-06', 'Cayce'),
+(290, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-06', 'Cayce'),
+(291, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(292, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(293, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(294, 'teacher', '123456', 'Vincent Dais', 'Dais', '', '', '', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-06', 'Cayce'),
+(295, 'teacher', '1234567', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(296, 'teacher', '1234567', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(297, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(298, 'student', '2100028', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce'),
+(299, 'teacher', '1234567', 'Cayce Evangelista', 'Evangelista', '', '', '', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-06', 'Cayce');
 
 -- --------------------------------------------------------
 
@@ -7083,7 +7138,7 @@ CREATE TABLE `lib_registration` (
 --
 
 INSERT INTO `lib_registration` (`id`, `name`, `username`, `password`, `email`, `phone`, `address`, `photo`, `status`) VALUES
-(1, 'NBS Library Admin', 'admin', 'admin', 'cevangelista2021@student.nbscollege.edu.ph', '0993-959-3012', 'Quezon City, PH', 'upload/1716131011.jpeg', '');
+(1, 'NBSC Library Admin', 'admin', 'admin', 'cevangelista2021@student.nbscollege.edu.ph', '0993-959-3012', 'Quezon City, PH', 'upload/1717663590.jpeg', '');
 
 -- --------------------------------------------------------
 
@@ -7155,6 +7210,14 @@ CREATE TABLE `return_books` (
   `issuedby` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `return_books`
+--
+
+INSERT INTO `return_books` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `issuedby`) VALUES
+(110, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(111, 'Cayce Evangelista', 'Evangelista', '', '1234567', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', '');
+
 -- --------------------------------------------------------
 
 --
@@ -7195,7 +7258,76 @@ INSERT INTO `return_books_archive` (`id`, `first_name`, `last_name`, `middle_nam
 (11, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-12', '2024-06-05', 'cayce'),
 (12, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-05', '2024-06-12', '2024-06-05', 'cayce'),
 (13, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-05', '2024-06-12', '2024-06-05', 'cayce'),
-(14, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-12', '2024-06-05', 'cayce');
+(14, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-05', '2024-06-12', '2024-06-05', 'cayce'),
+(15, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-03', '2024-06-01', '2024-06-03', ''),
+(16, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '333', '2024-06-02', '2024-06-01', '2024-06-02', ''),
+(17, 'Jerald Ysaac', 'Ysaac', '', '200026', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-02', '2024-06-01', '2024-06-02', ''),
+(18, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '222', '2024-06-03', '2024-06-01', '2024-06-03', ''),
+(19, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat: in commemoration of Jose Rizal\'s 150th Birt Anniversary : In commemoration of Jose Rizal\'s 150th Birt Anniversary / Ambeth R. Ocampo. ', '111', '2024-06-04', '2024-06-01', '2024-06-04', ''),
+(20, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(21, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(22, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(23, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(24, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(25, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '666', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(26, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '777', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(27, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '888', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(28, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '999', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(29, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '1000', '2024-06-06', '2024-06-13', '2024-06-06', 'CAYCE'),
+(30, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(31, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(32, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(33, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(34, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(35, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'cayce'),
+(36, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(37, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(38, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(39, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(40, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(41, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(42, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(43, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(44, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(45, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(46, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '555', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(47, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(48, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '333', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(49, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Fundamentals of computing I : logic, problem solving, programs, and computers', '444', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(50, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(51, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(52, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '222', '2024-06-06', '2024-06-01', '2024-06-06', ''),
+(53, 'Cayce Evangelista', 'Evangelista', '', '1234567', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `return_history`
+--
+
+CREATE TABLE `return_history` (
+  `id` int(10) NOT NULL,
+  `first_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `middle_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `student_number` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `utype` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksname` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `accession_number` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `date_issued` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksissuedate` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `booksreturndate` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `issuedby` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `return_history`
+--
+
+INSERT INTO `return_history` (`id`, `first_name`, `last_name`, `middle_name`, `student_number`, `utype`, `email`, `booksname`, `accession_number`, `date_issued`, `booksissuedate`, `booksreturndate`, `issuedby`) VALUES
+(9, 'Vincent Dais', 'Dais', '', '123456', 'teacher', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-13', '2024-06-06', 'Cayce'),
+(15, 'Cayce Evangelista', 'Evangelista', '', '2100028', 'student', '', 'Rizal without the overcoat:', '111', '2024-06-06', '2024-06-01', '2024-06-06', 'Cayce');
 
 -- --------------------------------------------------------
 
@@ -7243,7 +7375,7 @@ CREATE TABLE `student` (
   `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `middle_name` varchar(50) NOT NULL,
   `email` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `course` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `course` varchar(250) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `year` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `semester` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `password` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -7259,13 +7391,12 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_number`, `first_name`, `last_name`, `middle_name`, `email`, `course`, `year`, `semester`, `password`, `user_type`, `photo`, `status`, `vkey`, `verified`) VALUES
-('200026', 'Jerald', 'Ysaac', '', 'jysaac2020@student.nbscollege.edu.ph', 'BSCS', '4th year', '7th', '2100026', 'student', 'upload/avatar.jpg', 'yes', '4cab6bec1046d36ddfe9d1ac4b090f14', 'yes'),
-('210000', '210000', '210000', '210000', '210000@gmail.com', 'BSAIS', '3rd', '', '210000', 'student', 'upload/avatar.jpg', 'no', 'af10b91892fcd500d0ea6ba1a2252470', 'no'),
-('2100027', 'Jenepir ', 'Jabillo', '', 'jjabillo2021@student.nbscollege.edu.ph', 'BSCS', '3rd', '', '2100027', 'student', '', 'yes', '', 'yes'),
-('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'BSCS', '3rd', '6th', '2100028', 'student', 'upload/1717606262.jpg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
-('2100029', 'Carlos Miguel', 'Autor', '', 'cautor2021@student.nbscollege.edu.ph', 'BSCS', '3rd year', '6th', '2100029', 'student', 'upload/avatar.jpg', 'yes', '54cc08c808f67f918d4774da317a4c09', 'yes'),
-('210030', 'Lynlen ', 'Singco ', '', 'lsingco@student.nbscollege.edu.ph', 'BSCS', '3rd year', '', '210030', 'student', 'upload/avatar.jpg', 'yes', '63b1856e610e0fdfdb159b18f7b146ef', 'yes'),
-('210033', 'Atasha Nicole ', 'Macabale', '', 'atashanicole@gmail.com', 'BSAIS', '2nd year', '', '210033', 'student', 'upload/avatar.jpg', 'no', '2622bd32d8e878eb8c1055e47e6e61ed', 'no');
+('200026', 'Jerald', 'Ysaac', '', 'jysaac2020@student.nbscollege.edu.ph', 'Bachelor of Science in Computer Science', '4th year', '7th', '200026', 'student', 'upload/1717666438.jpeg', 'yes', '4cab6bec1046d36ddfe9d1ac4b090f14', 'yes'),
+('2100027', 'Jenepir ', 'Jabillo', '', 'jjabillo2021@student.nbscollege.edu.ph', 'Bachelor of Science in Computer Science', '3rd year', '', '2100027', 'student', '', 'yes', '', 'yes'),
+('2100028', 'Cayce', 'Evangelista', 'Cadangan', 'cevangelista2021@student.nbscollege.edu.ph', 'Bachelor of Science in Computer Science', '3rd year', '6th', '2100028', 'student', 'upload/1717652162.jpeg', 'yes', '440044405e6a970387cc975b556c55e1', 'yes'),
+('2100029', 'Carlos Miguel', 'Autor', '', 'cautor2021@student.nbscollege.edu.ph', 'Bachelor of Science in Computer Science', '3rd year', '6th', '2100029', 'student', 'upload/avatar.jpg', 'yes', '54cc08c808f67f918d4774da317a4c09', 'yes'),
+('210030', 'Lynlen ', 'Singco ', '', 'lsingco@student.nbscollege.edu.ph', 'Bachelor of Science in Computer Science', '3rd year', '', '210030', 'student', 'upload/avatar.jpg', 'yes', '63b1856e610e0fdfdb159b18f7b146ef', 'yes'),
+('210033', 'Atasha Nicole ', 'Macabale', '', 'atashanicole@gmail.com', 'Bachelor of Science in Computer Science', '2nd year', '', '210033', 'student', 'upload/avatar.jpg', 'yes', '2622bd32d8e878eb8c1055e47e6e61ed', 'yes');
 
 -- --------------------------------------------------------
 
@@ -7279,9 +7410,9 @@ CREATE TABLE `student_archive` (
   `last_name` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `middle_name` varchar(50) DEFAULT NULL,
   `email` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `course` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `course` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `year` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `semester` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `semester` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `password` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `user_type` varchar(7) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `photo` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
@@ -7316,7 +7447,6 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`id_number`, `first_name`, `last_name`, `middle_name`, `email`, `dept`, `password`, `user_type`, `photo`, `status`, `vkey`, `verified`) VALUES
-('123456', 'Vincent', 'Dais', '123', 'nbsfaculty@gmail.com', 'BSCS', '123456', 'teacher', 'upload/1717348571.jpeg', 'yes', '', 'yes'),
 ('1234567', 'Cayce', 'Evangelista', 'Cadangan', 'markiplier2122@gmail.com', 'BSCS', '1234567', 'teacher', 'upload/avatar.jpg', 'yes', 'c7aafaccb08a8149c4ed86fe2165b76b', 'yes');
 
 -- --------------------------------------------------------
@@ -7586,6 +7716,12 @@ ALTER TABLE `return_books_archive`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `return_history`
+--
+ALTER TABLE `return_history`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `std_registration`
 --
 ALTER TABLE `std_registration`
@@ -7653,25 +7789,25 @@ ALTER TABLE `add_book`
 -- AUTO_INCREMENT for table `finezone`
 --
 ALTER TABLE `finezone`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=398;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
 
 --
 -- AUTO_INCREMENT for table `finezone_archive`
 --
 ALTER TABLE `finezone_archive`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=413;
 
 --
 -- AUTO_INCREMENT for table `issue_book`
 --
 ALTER TABLE `issue_book`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
 
 --
 -- AUTO_INCREMENT for table `issue_book_archive`
 --
 ALTER TABLE `issue_book_archive`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=300;
 
 --
 -- AUTO_INCREMENT for table `lib_registration`
@@ -7695,13 +7831,19 @@ ALTER TABLE `request_books`
 -- AUTO_INCREMENT for table `return_books`
 --
 ALTER TABLE `return_books`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `return_books_archive`
 --
 ALTER TABLE `return_books_archive`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `return_history`
+--
+ALTER TABLE `return_history`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `std_registration`
