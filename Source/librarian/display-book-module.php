@@ -73,7 +73,7 @@
                                     <th class="col">Remarks</th>
                                     <th class="col">View</th>
                                     <th class="col">Edit</th>
-                                    <th class="col">Delete</th>
+                                    <th class="col">Archive</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,8 +115,8 @@
                                     echo "</td>";   echo "</td>";
                                     echo "<td>";
                                     ?>
-                                    <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a>
-                                    <?php
+                                     <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a>
+                                     <?php
                                     echo "</td>";
                                                 
                                     
@@ -168,61 +168,62 @@
 
 
     <script>
-        $(document).ready(function () {
-            
-            $('#dtBasicExample').DataTable({
-                dom: '<html5buttons"B>1Tfgitp',
-                buttons:['copy','csv','excel','pdf', 'print'],
-                "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
-            }); 
+      $(document).ready(function () {
+    // Set up event delegation before initializing DataTables
+    $('body').on('click', '.editRemarksLink', function (e) {
+        e.preventDefault();
+        var remarksText = $(this).data('remarks');
+        var remarksId = $(this).data('accession_number');
+        $('#remarksText').val(remarksText);
+        $('#remarksId').val(remarksId);
+        $('#editRemarksModal').modal('show');
+    });
 
-            $('.editRemarksLink').click(function (e) {
-            e.preventDefault();
-            var remarksText = $(this).data('remarks');
-            var remarksId = $(this).data('accession_number');
-            $('#remarksText').val(remarksText);
-            $('#remarksId').val(remarksId);
-            $('#editRemarksModal').modal('show');
-        });
+    // Initialize DataTables after setting up event delegation
+    $('#dtBasicExample').DataTable({
+        dom: '<html5buttons"B>1Tfgitp',
+        buttons:['copy','csv','excel','pdf', 'print'],
+        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+    });
 
-        $('#saveRemarksBtn').click(function () {
-            var remarksText = $('#remarksText').val();
+    $('#saveRemarksBtn').click(function () {
+        var remarksText = $('#remarksText').val();
 
-            // Validate input
-            if (!isValidRemarksText(remarksText)) {
-                $('#remarksTextError').text("Invalid input. Please enter valid text.");
-                return;
-            }
-
-            // If input is valid, proceed with saving changes
-            var remarksId = $('#remarksId').val();
-            window.location = 'update-remarks-book-module.php?accession_number=' + remarksId + '&remarks=' + encodeURIComponent(remarksText);
-        });
-
-        // Function to validate remarks input
-        function isValidRemarksText(text) {
-            return text.trim().length > 0;
+        // Validate input
+        if (!isValidRemarksText(remarksText)) {
+            $('#remarksTextError').text("Invalid input. Please enter valid text.");
+            return;
         }
 
-        $('#dismissRemarksModalBtn').click(function () {
-            $('#editRemarksModal').modal('hide');
-        });
+        // If input is valid, proceed with saving changes
+        var remarksId = $('#remarksId').val();
+        window.location = 'update-remarks-book-module.php?accession_number=' + remarksId + '&remarks=' + encodeURIComponent(remarksText);
+    });
 
-        // Handle pressing Enter key
-        $('#remarksText').keydown(function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                $('#saveRemarksBtn').click(); // Trigger save button click event
-            }
-        });
+    // Function to validate remarks input
+    function isValidRemarksText(text) {
+        return text.trim().length > 0;
+    }
 
-        // Handle pressing Esc key
-        $(document).keydown(function(event) {
-            if (event.keyCode === 27) {
-                $('#editRemarksModal').modal('hide'); // Hide the modal
-            }
-        });
-        });
+    $('#dismissRemarksModalBtn').click(function () {
+        $('#editRemarksModal').modal('hide');
+    });
+
+    // Handle pressing Enter key
+    $('#remarksText').keydown(function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            $('#saveRemarksBtn').click(); // Trigger save button click event
+        }
+    });
+
+    // Handle pressing Esc key
+    $(document).keydown(function(event) {
+        if (event.keyCode === 27) {
+            $('#editRemarksModal').modal('hide'); // Hide the modal
+        }
+    });
+});
     </script>	
 
 <?php 

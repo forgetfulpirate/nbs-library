@@ -16,84 +16,72 @@
 }
 </style>
 <?php
-
+// Check if search term and keyword are provided
 // Check if search term and keyword are provided
 $search = isset($_GET['search']) ? mysqli_real_escape_string($link, $_GET['search']) : '';
 $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : 'all';
 $searchQuerySubmitted = !empty($search);
+
 // Calculate pagination
-
 if ($searchQuerySubmitted) {
-$entriesPerPage = 5;
-$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-$offset = ($currentPage - 1) * $entriesPerPage;
-   // Check if search query is submitted
+    $entriesPerPage = 5;
+    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $offset = ($currentPage - 1) * $entriesPerPage;
 
-// Prepare SQL query to fetch books with optional search filter and limit
-$sqlCount = "SELECT COUNT(*) as count FROM book_module";
-if (!empty($search)) {
-    $search = mysqli_real_escape_string($link, $search); // Escape the search input
-    $sqlCount .= " WHERE";
-    switch ($keyword) {
-        case 'title':
-            $sqlCount .= " title_proper LIKE '%$search%'";
-            break;
-        // case 'accession':
-        //     $sqlCount .= " accession_number LIKE '%$search%'";
-        //     break;
-        case 'author':
-            $sqlCount .= " main_creator LIKE '%$search%'";
-            break;
-        case 'call_number':
-            $sqlCount .= " call_number_info LIKE '%$search%'";
-            break;
-        case 'isbn':
-            $sqlCount .= " ISBN LIKE '%$search%'";
-            break;
-        default:
-            $sqlCount .= " title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
-            break;
+    // Prepare SQL query to fetch books with optional search filter and limit
+    $sqlCount = "SELECT COUNT(*) as count FROM book_module";
+    $sql = "SELECT * FROM book_module";
+    $searchConditions = []; // Array to hold individual search conditions
+
+    if (!empty($search)) {
+        $searchTerms = explode(" ", $search); // Split the search string into an array of terms
+
+        foreach ($searchTerms as $term) {
+            $term = mysqli_real_escape_string($link, $term); // Escape the search term
+            switch ($keyword) {
+                case 'title':
+                    $searchConditions[] = "title_proper LIKE '%$term%'";
+                    break;
+                case 'author':
+                    $searchConditions[] = "main_creator LIKE '%$term%'";
+                    break;
+                case 'call_number':
+                    $searchConditions[] = "call_number_info LIKE '%$term%'";
+                    break;
+                case 'isbn':
+                    $searchConditions[] = "ISBN LIKE '%$term%'";
+                    break;
+                default:
+                    $searchConditions[] = "(title_proper LIKE '%$term%' OR main_creator LIKE '%$term%' OR call_number_info LIKE '%$term%' OR ISBN LIKE '%$term%')";
+                    break;
+            }
+        }
     }
-}
-$resultCount = mysqli_query($link, $sqlCount);
-$rowCount = mysqli_fetch_assoc($resultCount);
-$totalBooks = $rowCount['count'];
 
-// Calculate total pages
-$totalPages = ceil($totalBooks / $entriesPerPage);
+    // Join search conditions using AND operator
+    $searchConditionString = implode(" AND ", $searchConditions);
 
-// Update SQL query to include pagination
-$sql = "SELECT * FROM book_module";
-if (!empty($search)) {
-    $sql .= " WHERE";
-    switch ($keyword) {
-        case 'title':
-            $sql .= " title_proper LIKE '%$search%'";
-            break;
-        // case 'accession':
-        //     $sql .= " accession_number LIKE '%$search%'";
-        //     break;
-        case 'author':
-            $sql .= " main_creator LIKE '%$search%'";
-            break;
-        case 'call_number':
-            $sql .= " call_number_info LIKE '%$search%'";
-            break;
-        case 'isbn':
-            $sql .= " ISBN LIKE '%$search%'";
-            break;
-        default:
-            $sql .= " title_proper LIKE '%$search%' OR main_creator LIKE '%$search%' OR call_number_info LIKE '%$search%' OR ISBN LIKE '%$search%'";
-            break;
+    if (!empty($searchConditionString)) {
+        $sqlCount .= " WHERE $searchConditionString";
+        $sql .= " WHERE $searchConditionString";
     }
-}
-$sql .= " LIMIT $entriesPerPage OFFSET $offset";
 
-// Execute the query
-$res = mysqli_query($link, $sql);
-}
+    // Calculate total books
+    $resultCount = mysqli_query($link, $sqlCount);
+    $rowCount = mysqli_fetch_assoc($resultCount);
+    $totalBooks = $rowCount['count'];
 
+    // Calculate total pages
+    $totalPages = ceil($totalBooks / $entriesPerPage);
+
+    // Update SQL query to include pagination
+    $sql .= " LIMIT $entriesPerPage OFFSET $offset";
+
+    // Execute the query
+    $res = mysqli_query($link, $sql);
+}
 ?>
+
 
 <main class="content px-3 py-2">  
     <div class="gap-30"></div>
@@ -200,25 +188,42 @@ $res = mysqli_query($link, $sql);
    
     <div class="row mt-3">
     <?php
+
+    $searchTerm = htmlspecialchars($search);
         // Display books
-        while ($row = mysqli_fetch_array($res)) {
-            // Determine availability message
-            $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
-            $highlightedTitle = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["title_proper"]);
-            $highlightedCall_Number = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["call_number_info"]);
-            $highlightedMain_Creator = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["main_creator"]);
-            $highlightedISBN = preg_replace("/\b$search\b/i", "<span class='highlight'>$0</span>", $row["ISBN"]);
-                
+    // Display books
+while ($row = mysqli_fetch_array($res)) {
+    // Determine availability message
+    $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
+
+    // Initialize highlighted fields
+    $highlightedTitle = $row["title_proper"];
+    $highlightedCall_Number = $row["call_number_info"];
+    $highlightedMain_Creator = $row["main_creator"];
+    $highlightedISBN = $row["ISBN"];
+
+    // Loop through each search term and highlight them individually
+   // Loop through each search term and highlight them individually
+// Loop through each search term and highlight them individually
+foreach ($searchTerms as $term) {
+    $highlightedTitle = str_ireplace($term, "<span class='highlight'>$term</span>", $highlightedTitle);
+    $highlightedCall_Number = str_ireplace($term, "<span class='highlight'>$term</span>", $highlightedCall_Number);
+    $highlightedMain_Creator = str_ireplace($term, "<span class='highlight'>$term</span>", $highlightedMain_Creator);
+    $highlightedISBN = str_ireplace($term, "<span class='highlight'>$term</span>", $highlightedISBN);
+}
+
+
+    // Output the book information with highlighted search terms
     ?>
-    <div class="col-md-12 mb-3 d-flex flex-wrap"> <!-- Added d-flex flex-wrap -->
-        <div class="card d-flex flex-row w-100"> <!-- Added w-100 to ensure the card takes full width -->
+    <div class="col-md-12 mb-3 d-flex flex-wrap">
+        <div class="card d-flex flex-row w-100">
             <div class="card-body">
-            <a href="display-book-info.php?accession_number=<?php echo $row["accession_number"];?> "><h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3></a>
-                
+                <a href="display-book-info.php?accession_number=<?php echo $row["accession_number"];?> ">
+                    <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3>
+                </a>
                 <br>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $highlightedMain_Creator  ?></span></p>
-                <!-- <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">Accession Number: <span style="color:#707070"><?php echo $row["accession_number"]; ?></span></p> -->
-                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:"><?php echo $row["publisher"]; ?></span></p>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $highlightedISBN;?></p>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $highlightedCall_Number?></p>
@@ -227,9 +232,7 @@ $res = mysqli_query($link, $sql);
             <img src="../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:150px; width:100px;">
         </div>
     </div>
-    <?php
-        }
-    ?>
+<?php } ?>
 </div>
 
 <!-- Pagination -->
