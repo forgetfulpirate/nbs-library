@@ -14,15 +14,6 @@
     text-decoration: underline;
 
 }
-<style>
-    .highlight {
-        background-color: yellow;
-        font-weight: bold;
-    }  
-    #ul #li a:hover {
-    text-decoration: underline;
-
-}
 </style>
 <?php
 // Check if search term and keyword are provided
