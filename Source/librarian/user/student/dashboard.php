@@ -236,7 +236,9 @@ $res = mysqli_query($link, $sql);
 </div>
 <?php } ?>
 </main>
-
+<?php 
+		include 'inc/footer.php';
+	 ?>
 
 
 <script>

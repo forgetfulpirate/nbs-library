@@ -199,7 +199,8 @@ $not= mysqli_num_rows($res);
 										  ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" alt="" height="50px" width="50px" ><span><?php echo $_SESSION["student"]; ?></span></a> <?php
 									  }
 									  while ($row = mysqli_fetch_array($res1)){
-										 ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" ><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" img-ro alt=""><span><?php echo $row["first_name"]; ?></span></a> <?php
+										 ?><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" style="color:inherit; font-weight:bold;"><img src="<?php echo $row["photo"]; ?>" height="50px" width="50px" alt=""><span style="margin-left:10px; color:inherit;"><?php echo $row["first_name"]; ?></span></a>
+                                         <?php
 									 }
                                 ?>
 								
