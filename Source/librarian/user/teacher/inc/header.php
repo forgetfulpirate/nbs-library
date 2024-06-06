@@ -16,7 +16,6 @@
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-
 <head>
     <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
 	<meta charset="UTF-8">
@@ -44,7 +43,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
             
-                        <span>
+                    <span>
                         <?php
         
 						  $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
@@ -68,19 +67,12 @@
 			   		?>
                             
             			</h6>
-                        
+                        <br><br>
                         </span>
+                        
 
-                        <h6 style="float:inline-end; margin-top: 1px; font-weight:bolder;">
-						
-						<?php
-					
-					    $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
-					    while ($row = mysqli_fetch_array($res)){
-						?><?php echo $row["name"]; ?><?php
-					}
-			   ?>
-
+                        <h6 style="float:inline-end; margin-top: 1px; font-weight:normal;">
+				
 
 			   		<?php
 		   
@@ -92,11 +84,7 @@
 			   		?>
                             
             			</h6>
-        
-					
-                    </li>
-                    <br>
-					<br>
+                        
 					<br>
                     <li class="sidebar-header">
                         Admin Elements

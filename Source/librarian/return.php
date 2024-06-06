@@ -42,11 +42,12 @@ $booksname = mysqli_real_escape_string($link, $booksname);
 if ($fine > 0) {
     mysqli_query($link, "insert into finezone values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname','$accession_number','$booksissuedate','$brdate','$a','$fine', '','no','$issuedby')");
     echo '<script type="text/javascript">  
-        alert("The user returned the book overdue. Fine: $'.$fine.'");
+        alert("The user returned the book with overdue. Overdue: $'.$fine.'");
         window.location="issued-books.php";
       </script>';
 } else {
     mysqli_query($link, "insert into return_books values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a', '$issuedby')");
+    mysqli_query($link, "insert into return_history values('','$name','$last_name','$middle_name','$student_number','$utype','$email','$booksname', '$accession_number','$booksissuedate','$brdate','$a', '$issuedby')");
     echo '<script type="text/javascript">  
         alert("Book returned successfully");
         window.location="issued-books.php";

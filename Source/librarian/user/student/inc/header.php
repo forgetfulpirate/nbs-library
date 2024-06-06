@@ -133,6 +133,13 @@ $not= mysqli_num_rows($res);
                             My Overdue
                         </a>
                     </li>
+
+                    <li class="sidebar-item <?php if($page=='return-book'){ echo 'active';} ?>">
+                        <a href="return-history.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+                            Borrowed Book History
+                        </a>
+                    </li>
                 
     
 
