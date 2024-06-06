@@ -31,7 +31,7 @@ include 'inc/function.php';
          
 
          <form action="" method="post" class="login__form">
-            <h1 class="login__title">Admin Login</h1>
+            <h1 class="login__title">Student Registration</h1>
             <?php if($error_m): ?>
                 <p class="error"><?php echo $error_m; ?></p>
             <?php endif; ?>
