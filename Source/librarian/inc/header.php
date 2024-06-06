@@ -87,7 +87,7 @@
 					<li class="sidebar-item <?php if($page=='tinfo'){ echo 'active';} ?>">
                         <a href="all-teacher-info.php" class="sidebar-link">
                             <i class="fa-solid fa-users pe-2"></i>
-                            All teacher information
+                            All Faculty information
                         </a>
                     </li>
 
