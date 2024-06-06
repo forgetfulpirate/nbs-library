@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
@@ -80,26 +82,25 @@ if(isset($_GET['id_number'])) {
             // Send email
             if(sendPasswordEmail($email, $new_password)) {
                 // Password reset successfully, redirect with alert
-                echo '<script>alert("Password reset successfully!");';
-                echo 'window.location.href = "all-teacher-info.php";</script>';
+                $_SESSION['success_msg'] = "Password reset successfully!";
             } else {
                 // Error sending email
-                echo '<script>alert("Error sending email. Please try again later.");';
-                echo 'window.location.href = "all-teacher-info.php";</script>';
+                $_SESSION['error_msg'] = "Error sending email. Please try again later.";
             }
         } else {
             // Error updating password
-            echo '<script>alert("Error updating password. Please try again later.");';
-            echo 'window.location.href = "all-teacher-info.php";</script>';
+            $_SESSION['error_msg'] = "Error updating password. Please try again later.";
         }
     } else {
         // Teacher ID not found
-        echo '<script>alert("Error: ID number not found.");';
-        echo 'window.location.href = "all-teacher-info.php";</script>';
+        $_SESSION['error_msg'] = "Error: ID number not found.";
     }
 } else {
     // Teacher ID not provided
-    echo '<script>alert("Error: ID number not provided.");';
-    echo 'window.location.href = "all-teacher-info.php";</script>';
+    // Student number not provided, set error message
+    $_SESSION['error_msg'] = "Error: ID number not provided.";
 }
+
+// Redirect to all-student-info.php
+header("Location: all-teacher-info.php");
 ?>

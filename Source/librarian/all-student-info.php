@@ -179,7 +179,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to Archive Student "<span id="userNameToDelete"></span>"?
+                            Are you sure you want to Archive Student "<span id="userNameToDelete" style="color:#d52033"></span>"?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -198,7 +198,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to reset the password for "<span id="userNameToReset"></span>"?
+                Are you sure you want to reset the password for "<span id="userNameToReset" style="color:#d52033"></span>"?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -284,7 +284,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">
                                 Close
                             </button>
-                                <button type="submit" class="btn btn-success" name="submit">Add Student</button>
+                                <button type="submit" class="btn btn-danger" name="submit">Add Student</button>
                             </div>
                           
                         </form>

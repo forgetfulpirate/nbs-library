@@ -25,41 +25,35 @@
 <body>
 
 
-	
+<main class="content px-3 py-2">  
 	<div class="contactinfo">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="left">
-						<h3>Send Us a Message</h3>
-						<form action="">
-							<input type="text" placeholder="Your Name">
-							<input type="email" placeholder="Your E-mail">
-							<input type="digit" placeholder="Phone Number">
-							<textarea placeholder="Your Message" id="" cols="60" rows="5"></textarea>
-							<input type="submit" value="SEND A MESSAGE">
-						</form>
+					<div class="map-responsive mapw">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2928459266955!2d121.02825447588229!3d14.639310876126238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b6537dae97f7%3A0xa0caa46ccf11e301!2sNBS%20College%20-%20NBS%20Commercial%20Complex!5e0!3m2!1sen!2sus!4v1710944460834!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="right">
-						<h3>Contact Info</h3>
+						<h3 style="color:#d52033">Contact Info</h3>
 						<p>NBS College, established in 2017 in honor of the beloved National Book Store founder, Socorro Ramos, is a Philippine school of choice of aspiring leaders.</p>
 
 						<div class="box">
-							<p><i class="fas fa-home"></i><span> 3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila</span></p>
+							<p><i class="fas fa-home"></i><span>3rd & 4th floors, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon, Kalakhang Maynila, Philippines</span></p>
 							<p><i class="far fa-envelope"></i><span> info@nbscollege.edu.ph </span></p>
-							<p><i class="fas fa-phone"></i><span> (63+)993-959-3012</span></p>
-							<p>(63+)993-543-1566</p>
+							<p><i class="fas fa-phone"></i><span>(02) 8376-5090</span></p>
+							<p><span></span></p>
+	
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="map-responsive mapw">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.2928459266955!2d121.02825447588229!3d14.639310876126238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b6537dae97f7%3A0xa0caa46ccf11e301!2sNBS%20College%20-%20NBS%20Commercial%20Complex!5e0!3m2!1sen!2sus!4v1710944460834!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	</div>
+</main>
     
 	<footer style="text-align: center;">
     <div style="display: flex; align-items: center; justify-content: center;">
