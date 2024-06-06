@@ -10,6 +10,30 @@ if (!isset($_SESSION["username"])) {
 include 'inc/header.php';
 include 'inc/connection.php';
 
+  // Check if both start_date and end_date are set
+  if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
+    // Sanitize the input to prevent SQL injection
+    $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
+    $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
+
+    // Get the selected filtering criteria
+    $filter_criteria = $_POST['filter_criteria'];
+
+    // Construct the SQL query
+    $query = "SELECT * FROM finezone WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
+
+    // Set the filename based on the date range
+    $filename = "overdue-return($start_date - $end_date)";    
+} else {
+    // If start_date and end_date are not set, fetch all records
+    $query = "SELECT * FROM finezone ORDER BY date_issued ASC"; // Default ordering by date_issued
+    $filename = "overdue-return(all)";
+}
+
+$res = mysqli_query($link, $query);
+
+// Check if there are any results
+$num_rows = mysqli_num_rows($res);
 ?>
 
 <main class="content px-3 py-2">
@@ -23,42 +47,104 @@ include 'inc/connection.php';
     </div>
 
 
-
-
-
-        <!-- Generate Receipt Form -->
-        <div class="col-lg-12 col-12"> <!-- Full width on mobile, half width on large screens -->
-            <form action="fine-receipt.php" method="post" id="receiptForm" target="_blank" onsubmit="return validateForm()">
-                <div class="row text-center text-lg-end align-items-center justify-content-center justify-content-lg-end"> <!-- Center on mobile, right align on large screens -->
-                    <div class="col-auto p-2">
-                        <label for="student_number" class="col-form-label" style="font-size:medium;">Enter ID Number:</label>
+    <div class="container">
+        <div class="row">
+            <!-- Filter Date Form -->
+            <div class="col-lg-12 mb-1"> <!-- Full width on mobile, full width on large screens -->
+                                <!-- Generate Receipt Form -->
+                    <div class="col-lg-12 mb-4 text-lg-right"> <!-- Full width on mobile, full width on large screens -->
+                        <form action="fine-receipt.php" method="post" id="receiptForm" target="_blank" onsubmit="return validateForm()">
+                            <div class="row text-center text-lg-end align-items-center justify-content-center justify-content-lg-end"> <!-- Center on mobile, right align on large screens -->
+                                <div class="col-auto p-2">
+                                    <label for="student_number" class="col-form-label" style="font-size:medium;">Enter ID Number:</label>
+                                </div>
+                                <div class="col-auto p-2" style="width:200px;">
+                                    <input type="text" name="student_number" id="student_number" class="form-control custom" placeholder="Enter ID" required>
+                                </div>
+                                <div class="col-auto p-2">
+                                    <button class="btn btn-danger btn-block" type="submit" name="generate_receipt">Generate Receipt</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-auto p-2" style="width:200px;">
-                        <input type="text" name="student_number" id="student_number" class="form-control custom" placeholder="Enter ID" required>
+         
+                <form method="POST" id="filterForm">
+                    <div class="col-md-12">
+                        <div class="row text-center align-items-center justify-content-center"> <!-- Center the filter form horizontally and vertically -->
+                            <div class="col-auto p-2">
+                                <label for="filter_criteria" class="col-form-label" style="font-size:medium;">Filter By</label>
+                            </div>
+                            <div class="col-auto p-2" style="width:200px;">
+                                <select name="filter_criteria" class="form-control custom">
+                                    <option value="date_issued" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'date_issued' ? 'selected' : ''; ?>>Date Issued</option>
+                                    <option value="booksissuedate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksissuedate' ? 'selected' : ''; ?>>Date Due</option>
+                                    <option value="booksreturndate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksreturndate' ? 'selected' : ''; ?>>Books Return Date</option>
+                                </select>
+                            </div>
+                            <div class="col-auto p-2">
+                                <label for="start_date" class="col-form-label" style="font-size:medium;">From</label>
+                            </div>
+                            <div class="col-auto p-2" style="width:200px;">
+                                <input type="date" name="start_date" class="form-control custom" placeholder="Start Date" value="<?php echo isset($_POST['start_date']) ? $_POST['start_date'] : ''; ?>" required>
+                            </div>
+                            <div class="col-auto p-2">
+                                <label for="start_date" class="col-form-label" style="font-size:medium;">To</label>
+                            </div>
+                            <div class="col-auto p-2" style="width:200px;">
+                                <input type="date" name="end_date" class="form-control no-stretch-input" placeholder="End Date" value="<?php echo isset($_POST['end_date']) ? $_POST['end_date'] : ''; ?>" required>
+                            </div>
+                            <div class="col-auto p-2">
+                                <button type="submit" class="btn btn-danger btn-block">Filter</button>
+                            </div>
+                            <div class="col-auto p-2">
+                            <button type="button" class="btn btn-secondary btn-block" onclick="resetFilter()">Reset</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-auto p-2">
-                        <button class="btn btn-danger btn-block" type="submit" name="generate_receipt">Generate Receipt</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-
+    </div>
 
     <!-- Display Success or Error Messages -->
     <?php
-    if (!empty($_SESSION['success_message'])) {
-        echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
-        unset($_SESSION['success_message']);
-    }
-    if (!empty($_SESSION['success_msg'])) {
-        echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
-        unset($_SESSION['success_msg']);
-    }
-    if (isset($_SESSION['error_msg'])) {
-        echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
-        unset($_SESSION['error_msg']);
-    }
-    ?>
+if (!empty($_SESSION['success_message'])) {
+    echo '<div class="alert alert-success" role="alert" id="success_message">' . $_SESSION['success_message'] . '</div>';
+    unset($_SESSION['success_message']);
+}
+if (!empty($_SESSION['success_msg'])) {
+    echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
+    unset($_SESSION['success_msg']);
+}
+if (isset($_SESSION['error_msg'])) {
+    echo '<div class="alert alert-danger" role="alert" id="error_msg">' . $_SESSION['error_msg'] . '</div>';
+    unset($_SESSION['error_msg']);
+}
+?>
+
+<script>
+// Function to hide the display message after 3 seconds
+function hideMessage() {
+    setTimeout(function() {
+        var successMessage = document.getElementById('success_message');
+        var successMsg = document.getElementById('success_msg');
+        var errorMessage = document.getElementById('error_msg');
+        
+        if (successMessage) {
+            successMessage.style.display = 'none';
+        }
+        if (successMsg) {
+            successMsg.style.display = 'none';
+        }
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
+        }
+    }, 2000); // 3000 milliseconds = 3 seconds
+}
+
+// Call the hideMessage function when the page loads
+window.onload = hideMessage;
+</script>
 
     
     <div class="card border-0">
@@ -103,17 +189,12 @@ include 'inc/connection.php';
 
                         echo "<td>" . ($row["status"] == "yes" ? "Paid" : "Not Paid") . "</td>";
 
-                            echo "<td>";
-                                              
-                                                   ?>
-                                  <div class="d-flex justify-content-center align-items-center">
-                                        <a href="paid-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-sm ml-2" onclick="return confirm('Are you sure this student is paid?')" style="margin-right: 10px;"><span>Paid</span></a>
-                                        <a href="not-paid-fine.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure this student is not paid?')"  style="margin-right: 0px; padding-right: 5px; padding-left: 5px;"><span style="margin-right:5px;">Not</span><span>Paid</span></a>
-                                </div>
-
-
-                                                    <?php 
-                                                    echo "</td>";
+                        echo "<td>";
+                        echo "<div class='d-flex justify-content-center align-items-center'>";
+                        echo "<a href='#' class='btn btn-success btn-sm ml-2 confirmPaidBtn' data-id='" . $row['id'] . "' data-username='" . $row['first_name'] . "'>Paid</a>";
+                        // Rest of the code
+                        echo "</div>";
+                        echo "</td>";
 
                         
                         echo "</tr>";
@@ -176,178 +257,55 @@ include 'inc/connection.php';
         </div>
     </div>
 </div>
-<!-- Modal for Print and PDF Download -->
-<div class="modal fade" id="printReceiptModal" tabindex="-1" role="dialog" aria-labelledby="printReceiptModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+
+<!-- Add this modal HTML code at the end of your HTML file, just before the closing body tag -->
+<div class="modal fade" id="confirmPaidModal" tabindex="-1" role="dialog" aria-labelledby="confirmPaidModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header-center">
-            <div style="display: flex; align-items: center; justify-content: center;">
-                        <img src="inc/img/nbs-icon.png" alt="NBS College Library" style="width: 100px; height: 150px;  margin-right: 10px; margin:0;">
-                        <div style="text-align: left; margin-left:20px;">
-                            <p style="margin: 0; font-size:small;">NBS College Library, Sct. Borromeo corner Quezon Avenue, Diliman, Lungsod Quezon</p>
-                            <p style="margin: 0; font-size:small;">Tel. (xxx) xxx-xxx; Cp No. (63+) xxx-xxx-xxx</p>
-                            <p style="margin: 0; font-size:small;">library@nbscollege.edu.ph</p>
-                        </div>
-                    </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmPaidModalLabel">Confirmation</h5>
             </div>
+
             <div class="modal-body">
-                <div class="receipt">
-          
-                    <div class="receipt-header">
-                        <h3 style="font-weight:bold;">Library Fine Receipt</h3>
-                    </div>
-                    <div class="receipt-body">
-                        <div class="receipt-section">
-                            <p style="margin:0px;"><strong style="font-size:larger;">User Type:</strong> <span id="userType" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">User ID:</strong> <span id="userId" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Name:</strong> <span id="userName" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Accession No. Borrowed:</strong> <span id="accessionNo" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Book Name Borrowed:</strong> <span id="bookName" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Date Issued:</strong> <span id="dateIssued" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Date Due:</strong> <span id="dateDue" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Date Returned:</strong> <span id="dateReturned" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Amount:</strong> <span id="amount" style="font-size:16px;"></span></p>
-                            <p style="margin:0px;"><strong style="font-size:larger;">Remarks:</strong> <span id="remarks" style="font-size:16px;"></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    Are you sure <span id="userName" style="color:#d52033"></span> has paid the fine?
+</div>
+
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="$('#printReceiptModal').modal('hide');">Close</button>
-                <button type="button" class="btn btn-primary" onclick="printReceipt()">Print</button>
-                <button type="button" class="btn btn-danger" onclick="downloadPDF()">Download PDF</button>
+                <button type="button" class="btn btn-secondary" id="closeConfirmPaidModalBtn">Cancel</button>
+                <a id="confirmPaidButton" href="#" class="btn btn-success">Paid</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- SCRIPT FOR PDF DOWNLOAD -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-<!-- Add this script for html2canvas -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-<!-- SCRIPT FOR PRINT RECEIPT  -->
+<!-- Inside your PHP loop where you output the Paid/Not Paid buttons, add this JavaScript -->
 <script>
-$(document).ready(function () {
-    // Handle print button click for a specific user
-    $('.printReceiptBtn').click(function () {
-        // Get the row data
-        var userType = $(this).closest('tr').find('td:eq(2)').text();
-        var userId = $(this).closest('tr').find('td:eq(0)').text();
-        var userName = $(this).closest('tr').find('td:eq(1)').text();
-        var accessionNo = $(this).closest('tr').find('td:eq(4)').text();
-        var bookName = $(this).closest('tr').find('td:eq(5)').text();
-        var dateIssued = $(this).closest('tr').find('td:eq(6)').text();
-        var dateDue = $(this).closest('tr').find('td:eq(7)').text();
-        var dateReturned = $(this).closest('tr').find('td:eq(8)').text();
-        var amount = $(this).closest('tr').find('td:eq(9)').text();
-        var remarks = $(this).closest('tr').find('td:eq(10)').text();
-
-        // Display the user details in the modal
-        $('#userType').text(userType);
-        $('#userId').text(userId);
+$(document).ready(function() {
+    // Function to handle "Paid" button click
+    $('.confirmPaidBtn').click(function(e) {
+        e.preventDefault();
+        var fineId = $(this).data('id');
+        var userName = $(this).data('username');
+        // Set the user's name in the modal
         $('#userName').text(userName);
-        $('#accessionNo').text(accessionNo);
-        $('#bookName').text(bookName);
-        $('#dateIssued').text(dateIssued);
-        $('#dateDue').text(dateDue);
-        $('#dateReturned').text(dateReturned);
-        $('#amount').text(amount);
-        $('#remarks').text(remarks);
-        $('#printReceiptModal').modal('show');
+        // Set the href attribute of the confirmation button to the paid-fine.php script with the fine ID
+        $('#confirmPaidButton').attr('href', 'paid-fine.php?id=' + fineId);
+        // Show the confirmation modal
+        $('#confirmPaidModal').modal('show');
     });
 
-    // Function to print the receipt
-    function printReceipt() {
-        var receiptContent = document.getElementById('printReceiptModal').innerHTML;
-        var originalContent = document.body.innerHTML;
-        document.body.innerHTML = receiptContent;
-        window.print();
-        document.body.innerHTML = originalContent;
-        window.location.reload(); // Reload to restore the original content
-    
-        
-    }
-
-    // Function to download the receipt as PDF
-    function downloadPDF() {
-        var { jsPDF } = window.jspdf;
-        $('.modal-footer').hide();
-
-
-        html2canvas(document.querySelector("#printReceiptModal")).then(canvas => {
-            var imgData = canvas.toDataURL('image/png');
-            var pdf = new jsPDF('p', 'mm', 'a4');
-            var imgWidth = 210; 
-            var pageHeight = 295;  
-            var imgHeight = canvas.height * imgWidth / canvas.width;
-            var heightLeft = imgHeight;
-
-            var position = 0;
-
-            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-
-            while (heightLeft >= 0) {
-                position = heightLeft - imgHeight;
-                pdf.addPage();
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-            }
-            pdf.save('receipt.pdf');
-        });
-    }
-
-    window.printReceipt = printReceipt;
-    window.downloadPDF = downloadPDF;
+    // Function to handle close button click
+    $('#closeConfirmPaidModalBtn').click(function() {
+        // Hide the confirmation modal when close button is clicked
+        $('#confirmPaidModal').modal('hide');
+    });
 });
 </script>
 
+
+
 <script>
      $(document).ready(function () {
-            $('#dtBasicExample').DataTable({
-                dom: '<html5buttons"B>1Tfgitp',
-        buttons: [
-                {
-                    extend: 'copy',
-                    filename: 'return-fine',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]   
-                    }
-                },
-                {
-                    extend: 'csv',
-                    filename: 'return-fine',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]    
-                    }
-                },
-                {
-                    extend: 'excel',
-                    filename: 'return-fine',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]  
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    filename: 'return-fine',
-                    orientation: 'landscape', // Set orientation to landscape
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]   
-                    }
-                },
-                {
-                    extend: 'print',
-                    filename: 'return-fine',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]  
-                    }
-                }
-            ],
-            "lengthMenu": [[5, 25, 50, 100, 500], [5, 25, 50, 100, 500]]
-        });
-
         $('.editFineLink').click(function (e) {
             e.preventDefault();
             var fineAmount = $(this).data('amount');
@@ -445,6 +403,54 @@ $(document).ready(function () {
     });
 </script>
 
+<script>
+ $(document).ready(function () {
+    var filterCriteria = '<?php echo isset($filter_criteria) ? $filter_criteria : "date_issued"; ?>';
+    var orderColumn;
+    
+    switch (filterCriteria) {
+        case "date_issued":
+            orderColumn = 6; // Index for "Date Issued" column
+            break;
+        case "booksissuedate":
+            orderColumn = 7; // Index for "Date Due" column
+            break;
+        case "booksreturndate":
+            orderColumn = 8; // Index for "Books Return Date" column
+            break;
+        default:
+            orderColumn = 6; // Default to "Date Issued" column
+    }
+
+    $('#dtBasicExample').DataTable({
+        dom: '<html5buttons"B>1Tfgitp',
+        buttons: [
+            {
+                extend: 'excel',
+                filename: '<?php echo $filename; ?>', // Dynamically set the filename
+                text: 'Export Excel', // Change the label to "Export Excel"
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]               
+                }
+            },
+        ],
+        "lengthMenu": [[5, 10, 25, 50, 100, 500], [5, 10, 25, 50, 100, 500]],
+        "order": [[orderColumn, 'asc']] // Order by the selected date criteria column
+    });
+});
+function resetFilter() {
+    // Reset start_date input
+    document.getElementsByName("start_date")[0].value = ''; 
+    // Reset end_date input
+    document.getElementsByName("end_date")[0].value = ''; 
+    // Reset the filter_criteria select element to its default value
+    document.getElementsByName("filter_criteria")[0].value = 'date_issued'; 
+    // Submit the form to fetch all data without filtering
+    document.querySelector("#filterForm").submit(); 
+    return false; // Prevent form submission
+}
+    
+        </script>
 <script>
 function validateForm() {
     var studentNumber = document.getElementById("student_number").value;

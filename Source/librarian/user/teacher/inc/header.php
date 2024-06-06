@@ -16,18 +16,17 @@
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-
 <head>
-    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBS Library</title>
-
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-html5-3.0.1/b-print-3.0.1/datatables.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="inc/css/custom1.css">
     <link rel="stylesheet" href="inc/css/animate.css">
+
 
 </head>
 
@@ -38,13 +37,13 @@
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo text-center">
-                    <a href="dashboard.php">NBS LIBRARY</a>
+                    <a href="dashboard.php">NBSC LIBRARY</a>
                 </div>
 				
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
             
-                        <span>
+                    <span>
                         <?php
         
 						  $res1 = mysqli_query($link, "select * from teacher where id_number='".$_SESSION['teacher']."'");
@@ -68,19 +67,12 @@
 			   		?>
                             
             			</h6>
-                        
+                        <br><br>
                         </span>
+                        
 
-                        <h6 style="float:inline-end; margin-top: 1px; font-weight:bolder;">
-						
-						<?php
-					
-					    $res = mysqli_query($link, "select * from t_registration where username='".$_SESSION['teacher']."'");
-					    while ($row = mysqli_fetch_array($res)){
-						?><?php echo $row["name"]; ?><?php
-					}
-			   ?>
-
+                        <h6 style="float:inline-end; margin-top: 1px; font-weight:normal;">
+				
 
 			   		<?php
 		   
@@ -92,11 +84,7 @@
 			   		?>
                             
             			</h6>
-        
-					
-                    </li>
-                    <br>
-					<br>
+                        
 					<br>
                     <li class="sidebar-header">
                         Admin Elements
@@ -140,6 +128,13 @@
                                 <a href="finezone.php" class="sidebar-link">
                                 <i class="fa-solid fa-book pe-2"></i>
                                     My Overdue
+                                </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='return-book'){ echo 'active';} ?>">
+                                <a href="return-history.php" class="sidebar-link">
+                                <i class="fa-solid fa-book pe-2"></i>
+                                    Borrowed Book History
                                 </a>
                     </li>
                 

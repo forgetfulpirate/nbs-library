@@ -14,6 +14,17 @@ include 'inc/connection.php';
 if (isset($_GET["id_number"])) {
     $id_number = $_GET["id_number"]; // Correct variable name
 
+    // Check if the teacher with the same id_number already exists in the teacher table
+    $checkQuery = "SELECT * FROM teacher WHERE id_number = '$id_number'";
+    $checkResult = mysqli_query($link, $checkQuery);
+
+    if (mysqli_num_rows($checkResult) > 0) {
+        // If the teacher with the same id_number already exists, set an error message and redirect
+        $_SESSION['error_msg'] = "Cannot unarchive user. User with the same ID number already exists.";
+        header("Location: archive-user.php");
+        exit();
+    }
+
     // Retrieve user data from teacher_archive table
     $query = "SELECT * FROM teacher_archive WHERE id_number = '$id_number'";
     $result = mysqli_query($link, $query);

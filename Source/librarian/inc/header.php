@@ -87,7 +87,7 @@
 					<li class="sidebar-item <?php if($page=='tinfo'){ echo 'active';} ?>">
                         <a href="all-teacher-info.php" class="sidebar-link">
                             <i class="fa-solid fa-users pe-2"></i>
-                            All teacher information
+                            All Faculty information
                         </a>
                     </li>
 
@@ -257,7 +257,7 @@
                         </a>
                     </li> -->
 
-                    <li class="sidebar-item <?php if($page=='user-v'){ echo 'active';} ?>">
+                    <li class="sidebar-item <?php if($page=='user-archive'){ echo 'active';} ?>">
                         <a href="archive-user.php" class="sidebar-link">
                         <i class="fa-solid fa-user-xmark"></i>
                             Archived Users

@@ -39,7 +39,7 @@ $not= mysqli_num_rows($res);
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo text-center">
-                    <a href="dashboard.php">NBS College Library</a>
+                    <a href="dashboard.php">NBSC College Library</a>
                 </div>
 				
                 <ul class="sidebar-nav">
@@ -131,6 +131,13 @@ $not= mysqli_num_rows($res);
                          <i class="fa-solid fa-book pe-2"></i>
 
                             My Overdue
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item <?php if($page=='return-book'){ echo 'active';} ?>">
+                        <a href="return-history.php" class="sidebar-link">
+                         <i class="fa-solid fa-book pe-2"></i>
+                            Borrowed Book History
                         </a>
                     </li>
                 

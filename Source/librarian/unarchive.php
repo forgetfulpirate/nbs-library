@@ -9,7 +9,18 @@ if (!isset($_SESSION["username"])) {
 include 'inc/connection.php';
 
 if (isset($_GET["student_number"])) {
-    $student_number = $_GET["student_number"]; // Correct variable name Correct variable name
+    $student_number = $_GET["student_number"];
+
+    // Check if the student with the same student_number already exists in the student table
+    $checkQuery = "SELECT * FROM student WHERE student_number = '$student_number'";
+    $checkResult = mysqli_query($link, $checkQuery);
+
+    if (mysqli_num_rows($checkResult) > 0) {
+        // If the student with the same student_number already exists, display an error message
+        $_SESSION['error_msg'] = "Cannot unarchive user. User with the same student number already exists.";
+        header("Location: archive-user.php");
+        exit();
+    }
 
     // Retrieve user data from student_archive table
     $query = "SELECT * FROM student_archive WHERE student_number = '$student_number'";
@@ -18,10 +29,11 @@ if (isset($_GET["student_number"])) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
-        // Insert retrieved user data into another table (e.g., student table)
+        // Insert retrieved user data into the student table
         $insertQuery = "INSERT INTO student (student_number, first_name, last_name, middle_name, email, course, year, semester, password, user_type, photo, status, vkey, verified) VALUES ('" . $row['student_number'] . "', '" . $row['first_name'] . "', '" . $row['last_name'] . "', '" . $row['middle_name'] . "', '" . $row['email'] . "', '" . $row['course'] . "', '" . $row['year'] . "', '" . $row['semester'] . "', '" . $row['password'] . "', '" . $row['user_type'] . "', '" . $row['photo'] . "', '" . 'no' . "', '" . $row['vkey'] . "', '" . 'no' . "')";
+
         if (mysqli_query($link, $insertQuery)) {
-            // If insertion is successful, you might want to remove the user data from the archive table
+            // If insertion is successful, remove the user data from the archive table
             $deleteQuery = "DELETE FROM student_archive WHERE student_number = '$student_number'";
             mysqli_query($link, $deleteQuery);
 

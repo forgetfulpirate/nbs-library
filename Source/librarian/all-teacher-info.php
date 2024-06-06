@@ -28,7 +28,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Teacher Information 
+                        <h4>Faculty Information 
                         <p id="time"></p>
                           
                             <p id="date"></p>

@@ -18,6 +18,8 @@
             // Insert data into return_books
             $insert_query = "INSERT INTO return_books (first_name, last_name, middle_name, student_number, utype, email, booksname, accession_number, date_issued, booksissuedate, booksreturndate) 
                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+
             $stmt = mysqli_prepare($link, $insert_query);
             mysqli_stmt_bind_param($stmt, "sssssssssss", $name, $last_name, $middle_name, $student_number, $utype, $email, $booksname, $accession_number, $date_issued, $booksissuedate, $booksreturndate);
         

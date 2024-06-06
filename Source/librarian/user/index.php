@@ -36,11 +36,11 @@
 						<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
-						<h3>we stand behind your success</h3>
+					<br>
 					</div>
 					<div class="this-item">
-                        <p><a href="student/registration.php">student registration</a></p>
-                        <p><a href="teacher/registration.php">teacher registration</a></p>
+                        <p><a href="student/registration.php">Student registration</a></p>
+                        <p><a href="teacher/registration.php">Faculty registration</a></p>
 					</div>
 				</div>
 			</div>
@@ -51,11 +51,11 @@
 					<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
-						<h3>we stand behind your success</h3>
+					<br>
 					</div>
 					<div class="this-item">
-                        <p><a href="student/registration.php">student registration</a></p>
-                        <p><a href="teacher/registration.php">teacher registration</a></p>
+                        <p><a href="student/registration.php">Student registration</a></p>
+                        <p><a href="teacher/registration.php">Faculty registration</a></p>
 					</div>
 				</div>
 			</div>
@@ -66,11 +66,11 @@
 					<h2>welcome to NBSC library</h2>
 					</div>
 					<div class="this-item">
-						<h3>we stand behind your success</h3>
+						<br>
 					</div>
 					<div class="this-item">
-						<p><a href="student/registration.php">student registration</a></p>
-						<p><a href="teacher/registration.php">teacher registration</a></p>
+						<p><a href="student/registration.php">Student registration</a></p>
+						<p><a href="teacher/registration.php">Faculty registration</a></p>
 					</div>
 				</div>
 			</div>

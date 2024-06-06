@@ -7,7 +7,7 @@
             </script>
         <?php
     }
-    $page ='issue-book';
+    $page ='return-book';
     include 'inc/header.php';
     include 'inc/connection.php';
  ?>
@@ -17,7 +17,7 @@
                 <div class="container-fluid">
 				<div class="mb-3">
           
-                        <h4>Borrowed Books
+                        <h4>Borrowed Book History
                         <p id="time"></p>
                           
                             <p id="date"></p>
@@ -39,22 +39,34 @@
                                             <tr>
 												<th>ID Number</th>
 												<th>Name</th>
+                                                <th>Accession No</th>
 												<th>Books Name</th>
 												<th>Issue Date</th>
+                                                <th>Date Due</th>
 												<th>Return Date</th>
+                                                <th>Issued By</th>
+                                                <th>Delete</th>
+                       
                                             </tr>
                                        </thead>
                                         <tbody>
 										<?php 
-											$res= mysqli_query($link, "select * from issue_book where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
+											$res= mysqli_query($link, "select * from return_history where student_number='".$_SESSION['teacher']."' ORDER BY id DESC");
 											
 											while ($row=mysqli_fetch_array($res)) {
 												echo "<tr>";
 												echo "<td>"; echo $row["student_number"]; echo "</td>";
-												echo "<td>"; echo $row["name"]; echo "</td>";
+												echo "<td>"; echo $row["first_name"]; echo "</td>";
+                                                echo "<td>"; echo $row["accession_number"]; echo "</td>";
 												echo "<td>"; echo $row["booksname"]; echo "</td>";
-												echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
+												echo "<td>"; echo $row["date_issued"]; echo "</td>";
+                                                echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
 												echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
+                                                echo "<td>"; echo $row["issuedby"]; echo "</td>";
+                                                echo "<td><a href='delete-return.php?id=" . $row["id"] . "' style='color: red'><i class='fas fa-trash'></i></a> 
+                                                        <span> <a href='delete-return.php?id=" . $row["id"] . "' style='color: red'>Delete</a></span>
+                                                      </td>";
+                                                
 												echo "</tr>";
 											}
 										?>
@@ -63,21 +75,8 @@
                             </table>
                         </div>
                     </div>
-                    
-            
-
-                
-
-                
-                
             
             </main>
-
-        
-
-
-    
-
      <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable();
@@ -88,3 +87,4 @@
 <?php 
 		include 'inc/footer.php';
 	 ?>
+    
