@@ -40,8 +40,8 @@
             <br>
 
 
-            <!-- Display Success or Error Messages -->
-                <?php
+               <!-- Display Success or Error Messages -->
+               <?php
                 if (!empty($_SESSION['success_msg'])) {
                     echo '<div class="alert alert-success" role="alert" id="success_msg">' . $_SESSION['success_msg'] . '</div>';
                     unset($_SESSION['success_msg']);
@@ -49,22 +49,6 @@
                 if (isset($_SESSION['error_msg'])) {
                     echo '<div class="alert alert-danger" role="alert">' . $_SESSION['error_msg'] . '</div>';
                     unset($_SESSION['error_msg']);
-                }
-
-                                // Check if there is a success message for activation in the session
-                if (isset($_SESSION['activation_success_msg'])) {
-                    // Display the success message for activation
-                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['activation_success_msg'] . '</div>';
-                    // Clear the session variable to ensure it's only displayed once
-                    unset($_SESSION['activation_success_msg']);
-                }
-
-                // Check if there is a success message for deactivation in the session
-                if (isset($_SESSION['deactivation_success_msg'])) {
-                    // Display the success message for deactivation
-                    echo '<div class="alert alert-success" role="alert">' . $_SESSION['deactivation_success_msg'] . '</div>';
-                    // Clear the session variable to ensure it's only displayed once
-                    unset($_SESSION['deactivation_success_msg']);
                 }
             
                 ?>
@@ -203,7 +187,7 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">
                                 Close
                             </button>
-                                <button type="submit1" class="btn btn-success" name="submit">Add Teacher</button>
+                                <button type="submit1" class="btn btn-danger" name="submit">Add Teacher</button>
                             </div>
                         </form>
 
@@ -225,7 +209,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to Archive Teacher "<span id="userNameToDelete1"></span>"?
+                            Are you sure you want to Archive Teacher "<span id="userNameToDelete1" style="color:#d52033"></span>"?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -245,7 +229,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to reset the password for <span id="facultyNameToReset"></span>?</p>
+                <p>Are you sure you want to reset the password for <span id="facultyNameToReset" style="color:#d52033"></span>?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

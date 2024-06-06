@@ -25,9 +25,7 @@
     </style>
 </head>
 <body>
-        <br>
-        <br>
-        <br>
+<main class="content"> 
 	<!--Start slider-->
 	<div class="slider">
 		<div class="slide-carousel owl-carousel">
@@ -77,9 +75,9 @@
 				</div>
 			</div>
 
-		</div>		
-	</div>
+	
 
+</main>
 	<footer style="text-align: center;">
     <div style="display: flex; align-items: center; justify-content: center;">
         <img src="dist/img/NBS-LOGO.png" alt="Telephone and Fax" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 10px; margin:0;">
