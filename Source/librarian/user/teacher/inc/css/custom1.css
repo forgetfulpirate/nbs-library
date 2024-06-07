@@ -76,10 +76,12 @@ table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date, table.dataT
   }
 
 
+
 .dt-length{
     text-align: left;
     float: inline-start;
     margin-bottom: 20px;
+   
 }
 
 .dt-search{
@@ -403,3 +405,5 @@ html[data-bs-theme="light"] .theme-toggle .fa-sun {
       width: 58.33333333%;
     }
   }
+
+  

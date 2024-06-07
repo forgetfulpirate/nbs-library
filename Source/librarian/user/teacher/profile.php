@@ -22,8 +22,14 @@
  ?>
 
 
-
- </style>
+<style>
+    @media (min-width: 1280px) {
+  .col-md-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+}
+</style>
 <main class="content px-3 py-2">  
 			<div class="container">
                 <br>
