@@ -401,7 +401,7 @@ include 'inc/connection.php';
 
        
            <div class="input-field2">
-               <label>Call Number</label>
+               <label>Call Number Prefix.</label>
                <select placeholder="Title Proper" name="call_number_type">
                <option></option>
                    <option>BIO</option>
@@ -478,18 +478,20 @@ include 'inc/connection.php';
            </div>
 
 
+           <?php
+                $date_entered = date('Y-m-d');
+                $date_updated = date('Y-m-d');
+            ?>
 
-           <div class="input-field2">
-               <label>Date Entered</label>
-               <input type="date" name="date_entered">
-           </div>
+            <div class="input-field2">
+                <label>Date Entered</label>
+                <input type="date" name="date_entered" value="<?php echo $date_entered; ?>">
+            </div>
 
-           
-
-           <div class="input-field2">
-               <label>Date Updated</label>
-               <input type="date" name="date_updated">
-           </div>
+            <div class="input-field2">
+                <label>Date Updated</label>
+                <input type="date" name="date_updated" value="<?php echo $date_updated; ?>">
+            </div>
 
            <div class="input-field2">
                <label>Quantity</label>
@@ -525,7 +527,7 @@ include 'inc/connection.php';
            </div>
 
            <div class="input-field2">
-               <label>Resource Type</label>
+               <label>Resources Type</label>
                <select name="resource_type">
                <option></option>
                    <option>Book</option>

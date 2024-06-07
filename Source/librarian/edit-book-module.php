@@ -413,7 +413,7 @@ if(isset($_GET['id'])) {
 
             <div class="tab">
                 <div class="details personal">
-                    <span class="title">Abstracts</span>
+                    <span class="title">Content / Abstract / Review </span>
                     <div class="fields">
                     <div class="input-field1">
                         <label>Content notes</label>
@@ -453,7 +453,7 @@ if(isset($_GET['id'])) {
 </div>
                         
                     <div class="input-field2">
-                                        <label>Call Number</label>
+                    <label>Call Number Prefix.</label>
                                         <select name="call_number_type">
                                         <option <?php if ($call_number_type == '') echo 'selected'; ?>></option>
                                             <option <?php if ($call_number_type == 'BIO') echo 'selected'; ?>>BIO</option>
@@ -547,8 +547,6 @@ if(isset($_GET['id'])) {
                         <div class="input-field2">
                                         <label>Date Updated</label>
                                         <input type="date" name="date_updated" value="<?php echo $date_updated; ?>">
-
-
                         </div>
 
 

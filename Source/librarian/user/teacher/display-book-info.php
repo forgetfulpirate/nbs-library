@@ -237,6 +237,12 @@ if(isset($_GET['accession_number'])) {
                     <?php endif; ?>
                 </div>
                 <div class="normal-view">
+                        <?php if(!empty($abstract)): ?>
+                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Abstract:</span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $abstract?></span>
+                        <?php endif; ?>
+                </div>
+                <div class="normal-view">
                     <?php if(!empty($review)): ?>
                         <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Summary:</span>
                         <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $review?></span>

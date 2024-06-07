@@ -309,8 +309,43 @@
 
   <script>
         $(document).ready(function () {
-            $('#dtBasicExample').DataTable();
-            $('.dataTables_length').addClass('bs-select');
+            $('#dtBasicExample').DataTable({
+        dom: '<html5buttons"B>1Tfgitp',
+        buttons: [
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+            },
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5]
+                }
+            }
+        ],
+        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+        "order": [[1, 'asc']], // This sets the default sorting to the second column (accession_number) in ascending order
+    });
         });
 
        
