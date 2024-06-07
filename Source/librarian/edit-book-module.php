@@ -135,9 +135,9 @@ if(isset($_GET['id'])) {
             <div class="tab-buttons">
             <button type="button" onclick="showTab(0)">Title Proper</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
-                <button type="button" onclick="showTab(2)">Local Information</button>
-                <button type="button" onclick="showTab(3)">Access Point</button>
-                <button type="button" onclick="showTab(4)">Abstracts</button>
+                <button type="button" onclick="showTab(2)">Access Point</button>
+                <button type="button" onclick="showTab(3)">Abstracts</button>
+                <button type="button" onclick="showTab(4)">Local Information</button>
             </div>
 
             <div class="tab active">
@@ -386,7 +386,53 @@ if(isset($_GET['id'])) {
                 </div>
             </div>
 
-            
+
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">SUBJECT ENTRY</span>
+                    <div class="fields">
+                    <div class="input-field">
+                                    <label>Subject</label>
+                                    <select name="subject_type">
+                                    <option <?php if ($subject_type == '') echo 'selected'; ?>></option>
+                                        <option <?php if ($subject_type == 'Topical') echo 'selected'; ?>>Topical</option>
+                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
+                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
+                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
+                                    </select>
+                        </div>
+                    
+                        <div class="input-field1">
+    <label>Subject Info</label>
+    <textarea placeholder="Subject info" name="subject_info"><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
+</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">Abstracts</span>
+                    <div class="fields">
+                    <div class="input-field1">
+                        <label>Content notes</label>
+                        <textarea placeholder="Content Notes" name="content_notes"><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+
+                    <div class="input-field1">
+                        <label>Abstract</label>
+                        <textarea placeholder="Abstract" name="abstract"><?php echo htmlspecialchars($abstract, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+
+                    <div class="input-field1">
+                        <label>Review</label>
+                        <textarea placeholder="Review" name="review"><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab">
                 <div class="details personal">
                     <span class="title">LOCAL INFORMATION</span>
@@ -533,7 +579,7 @@ if(isset($_GET['id'])) {
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
                                     <option <?php if ($location == 'Biography') echo 'selected'; ?>>Biography</option>
                                     <option <?php if ($location == 'Reserve') echo 'selected'; ?>>Reserve</option>
-                                    <option <?php if ($location == 'Theses') echo 'selected'; ?>>Theses</option>
+                                    <option <?php if ($location == 'Thesis') echo 'selected'; ?>>Thesis</option>
                                     <option <?php if ($location == 'Scholastic') echo 'selected'; ?>>Scholastic</option>
                                     <option <?php if ($location == 'Fiction') echo 'selected'; ?>>Fiction</option>
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
@@ -545,56 +591,11 @@ if(isset($_GET['id'])) {
                                 <select name="resource_type">
                                 <option <?php if ($resource_type == '') echo 'selected'; ?>></option>
                                     <option <?php if ($resource_type == 'Book') echo 'selected'; ?>>Book</option>
-                                    <option <?php if ($resource_type == 'Theses') echo 'selected'; ?>>Theses</option>
+                                    <option <?php if ($resource_type == 'Thesis') echo 'selected'; ?>>Thesis</option>
                                     <option <?php if ($resource_type == 'Map') echo 'selected'; ?>>Map</option>
                                 </select>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="tab">
-                <div class="details personal">
-                    <span class="title">SUBJECT ENTRY</span>
-                    <div class="fields">
-                    <div class="input-field">
-                                    <label>Subject</label>
-                                    <select name="subject_type">
-                                    <option <?php if ($subject_type == '') echo 'selected'; ?>></option>
-                                        <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?>>Tropical</option>
-                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?>>Personal</option>
-                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?>>Corporate</option>
-                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?>>Geographical</option>
-                                    </select>
-                        </div>
-                    
-                        <div class="input-field1">
-    <label>Subject Info</label>
-    <textarea placeholder="Subject info" name="subject_info"><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
-</div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="tab">
-                <div class="details personal">
-                    <span class="title">Abstracts</span>
-                    <div class="fields">
-                    <div class="input-field1">
-                        <label>Content notes</label>
-                        <textarea placeholder="Content Notes" name="content_notes"><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
-
-                    <div class="input-field1">
-                        <label>Abstract</label>
-                        <textarea placeholder="Abstract" name="abstract"><?php echo htmlspecialchars($abstract, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
-
-                    <div class="input-field1">
-                        <label>Review</label>
-                        <textarea placeholder="Review" name="review"><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
                     </div>
                 </div>
             </div>

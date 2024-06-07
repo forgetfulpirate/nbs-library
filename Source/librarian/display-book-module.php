@@ -183,7 +183,10 @@
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
         buttons:['copy','csv','excel','pdf', 'print'],
-        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+        "order": [[1, 'asc']] // This sets the default sorting to the second column (accession_number) in ascending order
+
+
     });
 
     $('#saveRemarksBtn').click(function () {

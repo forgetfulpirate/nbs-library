@@ -387,7 +387,52 @@ if(isset($_GET['accession_number'])) {
                 </div>
             </div>
 
-            
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">SUBJECT ENTRY</span>
+                    <div class="fields">
+                    <div class="input-field">
+                                    <label>Subject</label>
+                                    <select name="subject_type" readonly>
+                                    <option <?php if ($subject_type == '') echo 'selected'; ?> disabled></option>
+                                        <option <?php if ($subject_type == 'Topical') echo 'selected'; ?> disabled>Topical</option>
+                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?> disabled>Personal</option>
+                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?> disabled>Corporate</option>
+                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?> disabled>Geographical</option>
+                                    </select>
+                        </div>
+                    
+                        <div class="input-field1">
+    <label>Subject Info</label>
+    <textarea placeholder="Subject info" name="subject_info" readonly><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
+</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tab">
+                <div class="details personal">
+                    <span class="title">Abstracts</span>
+                    <div class="fields">
+                    <div class="input-field1">
+                        <label>Content notes</label>
+                        <textarea placeholder="Content Notes" name="content_notes" readonly><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+
+                    <div class="input-field1">
+                        <label>Abstract</label>
+                        <textarea placeholder="Abstract" name="abstract" readonly><?php echo htmlspecialchars($abstract, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+
+                    <div class="input-field1">
+                        <label>Review</label>
+                        <textarea placeholder="Review" name="review" readonly><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab">
                 <div class="details personal">
                     <span class="title">LOCAL INFORMATION</span>
@@ -533,7 +578,7 @@ if(isset($_GET['accession_number'])) {
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?> disabled>Special Collection</option>
                                     <option <?php if ($location == 'Biography') echo 'selected'; ?> disabled>Biography</option>
                                     <option <?php if ($location == 'Reserve') echo 'selected'; ?> disabled>Reserve</option>
-                                    <option <?php if ($location == 'Theses') echo 'selected'; ?> disabled>Theses</option>
+                                    <option <?php if ($location == 'Thesis') echo 'selected'; ?> disabled>Thesis</option>
                                     <option <?php if ($location == 'Scholastic') echo 'selected'; ?> disabled>Scholastic</option>
                                     <option <?php if ($location == 'Fiction') echo 'selected'; ?> disabled>Fiction</option>
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?> disabled>Special Collection</option>
@@ -545,56 +590,11 @@ if(isset($_GET['accession_number'])) {
                                 <select name="resource_type" readonly>
                                 <option <?php if ($resource_type == '') echo 'selected'; ?> disabled></option>
                                     <option <?php if ($resource_type == 'Book') echo 'selected'; ?> disabled>Book</option>
-                                    <option <?php if ($resource_type == 'Theses') echo 'selected'; ?> disabled>Theses</option>
+                                    <option <?php if ($resource_type == 'Thesis') echo 'selected'; ?> disabled>Thesis</option>
                                     <option <?php if ($resource_type == 'Map') echo 'selected'; ?> disabled>Map</option>
                                 </select>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="tab">
-                <div class="details personal">
-                    <span class="title">SUBJECT ENTRY</span>
-                    <div class="fields">
-                    <div class="input-field">
-                                    <label>Subject</label>
-                                    <select name="subject_type" readonly>
-                                    <option <?php if ($subject_type == '') echo 'selected'; ?> disabled></option>
-                                        <option <?php if ($subject_type == 'Tropical') echo 'selected'; ?> disabled>Tropical</option>
-                                        <option <?php if ($subject_type == 'Personal') echo 'selected'; ?> disabled>Personal</option>
-                                        <option <?php if ($subject_type == 'Corporate') echo 'selected'; ?> disabled>Corporate</option>
-                                        <option <?php if ($subject_type == 'Geographical') echo 'selected'; ?> disabled>Geographical</option>
-                                    </select>
-                        </div>
-                    
-                        <div class="input-field1">
-    <label>Subject Info</label>
-    <textarea placeholder="Subject info" name="subject_info" readonly><?php echo htmlspecialchars($subject_info, ENT_QUOTES, 'UTF-8'); ?></textarea>
-</div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="tab">
-                <div class="details personal">
-                    <span class="title">Abstracts</span>
-                    <div class="fields">
-                    <div class="input-field1">
-                        <label>Content notes</label>
-                        <textarea placeholder="Content Notes" name="content_notes" readonly><?php echo htmlspecialchars($content_notes, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
-
-                    <div class="input-field1">
-                        <label>Abstract</label>
-                        <textarea placeholder="Abstract" name="abstract" readonly><?php echo htmlspecialchars($abstract, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
-
-                    <div class="input-field1">
-                        <label>Review</label>
-                        <textarea placeholder="Review" name="review" readonly><?php echo htmlspecialchars($review, ENT_QUOTES, 'UTF-8'); ?></textarea>
-                    </div>
                     </div>
                 </div>
             </div>
