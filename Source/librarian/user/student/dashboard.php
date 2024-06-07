@@ -126,7 +126,7 @@ if ($searchQuerySubmitted) {
     </div>
 </div>
 
-<div class="row mt-3">
+<!-- <div class="row mt-3">
 <div class="col-md-11 d-flex justify-content-center">
         <h5>Example Searches:</h5>
         <ul id="ul">
@@ -135,7 +135,7 @@ if ($searchQuerySubmitted) {
     <li id="li"><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">9789712726736 (Search by ISBN)</a></li>
 </ul>
     </div>
-</div>
+</div> -->
 
 
     <!-- Display the count of search results -->
@@ -201,7 +201,7 @@ if ($searchQuerySubmitted) {
     // Display books
 while ($row = mysqli_fetch_array($res)) {
     // Determine availability message
-    $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
+    $availabilityMessage = ($row["available"] > 0) ? "Available" : "Not available";
 
     // Initialize highlighted fields
     $highlightedTitle = $row["title_proper"];

@@ -203,7 +203,7 @@ $res = mysqli_query($link, $sql);
         // Display books
         while ($row = mysqli_fetch_array($res)) {
             // Determine availability message
-            $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
+            $availabilityMessage = ($row["available"] > 0) ? "Available" : "Not available";
             $highlightedTitle = str_ireplace($search, "<span class='highlight'>$search</span>", $row["title_proper"]);
             $highlightedCall_Number = str_ireplace($search, "<span class='highlight'>$search</span>", $row["call_number_info"]);
             $highlightedMain_Creator = str_ireplace($search, "<span class='highlight'>$search</span>", $row["main_creator"]);
