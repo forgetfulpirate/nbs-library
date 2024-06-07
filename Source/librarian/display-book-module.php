@@ -81,7 +81,7 @@
                                 $res = mysqli_query($link, "select * from book_module");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo "<tr>";
-                                    echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt=""> <?php echo "</td>";
+                                    echo "<td>"; ?><img src="<?php echo $row["book_image"]; ?> " height="100" width="80" alt="cover not available"> <?php echo "</td>";
                                     echo "<td>";                            
                                     echo $row["accession_number"];
                                     echo "</td>";
@@ -104,7 +104,7 @@
                                     echo "<td><a href='#' class='editRemarksLink' data-accession_number='" . $row["accession_number"] . "' data-remarks='" . htmlspecialchars($row["remarks"], ENT_QUOTES) . "'>" . ($row["remarks"] ? $row["remarks"] : "n/a") . "</a></td>";
                                     echo "<td>";
                                     ?>
-                                    <a href="display-book-info.php?accession_number=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
+                                    <a href="view-book-module.php?accession_number=<?php echo $row["accession_number"];?> " class="btn btn-primary"  id="edit">View</a><?php
                                     
                                     echo "</td>";
                                      echo "<td>";
@@ -183,7 +183,10 @@
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
         buttons:['copy','csv','excel','pdf', 'print'],
-        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]]
+        "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
+        "order": [[1, 'asc']] // This sets the default sorting to the second column (accession_number) in ascending order
+
+
     });
 
     $('#saveRemarksBtn').click(function () {

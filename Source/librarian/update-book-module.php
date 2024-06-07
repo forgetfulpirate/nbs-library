@@ -49,6 +49,7 @@ if (isset($_POST["submit"])) {
     $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
     $available = mysqli_real_escape_string($link, $_POST['available']);
     $location = mysqli_real_escape_string($link, $_POST['location']);
+    $resource_type = mysqli_real_escape_string($link, $_POST['resource_type']);
     $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
     $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
     $review = mysqli_real_escape_string($link, $_POST['review']);
@@ -124,6 +125,7 @@ if (isset($_POST["submit"])) {
         quantity='$quantity', 
         available='$available', 
         location='$location', 
+        resource_type='$resource_type',
         content_notes='$content_notes', 
         abstract='$abstract', 
         review='$review' 
@@ -151,7 +153,7 @@ if (isset($_POST["submit"])) {
 
             // If the accession number doesn't exist, insert a new record
             if ($row_check['count'] == 0) {
-                $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, entered_by, updated_by, date_entered, date_updated, quantity, available, location, content_notes, abstract, review, book_image, URL) VALUES (
+                $query_insert = "INSERT INTO book_module (accession_number, title_proper, responsibility, preffered_title, parallel_title, main_creator, add_entry_creator, contributors, add_entry_corporate, place_of_publication, publisher, date_of_publication, edition, extent_of_text, illustrations, dimension, acc_materials, series, supp_content, ISBN, content_type, media_type, carrier_type, subject_type, subject_info, call_number_type, call_number_info, language, library_location, entered_by, updated_by, date_entered, date_updated, quantity, available, location,resource_type, content_notes, abstract, review, book_image, URL) VALUES (
                     '$escaped_accession_number',
                     '$title_proper',
                     '$responsibility',
@@ -188,6 +190,7 @@ if (isset($_POST["submit"])) {
                     '$quantity',
                     '$available',
                     '$location',
+                    '$resource_type',
                     '$content_notes',
                     '$abstract',
                     '$review',

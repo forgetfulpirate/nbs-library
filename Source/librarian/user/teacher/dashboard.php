@@ -126,7 +126,7 @@ if ($searchQuerySubmitted) {
     </div>
 </div>
 
-<div class="row mt-3">
+<!-- <div class="row mt-3">
 <div class="col-md-11 d-flex justify-content-center">
         <h5>Example Searches:</h5>
         <ul id="ul">
@@ -135,7 +135,7 @@ if ($searchQuerySubmitted) {
     <li id="li"><a href="?search=9789712726736&keyword=isbn" style="color:inherit; position: relative;">9789712726736 (Search by ISBN)</a></li>
 </ul>
     </div>
-</div>
+</div> -->
 
 
     <!-- Display the count of search results -->
@@ -201,13 +201,14 @@ if ($searchQuerySubmitted) {
     // Display books
 while ($row = mysqli_fetch_array($res)) {
     // Determine availability message
-    $availabilityMessage = ($row["available"] > 0) ? "Available for loan" : "Not available for loan";
-
+    $availabilityMessage = ($row["available"] > 0) ? "Available" : "Not available";
+    $resource_type = $row["resource_type"];
     // Initialize highlighted fields
     $highlightedTitle = $row["title_proper"];
     $highlightedCall_Number = $row["call_number_info"];
     $highlightedMain_Creator = $row["main_creator"];
     $highlightedISBN = $row["ISBN"];
+    
 
     // Loop through each search term and highlight them individually
    // Loop through each search term and highlight them individually
@@ -229,12 +230,33 @@ foreach ($searchTerms as $term) {
                     <h3 class="card-title" style="color:#248fc5; margin-left:50px; margin-top: 20px"><?php echo $highlightedTitle;?></h3>
                 </a>
                 <br>
+                <?php if(!empty($highlightedMain_Creator)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">by <span style='font-weight:bold'><?php echo $highlightedMain_Creator  ?></span></p>
+                <?php endif; ?>
+
+                <?php if(!empty($publisher)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px;">Publisher: <span style="color:#707070"><?php echo $row["publisher"]; ?></span></p>
+                <?php endif; ?>
+
+                <?php if(!empty($place_of_publication)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px; margin-bottom:5px">Place of Publication: <?php echo $row["place_of_publication"]; ?></p>
+                <?php endif; ?>
+
+                <?php if(!empty($highlightedISBN)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:5px">ISBN: <?php echo $highlightedISBN;?></p>
+                <?php endif; ?>
+
+                <?php if(!empty($highlightedCall_Number)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Call Number: <?php echo $highlightedCall_Number?></p>
+                <?php endif; ?>
+
+                <?php if(!empty($availabilityMessage)): ?>
                 <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Availability: <span style="font-weight:bold"><?php echo $availabilityMessage; ?></span></p>
+                <?php endif; ?>
+
+                <?php if(!empty($resource_type)): ?>
+                <p class="card-text" style="letter-spacing:1px; margin-left:20px ; margin-bottom:20px">Resource Type: <span style="font-weight:bold"><?php echo $resource_type; ?></span></p>
+                <?php endif; ?>
             </div>
             <img src="../../<?php echo $row["book_image"]; ?>" class="card-img-right" alt="No Cover Available" style="height:150px; width:100px;">
         </div>

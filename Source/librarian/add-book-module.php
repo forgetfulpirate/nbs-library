@@ -88,9 +88,9 @@ include 'inc/connection.php';
             <div class="tab-buttons">
                 <button type="button" onclick="showTab(0)">Title Proper</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
-                <button type="button" onclick="showTab(2)">Local Information</button>
-                <button type="button" onclick="showTab(3)">Access Point</button>
-                <button type="button" onclick="showTab(4)">Abstracts</button>
+                <button type="button" onclick="showTab(2)">Access Point</button>
+                <button type="button" onclick="showTab(3)">Abstracts</button>
+                <button type="button" onclick="showTab(4)">Local Information</button>
             </div>
             
     <div class="tab active">
@@ -327,156 +327,6 @@ include 'inc/connection.php';
         </div>
 
         <!--  SECOND FORM END  -->
-
-        
-        <!-- FOURTH  FORM -->
-        <div class="tab">
-   
-            <div class="details ID">
-                <span class="title">LOCAL INFORMATION</span>
-                <div class="fields">
-                <div class="input-field1">
-                            <span>
-                            <label>Accession Number</label>
-                            <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
-                            </input>
-                            </span>
-                            <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input"/>
-                            <div id="accession_number_error" class="error"></div>
-                            <div id="accessionNumberFields"></div>
-                </div>
-
-                
-                    <div class="input-field2">
-                        <label>Call Number</label>
-                        <select placeholder="Title Proper" name="call_number_type">
-                        <option></option>
-                            <option>BIO</option>
-                            <option>CD-ROM</option>
-                            <option>CIR</option>
-                            <option>FIC</option>
-                            <option>FIL</option>
-                            <option>REF</option>
-                            <option>TH</option>
-                        
-                        </select>
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Call Number</label>
-                        <input type="text" placeholder="Call Number" name="call_number_info">
-                        <div id="call_number_info_error" class="error"></div>
-                    </div>
-
-                
-                 
-            
-
-                    <div class="input-field2">
-                        <label>Language</label>
-                        <select placeholder="Title Proper" name="language">
-                        <option></option>
-                            <option>English</option>
-                            <option>Filipino</option>
-                            <option>French</option>
-                            <option>German</option>
-                            <option>Italian</option>
-                            <option>Korean</option>
-                            <option>Latin</option>
-                            <option>Mandarin</option>
-                            <option>Nihongo</option>
-                            <option>Spanish</option>
-                        </select>
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Library/Location</label>
-                        <select placeholder="Title Proper" name="library_location">
-                        <option></option>
-                            <option>College Library</option>
-                            <option>Grade School Library</option>
-                            <option>Graduate School Library</option>
-                            <option>High School Library</option>
-                            <option>Junior High School Library</option>
-                            <option>Pre-School Library</option>
-                            <option>Senior High School Library</option>
-        
-                        </select>
-                    </div>
-
-                    <!-- <div class="input-field2">
-                        <label>Electronic Access</label>
-                        <input type="text" placeholder="Library/Location" name="electronic_access">
-                    </div> -->
-
-                    <div class="input-field1">
-                        <label>Cover Image file</label>
-                        <input type="file" name="f1">
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Entered by</label>
-                        <input type="text" placeholder="Entered by" name="entered_by">
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Updated by</label>
-                        <input type="text" placeholder="Updated by" name="updated_by">
-                    </div>
-
-
-
-                    <div class="input-field2">
-                        <label>Date Entered</label>
-                        <input type="date" name="date_entered">
-                    </div>
-
-                    
-
-                    <div class="input-field2">
-                        <label>Date Updated</label>
-                        <input type="date" name="date_updated">
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Quantity</label>
-                        <input type="number" placeholder="Quantity" name="quantity">
-                        <div id="quantity_error" class="error"></div>
-                    </div>
-
-                    <div class="input-field2">
-                        <label>Available</label>
-                        <input type="number" placeholder="Available" name="available">
-                        <div id="available_error" class="error"></div>
-                    </div>
-
-
-
-                    <div class="input-field2">
-                        <label>Circulation</label>
-                        <select name="location">
-                        <option></option>
-                            <option>General Circulation</option>
-                            <option>Teachers Reference</option>
-                            <option>Filipiniana</option>
-                            <option>Circulation</option>
-                            <option>Reference</option>
-                            <option>Special Collection</option>
-                            <option>Biography</option>
-                            <option>Reserve</option>
-                            <option>Scholastic</option>
-                            <option>Fiction</option>
-                            <option>Special Collection</option>
-                        </select>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-
-        <!-- fOURTH form end -->
-
-
         <div class="tab">
         <!-- 3RD  FORM -->
   
@@ -530,8 +380,165 @@ include 'inc/connection.php';
               
             </div>
         </div>
-
         <!-- FIFTH form end -->
+
+                <!-- FOURTH  FORM -->
+                <div class="tab">
+   
+   <div class="details ID">
+       <span class="title">LOCAL INFORMATION</span>
+       <div class="fields">
+       <div class="input-field1">
+                   <span>
+                   <label>Accession Number</label>
+                   <input type="button" onclick="addAccessionNumberField()" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="&#43;">
+                   </input>
+                   </span>
+                   <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input"/>
+                   <div id="accession_number_error" class="error"></div>
+                   <div id="accessionNumberFields"></div>
+       </div>
+
+       
+           <div class="input-field2">
+               <label>Call Number</label>
+               <select placeholder="Title Proper" name="call_number_type">
+               <option></option>
+                   <option>BIO</option>
+                   <option>CD-ROM</option>
+                   <option>CIR</option>
+                   <option>FIC</option>
+                   <option>FIL</option>
+                   <option>REF</option>
+                   <option>TH</option>
+               
+               </select>
+           </div>
+
+           <div class="input-field2">
+               <label>Call Number</label>
+               <input type="text" placeholder="Call Number" name="call_number_info">
+               <div id="call_number_info_error" class="error"></div>
+           </div>
+
+       
+        
+   
+
+           <div class="input-field2">
+               <label>Language</label>
+               <select placeholder="Title Proper" name="language">
+               <option></option>
+                   <option>English</option>
+                   <option>Filipino</option>
+                   <option>French</option>
+                   <option>German</option>
+                   <option>Italian</option>
+                   <option>Korean</option>
+                   <option>Latin</option>
+                   <option>Mandarin</option>
+                   <option>Nihongo</option>
+                   <option>Spanish</option>
+               </select>
+           </div>
+
+           <div class="input-field2">
+               <label>Library/Location</label>
+               <select placeholder="Title Proper" name="library_location">
+               <option></option>
+                   <option>College Library</option>
+                   <option>Grade School Library</option>
+                   <option>Graduate School Library</option>
+                   <option>High School Library</option>
+                   <option>Junior High School Library</option>
+                   <option>Pre-School Library</option>
+                   <option>Senior High School Library</option>
+
+               </select>
+           </div>
+
+           <!-- <div class="input-field2">
+               <label>Electronic Access</label>
+               <input type="text" placeholder="Library/Location" name="electronic_access">
+           </div> -->
+
+           <div class="input-field1">
+               <label>Cover Image file</label>
+               <input type="file" name="f1">
+           </div>
+
+           <div class="input-field2">
+               <label>Entered by</label>
+               <input type="text" placeholder="Entered by" name="entered_by">
+           </div>
+
+           <div class="input-field2">
+               <label>Updated by</label>
+               <input type="text" placeholder="Updated by" name="updated_by">
+           </div>
+
+
+
+           <div class="input-field2">
+               <label>Date Entered</label>
+               <input type="date" name="date_entered">
+           </div>
+
+           
+
+           <div class="input-field2">
+               <label>Date Updated</label>
+               <input type="date" name="date_updated">
+           </div>
+
+           <div class="input-field2">
+               <label>Quantity</label>
+               <input type="number" placeholder="Quantity" name="quantity">
+               <div id="quantity_error" class="error"></div>
+           </div>
+
+           <div class="input-field2">
+               <label>Available</label>
+               <input type="number" placeholder="Available" name="available">
+               <div id="available_error" class="error"></div>
+           </div>
+
+
+
+           <div class="input-field2">
+               <label>Circulation</label>
+               <select name="location">
+               <option></option>
+                   <option>General Circulation</option>
+                   <option>Teachers Reference</option>
+                   <option>Filipiniana</option>
+                   <option>Circulation</option>
+                   <option>Reference</option>
+                   <option>Special Collection</option>
+                   <option>Biography</option>
+                   <option>Thesis</option>
+                   <option>Reserve</option>
+                   <option>Scholastic</option>
+                   <option>Fiction</option>
+                   <option>Special Collection</option>
+               </select>
+           </div>
+
+           <div class="input-field2">
+               <label>Resource Type</label>
+               <select name="resource_type">
+               <option></option>
+                   <option>Book</option>
+                   <option>Thesis</option>
+                   <option>Map</option>
+               </select>
+           </div>
+       </div>
+      
+   </div>
+</div>
+
+<!-- fOURTH form end -->
     </form>
 </div>
 
@@ -596,6 +603,7 @@ if (isset($_POST["submit"])) {
             $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
             $available = mysqli_real_escape_string($link, $_POST['available']);
             $location = mysqli_real_escape_string($link, $_POST['location']);
+            $resource_type = mysqli_real_escape_string($link, $_POST['resource_type']);
             $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
             $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
             $review = mysqli_real_escape_string($link, $_POST['review']);
@@ -641,6 +649,7 @@ if (isset($_POST["submit"])) {
                 '$quantity',
                 '$available',
                 '$location',
+                '$resource_type',
                 '$content_notes',
                 '$abstract',
                 '$review','')"
@@ -719,26 +728,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const ISBN = document.querySelector('input[name="ISBN"]').value.trim();
     const call_number_info = document.querySelector('input[name="call_number_info"]').value.trim();
 
-    // Check if any required field is empty
-    if (titleProper === '' ) {
-        // Display error message next to the title proper input field
-        alert('Please input Title Proper');
-        document.getElementById('title_proper_error').innerText = 'Title Proper is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('title_proper_error').innerText = '';
-    }
+    // // Check if any required field is empty
+    // if (titleProper === '' ) {
+    //     // Display error message next to the title proper input field
+    //     alert('Please input Title Proper');
+    //     document.getElementById('title_proper_error').innerText = 'Title Proper is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('title_proper_error').innerText = '';
+    // }
 
-    if (placeOfPublication === '') {
-    // Display error message next to the place of publication input field
-    alert('Please input place of publication');
-    document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
-    return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('place_of_publication_error').innerText = '';
-    }
+    // if (placeOfPublication === '') {
+    // // Display error message next to the place of publication input field
+    // alert('Please input place of publication');
+    // document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
+    // return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('place_of_publication_error').innerText = '';
+    // }
 
     if (accession_number === '') {
         // Display error message next to the accession number input field
@@ -770,25 +779,25 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('quantity_error').innerText = '';
     }
 
-    if (ISBN === '') {
-        // Display error message next to the quantity input field
-        alert('Please input ISBN');
-        document.getElementById('ISBN_error').innerText = 'ISBN is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('ISBN_error').innerText = '';
-    }
+    // if (ISBN === '') {
+    //     // Display error message next to the quantity input field
+    //     alert('Please input ISBN');
+    //     document.getElementById('ISBN_error').innerText = 'ISBN is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('ISBN_error').innerText = '';
+    // }
 
-    if (call_number_info === '') {
-        // Display error message next to the quantity input field
-        alert('Please input Call No');
-        document.getElementById('call_number_info_error').innerText = 'Call No is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('call_number_info_error').innerText = '';
-    }
+    // if (call_number_info === '') {
+    //     // Display error message next to the quantity input field
+    //     alert('Please input Call No');
+    //     document.getElementById('call_number_info_error').innerText = 'Call No is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('call_number_info_error').innerText = '';
+    // }
 
     
 

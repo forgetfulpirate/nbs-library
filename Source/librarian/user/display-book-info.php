@@ -108,7 +108,7 @@
                 <div class="content active">
                     <div class="image-container">
                         <?php if(!empty($imagepath)): ?>
-                            <img src="../<?php echo $imagepath; ?>">
+                            <img src="../<?php echo $imagepath; ?>" alt="no cover available">
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
@@ -154,7 +154,7 @@
                         
                             <?php if(!empty($dimension)): ?>
                                 <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Description:</span>
-                                <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $dimension . ": "; ?></span>
+                                <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $dimension . " "; ?></span>
                             <?php endif; ?>
 
                             <?php if(!empty($illustrations)): ?>
@@ -222,6 +222,7 @@
             <table id="myTable" class="table table-bordered">
                 <thead>
                     <tr>
+                        <th class="text-left">Resource Type</th>
                         <th class="text-left">Accession Number</th>
                         <th class="text-left">Call No</th>
                         <th class="text-left">Location</th>
@@ -248,6 +249,7 @@
                         }
                         ?>
                         <tr>
+                            <td class="text-left"><?php echo $similar_book['resource_type']; ?></td>
                             <td class="text-left"><?php echo $similar_book['accession_number']; ?></td>
                             <td class="text-left"><?php echo $similar_book['call_number_info']; ?></td>
                             <td class="text-left"><?php echo $similar_book['location']; ?></td>
@@ -273,7 +275,6 @@
         });
     });
 </script>
-
                 <!-- END HOLDINGS VIEW CONTENT -->
                 
                 <!-- ISBD VIEW CONTENT -->
@@ -284,9 +285,6 @@
         </div>
     </div>
 
-
-
     <script src="inc/js/tabs.js"></script>
-    
 </body>
 </html>
