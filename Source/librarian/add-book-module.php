@@ -463,10 +463,21 @@ include 'inc/connection.php';
                             <option>Reference</option>
                             <option>Special Collection</option>
                             <option>Biography</option>
+                            <option>Theses</option>
                             <option>Reserve</option>
                             <option>Scholastic</option>
                             <option>Fiction</option>
                             <option>Special Collection</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field2">
+                        <label>Resource Type</label>
+                        <select name="resource_type">
+                        <option></option>
+                            <option>Book</option>
+                            <option>Theses</option>
+                            <option>Map</option>
                         </select>
                     </div>
                 </div>
@@ -596,6 +607,7 @@ if (isset($_POST["submit"])) {
             $quantity = mysqli_real_escape_string($link, $_POST['quantity']);
             $available = mysqli_real_escape_string($link, $_POST['available']);
             $location = mysqli_real_escape_string($link, $_POST['location']);
+            $resource_type = mysqli_real_escape_string($link, $_POST['resource_type']);
             $content_notes = mysqli_real_escape_string($link, $_POST['content_notes']);
             $abstract = mysqli_real_escape_string($link, $_POST['abstract']);
             $review = mysqli_real_escape_string($link, $_POST['review']);
@@ -641,6 +653,7 @@ if (isset($_POST["submit"])) {
                 '$quantity',
                 '$available',
                 '$location',
+                '$resource_type',
                 '$content_notes',
                 '$abstract',
                 '$review','')"
@@ -719,26 +732,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const ISBN = document.querySelector('input[name="ISBN"]').value.trim();
     const call_number_info = document.querySelector('input[name="call_number_info"]').value.trim();
 
-    // Check if any required field is empty
-    if (titleProper === '' ) {
-        // Display error message next to the title proper input field
-        alert('Please input Title Proper');
-        document.getElementById('title_proper_error').innerText = 'Title Proper is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('title_proper_error').innerText = '';
-    }
+    // // Check if any required field is empty
+    // if (titleProper === '' ) {
+    //     // Display error message next to the title proper input field
+    //     alert('Please input Title Proper');
+    //     document.getElementById('title_proper_error').innerText = 'Title Proper is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('title_proper_error').innerText = '';
+    // }
 
-    if (placeOfPublication === '') {
-    // Display error message next to the place of publication input field
-    alert('Please input place of publication');
-    document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
-    return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('place_of_publication_error').innerText = '';
-    }
+    // if (placeOfPublication === '') {
+    // // Display error message next to the place of publication input field
+    // alert('Please input place of publication');
+    // document.getElementById('place_of_publication_error').innerText = 'Place of Publication is required.';
+    // return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('place_of_publication_error').innerText = '';
+    // }
 
     if (accession_number === '') {
         // Display error message next to the accession number input field
@@ -770,25 +783,25 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('quantity_error').innerText = '';
     }
 
-    if (ISBN === '') {
-        // Display error message next to the quantity input field
-        alert('Please input ISBN');
-        document.getElementById('ISBN_error').innerText = 'ISBN is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('ISBN_error').innerText = '';
-    }
+    // if (ISBN === '') {
+    //     // Display error message next to the quantity input field
+    //     alert('Please input ISBN');
+    //     document.getElementById('ISBN_error').innerText = 'ISBN is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('ISBN_error').innerText = '';
+    // }
 
-    if (call_number_info === '') {
-        // Display error message next to the quantity input field
-        alert('Please input Call No');
-        document.getElementById('call_number_info_error').innerText = 'Call No is required.';
-        return false; // Prevent form submission
-    } else {
-        // Clear error message if the field is not empty
-        document.getElementById('call_number_info_error').innerText = '';
-    }
+    // if (call_number_info === '') {
+    //     // Display error message next to the quantity input field
+    //     alert('Please input Call No');
+    //     document.getElementById('call_number_info_error').innerText = 'Call No is required.';
+    //     return false; // Prevent form submission
+    // } else {
+    //     // Clear error message if the field is not empty
+    //     document.getElementById('call_number_info_error').innerText = '';
+    // }
 
     
 

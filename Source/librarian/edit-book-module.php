@@ -60,6 +60,7 @@ if(isset($_GET['id'])) {
         $quantity = $row['quantity'];
         $available = $row['available'];
         $location = $row['location'];
+        $resource_type = $row['resource_type'];
         $content_notes = $row['content_notes'];
         $abstract = $row['abstract'];
         $review = $row['review'];
@@ -532,9 +533,20 @@ if(isset($_GET['id'])) {
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
                                     <option <?php if ($location == 'Biography') echo 'selected'; ?>>Biography</option>
                                     <option <?php if ($location == 'Reserve') echo 'selected'; ?>>Reserve</option>
+                                    <option <?php if ($location == 'Theses') echo 'selected'; ?>>Theses</option>
                                     <option <?php if ($location == 'Scholastic') echo 'selected'; ?>>Scholastic</option>
                                     <option <?php if ($location == 'Fiction') echo 'selected'; ?>>Fiction</option>
                                     <option <?php if ($location == 'Special Collection') echo 'selected'; ?>>Special Collection</option>
+                                </select>
+                        </div>
+
+                        <div class="input-field2">
+                                <label>Resource Type</label>
+                                <select name="resource_type">
+                                <option <?php if ($resource_type == '') echo 'selected'; ?>></option>
+                                    <option <?php if ($resource_type == 'Book') echo 'selected'; ?>>Book</option>
+                                    <option <?php if ($resource_type == 'Theses') echo 'selected'; ?>>Theses</option>
+                                    <option <?php if ($resource_type == 'Map') echo 'selected'; ?>>Map</option>
                                 </select>
                         </div>
 

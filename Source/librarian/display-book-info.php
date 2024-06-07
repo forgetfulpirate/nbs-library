@@ -111,7 +111,7 @@
                 <div class="content active">
                     <div class="image-container">
                         <?php if(!empty($imagepath)): ?>
-                            <img src="<?php echo $imagepath; ?>">
+                            <img src="<?php echo $imagepath; ?>" alt="no cover available">
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
@@ -225,6 +225,7 @@
             <table id="myTable" class="table table-bordered">
                 <thead>
                     <tr>
+                        <th class="text-left">Resource Type</th>
                         <th class="text-left">Accession Number</th>
                         <th class="text-left">Call No</th>
                         <th class="text-left">Location</th>
@@ -251,6 +252,7 @@
                         }
                         ?>
                         <tr>
+                            <td class="text-left"><?php echo $similar_book['resource_type']; ?></td>
                             <td class="text-left"><?php echo $similar_book['accession_number']; ?></td>
                             <td class="text-left"><?php echo $similar_book['call_number_info']; ?></td>
                             <td class="text-left"><?php echo $similar_book['location']; ?></td>
