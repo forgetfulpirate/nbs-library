@@ -8,6 +8,7 @@
     $page = '';
     include 'inc/connection.php';
     include 'inc/header.php';
+
     if(isset($_GET['accession_number'])) {
         $accession_number = $_GET['accession_number'];
 
@@ -98,8 +99,8 @@
         <div class="tabs-wrapper">
 
             <div class="tab-buttons">
-                <div class="button active">Normal view</div>
-                <div class="button">Holdings</div>
+                <div class="button active" style="font-weight:bold">Full Display</div>
+                <div class="button" style="font-weight:bold">Holdings</div>
                 <!-- <div class="button">ISBD view</div> -->
             </div>
             
@@ -112,11 +113,13 @@
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
+    
                         <h2>
-                            <?php if(!empty($title_proper)): ?>
-                                <span class="title"><?php echo $title_proper; ?></span>
-                            <?php endif; ?>
-                        </h2>
+                        <?php if(!empty($title_proper) || !empty($responsibility)): ?>
+                            <span class="title"><?php echo $title_proper . (!empty($responsibility) ? " / " . $responsibility : ""); ?></span>
+                        <?php endif; ?>
+                    </h2>
+   
                     </div>
                     
                     <br>
@@ -126,11 +129,25 @@
                             <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $main_creator?></span>
                         <?php endif; ?>
                     </div>
+
+                    <div class="normal-view">
+                        <?php if(!empty($add_entry_creator)): ?>
+                            <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Contributor(s):</span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $add_entry_creator?></span>
+                        <?php endif; ?>
+                    </div>
                     
                     <div class="normal-view">
                         <?php if(!empty($contributors)): ?>
                             <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Contributor(s):</span>
                             <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $contributors?></span>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="normal-view">
+                        <?php if(!empty($acc_materials)): ?>
+                            <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Media type:</span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $acc_materials?></span>
                         <?php endif; ?>
                     </div>
 
@@ -150,31 +167,41 @@
 
                     <div class="normal-view">
 
-                        <?php if(!empty($dimension) || !empty($illustrations)): ?>
+                        <?php if(!empty($dimension) || !empty($illustrations) || !empty($extent_of_text)): ?>
                         
                             <?php if(!empty($dimension)): ?>
-                                <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Description:</span>
-                                <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $dimension . " "; ?></span>
+                                <span class="sub" style="color:inherit; font-weight:900; margin-right:2px;">Description:</span>
+                                <span class="normal-value" style="color:inherit; font-weight:lighter; margin-right:2px;" ><?php echo $dimension; ?></span>
                             <?php endif; ?>
 
                             <?php if(!empty($illustrations)): ?>
                                 <span class="sub" style="color:inherit; font-weight:900; margin-right:5px;">ill:</span>
-                                <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $illustrations; ?></span>
+                                <span class="normal-value" style="color:inherit; font-weight:lighter;" margin-right:2px;><?php echo $illustrations; ?></span>
+                            <?php endif; ?>
+
+                            <?php if(!empty($extent_of_text)): ?>
+                                <span class="sub" style="color:inherit; font-weight:900;">Extend of text: </span>
+                                <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $extent_of_text; ?></span>
                             <?php endif; ?>
 
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <?php if(!empty($content_type) || !empty($carrier_type)): ?>
+                        <?php if(!empty($content_type) || !empty($carrier_type) || !empty($media_type)): ?>
 
                             <?php if(!empty($content_type)): ?>
-                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Content Type: </span>
-                            <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $content_type?></span>
+                            <span  class="sub" style="color:inherit; font-weight:900;">Content Type: </span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;" margin-right:2px;><?php echo $content_type?></span>
+                            <?php endif; ?>
+
+                            <?php if(!empty($media_type)): ?>
+                            <span  class="sub" style="color:inherit; font-weight:900;">Media Type:</span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;" margin-right:2px;><?php echo $media_type?></span>
                             <?php endif; ?>
 
                             <?php if(!empty($carrier_type)): ?>
-                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Carrier Type:</span>
-                            <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $carrier_type?></span>
+                            <span  class="sub" style="color:inherit; font-weight:900;">Carrier Type:</span>
+                            <span class="normal-value" style="color:inherit; font-weight:lighter;" margin-right:2px;><?php echo $carrier_type?></span>
                             <?php endif; ?>
 
                         <?php endif; ?>
@@ -182,21 +209,21 @@
 
                     <div class="normal-view">
                         <?php if(!empty($ISBN)): ?>
-                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">ISBN:</span>
+                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:2px;">ISBN:</span>
                             <span class="normal-value" style="color:inherit; font-weight:lighter;"><?php echo $ISBN?></span>
                         <?php endif; ?>
                     </div>
                     
                     <div class="normal-view">
                         <?php if(!empty($subject_info)): ?>
-                            <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Subjects:</span>
+                            <span  class="sub" style="color:inherit; font-weight:900;">Subjects:</span>
                             <span class="normal-value" style="color:inherit; font-weight:lighter;"> <?php echo $subject_info; ?></span>
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
-                        <?php if(!empty($call_number_info)): ?>
+                        <?php if(!empty($call_number_info) || !empty($call_number_type)): ?>
                             <span  class="sub" style="color:inherit; font-weight:900; margin-right:5px;">Call Number:</span>
-                            <span class="normal-value" style="color:inherit ; font-weight:lighter;"><?php echo $call_number_info?></span>
+                            <span class="normal-value" style="color:inherit ; font-weight:lighter;"><?php echo $call_number_type; echo " ";echo $call_number_info?></span>
                         <?php endif; ?>
                     </div>
                     <div class="normal-view">
@@ -222,7 +249,7 @@
             <table id="myTable" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="text-left">Resource Type</th>
+                        <th class="text-left">Resources Type</th>
                         <th class="text-left">Accession Number</th>
                         <th class="text-left">Call No</th>
                         <th class="text-left">Location</th>
@@ -232,32 +259,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    while ($similar_book = mysqli_fetch_assoc($result_all)):
-                        // Fetch information from issue_book table based on the accession number
-                        $query_issue = "SELECT * FROM issue_book WHERE accession_number = ?";
-                        $stmt_issue = mysqli_prepare($link, $query_issue);
-                        mysqli_stmt_bind_param($stmt_issue, "s", $similar_book['accession_number']);
-                        mysqli_stmt_execute($stmt_issue);
-                        $result_issue = mysqli_stmt_get_result($stmt_issue);
+                <?php
+    while ($similar_book = mysqli_fetch_assoc($result_all)):
+        // Fetch information from issue_book table based on the accession number
+        $query_issue = "SELECT * FROM issue_book WHERE accession_number = ?";
+        $stmt_issue = mysqli_prepare($link, $query_issue);
+        mysqli_stmt_bind_param($stmt_issue, "s", $similar_book['accession_number']);
+        mysqli_stmt_execute($stmt_issue);
+        $result_issue = mysqli_stmt_get_result($stmt_issue);
 
-                        // Check if the book is issued and get the due date
-                        $date_due = "";
-                        if (mysqli_num_rows($result_issue) > 0) {
-                            $issue_info = mysqli_fetch_assoc($result_issue);
-                            $date_due = $issue_info['booksreturndate'];
-                        }
-                        ?>
-                        <tr>
-                            <td class="text-left"><?php echo $similar_book['resource_type']; ?></td>
-                            <td class="text-left"><?php echo $similar_book['accession_number']; ?></td>
-                            <td class="text-left"><?php echo $similar_book['call_number_info']; ?></td>
-                            <td class="text-left"><?php echo $similar_book['location']; ?></td>
-                     
-                            <td class="text-left"><?php echo $similar_book['available'] == 1 ? 'Available' : 'Not Available'; ?></td>
-                            <td class="text-left"><?php echo $date_due; ?></td> <!-- Display date due -->
-                        </tr>
-                    <?php endwhile; ?>
+        // Check if the book is issued and get the due date
+        $date_due = "";
+        if (mysqli_num_rows($result_issue) > 0) {
+            $issue_info = mysqli_fetch_assoc($result_issue);
+            $date_due = $issue_info['booksreturndate'];
+        }
+
+        // Display status based on resource type
+        if ($similar_book['resource_type'] === "Thesis") {
+            $status = $similar_book['available'] == 1 ? "Available (room use only)" : "Not Availble";
+        } else {
+            $status = $similar_book['available'] == 1 ? 'Available' : 'Not Available';
+        }
+        $status_color = $similar_book['available'] == 1 ? '#218838' : 'red';
+?>
+        <tr>
+            <td class="text-left"><?php echo $similar_book['resource_type']; ?></td>
+            <td class="text-left"><?php echo $similar_book['accession_number']; ?></td>
+            <td class="text-left"><?php echo $similar_book['call_number_type']; echo " "; echo $similar_book['call_number_info']; ?></td>
+            <td class="text-left"><?php echo $similar_book['location']; ?></td>
+            <td class="text-left"><div style="color:<?php echo $status_color; ?>"><?php echo $status; ?></div></td>
+            <td class="text-left"><?php echo $date_due; ?></td> <!-- Display date due -->
+        </tr>
+<?php endwhile; ?>
                 </tbody>
             </table>
         </div>

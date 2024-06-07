@@ -73,7 +73,7 @@
                                     <th class="col">Remarks</th>
                                     <th class="col">View</th>
                                     <th class="col">Edit</th>
-                                    <th class="col">Archive</th>
+                                    <!-- <th class="col">Archive</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,11 +113,11 @@
                                     <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["accession_number"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
                                     
                                     echo "</td>";   echo "</td>";
-                                    echo "<td>";
-                                    ?>
-                                     <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a>
-                                     <?php
-                                    echo "</td>";
+                                    // echo "<td>";
+                                    // ?>
+                                      <!-- <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a> -->
+                                    <?php
+                                    // echo "</td>";
                                                 
                                     
                                     echo "</tr>";
