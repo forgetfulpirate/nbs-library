@@ -87,7 +87,7 @@
                                                    ?>
                                                          <div class="d-flex justify-content-center">
                                                             <a href="return.php?id=<?php echo $row["id"]; ?>" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want to return this book?')"  style="margin-right: 10px"><span>Return</span></a>
-                                                            <a href="delete.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Cancel</span></a>
+                                                            <!-- <a href="delete.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger btn-sm ml-2" onclick="return confirm('Are you sure you want to delete this row?')"><span>Cancel</span></a> -->
                                                         </div>
                                                     <?php 
                                                     echo "</td>";

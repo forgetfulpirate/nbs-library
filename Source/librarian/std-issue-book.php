@@ -212,16 +212,16 @@
                                         continue; // Move to the next iteration if the current book is not available
                                     } else {
                                         // Check if return date is valid
-                                        // $issuedDate = strtotime($_POST['booksissuedate']);
-                                        // $returnDate = strtotime($_POST['booksreturndate']);
-                                        // if ($returnDate < $issuedDate) {
+                                        $issuedDate = strtotime($_POST['booksissuedate']);
+                                        $returnDate = strtotime($_POST['booksreturndate']);
+                                        if ($returnDate < $issuedDate) {
                                             ?>
-                                            <!-- <div class="alert alert-danger col-lg-6 col-lg-push-3">
+                                            <div class="alert alert-danger col-lg-6 col-lg-push-3">
                                                 <strong>Return date cannot be earlier than issue date.</strong>
-                                            </div> -->
+                                            </div>
                                             <?php
-                                        //     continue; // Move to the next iteration if return date is invalid
-                                        // }
+                                            continue; // Move to the next iteration if return date is invalid
+                                        }
                                         
                                         $title_proper = mysqli_real_escape_string($link, $title_proper);
                                         mysqli_query($link, "INSERT INTO issue_book VALUES ('', '$_SESSION[user_type]', '$_SESSION[student_number]', '$_POST[first_name]', '$_POST[last_name]', '', '', '', '', '$title_proper', '$accession_number', '$_POST[booksissuedate]', '$_POST[booksreturndate]','$_POST[username]')");

@@ -38,7 +38,7 @@
 
     // If no results found, display an alert
     if ($num_rows == 0) {
-        echo "<script>alert('No results found in the selected date range.');</script>";
+        // echo "<script>alert('No results found in the selected date range.');</script>";
     }
 ?>
 <style>

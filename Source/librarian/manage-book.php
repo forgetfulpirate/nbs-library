@@ -118,7 +118,7 @@
                                     echo "</td>";
  
                                     echo "<td>";                            
-                                    echo $row["call_number_info"];
+                                    echo $row['call_number_type'] . ' ' . $row["call_number_info"]; 
                                     echo "</td>";
 
 

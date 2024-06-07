@@ -73,7 +73,7 @@
                                     <th class="col">Remarks</th>
                                     <th class="col">View</th>
                                     <th class="col">Edit</th>
-                                    <th class="col">Archive</th>
+                                    <!-- <th class="col">Archive</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,11 +113,11 @@
                                     <span style="marigin-right=20px;"><a href="edit-book-module.php?id=<?php echo $row["accession_number"]; ?>"  class="btn btn-primary" id="edit">Edit</a></span><?php
                                     
                                     echo "</td>";   echo "</td>";
-                                    echo "<td>";
-                                    ?>
-                                     <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a>
-                                     <?php
-                                    echo "</td>";
+                                    // echo "<td>";
+                                    // ?>
+                                      <!-- <a href="delete-book-module.php?id=<?php echo $row["accession_number"];?>" class="btn btn-primary" id="edit1" onclick="return confirm('Are you sure you want to archive this book?')">Archive</a> -->
+                                    <?php
+                                    // echo "</td>";
                                                 
                                     
                                     echo "</tr>";
@@ -182,12 +182,42 @@
     // Initialize DataTables after setting up event delegation
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
-        buttons:['copy','csv','excel','pdf', 'print'],
+        buttons: [
+            {
+                extend: 'copy',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            {
+                extend: 'csv',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            {
+                extend: 'excel',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7]
+                }
+            }
+        ],
         "lengthMenu": [[10, 25, 50, 100, 500], [10, 25, 50, 100, 500]],
-        "order": [[1, 'asc']] // This sets the default sorting to the second column (accession_number) in ascending order
-
-
+        "order": [[1, 'asc']], // This sets the default sorting to the second column (accession_number) in ascending order
     });
+
 
     $('#saveRemarksBtn').click(function () {
         var remarksText = $('#remarksText').val();

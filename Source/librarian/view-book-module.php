@@ -135,9 +135,9 @@ if(isset($_GET['accession_number'])) {
             <div class="tab-buttons">
             <button type="button" onclick="showTab(0)">Title Proper</button>
                 <button type="button" onclick="showTab(1)">Publication</button>
-                <button type="button" onclick="showTab(2)">Local Information</button>
-                <button type="button" onclick="showTab(3)">Access Point</button>
-                <button type="button" onclick="showTab(4)">Abstracts</button>
+                <button type="button" onclick="showTab(2)">Access Point</button>
+                <button type="button" onclick="showTab(3)">Abstracts</button>
+                <button type="button" onclick="showTab(4)">Local Information</button>
             </div>
 
             <div class="tab active">
@@ -413,7 +413,7 @@ if(isset($_GET['accession_number'])) {
 
             <div class="tab">
                 <div class="details personal">
-                    <span class="title">Abstracts</span>
+                    <span class="title">Content / Abstract / Review</span>
                     <div class="fields">
                     <div class="input-field1">
                         <label>Content notes</label>
@@ -453,7 +453,7 @@ if(isset($_GET['accession_number'])) {
 </div>
                         
                     <div class="input-field2">
-                                        <label>Call Number</label>
+                    <label>Call Number Prefix.</label>
                                         <select name="call_number_type" readonly>
                                         <option <?php if ($call_number_type == '') echo 'selected'; ?> disabled></option>
                                             <option <?php if ($call_number_type == 'BIO') echo 'selected'; ?> disabled>BIO</option>
