@@ -25,7 +25,8 @@
 
 body,
 input,
-button {
+button,
+select {
   font-size: var(--normal-font-size);
   font-family: var(--body-font);
 }
@@ -35,7 +36,8 @@ body {
 }
 
 input,
-button {
+button,
+select {
   border: none;
   outline: none;
 }
