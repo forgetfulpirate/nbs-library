@@ -17,7 +17,6 @@
  ?>
 
 <style>
-
 #time {
     font-size: 20px;
     float: right;
@@ -42,20 +41,16 @@
 
 
     
-            <main class="content px-3 py-2">
-            <div class="gap-30"></div>
-                <div class="container-fluid">
-				<div class="mb-3">
-          
-                        <h4>User Verification  
-                        <p id="time"></p>
-                          
-                            <p id="date"></p>
-                        </h4>
-                           
-             
-                 </div>
+<main class="content px-3 py-2">
+    <div class="gap-30"></div>
+        <div class="container-fluid">
+			<div class="mb-3">
+                <h4>User Verification  
+                <p id="time"></p>
+                <p id="date"></p>
+                </h4>
             </div>
+        </div>
             <br>
 
               <!-- Display Success or Error Messages -->
@@ -69,11 +64,10 @@
                     unset($_SESSION['error_msg']);
                 }
 
-                                // Check if there is a success message for activation in the session
+                // Check if there is a success message for activation in the session
                 if (isset($_SESSION['activation_success_msg'])) {
                     // Display the success message for activation
                     echo '<div class="alert alert-success" role="alert">' . $_SESSION['activation_success_msg'] . '</div>';
-                    // Clear the session variable to ensure it's only displayed once
                     unset($_SESSION['activation_success_msg']);
                 }
 
@@ -81,17 +75,12 @@
                 if (isset($_SESSION['deactivation_success_msg'])) {
                     // Display the success message for deactivation
                     echo '<div class="alert alert-success" role="alert">' . $_SESSION['deactivation_success_msg'] . '</div>';
-                    // Clear the session variable to ensure it's only displayed once
                     unset($_SESSION['deactivation_success_msg']);
                 }
             
                 ?>
             
-  
-
             <div class="card border-0">
-                
-                 
                         <div class="card-body">
                             <table class="table table-hover text-center table-striped" id="dtBasicExample">
                                 <thead>
@@ -170,15 +159,10 @@
                                 </tbody>
                                
                                
-                            </table>
-                       
-
-                           
-                           
-                            
+                            </table>                     
                         </div>
                     </div>
-
+</main>
 
                   <!-- Activate Confirmation Modal -->
                   <div class="modal fade" id="activateConfirmationModal" tabindex="-1" aria-labelledby="activateConfirmationModalLabel" aria-hidden="true">
@@ -220,13 +204,9 @@
                         </div>
                     </div>
                 </div>
-
-                  
-    
-</main>
     
 <?php include 'inc/footer.php';?>
-
+    <!-- script for export table-->
     <script>
         $(document).ready(function () {
             $('#dtBasicExample').DataTable({
@@ -270,61 +250,40 @@
         });
     </script>	
     
-    <!-- <script> 
-         window.setInterval(ut, 1000);
-
-        function ut() {
-        var d = new Date();
-        document.getElementById("time").innerHTML = d.toLocaleTimeString();
-        document.getElementById("date").innerHTML = d.toLocaleDateString();
-        }
-        </script> -->
-
-
-
-
 
 <script>
-     // Function to set the user ID and name and trigger the modal
+     // FUNCTION FOR deleteConfirmationModal 
      function deleteUserConfirmation(userId, userName) {
-        // Set the delete link with the user ID
         document.getElementById("confirmDeleteButton").setAttribute("onclick", "window.location.href='delete-student.php?id=" + userId + "'");
-        // Set the user's name in the modal body
         document.getElementById("userNameToDelete").innerText = userName;
-        // Show the delete confirmation modal
         $('#deleteConfirmationModal').modal('show');
     }
 
+      // FUNCTION FOR aCTIVATED CONFIRMATION MODAL 
     function activateUserConfirmation(userId, userName) {
-        // Set the user ID and name in the modal
         document.getElementById("confirmActivateButton").setAttribute("onclick", "window.location.href='approve.php?id=" + userId + "'");
         document.getElementById("userNameToActivate").innerText = userName;
-        // Show the activate confirmation modal
         $('#activateConfirmationModal').modal('show');
     }
 
+    // FUNCTION FOR DEACTIVATE CONFIRMATION MODAL 
     function deactivateUserConfirmation(userId, userName) {
-        // Set the user ID and name in the modal
         document.getElementById("confirmDeactivateButton").setAttribute("onclick", "window.location.href='notapprove.php?id=" + userId + "'");
         document.getElementById("userNameToDeactivate").innerText = userName;
-        // Show the deactivate confirmation modal
         $('#deactivateConfirmationModal').modal('show');
     }
+
 </script>
 
+<!-- Script for delete confirmation modal -->
 <script>
-     // Function to set the user ID and name and trigger the modal
      function deleteUserConfirmation1(userId, userName) {
-        // Set the delete link with the user ID
-        document.getElementById("confirmDeleteButton1").setAttribute("onclick", "window.location.href='delete-teacher.php?id=" + userId + "'");
-        // Set the user's name in the modal body
-        document.getElementById("userNameToDelete1").innerText = userName;
-        // Show the delete confirmation modal
-        $('#deleteConfirmationModal1').modal('show');
-    }
 
-   
-     
+        document.getElementById("confirmDeleteButton1").setAttribute("onclick", "window.location.href='delete-teacher.php?id=" + userId + "'");
+        document.getElementById("userNameToDelete1").innerText = userName;
+        $('#deleteConfirmationModal1').modal('show');
+
+    }
 </script>
 
 
