@@ -54,7 +54,6 @@
                 ?>
           
             <div class="card border-0">
-                
                         <div class="card-body">
                             <table class="table table-hover  table-striped" id="dtBasicExample">
                                 <thead style="text-align: left;">
@@ -111,9 +110,10 @@
                             </div>
                         </div>                
                     </div>
+ </main>
 
-                        <!-- Add Teacher Modal -->
-        <div class="modal fade" id="addTeacherModal" tabindex="-1" role="dialog" aria-labelledby="addStudntModalLabel" aria-hidden="true">
+         <!-- Add Teacher Modal -->
+         <div class="modal fade" id="addTeacherModal" tabindex="-1" role="dialog" aria-labelledby="addStudntModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -197,11 +197,10 @@
             </div>
         </div>
     </div>
+    <!-- END Add Teacher Modal -->
 
-     <!-- END Add Teacher Modal -->
-
-     <!-- Delete Confirmation Modal -->
-     <div class="modal fade" id="deleteConfirmationModal1" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel1" aria-hidden="true">
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal1" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel1" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -217,10 +216,10 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-                 <!-- End DeleteConfirmation Modal -->
+</div> 
+<!-- End DeleteConfirmation Modal -->
 
-                 <!-- Reset Password Confirmation Modal -->
+<!-- Reset Password Confirmation Modal -->
 <div class="modal fade" id="resetPasswordConfirmationModal" tabindex="-1" aria-labelledby="resetPasswordConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -239,7 +238,6 @@
     </div>
 </div>
  <!-- END Reset Password Confirmation Modal -->
- </main>
 
  <?php 
 		include 'inc/footer.php';
@@ -300,9 +298,6 @@
         // Show the delete confirmation modal
         $('#deleteConfirmationModal1').modal('show');
     }
-
-   
-     
 </script>
 
 <script>

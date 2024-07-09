@@ -24,10 +24,10 @@
 <?php
 // Custom function to highlight search terms case-insensitively
 function highlightTerms($text, $terms) {
-    // Combine search terms into a single regex pattern
+
     $pattern = '/(' . implode('|', array_map('preg_quote', $terms)) . ')/i';
 
-    // Use preg_replace_callback to handle matches and keep HTML intact
+   
     return preg_replace_callback($pattern, function($matches) {
         return '<span class="highlight">' . $matches[0] . '</span>';
     }, $text);
@@ -58,13 +58,13 @@ if ($searchQuerySubmitted) {
     // Prepare SQL query to fetch books with optional search filter and limit
     $sqlCount = "SELECT COUNT(*) as count FROM book_module";
     $sql = "SELECT * FROM book_module";
-    $searchConditions = []; // Array to hold individual search conditions
+    $searchConditions = []; 
 
     if (!empty($search)) {
-        $searchTerms = explode(" ", $search); // Split the search string into an array of terms
+        $searchTerms = explode(" ", $search); 
 
         foreach ($searchTerms as $term) {
-            $term = mysqli_real_escape_string($link, $term); // Escape the search term
+            $term = mysqli_real_escape_string($link, $term); 
             switch ($keyword) {
                 case 'title':
                     $searchConditions[] = "title_proper LIKE '%$term%'";
@@ -111,7 +111,6 @@ if ($searchQuerySubmitted) {
     // Update SQL query to include pagination
     $sql .= " LIMIT $entriesPerPage OFFSET $offset";
 
-    // Execute the query
     $res = mysqli_query($link, $sql);
 }
 ?>
@@ -171,8 +170,6 @@ if ($searchQuerySubmitted) {
             </ul>
         </div>
     </div> -->
-
-
 
     <!-- Display the count of search results -->
     <?php if ($searchQuerySubmitted) { ?>
@@ -383,4 +380,4 @@ $status_color = ($row["available"] > 0) ? '#218838' : 'red';
             window.location.href = currentURL;
             });
             });
-            </script>
+</script>

@@ -1,44 +1,44 @@
-        <?php 
-            session_start();
-            if (!isset($_SESSION["username"])) {
+<?php 
+    session_start();
+    if (!isset($_SESSION["username"])) {
                 ?>
                     <script type="text/javascript">
                         window.location="login.php";
                     </script>
                 <?php
+    }
+    
+    $page = 'ibook';
+    include 'inc/header.php';
+    include 'inc/connection.php';
+
+        if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
+                
+            $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
+            $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
+
+            $filter_criteria = $_POST['filter_criteria'];
+
+            $query = "SELECT * FROM finezone_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
+
+            // Set the filename based on the date range
+            $filename = "overdue-return($start_date - $end_date)";
+
+        } else {
+            // If start_date and end_date are not set, fetch all records
+            $query = "SELECT * FROM finezone_archive ORDER BY date_issued ASC"; // Default ordering by booksissuedate
+            $filename = "overdue-return(all)";
+        }
+
+            $res = mysqli_query($link, $query);
+
+            // Check if there are any results
+            $num_rows = mysqli_num_rows($res);
+
+            // If no results found, display an alert
+            if ($num_rows == 0) {
+            
             }
-            $page = 'ibook';
-            include 'inc/header.php';
-            include 'inc/connection.php';
-
-if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
-    // Sanitize the input to prevent SQL injection
-    $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
-    $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
-
-    // Get the selected filtering criteria
-    $filter_criteria = $_POST['filter_criteria'];
-
-    // Modify the SQL query to include date range filter, selected criteria, and order by clause
-    $query = "SELECT * FROM finezone_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
-
-    // Set the filename based on the date range
-    $filename = "overdue-return($start_date - $end_date)";
-} else {
-    // If start_date and end_date are not set, fetch all records
-    $query = "SELECT * FROM finezone_archive ORDER BY date_issued ASC"; // Default ordering by booksissuedate
-    $filename = "overdue-return(all)";
-}
-
-$res = mysqli_query($link, $query);
-
-// Check if there are any results
-$num_rows = mysqli_num_rows($res);
-
-// If no results found, display an alert
-if ($num_rows == 0) {
-  
-}
 ?>
      
         <style>
@@ -94,21 +94,20 @@ if ($num_rows == 0) {
 
 
 
-            <main class="content px-3 py-2">
-                    <div class="gap-30"></div>
-                        <div class="container-fluid">
-                        <div class="mb-3">
+<main class="content px-3 py-2">
+    <div class="gap-30"></div>
+        <div class="container-fluid">
+            <div class="mb-3">
                 
-                                <h4>Overdue Return Report
-                                <p id="time"></p>
-                                
-                                    <p id="date"></p>
-                                </h4>
+                <h4>Overdue Return Report
+                    <p id="time"></p> 
+                    <p id="date"></p>
+                </h4>
                                 
                     
-                        </div>
-                    </div>
-                    <br>
+                </div>
+        </div>
+        <br>
         <!--dashboard area-->
         <form method="POST">
                 <div class="col-md-12">
@@ -118,10 +117,10 @@ if ($num_rows == 0) {
                         </div>
                         <div class="col-auto p-2" style="width:200px;">
                         <select name="filter_criteria" class="form-control custom">
-    <option value="date_issued" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'date_issued' ? 'selected' : ''; ?>>Date Issued</option>
-    <option value="booksissuedate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksissuedate' ? 'selected' : ''; ?>>Date Due</option>
-    <option value="booksreturndate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksreturndate' ? 'selected' : ''; ?>>Books Return Date</option>
-</select>
+                            <option value="date_issued" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'date_issued' ? 'selected' : ''; ?>>Date Issued</option>
+                            <option value="booksissuedate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksissuedate' ? 'selected' : ''; ?>>Date Due</option>
+                            <option value="booksreturndate" <?php echo isset($_POST['filter_criteria']) && $_POST['filter_criteria'] == 'booksreturndate' ? 'selected' : ''; ?>>Books Return Date</option>
+                        </select>
                         </div>
                         <div class="col-auto p-2">
                             <label for="start_date" class="col-form-label" style="font-size:medium;">From</label>
@@ -144,68 +143,63 @@ if ($num_rows == 0) {
                     </div>
                 </div>
             </form>
-
-
-                
                     <div class="card border-0">
-                        
-                        
-                        
-                        
-                                <div class="card-body">
+                        <div class="card-body">
                                 <table class="table table-hover text-left table-striped" id="dtBasicExample">
-        <thead>
-            <tr>
-                <th>ID Number</th>
-                <th>Name</th>
-                <th>User Type</th>
-                <th>Accession Number</th>
-                <th>Books Name</th>
-                <th>Date Issued</th>
-                <th>Date Due</th>
-                <th>Books Return Date</th>
-                <th>Amount</th>
-                <th>Remarks</th>
-                <th>Issued By</th>
-                <th>Status</th>
+                                    <thead>
+                                        <tr>
+                                            <th>ID Number</th>
+                                            <th>Name</th>
+                                            <th>User Type</th>
+                                            <th>Accession Number</th>
+                                            <th>Books Name</th>
+                                            <th>Date Issued</th>
+                                            <th>Date Due</th>
+                                            <th>Books Return Date</th>
+                                            <th>Amount</th>
+                                            <th>Remarks</th>
+                                            <th>Issued By</th>
+                                            <th>Status</th>
                 
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-                while ($row=mysqli_fetch_array($res)) {
-                    echo "<tr>";
-                    echo "<td>"; echo $row["student_number"]; echo "</td>";
-                    echo "<td>"; echo $row["first_name"]; echo " "; echo $row["last_name"]; echo "</td>";
-                    echo "<td>"; echo $row["utype"]; echo "</td>";
-                    echo "<td>"; echo $row["accession_number"]; echo "</td>";
-                    echo "<td>"; echo $row["booksname"]; echo "</td>";
-                    echo "<td>"; echo $row["date_issued"]; echo "</td>";
-                    echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
-                    echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
-                    echo "<td>"; echo $row["fine"]; echo "</td>";
-                    echo "<td>"; echo $row["remarks"]; echo "</td>";
-                    echo "<td>"; echo $row["username"]; echo "</td>";
-                    echo "<td>"; 
-                    if($row["status"] == "yes") {
-                        echo "Paid";
-                    } else {
-                        echo "Not Paid";
-                    }
-                    echo "</td>";
-            
-                    echo "</tr>";
-                
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <?php 
+                                                while ($row=mysqli_fetch_array($res)) {
+                                                    echo "<tr>";
+                                                    echo "<td>"; echo $row["student_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["first_name"]; echo " "; echo $row["last_name"]; echo "</td>";
+                                                    echo "<td>"; echo $row["utype"]; echo "</td>";
+                                                    echo "<td>"; echo $row["accession_number"]; echo "</td>";
+                                                    echo "<td>"; echo $row["booksname"]; echo "</td>";
+                                                    echo "<td>"; echo $row["date_issued"]; echo "</td>";
+                                                    echo "<td>"; echo $row["booksissuedate"]; echo "</td>";
+                                                    echo "<td>"; echo $row["booksreturndate"]; echo "</td>";
+                                                    echo "<td>"; echo $row["fine"]; echo "</td>";
+                                                    echo "<td>"; echo $row["remarks"]; echo "</td>";
+                                                    echo "<td>"; echo $row["username"]; echo "</td>";
+                                                    echo "<td>"; 
+                                                    if($row["status"] == "yes") {
+                                                        echo "Paid";
+                                                    } else {
+                                                        echo "Not Paid";
+                                                    }
+                                                    echo "</td>";
+                                            
+                                                    echo "</tr>";
+                                                
 
-                    echo "</tr>";
-                }
-            ?>
-        </tbody>
-        </table>
-        </div>
-        </div>
-        </main>
-        <script>
+                                                    echo "</tr>";
+                                                }
+                                            ?>
+                                        </tbody>
+                                </table>
+            </div>
+    </div>
+</main>
+
+
+<script>
  $(document).ready(function () {
     var filterCriteria = '<?php echo isset($filter_criteria) ? $filter_criteria : "date_issued"; ?>';
     var orderColumn;
@@ -229,7 +223,7 @@ if ($num_rows == 0) {
         buttons: [
             {
                 extend: 'excel',
-                filename: '<?php echo $filename; ?>', // Dynamically set the filename
+                filename: '<?php echo $filename; ?>', 
                 text: 'Export Excel', // Change the label to "Export Excel"
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]               
@@ -255,8 +249,8 @@ if ($num_rows == 0) {
         document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
         document.querySelector("form").submit(); // Submit the form
     }
-        </script>
+</script>
 
-        <?php 
-            include 'inc/footer.php';
-        ?>
+<?php 
+    include 'inc/footer.php';
+?>

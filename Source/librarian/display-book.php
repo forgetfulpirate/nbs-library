@@ -16,25 +16,17 @@
     
             <main class="content px-3 py-2">
        
-                <div class="container-fluid">
+            <div class="container-fluid">
 				<div class="mb-3">
-                <div style="margin-bottom:10px;"></div>
+                    <div style="margin-bottom:10px;"></div>
                         <h4>Display Book
                         <p id="time"></p>
                           
                             <p id="date"></p>
                         </h4>
-                           
-             
-                 </div>
-            </div>
-        
-            
+                    </div>
+                </div>
             <div class="card border-0">
-                
-                
-                  
-                 
                         <div class="card-body">
                             <table class="table table-striped table-hover text-center" id="dtBasicExample">
                                 <thead>
@@ -58,8 +50,6 @@
                                         <th scope="col">Program</th>
                                         <th scope="col">Call Number</th>
                                         <th scope="col">Location</th>
-                                       
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,7 +87,7 @@
             </main>
 
     
-    <script>
+<script>
     $(document).ready(function () {
         
         $('#dtBasicExample').DataTable({
@@ -126,8 +116,8 @@
 </script>
 
 <?php 
-		include 'inc/footer.php';
-	 ?>
+    include 'inc/footer.php';
+?>
 
 
 

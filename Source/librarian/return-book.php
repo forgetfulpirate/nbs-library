@@ -143,18 +143,8 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                 </div>
             </form>
 
-
-
-
-        
-
-
-    
     <div class="card border-0">
-         
         <div class="card-body">
-       
-      
             <table class="table table-hover text-left table-striped" id="dtBasicExample">
                 <thead>
                     <tr>
@@ -199,14 +189,12 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
                     ?>
                 </tbody>
             </table>
+    </div>
 
-        
-        </div>
         <div class="text-end" style="padding:20px;">
                 <button class="btn btn-danger" onclick="archiveAll()">Archive All</button>
-        </div>
+        </div>  
 
-            
     </div>
 </main>
 
@@ -260,8 +248,9 @@ div.dt-buttons > .dt-button.buttons-excel:hover {
         document.getElementsByName("end_date")[0].value = ''; // Reset end_date input
         document.querySelector("form").submit(); // Submit the form
         }
-    
-        </script>
+</script>
+
+
 <script>
 function archiveAll() {
     // Check if there are any records in the table

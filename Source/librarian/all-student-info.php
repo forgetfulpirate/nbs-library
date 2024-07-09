@@ -164,32 +164,39 @@
                         
                     </div>
 
+            
+                
+                
+            
+ </main>
+
+ 
 
 
             
             
 
             
-                      <!-- Delete Confirmation Modal -->
-            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Archive</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to Archive Student "<span id="userNameToDelete" style="color:#d52033"></span>"?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-danger" id="confirmDeleteButton">Archive</button>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Archive</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to Archive Student "<span id="userNameToDelete" style="color:#d52033"></span>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Archive</button>
+            </div>
+        </div>
+    </div>
+</div> 
 
-            <!-- Reset Password Confirmation Modal -->
+<!-- Reset Password Confirmation Modal -->
 <div class="modal fade" id="resetPasswordConfirmationModal" tabindex="-1" aria-labelledby="resetPasswordConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -209,7 +216,7 @@
 </div>
 
          
-        <!-- Add Student Modal -->
+<!-- Add Student Modal -->
         <div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -294,18 +301,12 @@
             </div>
         </div>
  
-            
-                
-                
-            
- </main>
 
  <?php 
 		include 'inc/footer.php';
 	 ?>
 
 
-  
 
   <script>
         $(document).ready(function () {

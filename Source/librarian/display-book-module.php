@@ -51,15 +51,9 @@
             
            
             <div class="card border-0">
-                
-                  
-            
-                 
                         <div class="card-body" >
                                <!-- Display Success or Error Messages -->
-               
                             <table class="table table-hover text-left" id="dtBasicExample">
-                                
                                 <thead>
                                     <tr >
                               
@@ -138,7 +132,7 @@
 
 
 
-                    <div class="modal fade" id="editRemarksModal" tabindex="-1" role="dialog" aria-labelledby="editRemarksModalLabel" aria-hidden="true">
+<div class="modal fade" id="editRemarksModal" tabindex="-1" role="dialog" aria-labelledby="editRemarksModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -179,7 +173,6 @@
         $('#editRemarksModal').modal('show');
     });
 
-    // Initialize DataTables after setting up event delegation
     $('#dtBasicExample').DataTable({
         dom: '<html5buttons"B>1Tfgitp',
         buttons: [
