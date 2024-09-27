@@ -7,7 +7,7 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
-// Include database connection
+
 include 'inc/connection.php';
 
 // Check if id_number parameter is set

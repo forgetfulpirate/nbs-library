@@ -4,13 +4,12 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
-    exit; // Stop further execution
+    exit; 
 }
 
-// Include database connection
 include 'inc/connection.php';
 
-// Check if ID and remarks are provided via GET method
+// Check if ID and remarks are provided 
 if(isset($_GET['id']) && isset($_GET['remarks'])) {
     // Sanitize input
     $id = mysqli_real_escape_string($link, $_GET['id']);
@@ -21,12 +20,12 @@ if(isset($_GET['id']) && isset($_GET['remarks'])) {
     $result = mysqli_query($link, $query);
 
     if($result) {
-        // Redirect with success message
+        // display if success message
         $_SESSION['success_message'] = "Remarks updated successfully";
         header("Location: fine.php");
         exit;
     } else {
-        // Redirect with error message
+        // display if error message
         $_SESSION['error_message'] = "Error occurred while updating remarks";
         header("Location: fine.php");
         exit;

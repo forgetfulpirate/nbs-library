@@ -1,9 +1,6 @@
 <?php
 require 'fpdf/fpdf.php';
 
-
-
-
 if (isset($_POST['generate_receipt'])) {
     // Retrieve selected student number from form
     $studentNumber = $_POST['student_number'];
@@ -15,7 +12,7 @@ if (isset($_POST['generate_receipt'])) {
         exit;
     }
 
-    // Connect to your database
+    // Connect to database
     include 'inc/connection.php';
 
     // Check if the student number is valid (exists in the database)
@@ -41,11 +38,10 @@ if (isset($_POST['generate_receipt'])) {
 
     $pdf->AddPage();
 
-    // Set position for the image and text
-    $imageX = 100; // X position of the image
-    $imageY = 5; // Y position of the image
-    $imageWidth = 20; // Width of the image
-    $imageHeight = 20; // Height of the image
+    $imageX = 100; 
+    $imageY = 5; 
+    $imageWidth = 20; 
+    $imageHeight = 20; 
 
     
     // Add the image

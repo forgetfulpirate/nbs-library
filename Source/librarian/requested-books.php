@@ -22,8 +22,6 @@
                         <p id="time"></p>
                             <p id="date"></p>
                         </h4>
-                           
-             
                  </div>
             </div>
             <br>

@@ -220,7 +220,7 @@
                                                 <strong>Return date cannot be earlier than issue date.</strong>
                                             </div>
                                             <?php
-                                            continue; // Move to the next iteration if return date is invalid
+                                            continue; 
                                         }
                                         
                                         $title_proper = mysqli_real_escape_string($link, $title_proper);

@@ -38,12 +38,7 @@
         echo "Book ID not provided!";
         exit();
         }
-
- 
-
- 
  ?>
-
 
 <!-- Edit book form -->
 <div class="dashboard-content">

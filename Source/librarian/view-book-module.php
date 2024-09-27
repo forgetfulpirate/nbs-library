@@ -13,7 +13,7 @@ include 'inc/connection.php';
 
 if(isset($_GET['accession_number'])) {
     $accession_number = $_GET['accession_number'];
-    // Sanitize the input to prevent SQL injection
+
     $accession_number = mysqli_real_escape_string($link, $accession_number);
 
     // Fetch book details based on ID
@@ -93,8 +93,8 @@ if(isset($_GET['accession_number'])) {
 
 .tab-buttons {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: center; /* Center align the buttons */
+    flex-wrap: wrap; 
+    justify-content: center; 
     margin-bottom: 20px;
 }
 
@@ -105,15 +105,15 @@ if(isset($_GET['accession_number'])) {
 .tab-buttons button {
     padding: 10px;
     cursor: pointer;
-    margin: 5px; /* Add some margin between buttons */
-    margin-right: 10px; /* Add space between buttons */
-    background-color: #d52033; /* Default color for inactive buttons */
-    color: white; /* Text color for buttons */
-    border: none; /* Remove border for cleaner look */
+    margin: 5px; 
+    margin-right: 10px; 
+    background-color: #d52033; 
+    color: white; 
+    border: none; 
 }
 
 .tab-buttons button.active {
-    background-color: #666769; /* Color for active button */
+    background-color: #666769; 
 }
 
 
@@ -636,20 +636,18 @@ if(isset($_GET['accession_number'])) {
     </script>
 
 <script>
-function addAccessionNumberField() {
+    function addAccessionNumberField() {
         var div = document.createElement('div');
         div.innerHTML = '<div class="input-field1"><span><label>Accession Number </label><input type="button" onclick="removeAccessionNumberField(this)" style="width:50px; height:30px; border:none; font-size: 20px; background-color: #d52033; color: white;" value="-" ></input></span>     <input type="text" placeholder="Accession Number" name="accession_number[]" class="responsive-input" required /></div>';
         document.getElementById('accessionNumberFields').appendChild(div);
     }
 
     function removeAccessionNumberField(element) {
-    // Navigate up the DOM hierarchy to find the parent div containing both the button and the input
-    var parentDiv = element.closest('.input-field1');
-    // Remove the parent div
-    if (parentDiv) {
-        parentDiv.parentNode.removeChild(parentDiv);
+        var parentDiv = element.closest('.input-field1');
+        if (parentDiv) {
+            parentDiv.parentNode.removeChild(parentDiv);
+        }
     }
-}
 </script>
 </body>
 </html>

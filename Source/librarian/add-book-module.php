@@ -405,7 +405,11 @@ include 'inc/connection.php';
                <select placeholder="Title Proper" name="call_number_type">
                <option></option>
                    <option>BIO</option>
-                   <option>CD-ROM</option>
+                   V
+                   V
+                   vV
+                   V 
+                   v                  <option>CD-ROM</option>
                    <option>CIR</option>
                    <option>FIC</option>
                    <option>FIL</option>

@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Include database connection
 include 'inc/connection.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
-    exit; // Stop further execution
+    exit; 
 }
 
 if (isset($_POST["submit"])) {
@@ -212,7 +211,7 @@ if (isset($_POST["submit"])) {
 
         }
 
-            // Display success and error messages
+    // Display success and error messages
     if (!empty($success_list)) {
 
         $success_message = "Successfully added: " . implode(", ", $success_list);
@@ -233,10 +232,5 @@ if (isset($_POST["submit"])) {
     echo "<script>alert('Book details updated successfully.'); window.location.href = 'display-book-module.php';</script>";
     exit();
     }
-
-    
-
-
-
 }
 ?>

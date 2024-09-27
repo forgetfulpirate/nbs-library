@@ -13,14 +13,13 @@
 
     // Check if both start_date and end_date are set
     if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
-        // Sanitize the input to prevent SQL injection
+   
         $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
 
-        // Get the selected filtering criteria
+
         $filter_criteria = $_POST['filter_criteria'];
 
-        // Modify the SQL query to include date range filter, selected criteria, and order by clause
         $query = "SELECT * FROM issue_book_archive WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
 
         // Set the filename based on the date range
@@ -33,7 +32,7 @@
 
     $res = mysqli_query($link, $query);
 
-    // Check if there are any results
+
     $num_rows = mysqli_num_rows($res);
 
     // If no results found, display an alert
@@ -42,23 +41,23 @@
     }
 ?>
 <style>
-    /* Change color of Export Excel button to btn-danger */
+
     /* Style the Export Excel button */
     div.dt-buttons > .dt-button.buttons-excel {
         padding: 0.375rem 0.75rem;
         border-radius: 0.25rem;
-        background-color: #d52033; /* Red color of btn-danger */
-        border-color: #d52033; /* Border color */
-        color: #fff; /* Text color */
-        font-size: 1rem; /* Font size */
-        line-height: 1.5; /* Line height */
-        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        background-color: #d52033;
+        border-color: #d52033; 
+        color: #fff; 
+        font-size: 1rem; 
+        line-height: 1.5; 
+        transition: background-color 0.3s ease; 
     }
 
     /* Hover effect */
     div.dt-buttons > .dt-button.buttons-excel:hover {
-        background-color: #c82333; /* Darker shade of red on hover */
-        border-color: #bd2130; /* Darker border color on hover */
+        background-color: #c82333; 
+        border-color: #bd2130; 
     }
 
     #time {
@@ -82,9 +81,10 @@
             font-size: 20px; 
             float: none; 
             text-align: center; 
-            margin: 10px auto; /* Spacing*/
+            margin: 10px auto; 
         }
     }
+
 </style>
 
 <main class="content px-3 py-2">
@@ -176,7 +176,7 @@ $(document).ready(function () {
         buttons: [
             {
                 extend: 'excel',
-                filename: '<?php echo $filename; ?>', // Dynamically set the filename
+                filename: '<?php echo $filename; ?>', 
                 text: 'Export Excel', // Change the label to "Export Excel"
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5, 6]               

@@ -11,14 +11,12 @@
     include 'inc/header.php';
     include 'inc/connection.php';
     if (isset($_POST['start_date']) && isset($_POST['end_date']) && !empty($_POST['start_date']) && !empty($_POST['end_date'])) {
-        // Sanitize the input to prevent SQL injection
+
         $start_date = mysqli_real_escape_string($link, $_POST['start_date']);
         $end_date = mysqli_real_escape_string($link, $_POST['end_date']);
     
-        // Get the selected filtering criteria
         $filter_criteria = $_POST['filter_criteria'];
     
-        // Construct the SQL query
         $query = "SELECT * FROM return_books WHERE $filter_criteria BETWEEN '$start_date' AND '$end_date' ORDER BY $filter_criteria ASC";
     
         // Set the filename based on the date range
@@ -33,7 +31,6 @@
     
     // Check if there are any results
     $num_rows = mysqli_num_rows($res);
-    
 
     ?>
 <style>
@@ -45,18 +42,18 @@
 div.dt-buttons > .dt-button.buttons-excel {
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
-    background-color: #d52033; /* Red color of btn-danger */
-    border-color: #d52033; /* Border color */
-    color: #fff; /* Text color */
-    font-size: 1rem; /* Font size */
-    line-height: 1.5; /* Line height */
+    background-color: #d52033; 
+    border-color: #d52033; 
+    color: #fff; 
+    font-size: 1rem; 
+    line-height: 1.5; 
     transition: background-color 0.3s ease; 
 }
 
 /* Hover effect */
 div.dt-buttons > .dt-button.buttons-excel:hover {
-    background-color: #c82333; /* Darker shade of red on hover */
-    border-color: #bd2130; /* Darker border color on hover */
+    background-color: #c82333;
+    border-color: #bd2130; 
 }
 #time {
     font-size: 20px;

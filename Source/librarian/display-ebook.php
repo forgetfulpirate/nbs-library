@@ -17,10 +17,6 @@
             <main class="content px-3 py-2">
             
             <div class="card border-0">
-                
-                
-                  
-                 
                         <div class="card-body">
                             <table class="table text-right table-striped" id="dtBasicExample">
                                 <thead>
@@ -35,8 +31,6 @@
                                         <th scope="col">Copyright</th>
                                         <th scope="col">Publisher</th>
                                         <th scope="col">Link</th>
-                                       
-
                                     </tr>
                                 </thead>
                                 <tbody>

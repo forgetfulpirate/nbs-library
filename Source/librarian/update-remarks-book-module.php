@@ -4,13 +4,11 @@ session_start();
 // Check if the user is logged in
 if (!isset($_SESSION["username"])) {
     header("Location: login.php");
-    exit; // Stop further execution
+    exit; 
 }
-
-// Include database connection
 include 'inc/connection.php';
 
-// Check if ID and remarks are provided via GET method
+// Check if ID and remarks are provided 
 if(isset($_GET['accession_number']) && isset($_GET['remarks'])) {
     // Sanitize input
     $accession_number = mysqli_real_escape_string($link, $_GET['accession_number']);
@@ -21,18 +19,18 @@ if(isset($_GET['accession_number']) && isset($_GET['remarks'])) {
     $result = mysqli_query($link, $query);
 
     if($result) {
-        // Redirect with success message
+        // display with success message
         $_SESSION['success_message'] = "Remarks updated successfully";
         header("Location: display-book-module.php");
         exit;
     } else {
-        // Redirect with error message
+        // display with error message
         $_SESSION['error_message'] = "Error occurred while updating remarks";
         header("Location: display-book-module.php");
         exit;
     }
 } else {
-    // Redirect with error message if ID or remarks are missing
+    // display with error message if ID or remarks are missing
     $_SESSION['error_message'] = "ID or remarks are missing";
     header("Location: display-book-module.php");
     exit;
