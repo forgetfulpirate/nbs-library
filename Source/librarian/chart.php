@@ -121,49 +121,33 @@
     <div class="container-fluid">
         <div class="mb-3">
             <h4>Borrowed Books Report</h4>
-
             <form method="POST" action="">
-                <!-- Flex container to center the dropdowns and button -->
-                <div class="form-container">
-                    <!-- Select Month -->
-                    <div class="col-md-2 mb-2">
-                        <label for="month" class="sr-only">Select Month</label>
-                        <select name="month" id="month" class="form-control">
-                            <option value="">Select Month</option>
-                            <?php
-                                // Generate month options dynamically
-                                for ($month = 1; $month <= 12; $month++) {
-                                    $month_name = date("F", mktime(0, 0, 0, $month, 10));
-                                    // Set current month as selected
-                                    $selected = ($month == $current_month) ? 'selected' : '';
-                                    echo "<option value='$month' $selected>$month_name</option>";
-                                }
-                            ?>
-                        </select>
-                    </div>
+        <label for="month">Select Month:</label>
+        <select name="month" id="month" required>
+            <option value="">--Select Month--</option>
+            <?php
+            for ($i = 1; $i <= 12; $i++) {
+                $month_value = str_pad($i, 2, '0', STR_PAD_LEFT);
+                $selected = (isset($_POST['month']) && $_POST['month'] == $month_value) ? 'selected' : '';
+                echo "<option value=\"$month_value\" $selected>" . date('F', mktime(0, 0, 0, $i, 1)) . "</option>";
+            }
+            ?>
+        </select>
 
-                    <!-- Select Year -->
-                    <div class="col-md-2 mb-2">
-                        <label for="year" class="sr-only">Select Year</label>
-                        <select name="year" id="year" class="form-control">
-                            <option value="">Select Year</option>
-                            <?php
-                                // Generate year options dynamically (you can adjust the range as needed)
-                                for ($year = 2020; $year <= $current_year; $year++) {
-                                    // Set current year as selected
-                                    $selected = ($year == $current_year) ? 'selected' : '';
-                                    echo "<option value='$year' $selected>$year</option>";
-                                }
-                            ?>
-                        </select>
-                    </div>
+        <label for="year">Select Year:</label>
+        <select name="year" id="year" required>
+            <option value="">--Select Year--</option>
+            <?php
+            for ($i = 2020; $i <= date('Y'); $i++) { // Adjust the year range as needed
+                $selected = (isset($_POST['year']) && $_POST['year'] == $i) ? 'selected' : '';
+                echo "<option value=\"$i\" $selected>$i</option>";
+            }
+            ?>
+        </select>
 
-                    <!-- Submit Button -->
-                    <div class="col-md-1 mb-2">
-                        <button type="submit" class="btn btn-primary w-100">Filter</button>
-                    </div>
-                </div>
-            </form>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
         </div>
     </div>
 
