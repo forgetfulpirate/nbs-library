@@ -1,4 +1,4 @@
-<?php 
+<?php
      session_start();
     if (!isset($_SESSION["username"])) {
         ?>
@@ -16,7 +16,7 @@
 #time {
     font-size: 20px;
     float: right;
-  
+
 }
 
 #date {
@@ -30,35 +30,34 @@
     float:left;
 }
 
-     /* Responsive adjustments */
+
      @media only screen and (max-width: 768px) {
         #time, #date, .h4 {
-            font-size: 20px; /* Adjust font size for smaller screens */
-            float: none; /* Remove float for center alignment */
-            text-align: center; /* Center align the elements */
-            margin: 10px auto; /* Add some margin for better spacing */
+            font-size: 20px;
+            float: none;
+            text-align: center;
+            margin: 10px auto;
         }
     }
- 
+
 </style>
 
-	
+
             <main class="content px-3 py-2">
 			<div class="gap-30"></div>
                 <div class="container-fluid">
 				<div class="mb-3">
-          
-                        <h4>Admin Dashboard   
+
+                        <h4>Admin Dashboard
                         <p id="time"></p>
-                          
+
                             <p id="date"></p>
                         </h4>
-                           
-             
+
+
                  </div>
             </div>
             <br>
-        
                     <div class="row g-2 my-10 ">
                         <div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0 illustration" id="card1" >
@@ -68,51 +67,51 @@
                                             <div class="p-3 m-1">
 											<h3><span>Welcome Back Admin,</span> </h3>
 						<h4>
-							
-							<?php 
+
+							<?php
 								$res = mysqli_query($link, "select * from lib_registration where username='".$_SESSION['username']."'");
 								while ($row = mysqli_fetch_array($res)){
 								$name  =  $row["name"];
 								echo $name;
 								}
 							?>
-							
+
             			</h4>
-						
+
                                             </div>
-											
+
                                         </div>
 										<div class="align-self-end text-end">
-                                           
+
                            			 	</div>
-									
+
                                     </div>
-									
+
                                 </div>
-								
+
                             </div>
-						
-							
+
+
 					</div>
-					
+
 										<!--  -->
 						<div class="col-md-4 d-flex">
                             <div class="card flex-fill border-0" id="card1">
                                 <div class="card-body py-4" id="card2">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                   
+
 										<div class="box">
-                                
+
 							<div class="icon1">
 								<i class="fa fa-rocket"></i>
 							</div>
-                           
+
 							<div class="text-left">
-                           
+
 								<h3>
                                     <span class="counter">
-                                    
+
 								    <?php
                                          $res = mysqli_query($link, "select * from issue_book");
                                          $res2 = mysqli_query($link, "select * from t_issuebook");
@@ -123,22 +122,22 @@
                                     ?>
                                     </span>
                                 </h3>
-                                 
+
 								<h4><a href="issued-books.php">Borrowed Books </a></h4>
-                               
+
 							</div>
-                           
+
 						    </div>
                                             </div>
-                                           
+
                                         </div>
-                                      
+
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
-                            
+
 
 										<!--  -->
 										<div class="col-md-4 d-flex">
@@ -188,8 +187,8 @@
                                         }
                                         echo" ";echo $total_fine;
                                         ?>
-                                      
-                                    </span></h3>    
+
+                                    </span></h3>
 								<h4><a href="fine.php">Overdue</a></h4>
 							</div>
 						</div>
@@ -220,7 +219,7 @@
                                     ?>
                                 </span>
                             </h3>
-								
+
 								<h4><a href="return-book.php">Returned Books</a></h4>
 							</div>
 						</div>
@@ -241,7 +240,7 @@
 								<i class="fas fa-book"></i>
 							</div>
 							<div class="text-left">
-								
+
 								<h4><a href="display-book-module.php">Manage Book</a></h4>
 							</div>
 						</div>
@@ -250,9 +249,9 @@
                                     </div>
                                 </div>
                             </div>
-							
 
-							
+
+
 
 								<!--  -->
 								<div class="col-md-4 d-flex">
@@ -265,7 +264,7 @@
 								<i class="fab fa-staylinked"></i>
 							</div>
 							<div class="text-left">
-								
+
 								<h4><a href="status.php">User Verification</a></h4>
 							</div>
 						</div>
@@ -316,10 +315,10 @@
 								<i class="fas fa-book"></i>
 							</div>
 							<div class="text-left">
-								
+
 							<h4 class="mt-10"><a href="requested-books.php">Requested Books</a></h4>
 							</div>
-                            
+
 						</div>
                                             </div>
                                         </div>
@@ -327,18 +326,18 @@
                                 </div>
                             </div> -->
 
-                            
-                       
-					
+
+
+
             </main>
 
-            
-            
-                                  
 
-   
-                          
-         <script> 
+
+
+
+
+
+         <script>
          window.setInterval(ut, 1000);
 
         function ut() {
@@ -348,10 +347,6 @@
         }
         </script>
 
-<?php 
+<?php
 		include 'inc/footer.php';
 	 ?>
-
-   
-          
-
